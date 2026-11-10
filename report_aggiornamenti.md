@@ -145,3 +145,28 @@ AIC | Medicinale | Principio attivo | BPCO/regola | SSN non soggette a Nota 99).
 unito frammenti di colonne diverse (es. `A-PT-Nota` dentro il Principio attivo). Ora ogni dato sta nella sua
 colonna e il **sync ricostruisce le celle dal JSON** e **inserisce le righe mancanti** (recuperata
 OXIS TURBOHALER 4,5, AIC 033312012: 159 righe in pagina).
+
+## 10. Audit geometrico delle 5 tabelle DPC e 20 farmaci inseriti
+
+**Verifica**: le altre 5 tabelle del DPC (oltre alla Nota 99 gia' ricostruita) sono state verificate con
+lo stesso estrattore geometrico (`pdfplumber`, assegnazione per coordinate x) e con riscontro sui render a
+200 dpi. Esito: **0 contaminazioni di colonna** in tutte e 5; `farmaci_no_dpc` (41 record), `formalismi`
+(10 record + note di chiusura) e `metilfenidato` (9 farmaci + 3 note) risultano completi e coerenti.
+
+**Ritrovamento**: **20 farmaci presenti nel DPC regionale erano assenti dalle liste**, per un troncamento
+sistematico dell'estrazione originaria (ultima riga di ogni pagina del DPC pp. 42-55; ultime due righe di
+ogni pagina di Distribuzione diretta pp. 58-61).
+
+- *Farmaci in DPC* (12): ARIPIPRAZOLO SAND 5MG (044407043), CINACALCET EG 60MG (046284055),
+  CORBILTA (043152204), ENANTONE (027066137), FRAGMIN 6SIR 2500UI (027276031), IVABRADINA MY 5MG
+  (044905293), MEMANTINA AURO 20MG (042241024), OLANZAPINA ACT 2,5MG (040261036), PRASUGREL TEVA 10MG
+  (045597402), QUETIAPINA TE 25MG (040510152), SENEFOR 0,7MG (040036042), TROBALT 50MG (041141021).
+- *Distribuzione diretta* (8): FERRIPROX FL/OS (034525042, 034525028), METADONE CLOR. MOL 10M/20M
+  (029610108, 029610110), RILUTEK (032887010), RILUZOLO ACT (040541070), TRACLEER 125MG/62,5MG
+  (035609041, 035609027).
+
+**Applicato**: `data/dati_farmaci.json` 1726 -> **1746 record**; ogni riga nuova riporta il marker
+`[agg. 10/11/2026 – DPC Regione Siciliana, pag. N]` cliccabile verso il DPC pubblicato in
+`docs/dpc-controllo-appropriatezza.pdf` (72 pp.). Pagine aggiornate: `farmaci_dpc.html` 1182 -> **1194**
+righe, `distribuzione_diretta.html` 329 -> **337** righe. Ripulite anche le entita' HTML residue in 4
+record. `scripts/verifica_link.py`: **19 link verificati, 0 problemi**.

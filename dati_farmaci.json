@@ -96,7 +96,7 @@
   },
   {
     "minsan": "041438021",
-    "descrizione": "MEDIKINET*30CPS&nbsp; 5MG RM",
+    "descrizione": "MEDIKINET*30CPS  5MG RM",
     "principio_attivo": "METILFENIDATO CLORIDRATO *",
     "atc": "N06BA04",
     "note": "PT AIFA - MMR Stup.II^sez.A [agg. 19/10/2023 – AIFA/RITA] rimborsabile SSN anche adulto nuova diagnosi",
@@ -1735,7 +1735,7 @@
   {
     "cells": [
       "E DETEMIR",
-      "ABASAGLAR - LEVEMIR = Dicitura su ricetta &ldquo;prescrizione di terapia a maggior costo &rdquo; altrimenti ---&gt;",
+      "ABASAGLAR - LEVEMIR = Dicitura su ricetta &ldquo;prescrizione di terapia a maggior costo &rdquo; altrimenti --->",
       "SM"
     ],
     "elenco": "formalismi"
@@ -2124,7 +2124,7 @@
       "042021016",
       "BUCCOLAM*OS SOLUZ 4SIR 2,5MG Giallo",
       "Midazolam - Da 6 mesi ad 1 anno - Sez. E stupefacenti Rrl",
-      "PT da 3m a &lt; 18 anni"
+      "PT da 3m a < 18 anni"
     ],
     "elenco": "farmaci_no_dpc"
   },
@@ -2142,7 +2142,7 @@
       "042021030",
       "BUCCOLAM*OS SOLUZ 4SIR 7,5MG Viola",
       "Midazolam - Da 5 a 10 anni - Sez. E stupefacenti Rrl",
-      "L.648 &gt; 18 anni oppure &gt; 3 a. febbr.prolungate"
+      "L.648 > 18 anni oppure > 3 a. febbr.prolungate"
     ],
     "elenco": "farmaci_no_dpc"
   },
@@ -2150,7 +2150,7 @@
     "cells": [
       "042021042",
       "BUCCOLAM*OS SOLUZ 4SIR 10MG Arancione",
-      "Midazolam - Da 10 a &lt; 18 anni - Sez. E stupefacenti Rrl",
+      "Midazolam - Da 10 a < 18 anni - Sez. E stupefacenti Rrl",
       ""
     ],
     "elenco": "farmaci_no_dpc"
@@ -5714,10 +5714,146 @@
     "variazioni": []
   },
   {
+    "aic": "034525042",
+    "descrizione": "FERRIPROX*FL 50CPR RIV 1000MG",
+    "atc": "V03AC02",
+    "principio_attivo": "DEFERIPRONE",
+    "note": "[agg. 10/11/2026 – DPC Regione Siciliana, pag. 58]",
+    "elenco": "distribuzione_diretta",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 58",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "aic": "034525028",
+    "descrizione": "FERRIPROX*OS FL 250ML 100MG/ML",
+    "atc": "V03AC02",
+    "principio_attivo": "DEFERIPRONE",
+    "note": "[agg. 10/11/2026 – DPC Regione Siciliana, pag. 58]",
+    "elenco": "distribuzione_diretta",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 58",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "aic": "029610108",
+    "descrizione": "METADONE CLOR.MOL*OS 5MG/ML10M",
+    "atc": "N07BC02",
+    "principio_attivo": "METADONE CLORIDRATO",
+    "note": "[agg. 10/11/2026 – DPC Regione Siciliana, pag. 59]",
+    "elenco": "distribuzione_diretta",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 59",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "aic": "029610110",
+    "descrizione": "METADONE CLOR.MOL*OS 5MG/ML20M",
+    "atc": "N07BC02",
+    "principio_attivo": "METADONE CLORIDRATO",
+    "note": "[agg. 10/11/2026 – DPC Regione Siciliana, pag. 59]",
+    "elenco": "distribuzione_diretta",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 59",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "aic": "032887010",
+    "descrizione": "RILUTEK*56CPR RIV 50MG",
+    "atc": "N07XX02",
+    "principio_attivo": "RILUZOLO",
+    "note": "[agg. 10/11/2026 – DPC Regione Siciliana, pag. 60]",
+    "elenco": "distribuzione_diretta",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 60",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "aic": "040541070",
+    "descrizione": "RILUZOLO ACT*56CPR RIV 50MG",
+    "atc": "N07XX02",
+    "principio_attivo": "RILUZOLO",
+    "note": "[agg. 10/11/2026 – DPC Regione Siciliana, pag. 60]",
+    "elenco": "distribuzione_diretta",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 60",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "aic": "035609041",
+    "descrizione": "TRACLEER*56CPR RIV 125MG",
+    "atc": "C02KX01",
+    "principio_attivo": "BOSENTAN MONOIDRATO",
+    "note": "[agg. 10/11/2026 – DPC Regione Siciliana, pag. 61]",
+    "elenco": "distribuzione_diretta",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 61",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "aic": "035609027",
+    "descrizione": "TRACLEER*56CPR RIV 62,5MG",
+    "atc": "C02KX01",
+    "principio_attivo": "BOSENTAN MONOIDRATO",
+    "note": "[agg. 10/11/2026 – DPC Regione Siciliana, pag. 61]",
+    "elenco": "distribuzione_diretta",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 61",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
     "minsan": "043658121",
     "descrizione": "ABASAGLAR*SC 5 KWIKPEN 100U/ML",
     "principio_attivo": "INSULINA GLARGINE",
-    "note": "|max 2 m.- 3 patol &quot;Terapia a maggior costo&quot;",
+    "note": "|max 2 m.- 3 patol \"Terapia a maggior costo\"",
     "elenco": "farmaci_dpc",
     "variazioni": []
   },
@@ -5725,7 +5861,7 @@
     "minsan": "043658032",
     "descrizione": "ABASAGLAR*SC 5CART 100U/ML 3ML",
     "principio_attivo": "INSULINA GLARGINE",
-    "note": "|max 2 m.- 3 patol &quot;Terapia a maggior costo&quot;",
+    "note": "|max 2 m.- 3 patol \"Terapia a maggior costo\"",
     "elenco": "farmaci_dpc",
     "variazioni": []
   },
@@ -10686,7 +10822,7 @@
     "minsan": "043335025",
     "descrizione": "LATUDA*28CPR RIV 18,5MG",
     "principio_attivo": "LURASIDONE CLORIDRATO",
-    "note": "PT online &gt;13 &gt;18 NO",
+    "note": "PT online >13 >18 NO",
     "elenco": "farmaci_dpc",
     "variazioni": []
   },
@@ -10694,7 +10830,7 @@
     "minsan": "043335090",
     "descrizione": "LATUDA*28CPR RIV 37MG",
     "principio_attivo": "LURASIDONE CLORIDRATO",
-    "note": "PT online &gt;13 &gt;18 NO",
+    "note": "PT online >13 >18 NO",
     "elenco": "farmaci_dpc",
     "variazioni": []
   },
@@ -10702,7 +10838,7 @@
     "minsan": "043335153",
     "descrizione": "LATUDA*28CPR RIV 74MG",
     "principio_attivo": "LURASIDONE CLORIDRATO",
-    "note": "PT online &gt;13 &gt;18 NO",
+    "note": "PT online >13 >18 NO",
     "elenco": "farmaci_dpc",
     "variazioni": []
   },
@@ -17020,7 +17156,7 @@
   },
   {
     "minsan": "038744506",
-    "descrizione": "XARELTO*OS1MG/ML 2,625G BB&lt;4KG",
+    "descrizione": "XARELTO*OS1MG/ML 2,625G BB<4KG",
     "principio_attivo": "RIVAROXABAN",
     "note": "PT AIFA",
     "elenco": "farmaci_dpc",
@@ -17028,7 +17164,7 @@
   },
   {
     "minsan": "038744518",
-    "descrizione": "XARELTO*OS1MG/ML 5,25G BB&gt;=4KG",
+    "descrizione": "XARELTO*OS1MG/ML 5,25G BB>=4KG",
     "principio_attivo": "RIVAROXABAN",
     "note": "PT AIFA",
     "elenco": "farmaci_dpc",
@@ -17308,7 +17444,7 @@
     "minsan": "047364017",
     "descrizione": "ZIEXTENZO*SC 1SIR 0,6ML 6MG",
     "principio_attivo": "PEGFILGRASTIM",
-    "note": "PTon &quot;Terapia maggior costo&quot;",
+    "note": "PTon \"Terapia maggior costo\"",
     "elenco": "farmaci_dpc",
     "variazioni": []
   },
@@ -17431,6 +17567,198 @@
     "note": "",
     "elenco": "farmaci_dpc",
     "variazioni": []
+  },
+  {
+    "minsan": "044407043",
+    "descrizione": "ARIPIPRAZOLO SAND*28CPR 5MG",
+    "principio_attivo": "ARIPIPRAZOLO",
+    "note": "[agg. 10/11/2026 – DPC Regione Siciliana, pag. 42]",
+    "elenco": "farmaci_dpc",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 42",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "minsan": "046284055",
+    "descrizione": "CINACALCET EG*28CPR RIV 60MG",
+    "principio_attivo": "CINACALCET CLORIDRATO",
+    "note": "PT online [agg. 10/11/2026 – DPC Regione Siciliana, pag. 43]",
+    "elenco": "farmaci_dpc",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 43",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "minsan": "043152204",
+    "descrizione": "CORBILTA*100CPR125+31,25+200MG",
+    "principio_attivo": "LEVODOPA/CARBIDOPA/ENTACAPONE",
+    "note": "PT [agg. 10/11/2026 – DPC Regione Siciliana, pag. 44]",
+    "elenco": "farmaci_dpc",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 44",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "minsan": "027066137",
+    "descrizione": "ENANTONE*IM SC SIR11,25MG/MLRP",
+    "principio_attivo": "LEUPORELINA ACETATO",
+    "note": "|max 1 ogni 80 gg. PT online - Nota 51 - CAP [agg. 10/11/2026 – DPC Regione Siciliana, pag. 45]",
+    "elenco": "farmaci_dpc",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 45",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "minsan": "027276031",
+    "descrizione": "FRAGMIN*SC 6SIR 2500UI 0,2ML",
+    "principio_attivo": "DALTEPARINA SODICA",
+    "note": "Chirurgia maggiore [agg. 10/11/2026 – DPC Regione Siciliana, pag. 46]",
+    "elenco": "farmaci_dpc",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 46",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "minsan": "044905293",
+    "descrizione": "IVABRADINA MY*56CPR RIV 5MG",
+    "principio_attivo": "IVABRADINA OSSALATO",
+    "note": "max 2 m.- 3 patol [agg. 10/11/2026 – DPC Regione Siciliana, pag. 47]",
+    "elenco": "farmaci_dpc",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 47",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "minsan": "042241024",
+    "descrizione": "MEMANTINA AURO*28CPR RIV 20MG",
+    "principio_attivo": "MEMANTINA CLORIDRATO",
+    "note": "PT online - Nota 85|max 2 m. [agg. 10/11/2026 – DPC Regione Siciliana, pag. 48]",
+    "elenco": "farmaci_dpc",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 48",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "minsan": "040261036",
+    "descrizione": "OLANZAPINA ACT*28CPR RIV 2,5MG",
+    "principio_attivo": "OLANZAPINA",
+    "note": "[agg. 10/11/2026 – DPC Regione Siciliana, pag. 49]",
+    "elenco": "farmaci_dpc",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 49",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "minsan": "045597402",
+    "descrizione": "PRASUGREL TEVA*28CPR RIV 10MG",
+    "principio_attivo": "PRASUGREL BROMIDRATO",
+    "note": "PT online max 2 conf mese [agg. 10/11/2026 – DPC Regione Siciliana, pag. 51]",
+    "elenco": "farmaci_dpc",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 51",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "minsan": "040510152",
+    "descrizione": "QUETIAPINA TE*30CPR RIV 25MG",
+    "principio_attivo": "QUETIAPINA FUMARATO",
+    "note": "[agg. 10/11/2026 – DPC Regione Siciliana, pag. 52]",
+    "elenco": "farmaci_dpc",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 52",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "minsan": "040036042",
+    "descrizione": "SENEFOR*30CPR 0,7MG",
+    "principio_attivo": "PRAMIPEXOLO DICLORIDRATO MONOIDRATO",
+    "note": "max 2 m.- 3 patol [agg. 10/11/2026 – DPC Regione Siciliana, pag. 54]",
+    "elenco": "farmaci_dpc",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 54",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
+  },
+  {
+    "minsan": "041141021",
+    "descrizione": "TROBALT*84CPR RIV 50MG",
+    "principio_attivo": "RETIGABINA",
+    "note": "PT [agg. 10/11/2026 – DPC Regione Siciliana, pag. 55]",
+    "elenco": "farmaci_dpc",
+    "variazioni": [
+      {
+        "data": "10/11/2026",
+        "fonte": "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato), pag. 55",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf",
+        "testo_breve": "Farmaco presente nel DPC regionale ma assente dalle liste",
+        "stato": "inserimento"
+      }
+    ]
   },
   {
     "aic": "033312012",
