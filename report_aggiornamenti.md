@@ -116,3 +116,18 @@ Il sito espone **5 temi** selezionabili con il pulsante in basso a destra (perso
 | **caldo** | crema #fff8ed | arancio/ambra | rosso mattone / verde oliva |
 
 Implementazione: `theme.css` (5 temi come terne RGB) + `theme.js` (selettore, persistenza in localStorage `dpc-tema`, propagazione agli iframe). Nelle 8 pagine **tutti** i colori letterali sono passati a variabili di tema (`rgb(var(--t-*-rgb))`): 0 residui. Script di applicazione: `scripts/apply_theme.py`.
+
+## 8. Link alle determine e pagina "DPC in Convenzionata"
+
+**Link cliccabili**: ogni marker `[agg. data - fonte]` nelle liste DPC e' un link al provvedimento
+ufficiale (G.U. via ELI, pagina AIFA della nota, circolare regionale). Mappa in
+`scripts/fonti_links.json` (21 provvedimenti, tutti con URL verificato HTTP 200).
+Totale: **760 marker, 760 cliccabili, 0 senza link**.
+
+**Nuova pagina `dpc_convenzionata.html`**: farmaci per il diabete mellito di tipo 2 a **Nota AIFA 100**
+passati dal canale DPC al canale della **Convenzionata** dal **15 ottobre 2025** (circolare Federfarma
+Sicilia n. 90 del 15/10/2025, prot. PRES. TS n. 218; Determine AIFA del 02/07/2025, G.U. n. 153 del
+04/07/2025; nota prot. Assessorato 34212 del 18/07/2025; D.A. 367/2025). Regola: niente Scheda di
+Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in Convenzionata con ricetta a Nota 100.
+Tabella: 35 righe (molecola, nome commerciale, confezioni AIC, presenza nelle liste DPC, Nota 100
+obbligatoria) + ricerca. Nelle liste DPC risultano **31 record** (28 confezioni distinte) gia' marcati.
