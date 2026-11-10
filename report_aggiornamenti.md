@@ -102,3 +102,17 @@ Totale marker negli HTML: **344** · sincronizzazione idempotente (0 differenze 
 - `/home/k10/scripts/dpc_fase2_match_multi_colonna.py`, `dpc_fase2_evidenze.py`, `dpc_fase2_evidenze_documento.py` — matching multi-colonna con la Second Brain
 - `/home/k10/scripts/sb_audit_qualita_testo.py` — audit di leggibilità dei pacchetti (OCR dei PDF corrotti)
 - `/home/k10/scripts/ingest_backup_farmacia.py` — ingestione dell'archivio email nella Second Brain
+
+## 7. Temi del sito (switch)
+
+Il sito espone **5 temi** selezionabili con il pulsante in basso a destra (perso tra una visita e l'altra):
+
+| Tema | Fondo | Accento | Titoli |
+|---|---|---|---|
+| **notte** (predefinito) | blu notte #0f172a | azzurro/viola | rosso Ferrari / verde lime |
+| **chiaro** | grigio chiaro #f8fafc | blu/viola | bordeaux / verde bosco |
+| **ghiaccio** | azzurro chiaro #eaf4fb | blu profondo | arancio bruciato / verde petrolio |
+| **grafite** | grigio scuro #1c1c1f | bianco/argento | rosa / verde lime |
+| **caldo** | crema #fff8ed | arancio/ambra | rosso mattone / verde oliva |
+
+Implementazione: `theme.css` (5 temi come terne RGB) + `theme.js` (selettore, persistenza in localStorage `dpc-tema`, propagazione agli iframe). Nelle 8 pagine **tutti** i colori letterali sono passati a variabili di tema (`rgb(var(--t-*-rgb))`): 0 residui. Script di applicazione: `scripts/apply_theme.py`.
