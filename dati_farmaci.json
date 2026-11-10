@@ -2990,7 +2990,7 @@
     "descrizione": "FORXIGA*28CPR RIV 10MG",
     "atc": "A10BK01",
     "principio_attivo": "DAPAGLIFLOZIN",
-    "note": "Se PT PT senza Nota [agg. 02/07/2025 – AIFA/Regione Sicilia] riclassificato classe A, convenzionata [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "Se PT PT senza Nota [agg. 02/07/2025 – AIFA/Regione Sicilia] riclassificato classe A, convenzionata [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "distribuzione_diretta",
     "variazioni": [
       {
@@ -3012,6 +3012,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -3618,7 +3625,7 @@
     "descrizione": "JARDIANCE*28CPR RIV 10MG",
     "atc": "A10BK03",
     "principio_attivo": "EMPAGLIFLOZIN",
-    "note": "Se PT PT senza Nota [agg. 02/07/2025 – AIFA/Regione Sicilia] riclassificato classe A, convenzionata [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "Se PT PT senza Nota [agg. 02/07/2025 – AIFA/Regione Sicilia] riclassificato classe A, convenzionata [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "distribuzione_diretta",
     "variazioni": [
       {
@@ -3640,6 +3647,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -3649,7 +3663,7 @@
     "descrizione": "JARDIANCE*28CPR RIV 25MG",
     "atc": "A10BD11",
     "principio_attivo": "AEMIFAPAGLIFLOZIN",
-    "note": "Se PT PT senza Nota [agg. 02/07/2025 – AIFA/Regione Sicilia] riclassificato classe A, convenzionata [agg. 27/11/2025 – circ. Fed. 420/2025] ATTENZIONE: non rientra nelle eccezioni alla Nota 100 (solo FORXIGA 5/10 mg e JARDIANCE 10 mg): per il diabete T2 la Nota 100 resta obbligatoria [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "Se PT PT senza Nota [agg. 02/07/2025 – AIFA/Regione Sicilia] riclassificato classe A, convenzionata [agg. 27/11/2025 – circ. Fed. 420/2025] ATTENZIONE: non rientra nelle eccezioni alla Nota 100 (solo FORXIGA 5/10 mg e JARDIANCE 10 mg): per il diabete T2 la Nota 100 resta obbligatoria [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "distribuzione_diretta",
     "variazioni": [
       {
@@ -3671,6 +3685,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -9064,7 +9085,7 @@
     "minsan": "038252096",
     "descrizione": "EUCREAS*60CPR RIV 50MG+1000MG",
     "principio_attivo": "VILDAGLIPTIN/METFORMINA CLORIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -9073,6 +9094,13 @@
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
         "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
+        "stato": "approvata"
       }
     ]
   },
@@ -9080,7 +9108,7 @@
     "minsan": "038252033",
     "descrizione": "EUCREAS*60CPR RIV 50MG+850MG",
     "principio_attivo": "VILDAGLIPTIN/METFORMINA CLORIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -9088,6 +9116,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -9480,7 +9515,7 @@
     "minsan": "042494070",
     "descrizione": "FORXIGA*28CPR RIV 10MG",
     "principio_attivo": "DAPAGLIFLOZIN PROPANEDIOLO MONOIDRATO |max",
-    "note": "2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -9495,6 +9530,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -9503,7 +9545,7 @@
     "minsan": "042494029",
     "descrizione": "FORXIGA*28CPR RIV 5MG",
     "principio_attivo": "DAPAGLIFLOZIN PROPANEDIOLO MONOIDRATO |max",
-    "note": "2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -9518,6 +9560,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -9838,7 +9887,7 @@
     "minsan": "038144059",
     "descrizione": "GALVUS*56CPR 50MG",
     "principio_attivo": "VILDAGLIPTIN",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -9846,6 +9895,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -9894,7 +9950,7 @@
     "minsan": "045183050",
     "descrizione": "GLYXAMBI*30CPR RIV 10MG+5MG",
     "principio_attivo": "EMPAGLIFLOZIN/LINAGLIPTIN |max",
-    "note": "2 m.- 3 patol SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "2 m.- 3 patol SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -9903,6 +9959,13 @@
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
         "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
+        "stato": "approvata"
       }
     ]
   },
@@ -9910,7 +9973,7 @@
     "minsan": "045183148",
     "descrizione": "GLYXAMBI*30CPR RIV 25MG+5MG",
     "principio_attivo": "EMPAGLIFLOZIN/LINAGLIPTIN |max",
-    "note": "2 m.- 3 patol SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "2 m.- 3 patol SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -9918,6 +9981,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -10286,7 +10356,7 @@
     "minsan": "043145022",
     "descrizione": "INVOKANA*30CPR RIV 100MG",
     "principio_attivo": "CANAGLIFLOZIN EMIIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -10295,6 +10365,13 @@
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
         "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
+        "stato": "approvata"
       }
     ]
   },
@@ -10302,7 +10379,7 @@
     "minsan": "043145061",
     "descrizione": "INVOKANA*30CPR RIV 300MG",
     "principio_attivo": "CANAGLIFLOZIN EMIIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -10310,6 +10387,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -10486,7 +10570,7 @@
     "minsan": "043443136",
     "descrizione": "JARDIANCE*28CPR RIV 10MG",
     "principio_attivo": "EMPAGLIFLOZIN |max",
-    "note": "2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -10501,6 +10585,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -10509,7 +10600,7 @@
     "minsan": "043443047",
     "descrizione": "JARDIANCE*28CPR RIV 25MG",
     "principio_attivo": "EMPAGLIFLOZIN |max",
-    "note": "2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] ATTENZIONE: non rientra nelle eccezioni alla Nota 100 (solo FORXIGA 5/10 mg e JARDIANCE 10 mg): per il diabete T2 la Nota 100 resta obbligatoria [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] ATTENZIONE: non rientra nelle eccezioni alla Nota 100 (solo FORXIGA 5/10 mg e JARDIANCE 10 mg): per il diabete T2 la Nota 100 resta obbligatoria [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -10524,6 +10615,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -13612,7 +13710,7 @@
     "minsan": "044924025",
     "descrizione": "QTERN*28CPR RIV 5MG+10MG",
     "principio_attivo": "SAXAGLIPTIN/DAPAGLIFLOZIN PROPANEDIOLO MONOIDRATO |max 2",
-    "note": "m.-3 patol SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "m.-3 patol SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -13620,6 +13718,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -15579,7 +15684,7 @@
     "minsan": "046343113",
     "descrizione": "SEGLUROMET*56CPR 2,5MG+1000MG",
     "principio_attivo": "ERTUGLIFLOZIN PIROGLUTAMMATO/METFORMINA CLORIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -15588,6 +15693,13 @@
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
         "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
+        "stato": "approvata"
       }
     ]
   },
@@ -15595,7 +15707,7 @@
     "minsan": "046343253",
     "descrizione": "SEGLUROMET*56CPR 7,5MG+1000MG",
     "principio_attivo": "ERTUGLIFLOZIN PIROGLUTAMMATO/METFORMINA CLORIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -15603,6 +15715,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -15883,7 +16002,7 @@
     "minsan": "046339089",
     "descrizione": "STEGLATRO*28CPR RIV 15MG",
     "principio_attivo": "ERTUGLIFLOZIN ACIDO L-PIROGLUTAMMICO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -15891,6 +16010,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -15899,7 +16025,7 @@
     "minsan": "046339026",
     "descrizione": "STEGLATRO*28CPR RIV 5MG",
     "principio_attivo": "ERTUGLIFLOZIN ACIDO L-PIROGLUTAMMICO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -15907,6 +16033,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -15915,7 +16048,7 @@
     "minsan": "046342085",
     "descrizione": "STEGLUJAN*28CPR RIV 15MG+100MG",
     "principio_attivo": "ERTUGLIFLOZIN ACIDO L-PIROGLUTAMMICO/SITAGLIPTIN FOSFATO MONOIDRATO",
-    "note": "SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -15924,6 +16057,13 @@
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
         "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
+        "stato": "approvata"
       }
     ]
   },
@@ -15931,7 +16071,7 @@
     "minsan": "046342022",
     "descrizione": "STEGLUJAN*28CPR RIV 5MG+100MG",
     "principio_attivo": "ERTUGLIFLOZIN ACIDO L-PIROGLUTAMMICO/SITAGLIPTIN FOSFATO MONOIDRATO",
-    "note": "SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -15939,6 +16079,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -16139,7 +16286,7 @@
     "minsan": "044229312",
     "descrizione": "SYNJARDY*56CPR RIV 12,5+1000MG",
     "principio_attivo": "EMPAGLIFLOZIN/METFORMINA CLORIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -16147,6 +16294,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -16155,7 +16309,7 @@
     "minsan": "044229223",
     "descrizione": "SYNJARDY*56CPR RIV 12,5+850MG",
     "principio_attivo": "EMPAGLIFLOZIN/METFORMINA CLORIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -16163,6 +16317,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -16171,7 +16332,7 @@
     "minsan": "044229045",
     "descrizione": "SYNJARDY*56CPR RIV 5MG+850MG",
     "principio_attivo": "EMPAGLIFLOZIN/METFORMINA CLORIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -16180,6 +16341,13 @@
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
         "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
+        "stato": "approvata"
       }
     ]
   },
@@ -16187,7 +16355,7 @@
     "minsan": "044229134",
     "descrizione": "SYNJARDY*56CPR RIV5MG+1000MG",
     "principio_attivo": "EMPAGLIFLOZIN/METFORMINA CLORIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -16195,6 +16363,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -16707,7 +16882,7 @@
     "minsan": "043375118",
     "descrizione": "VOKANAMET*60CPR 150+1000MG FL",
     "principio_attivo": "CANAGLIFLOZIN EMIIDRATO/METFORMINA CLORIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -16715,6 +16890,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -16723,7 +16905,7 @@
     "minsan": "043375082",
     "descrizione": "VOKANAMET*60CPR 150+850MG FL",
     "principio_attivo": "CANAGLIFLOZIN EMIIDRATO/METFORMINA CLORIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -16731,6 +16913,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -16739,7 +16928,7 @@
     "minsan": "043375056",
     "descrizione": "VOKANAMET*60CPR 50+1000MG FL",
     "principio_attivo": "CANAGLIFLOZIN EMIIDRATO/METFORMINA CLORIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -16748,6 +16937,13 @@
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
         "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
+        "stato": "approvata"
       }
     ]
   },
@@ -16755,7 +16951,7 @@
     "minsan": "043375029",
     "descrizione": "VOKANAMET*60CPR 50+850MG FL",
     "principio_attivo": "CANAGLIFLOZIN EMIIDRATO/METFORMINA CLORIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -16763,6 +16959,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]
@@ -16835,7 +17038,7 @@
     "minsan": "043208091",
     "descrizione": "XIGDUO*56CPR RIV 5MG+1000MG",
     "principio_attivo": "DAPAGLIFLOZIN PROPANEDIOLO MONOIDRATO/METFORMINA CLORIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -16844,6 +17047,13 @@
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
         "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
+        "stato": "approvata"
       }
     ]
   },
@@ -16851,7 +17061,7 @@
     "minsan": "043208038",
     "descrizione": "XIGDUO*56CPR RIV 5MG+850MG",
     "principio_attivo": "DAPAGLIFLOZIN PROPANEDIOLO MONOIDRATO/METFORMINA CLORIDRATO",
-    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "SP Nota 100|max 2 m.- 3 patol [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -16859,6 +17069,13 @@
         "fonte": "Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2025",
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
+        "stato": "approvata"
+      },
+      {
+        "data": "15/10/2025",
+        "fonte": "circolare Federfarma Sicilia n. 90 del 15/10/2025 – nota prot. Assessorato 34212 del 18/07/2025 – D.A. 367/2025 – Determine AIFA del 02/07/2025 (G.U. n. 153 del 04/07/2025)",
+        "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
+        "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
       }
     ]

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DPC in Convenzionata — Nota AIFA 100 (diabete tipo 2)</title>
+<style>
+    :root {
+        --bg1: #0b1220; --bg2: #162138; --accent: #4da3f5; --accent2: #8174f0;
+        --glass: rgba(255,255,255,0.06); --glass-border: rgba(255,255,255,0.16);
+        --text: #e8eef8; --muted: #8d9eb8;
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        background: var(--bg1); color: var(--text); font-size: 17px; line-height: 1.5; }
+    .wrap { max-width: 1500px; margin: 0 auto; padding: 28px 18px 60px; }
+    h1 { color: #e10600; font-size: 28px; margin: 0 0 6px; text-transform: uppercase; }
+    h2 { color: #6ee7b7; font-size: 21px; margin: 26px 0 10px; }
+    .sub { color: var(--muted); margin-bottom: 16px; }
+    .box { background: var(--glass); border: 1px solid var(--glass-border); border-left: 4px solid #e10600;
+        border-radius: 12px; padding: 14px 18px; margin-bottom: 18px; }
+    .box b { color: #6ee7b7; }
+    .box a { color: var(--accent); }
+    .filters { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:12px;
+        position:sticky; top:0; background:rgba(11,18,32,.95); padding:12px 0; z-index:5;
+        border-bottom:1px solid var(--glass-border); }
+    input[type=text] { background:rgba(255,255,255,.07); border:1px solid var(--glass-border);
+        color:var(--text); padding:9px 12px; border-radius:9px; font-size:15px; min-width:230px; }
+    button { background:var(--accent); border:0; color:#06121f; font-weight:700; padding:9px 16px;
+        border-radius:9px; font-size:15px; cursor:pointer; }
+    #count { color:var(--muted); }
+    .tablewrap { overflow:auto; max-height: 70vh; border:1px solid var(--glass-border); border-radius:12px; }
+    table { border-collapse:collapse; width:100%; font-size:15px; }
+    th, td { padding:9px 12px; border-bottom:1px solid rgba(255,255,255,.08); text-align:left; vertical-align:top; }
+    th { position:sticky; top:0; background:var(--bg2); color:var(--accent); white-space:nowrap; }
+    tr.grp td { background:rgba(109,231,183,.12); font-weight:700; color:#6ee7b7; }
+    .si { color:#6ee7b7; font-weight:700; }
+    .no { color:var(--muted); }
+    .aic { font-variant-numeric: tabular-nums; }
+    .back { display:inline-block; margin-bottom:14px; padding:9px 16px; border-radius:10px;
+        border:1px solid var(--glass-border); background:var(--glass); color:var(--text);
+        text-decoration:none; font-weight:600; }
+    a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <a class="back" href="index_list.html">&larr; Torna all'indice</a>
+    <h1>DPC in Convenzionata</h1>
+    <div class="sub">Farmaci per il diabete mellito di tipo 2 a <b>Nota AIFA 100</b> passati dal canale della
+        Distribuzione Per Conto (DPC) al canale della <b>Convenzionata</b> &mdash; dati aggiornati al 10/11/2026.</div>
+
+    <div class="box">
+        <b>Regola operativa (dal 15 ottobre 2025)</b><br>
+        Per le specialita' di seguito indicate <b>non deve essere compilata e allegata la
+        &quot;Scheda di Valutazione e Prescrizione&quot;</b> ne' essere verificata la presenza del
+        <b>Protocollo DMDU</b>; l'erogazione va operata <b>nel canale della Convenzionata</b>, con
+        <b>obbligo di ricetta a Nota AIFA 100</b>.<br><br>
+        <b>Fonti:</b>
+        <a href="https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola" target="_blank" rel="noopener">Determine AIFA del 2 luglio 2025, G.U. n. 153 del 4 luglio 2025</a>
+        (riclassificazione dalla classe A-PHT alla classe A) &middot;
+        D.A. n. 367/2025 del 3 aprile 2025 (Accordo per la Distribuzione Per Conto dei farmaci di cui al PHT) &middot;
+        nota prot. Assessorato Salute &ndash; Servizio 7 n. 34212 del 18 luglio 2025 &middot;
+        <a href="https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-salute/dipartimento-pianificazione-strategica/appropriatezza-d-uso-farmaci" target="_blank" rel="noopener">circolare Federfarma Sicilia n. 90 del 15 ottobre 2025</a>
+        (prot. PRES. TS n. 218)<br>
+        <b>Nota:</b> restano fuori dal canale della convenzionata i medicinali a base di agonisti recettoriali
+        del GLP-1 e di doppi agonisti GIP/GLP-1 (es. BYETTA, BYDUREON), per i quali la Scheda di Valutazione
+        e Prescrizione resta obbligatoria. Eccezioni gia' riclassificate in convenzionata: FORXIGA 5 mg e 10 mg,
+        JARDIANCE 10 mg (senza obbligo di codice Nota 100 per indicazioni diverse dal diabete T2).
+    </div>
+
+    <h2>Elenco completo molecole e specialita'</h2>
+    <div class="filters">
+        <input type="text" id="q" placeholder="Cerca molecola, specialita', AIC...">
+        <button id="reset">Reset</button>
+        <span id="count"></span>
+    </div>
+    <div class="tablewrap">
+        <table id="tbl">
+            <thead><tr>
+                <th>Gruppo</th><th>Molecola</th><th>Nome commerciale</th>
+                <th>Confezioni (AIC)</th><th>Nella lista DPC</th><th>Nota 100 obbligatoria</th>
+            </tr></thead>
+            <tbody><tr><td>DPP4i</td><td>Alogliptin</td><td>VIPIDIA</td><td class="aic">043051123, 043051212, 043051034</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i</td><td>Linagliptin</td><td>TRAJENTA</td><td class="aic">041401035</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i</td><td>Saxagliptin</td><td>ONGLYZA</td><td class="aic">039453129, 039453028</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i</td><td>Sitagliptin</td><td>JANUVIA</td><td class="aic">037793142, 037793027, 037793080</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i</td><td>Sitagliptin</td><td>MELIGLIX</td><td class="aic">049987163, 049987023, 049987098</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i</td><td>Sitagliptin</td><td>SITAGLIPTIN</td><td class="aic">048740056, 050096054, 050096015, 050096039, 047830031, 047830017, 047830029, 048257036 … (54 confezioni)</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i</td><td>Sitagliptin</td><td>TESAVEL</td><td class="aic">038448142, 038448027, 038448080</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i</td><td>Sitagliptin</td><td>XELEVIA</td><td class="aic">037794144, 037794029, 037794082</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i</td><td>Vildagliptin</td><td>GALVUS</td><td class="aic">038144059</td><td class="si">si (1 conf.)</td><td class="si">Si</td></tr>
+<tr><td>DPP4i</td><td>Vildagliptin</td><td>VILDAGLIPTIN</td><td class="aic">047877042, 047317021, 048636029, 047916135, 045209044, 048318051, 048948032, 050102021 … (28 confezioni)</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i</td><td>Vildagliptin</td><td>XILIARX</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td></tr>
+<tr><td>DPP4i / Metformina</td><td>Alogliptin / Metformina</td><td>VIPDOMET</td><td class="aic">043045172, 043045057</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i / Metformina</td><td>Linagliptin e metformina</td><td>JENTADUETO</td><td class="aic">042203190, 042203051</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i / Metformina</td><td>Saxagliptin e metformina</td><td>KOMBOGLYZE</td><td class="aic">041689086, 041689023</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i / Metformina</td><td>Sitagliptin / Metformina</td><td>DIESMIT</td><td class="aic">049984331, 049984192, 049984053</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i / Metformina</td><td>Sitagliptin / Metformina</td><td>EFFICIB</td><td class="aic">038773103, 038773038</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i / Metformina</td><td>Sitagliptin / Metformina</td><td>JANUMET</td><td class="aic">038672109, 038672034</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i / Metformina</td><td>Sitagliptin / Metformina</td><td>VELMETIA</td><td class="aic">038678102, 038678037</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i / Metformina</td><td>Sitagliptin / Metformina</td><td>SITAGLIPTIN MET.</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td></tr>
+<tr><td>DPP4i / Metformina</td><td>Vildagliptin / Metformina</td><td>EUCREAS</td><td class="aic">038252096, 038252033</td><td class="si">si (2 conf.)</td><td class="si">Si</td></tr>
+<tr><td>DPP4i / Metformina</td><td>Vildagliptin / Metformina</td><td>ZOMARIST</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td></tr>
+<tr><td>DPP4i / Metformina</td><td>Vildagliptin / Metformina</td><td>VILDAGLIPTIN E METFORMINA</td><td class="aic">049236033, 049236021, 048496020, 048496018, 049662188, 049662087, 048311082, 048311031 … (16 confezioni)</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>DPP4i / TZD</td><td>Alogliptin / Pioglitazone</td><td>INCRESYNC</td><td class="aic">043030030, 043030218</td><td class="no">no</td><td class="si">Si</td></tr>
+<tr><td>SGLT2i / DPP4i</td><td>Empagliflozin / Linagliptin</td><td>GLYXAMBI</td><td class="aic">045183050, 045183148</td><td class="si">si (2 conf.)</td><td class="si">Si</td></tr>
+<tr><td>SGLT2i / DPP4i</td><td>Ertugliflozin / Sitagliptin</td><td>STEGLUJAN</td><td class="aic">046342085, 046342022</td><td class="si">si (2 conf.)</td><td class="si">Si</td></tr>
+<tr><td>SGLT2i / DPP4i</td><td>Saxagliptin / Dapagliflozin</td><td>QTERN</td><td class="aic">044924025</td><td class="si">si (1 conf.)</td><td class="si">Si</td></tr>
+<tr><td>SGLT2i</td><td>Canagliflozin</td><td>INVOKANA</td><td class="aic">043145022, 043145061</td><td class="si">si (2 conf.)</td><td class="si">Si</td></tr>
+<tr><td>SGLT2i</td><td>Dapagliflozin</td><td>FORXIGA</td><td class="aic">042494070, 042494029</td><td class="si">si (2 conf.)</td><td class="no">No</td></tr>
+<tr><td>SGLT2i</td><td>Empagliflozin</td><td>JARDIANCE</td><td class="aic">043443136, 043443047</td><td class="si">si (2 conf.)</td><td class="no">No</td></tr>
+<tr><td>SGLT2i</td><td>Ertugliflozin</td><td>STEGLATRO</td><td class="aic">046339089, 046339026</td><td class="si">si (2 conf.)</td><td class="si">Si</td></tr>
+<tr><td>SGLT2i / Metformina</td><td>Canagliflozin / Metformina</td><td>VOKANAMET</td><td class="aic">043375118, 043375082, 043375056, 043375029</td><td class="si">si (4 conf.)</td><td class="si">Si</td></tr>
+<tr><td>SGLT2i / Metformina</td><td>Dapagliflozin / Metformina</td><td>EBYMECT</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td></tr>
+<tr><td>SGLT2i / Metformina</td><td>Dapagliflozin / Metformina</td><td>XIGDUO</td><td class="aic">043208091, 043208038</td><td class="si">si (2 conf.)</td><td class="si">Si</td></tr>
+<tr><td>SGLT2i / Metformina</td><td>Ertugliflozin / Metformina</td><td>SEGLUROMET</td><td class="aic">046343113, 046343253</td><td class="si">si (2 conf.)</td><td class="si">Si</td></tr>
+<tr><td>SGLT2i / Metformina</td><td>Empagliflozin / Metformina</td><td>SYNJARDY</td><td class="aic">044229312, 044229223, 044229134, 044229045</td><td class="si">si (4 conf.)</td><td class="si">Si</td></tr></tbody>
+        </table>
+    </div>
+</div>
+<script>
+(function () {{
+    "use strict";
+    var rows = Array.prototype.slice.call(document.querySelectorAll("#tbl tbody tr"));
+    var idx = rows.map(function (tr) {{ return tr.textContent.toLowerCase(); }});
+    function apply() {{
+        var q = document.getElementById("q").value.trim().toLowerCase();
+        var n = 0;
+        rows.forEach(function (tr, i) {{
+            var ok = !q || idx[i].indexOf(q) >= 0;
+            tr.style.display = ok ? "" : "none";
+            if (ok) n++;
+        }});
+        document.getElementById("count").textContent = n + " / " + rows.length + " righe";
+    }}
+    document.getElementById("q").addEventListener("input", apply);
+    document.getElementById("reset").addEventListener("click", function () {{
+        document.getElementById("q").value = ""; apply();
+    }});
+    apply();
+}})();
+</script>
+</body>
+</html>
