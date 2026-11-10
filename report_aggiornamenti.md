@@ -109,7 +109,7 @@ Il sito espone **5 temi** selezionabili con il pulsante in basso a destra (perso
 
 | Tema | Fondo | Accento | Titoli |
 |---|---|---|---|
-| **notte** (predefinito) | blu notte #0f172a | azzurro/viola | rosso Ferrari / verde lime |
+| **notte** (predefinito, palette riveduta) | blu notte profondo #0b1220 | azzurro/viola addolciti | rosso Corsa profondo #e10600 / giada #6ee7b7 |
 | **chiaro** | grigio chiaro #f8fafc | blu/viola | bordeaux / verde bosco |
 | **ghiaccio** | azzurro chiaro #eaf4fb | blu profondo | arancio bruciato / verde petrolio |
 | **grafite** | grigio scuro #1c1c1f | bianco/argento | rosa / verde lime |
