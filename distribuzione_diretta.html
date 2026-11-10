@@ -1,0 +1,2744 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farmaci DPC Diretta — pagg. 58-62</title>
+<style>
+
+    :root {
+        --bg1: #0f172a;
+        --bg2: #1e293b;
+        --accent: #38bdf8;
+        --accent2: #a78bfa;
+        --glass: rgba(255, 255, 255, 0.06);
+        --glass-border: rgba(255, 255, 255, 0.16);
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        min-height: 100vh;
+        background: #0f172a;
+        color: var(--text);
+        padding: 32px 16px 48px;
+    }
+    .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.35;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .orb.o1 { width: 400px; height: 400px; background: #38bdf8; top: -120px; left: -100px; }
+    .orb.o2 { width: 340px; height: 340px; background: #a78bfa; bottom: -100px; right: -80px; }
+    .orb.o3 { width: 260px; height: 260px; background: #f472b6; top: 40%; left: 50%; }
+    .orb.o4 { width: 200px; height: 200px; background: #34d399; top: 20%; right: 15%; }
+    .container { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; }
+    .back {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .back:hover { text-decoration: underline; }
+    .page, .page-block, section.page-block {
+        background: var(--glass);
+        backdrop-filter: blur(14px) saturate(140%);
+        -webkit-backdrop-filter: blur(14px) saturate(140%);
+        border: 1px solid var(--glass-border);
+        border-radius: 18px;
+        padding: 26px 24px 40px;
+        box-shadow: 0 1px 6px rgba(0,0,0,0.25);
+    }
+    .indice-box {
+        position: absolute;
+        top: 14px;
+        right: 18px;
+        border: 1px solid var(--glass-border);
+        background: rgba(255,255,255,0.06);
+        padding: 2px 10px;
+        border-radius: 8px;
+        line-height: 1;
+    }
+    .indice-box a {
+        color: var(--accent);
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: bold;
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 1px;
+    }
+    h1, h1.doc-title, h2, h3 {
+        color: var(--text);
+    }
+    h1.doc-title {
+        margin: 34px auto 26px;
+        text-align: center;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(26px, 4.5vw, 38px);
+        line-height: 1.15;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #FF2800;
+    }
+    .bar-green {
+        background: linear-gradient(90deg, #22c55e, #16a34a);
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+        letter-spacing: 0.5px;
+        padding: 8px 10px;
+        border: 1px solid var(--glass-border);
+        border-bottom: none;
+        border-radius: 10px 10px 0 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 18px;
+        background: rgba(255,255,255,0.03);
+    }
+    th, td {
+        padding: 6px 9px;
+        vertical-align: middle;
+        border: 1px solid var(--glass-border);
+        color: var(--text);
+        font-size: 13px;
+    }
+    th {
+        background: rgba(56, 189, 248, 0.12);
+        font-weight: bold;
+        text-align: center;
+    }
+    table.dpc th.sortable {
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        padding-right: 16px;
+    }
+    table.dpc th.sortable::after {
+        content: " ⇅";
+        font-size: 11px;
+        color: var(--muted);
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    table.dpc th.sortable.asc::after  { content: " ▲"; color: var(--accent); }
+    table.dpc th.sortable.desc::after { content: " ▼"; color: var(--accent); }
+    table.dpc th.sortable:hover { background: rgba(56, 189, 248, 0.22); }
+    td.aic, td.minsan { white-space: nowrap; }
+    tr.note td, .note {
+        background: rgba(255,255,255,0.04);
+        font-style: italic;
+        color: var(--muted);
+    }
+    p, .note { line-height: 1.5; margin: 8px 0; }
+    ul { margin: 8px 0 8px 22px; line-height: 1.5; }
+    .footer {
+        position: relative;
+        margin-top: 44px;
+        min-height: 60px;
+    }
+    .brand {
+        position: absolute;
+        left: 0;
+        top: 14px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .page-number {
+        width: 54px;
+        height: 54px;
+        margin: 0 auto;
+        border: 1px solid var(--glass-border);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 16px;
+        background: radial-gradient(circle at center, rgba(255,255,255,0.12) 55%, rgba(255,255,255,0.04) 100%);
+    }
+
+
+    .page-block:not(:first-of-type) {
+        max-height: 60vh;
+        overflow-y: auto;
+        margin-top: 16px;
+    }
+    .page-block:not(:first-of-type) table { margin-bottom: 0; }
+
+
+    .filter-bar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        background: rgba(15, 23, 42, 0.85);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 12px;
+    }
+    .filter-bar input {
+        flex: 1 1 140px;
+        min-width: 120px;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.18);
+        background: rgba(255,255,255,0.06);
+        color: #e2e8f0;
+        font-size: 16px;
+        outline: none;
+    }
+    .filter-bar input:focus { border-color: #38bdf8; }
+    .filter-bar button {
+        padding: 12px 18px;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.18);
+        background: rgba(56,189,248,0.15);
+        color: #38bdf8;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .filter-bar button:hover { background: rgba(56,189,248,0.25); }
+    #count-info {
+        font-size: 12px;
+        color: #94a3b8;
+        margin-left: auto;
+        white-space: nowrap;
+    }
+
+
+    .page-title {
+        text-align: center;
+        color: #FF2800;
+        font-size: clamp(20px, 3.5vw, 30px);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 16px;
+        font-family: Georgia, "Times New Roman", serif;
+    }
+
+</style>
+</head>
+<body>
+<div class="container">
+<a class="back" href="index.html">← Home</a>
+    
+<h1 class="page-title">ELENCO FARMACI IN DISTRIBUZIONE DIRETTA STRUTTURE ASP</h1>
+<div class="filter-bar">
+    <input type="text" id="q-global" placeholder="Ricerca globale (tutte le colonne)..." />
+    <input type="text" id="q-aic" placeholder="AIC..." />
+    <input type="text" id="q-farm" placeholder="Farmaco..." />
+    <input type="text" id="q-atc" placeholder="ATC..." />
+    <input type="text" id="q-princ" placeholder="Principio attivo..." />
+    <input type="text" id="q-pt" placeholder="PT/Nota..." />
+    <button id="reset-filters">Reset</button>
+    <span id="count-info"></span>
+</div>
+
+<section class="page-block" id="unified">
+        
+        <table class="dpc">
+            <thead><tr><thead>
+                <tr>
+                    <th class="sortable" data-col="0">AIC</th><th class="sortable" data-col="1">Farmaco</th><th class="sortable" data-col="2">ATC</th><th class="sortable" data-col="3">Principio Attivo</th><th class="sortable" data-col="4">PT/Nota AIFA</th></tr></thead>
+            <tbody>
+<tr class="drug">
+                <td class="aic">045236015</td>
+                <td class="farm">ACTIKERALL*1FLSOL CUT5+100MG/G</td>
+                <td class="atc">L01BC52</td>
+                <td class="princ">FLUOROURACILE/ACIDO SALICILICO</td>
+                <td class="pt">PT - Nota 95 *</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039598026</td>
+                <td class="farm">ADCIRCA*56CPR RIV 20MG</td>
+                <td class="atc">G04BE08</td>
+                <td class="princ">TADALAFIL</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036160036</td>
+                <td class="farm">ADVATE*FL 1000UI+FL SOLV 5ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036160048</td>
+                <td class="farm">ADVATE*FL 1500UI+FL SOLV 5ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036160051</td>
+                <td class="farm">ADVATE*FL 2000UI+FL SOLV 5ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036160012</td>
+                <td class="farm">ADVATE*FL 250UI+FL SOLV 5ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036160063</td>
+                <td class="farm">ADVATE*FL 3000UI+FL SOLV 5ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036160024</td>
+                <td class="farm">ADVATE*FL 500UI+FL SOLV 5ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">025841103</td>
+                <td class="farm">AIMAFIX*FL 1000UI+FL 10ML+SET</td>
+                <td class="atc">B02BD04</td>
+                <td class="princ">FATTORE IX DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">025841089</td>
+                <td class="farm">AIMAFIX*FL 500UI+FL 10ML+SET</td>
+                <td class="atc">B02BD04</td>
+                <td class="princ">FATTORE IX DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033077102</td>
+                <td class="farm">ALPHANATE*INF 1F 1000UI+SIR+AD</td>
+                <td class="atc">B02BD06</td>
+                <td class="princ">FATTORE VIII UMANO DI COAGULAZIONE/FATTORE DI VON WILLEBRAND</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033077114</td>
+                <td class="farm">ALPHANATE*INF 1F 1500UI+SIR+AD</td>
+                <td class="atc">B02BD06</td>
+                <td class="princ">FATTORE VIII UMANO DI COAGULAZIONE/FATTORE DI VON WILLEBRAND</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029250077</td>
+                <td class="farm">ALPHANINE*EV 1000UI+SIR 10ML+A</td>
+                <td class="atc">B02BD04</td>
+                <td class="princ">FATTORE IX DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029250089</td>
+                <td class="farm">ALPHANINE*EV 1500UI+SIR 10ML+A</td>
+                <td class="atc">B02BD04</td>
+                <td class="princ">FATTORE IX DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045317031</td>
+                <td class="farm">AMGEVITA*SC 2SIR 0,8ML 40MG</td>
+                <td class="atc">L04AB04</td>
+                <td class="princ">ADALIMUMAB</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034701019</td>
+                <td class="farm">AMMONAPS*FL 250CPR 500MG</td>
+                <td class="atc">A16AX03</td>
+                <td class="princ">SODIO FENILBUTIRRATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034701033</td>
+                <td class="farm">AMMONAPS*GRAT 940MG/G FL 266G</td>
+                <td class="atc">A16AX03</td>
+                <td class="princ">SODIO FENILBUTIRRATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037221076</td>
+                <td class="farm">BARACLUDE*30CPR RIV 0,5MG</td>
+                <td class="atc">J05AF10</td>
+                <td class="princ">ENTECAVIR</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037221088</td>
+                <td class="farm">BARACLUDE*30CPR RIV 1MG</td>
+                <td class="atc">J05AF10</td>
+                <td class="princ">ENTECAVIR</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033535067</td>
+                <td class="farm">BENEFIX*IV 1FL 1000UI+SIR5ML+S</td>
+                <td class="atc">B02BD09</td>
+                <td class="princ">NONACOG ALFA (FATTORE IX DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033535079</td>
+                <td class="farm">BENEFIX*IV 1FL 2000UI+SIR5ML+S</td>
+                <td class="atc">B02BD09</td>
+                <td class="princ">NONACOG ALFA (FATTORE IX DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033535042</td>
+                <td class="farm">BENEFIX*IV 1FL 250UI+SIR5ML+SE</td>
+                <td class="atc">B02BD09</td>
+                <td class="princ">NONACOG ALFA (FATTORE IX DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033535081</td>
+                <td class="farm">BENEFIX*IV 1FL 3000UI+SIR5ML+S</td>
+                <td class="atc">B02BD09</td>
+                <td class="princ">NONACOG ALFA (FATTORE IX DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033535055</td>
+                <td class="farm">BENEFIX*IV 1FL 500UI+SIR5ML+SE</td>
+                <td class="atc">B02BD09</td>
+                <td class="princ">NONACOG ALFA (FATTORE IX DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033657038</td>
+                <td class="farm">BERIATE P 1000*F 1000UI+SOLV+S</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">FATTORE VIII DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033657026</td>
+                <td class="farm">BERIATE P 500*F 500UI+SOLV+SET</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">FATTORE VIII DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036570012</td>
+                <td class="farm">BONDRONAT*28CPR RIV 50MG</td>
+                <td class="atc">M05BA06</td>
+                <td class="princ">SODIO IBANDRONATO MONOIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036646038</td>
+                <td class="farm">BRAMITOB*NEBUL 56F 300MG/4ML</td>
+                <td class="atc">J01GB01</td>
+                <td class="princ">TOBRAMICINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034208013</td>
+                <td class="farm">CAMPRAL*84CPR RIV 333MG</td>
+                <td class="atc">N07BB03</td>
+                <td class="princ">ACAMPROSATO CALCICO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042640185</td>
+                <td class="farm">CAPECITABINA ACC*120CPR 500MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042640058</td>
+                <td class="farm">CAPECITABINA ACC*60CPR 150MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042640110</td>
+                <td class="farm">CAPECITABINA ACC*60CPR 300MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">040997025</td>
+                <td class="farm">CAPECITABINA ACT*120CPR 500MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">040997013</td>
+                <td class="farm">CAPECITABINA ACT*60CPR 150MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">040841189</td>
+                <td class="farm">CAPECITABINA CRIN*120CPR 500MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">040841013</td>
+                <td class="farm">CAPECITABINA CRIN*60CPR 150MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041262027</td>
+                <td class="farm">CAPECITABINA FRES*120CPR 500MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041262015</td>
+                <td class="farm">CAPECITABINA FRES*60CPR 150MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042501357</td>
+                <td class="farm">CAPECITABINA MEDAC*120CPR 500M</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042501041</td>
+                <td class="farm">CAPECITABINA MEDAC*60CPR 150MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042501181</td>
+                <td class="farm">CAPECITABINA MEDAC*60CPR 300MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041927043</td>
+                <td class="farm">CAPECITABINA MYL*120CPR 500MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041927029</td>
+                <td class="farm">CAPECITABINA MYL*60CPR 150MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042286029</td>
+                <td class="farm">CAPECITABINA TEVA*120CPR 500MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042286017</td>
+                <td class="farm">CAPECITABINA TEVA*60CPR 150MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041928045</td>
+                <td class="farm">CAPECITABINA ZEN*120CPR 500MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035983016</td>
+                <td class="farm">CARBAGLU*15CPR DISP 200MG</td>
+                <td class="atc">A16AA05</td>
+                <td class="princ">ACIDO CARGLUMICO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035983030</td>
+                <td class="farm">CARBAGLU*5CPR DISP 200MG</td>
+                <td class="atc">A16AA05</td>
+                <td class="princ">ACIDO CARGLUMICO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035983028</td>
+                <td class="farm">CARBAGLU*60CPR DISP 200MG</td>
+                <td class="atc">A16AA05</td>
+                <td class="princ">ACIDO CARGLUMICO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029796012</td>
+                <td class="farm">CELLCEPT*100CPS 250MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029796024</td>
+                <td class="farm">CELLCEPT*50CPR RIV 500MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035672056</td>
+                <td class="farm">CIALIS*12CPR RIV 20MG</td>
+                <td class="atc">G04BE08</td>
+                <td class="princ">TADALAFIL</td>
+                <td class="pt">PT - Nota 75</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035745049</td>
+                <td class="farm">COPEGUS*112CPR RIV 200MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035745025</td>
+                <td class="farm">COPEGUS*168CPR RIV 200MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035745037</td>
+                <td class="farm">COPEGUS*28CPR RIV 200MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035745013</td>
+                <td class="farm">COPEGUS*42CPR RIV 200MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035745052</td>
+                <td class="farm">COPEGUS*FL 14CPR RIV 400MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035745064</td>
+                <td class="farm">COPEGUS*FL 56CPR RIV 400MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043094010</td>
+                <td class="farm">CORMETO*50CPS MOLLI 250MG FL</td>
+                <td class="atc">V04CD01</td>
+                <td class="princ">METIRAPONE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037797014</td>
+                <td class="farm">CYSTADANE*OS 1FL 180G+3CUCCH</td>
+                <td class="atc">A16AA06</td>
+                <td class="princ">BETAINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033314030</td>
+                <td class="farm">CYSTAGON*FL 100CPS 150MG</td>
+                <td class="atc">A16AA04</td>
+                <td class="princ">MERCAPTAMINA BITARTRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033314016</td>
+                <td class="farm">CYSTAGON*FL 100CPS 50MG</td>
+                <td class="atc">A16AA04</td>
+                <td class="princ">MERCAPTAMINA BITARTRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">023564228</td>
+                <td class="farm">EMOCLOT*FL 1000UI+FL 10ML+SET</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">FATTORE VIII DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">023564216</td>
+                <td class="farm">EMOCLOT*FL 500UI+FL 10ML+SET</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">FATTORE VIII DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">044558017</td>
+                <td class="farm">ENTRESTO*28CPR RIV 24MG+26MG</td>
+                <td class="atc">C09DX04</td>
+                <td class="princ">Sacubitril/valsartan complesso di sale sodico</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">044558029</td>
+                <td class="farm">ENTRESTO*28CPR RIV 49MG+51MG</td>
+                <td class="atc">C09DX04</td>
+                <td class="princ">Sacubitril/valsartan complesso di sale sodico</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">044558031</td>
+                <td class="farm">ENTRESTO*56CPR RIV 49MG+51MG</td>
+                <td class="atc">C09DX04</td>
+                <td class="princ">Sacubitril/valsartan complesso di sale sodico</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">044558068</td>
+                <td class="farm">ENTRESTO*56CPR RIV 97MG+103MG</td>
+                <td class="atc">C09DX04</td>
+                <td class="princ">Sacubitril/valsartan complesso di sale sodico</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037421017</td>
+                <td class="farm">EXJADE*28CPR DISP 125MG</td>
+                <td class="atc">V03AC03</td>
+                <td class="princ">DEFERASIROX</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037421031</td>
+                <td class="farm">EXJADE*28CPR DISP 250MG</td>
+                <td class="atc">V03AC03</td>
+                <td class="princ">DEFERASIROX</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037421056</td>
+                <td class="farm">EXJADE*28CPR DISP 500MG</td>
+                <td class="atc">V03AC03</td>
+                <td class="princ">DEFERASIROX</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033866043</td>
+                <td class="farm">FANHDI*INF FL 250UI+SIR SOLV+S</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">FATTORE VIII DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033866056</td>
+                <td class="farm">FANHDI*INF FL 500UI+SIR SOLV+S</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">FATTORE VIII DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033866068</td>
+                <td class="farm">FANHDI*INF FL1000UI+SIR SOLV+S</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">FATTORE VIII DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">024744070</td>
+                <td class="farm">FEIBA*FL 1000UF+BAXJECT II HF</td>
+                <td class="atc">B02BD03</td>
+                <td class="princ">COMPLESSO PROTROMBINICO ANTIEMOFILICO UMANO ATTIVATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034525016</td>
+                <td class="farm">FERRIPROX*100CPR RIV 500MG</td>
+                <td class="atc">V03AC02</td>
+                <td class="princ">DEFERIPRONE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038324036</td>
+                <td class="farm">FIXNOVE*FL 1200UI+FL 10ML</td>
+                <td class="atc">B02BD04</td>
+                <td class="princ">FATTORE IX DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029552039</td>
+                <td class="farm">FLUDARA*20CPR RIV 10MG</td>
+                <td class="atc">L01BB05</td>
+                <td class="princ">FLUDARABINA FOSFATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042494070</td>
+                <td class="farm">FORXIGA*28CPR RIV 10MG</td>
+                <td class="atc">A10BK01</td>
+                <td class="princ">DAPAGLIFLOZIN</td>
+                <td class="pt">Se PT PT senza Nota [agg. 02/07/2025 – AIFA/Regione Sicilia] riclassificato classe A, convenzionata</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042581126</td>
+                <td class="farm">FYCOMPA*28CPR RIV 10MG</td>
+                <td class="atc">N03AX22</td>
+                <td class="princ">AIFA PERAMPANEL</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042581153</td>
+                <td class="farm">FYCOMPA*28CPR RIV 12MG</td>
+                <td class="atc">N03AX22</td>
+                <td class="princ">PERAMPANEL</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042581037</td>
+                <td class="farm">FYCOMPA*28CPR RIV 4MG</td>
+                <td class="atc">N03AX22</td>
+                <td class="princ">PERAMPANEL</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042581064</td>
+                <td class="farm">FYCOMPA*28CPR RIV 6MG</td>
+                <td class="atc">N03AX22</td>
+                <td class="princ">PERAMPANEL</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042581090</td>
+                <td class="farm">FYCOMPA*28CPR RIV 8MG</td>
+                <td class="atc">N03AX22</td>
+                <td class="princ">PERAMPANEL</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042581013</td>
+                <td class="farm">FYCOMPA*7CPR RIV 2MG</td>
+                <td class="atc">N03AX22</td>
+                <td class="princ">PERAMPANEL</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026844237</td>
+                <td class="farm">GENOTROPIN MINI*4TBF 1,2MG(3,6</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026844249</td>
+                <td class="farm">GENOTROPIN MINI*4TBF 1,4MG(4,2</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026844252</td>
+                <td class="farm">GENOTROPIN MINI*4TBF 1,6MG(4,8</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026844264</td>
+                <td class="farm">GENOTROPIN MINI*4TBF 1,8MG(5,4</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026844276</td>
+                <td class="farm">GENOTROPIN MINI*4TBF 2MG(6UI)</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026844187</td>
+                <td class="farm">GENOTROPIN MINI*7TBF 0,2MG(0,6</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026844199</td>
+                <td class="farm">GENOTROPIN MINI*7TBF 0,4MG(1,2</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026844201</td>
+                <td class="farm">GENOTROPIN MINI*7TBF 0,6MG(1,8</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026844213</td>
+                <td class="farm">GENOTROPIN MINI*7TBF 0,8MG(2,4</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026844225</td>
+                <td class="farm">GENOTROPIN MINI*7TBF 1MG(3UI)+</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026844163</td>
+                <td class="farm">GENOTROPIN*1TBF 12MG(36UI)</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026844098</td>
+                <td class="farm">GENOTROPIN*1TBF 5,3MG (16UI)</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">040949051</td>
+                <td class="farm">GILENYA*28CPS 0,5MG</td>
+                <td class="atc">L04AA27</td>
+                <td class="princ">FINGOLIMOD CLORIDRATO</td>
+                <td class="pt">Nota 65</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035372059</td>
+                <td class="farm">GLIVEC*120CPS 100MG</td>
+                <td class="atc">L01XE01</td>
+                <td class="princ">IMATINIB MESILATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037610021</td>
+                <td class="farm">GRAZAX*OS 100LIOF 75.000SQ-T</td>
+                <td class="atc">V01AA02</td>
+                <td class="princ">POLLINE GRAMINACEE (PHLEUM PRATENSE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037610019</td>
+                <td class="farm">GRAZAX*OS 30LIOF 75.000SQ-T</td>
+                <td class="atc">V01AA02</td>
+                <td class="princ">POLLINE GRAMINACEE (PHLEUM PRATENSE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026600078</td>
+                <td class="farm">HAEMATE P*FL 1000UI+FL15ML+SET</td>
+                <td class="atc">B02BD06</td>
+                <td class="princ">FATTORE VIII UMANO DI COAGULAZIONE/FATTORE DI VON WILLEBRAND</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026600080</td>
+                <td class="farm">HAEMATE P*FL 500UI+FL10ML+SET</td>
+                <td class="atc">B02BD06</td>
+                <td class="princ">FATTORE VIII UMANO DI COAGULAZIONE/FATTORE DI VON WILLEBRAND</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039072032</td>
+                <td class="farm">HAEMOBIONINE*1FL 1000UI+SIR+SI</td>
+                <td class="atc">B02BD04</td>
+                <td class="princ">FATTORE IX DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039072018</td>
+                <td class="farm">HAEMOBIONINE*1FL 250UI+SIR+SIS</td>
+                <td class="atc">B02BD04</td>
+                <td class="princ">FATTORE IX DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039072020</td>
+                <td class="farm">HAEMOBIONINE*1FL 500UI+SIR+SIS</td>
+                <td class="atc">B02BD04</td>
+                <td class="princ">FATTORE IX DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038541037</td>
+                <td class="farm">HAEMOCTIN*FL 1000UI+FL 10ML+SI</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">FATTORE VIII DI COAGULAZIONE DEL SANGUE UMANO FRAZIONAMENTO PLASMA</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038541013</td>
+                <td class="farm">HAEMOCTIN*FL 250UI+FL 5ML+SIR</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">FATTORE VIII DI COAGULAZIONE DEL SANGUE UMANO FRAZIONAMENTO PLASMA</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038541025</td>
+                <td class="farm">HAEMOCTIN*FL 500UI+FL 10ML+SIR</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">FATTORE VIII DI COAGULAZIONE DEL SANGUE UMANO FRAZIONAMENTO PLASMA</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034956033</td>
+                <td class="farm">HELIXATE NEXGEN*1000UI+1FL+KIT</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034956045</td>
+                <td class="farm">HELIXATE NEXGEN*2000UI+1FL+KIT</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034956019</td>
+                <td class="farm">HELIXATE NEXGEN*250UI+1FL+1KIT</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034956058</td>
+                <td class="farm">HELIXATE NEXGEN*3000UI+1FL+KIT</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034956021</td>
+                <td class="farm">HELIXATE NEXGEN*500UI+1FL+1KIT</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">046130035</td>
+                <td class="farm">HEMLIBRA*SC 150MG/ML 0,7ML</td>
+                <td class="atc">B02BX06</td>
+                <td class="princ">EMICIZUMAB</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035871019</td>
+                <td class="farm">HEPSERA*1FL 30CPR 10MG</td>
+                <td class="atc">J05AF08</td>
+                <td class="princ">ADEFOVIR DIPIVOXIL</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026962050</td>
+                <td class="farm">HUMATROPE*1CART 12MG(36UI)+SIR</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026962047</td>
+                <td class="farm">HUMATROPE*1CART 6MG (18UI)+SIR</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033306061</td>
+                <td class="farm">HYCAMTIN*10CPS 0,25MG</td>
+                <td class="atc">L01XX17</td>
+                <td class="princ">TOPOTECAN CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033306073</td>
+                <td class="farm">HYCAMTIN*10CPS 1MG</td>
+                <td class="atc">L01XX17</td>
+                <td class="princ">TOPOTECAN CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041456017</td>
+                <td class="farm">INCIVO*FL 168CPR RIV 375MG</td>
+                <td class="atc">J05AE11</td>
+                <td class="princ">TELAPREVIR</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041456029</td>
+                <td class="farm">INCIVO*FL 42CPR RIV 375MG</td>
+                <td class="atc">J05AE11</td>
+                <td class="princ">TELAPREVIR</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043443136</td>
+                <td class="farm">JARDIANCE*28CPR RIV 10MG</td>
+                <td class="atc">A10BK03</td>
+                <td class="princ">EMPAGLIFLOZIN</td>
+                <td class="pt">Se PT PT senza Nota [agg. 02/07/2025 – AIFA/Regione Sicilia] riclassificato classe A, convenzionata</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043443047</td>
+                <td class="farm">JARDIANCE*28CPR RIV 25MG</td>
+                <td class="atc">A10BD11</td>
+                <td class="princ">AEMIFAPAGLIFLOZIN</td>
+                <td class="pt">Se PT PT senza Nota [agg. 02/07/2025 – AIFA/Regione Sicilia] riclassificato classe A, convenzionata</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043781018</td>
+                <td class="farm">KETOCONAZOLE HRA*60CPR 200MG</td>
+                <td class="atc">J02AB02</td>
+                <td class="princ">AIFA KETOCONAZOLO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045491038</td>
+                <td class="farm">KEVZARA*SC 2SIR 1,14ML 200MG</td>
+                <td class="atc">L04AC14</td>
+                <td class="princ">SARILUMAB</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">049607017</td>
+                <td class="farm">KLISYRI*UNG CUT 5BUST 250MG</td>
+                <td class="atc">D06BX03</td>
+                <td class="princ">TIRBANIBULINA</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034955106</td>
+                <td class="farm">KOGENATE BAYER*EV2000UI+SIR+DI</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034955120</td>
+                <td class="farm">KOGENATE BAYER*EV3000UI+SIR+DI</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034955068</td>
+                <td class="farm">KOGENATE BAYER*FL1000UI+SIR+1K</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034955043</td>
+                <td class="farm">KOGENATE BAYER*FL250UI+SIR+1KI</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034955056</td>
+                <td class="farm">KOGENATE BAYER*FL500UI+SIR+1KI</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038922023</td>
+                <td class="farm">KUVAN*120CPR SOLUB 100MG</td>
+                <td class="atc">A16AX07</td>
+                <td class="princ">SAPROPTERINA DICLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038922011</td>
+                <td class="farm">KUVAN*30CPR SOLUB 100MG</td>
+                <td class="atc">A16AX07</td>
+                <td class="princ">SAPROPTERINA DICLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036560011</td>
+                <td class="farm">LYSODREN*FL 100CPR 500MG</td>
+                <td class="atc">L01XX23</td>
+                <td class="princ">MITOTANO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029927098</td>
+                <td class="farm">METADONE CL AFOM*OS 100ML1MG/1</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029927023</td>
+                <td class="farm">METADONE CL AFOM*OS 10ML1MG/ML</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029927035</td>
+                <td class="farm">METADONE CL AFOM*OS 20ML1MG/ML</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029927175</td>
+                <td class="farm">METADONE CL AFOM*OS 20ML1MG/ML</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029927074</td>
+                <td class="farm">METADONE CL AFOM*OS 20ML3MG/ML</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029927213</td>
+                <td class="farm">METADONE CL AFOM*OS 20ML3MG/ML</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029927086</td>
+                <td class="farm">METADONE CL AFOM*OS 20ML5MG/ML</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029927237</td>
+                <td class="farm">METADONE CL AFOM*OS 20ML5MG/ML</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029927124</td>
+                <td class="farm">METADONE CL AFOM*OS 40ML1MG/ML</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029927011</td>
+                <td class="farm">METADONE CL AFOM*OS 5ML 1MG/ML</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029927136</td>
+                <td class="farm">METADONE CL AFOM*OS 60ML1MG/ML</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029927148</td>
+                <td class="farm">METADONE CL AFOM*OS 80ML1MG/ML</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029610021</td>
+                <td class="farm">METADONE CLOR.MOL*OS 1MG/ML10M</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029610033</td>
+                <td class="farm">METADONE CLOR.MOL*OS 1MG/ML20M</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029610072</td>
+                <td class="farm">METADONE CLOR.MOL*OS 1MG/ML40M</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029610019</td>
+                <td class="farm">METADONE CLOR.MOL*OS 1MG/ML5ML</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029610084</td>
+                <td class="farm">METADONE CLOR.MOL*OS 1MG/ML60M</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029610096</td>
+                <td class="farm">METADONE CLOR.MOL*OS 5MG/ML5ML</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029610045</td>
+                <td class="farm">METADONE CLOR.MOL*OS1MG/ML100M</td>
+                <td class="atc">N07BC02</td>
+                <td class="princ">METADONE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039770019</td>
+                <td class="farm">MICOFENOLATO M AC*100CPS 250MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041342015</td>
+                <td class="farm">MICOFENOLATO M ACC*100CPS 250MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038895013</td>
+                <td class="farm">MICOFENOLATO M ACT*50CPR 500MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038774016</td>
+                <td class="farm">MICOFENOLATO M AHCL*50CPR500MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">040395016</td>
+                <td class="farm">MICOFENOLATO M ALK*50CPR 500MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039907011</td>
+                <td class="farm">MICOFENOLATO M CR*100CPS 250MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039907047</td>
+                <td class="farm">MICOFENOLATO M CR*50CPR 500MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039980014</td>
+                <td class="farm">MICOFENOLATO M DR*50CPR 500MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">040185023</td>
+                <td class="farm">MICOFENOLATO M MG*50CPR 500MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">040401010</td>
+                <td class="farm">MICOFENOLATO M MGI*100CPS250MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">040009019</td>
+                <td class="farm">MICOFENOLATO M SAN*50CPR 500MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">028142038</td>
+                <td class="farm">MONONINE*EV F 1000UI+F10ML+KIT</td>
+                <td class="atc">B02BD04</td>
+                <td class="princ">FATTORE IX DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">028142026</td>
+                <td class="farm">MONONINE*EV F 500UI+F 5ML+KIT</td>
+                <td class="atc">B02BD04</td>
+                <td class="princ">FATTORE IX DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039696012</td>
+                <td class="farm">MYFENAX*100CPS 250MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039696036</td>
+                <td class="farm">MYFENAX*50CPR RIV 500MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO MOFETILE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036511032</td>
+                <td class="farm">MYFORTIC*100CPR GASTROR 180MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO SODICO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036511069</td>
+                <td class="farm">MYFORTIC*50CPR GASTROR 360MG</td>
+                <td class="atc">L04AA06</td>
+                <td class="princ">MICOFENOLATO SODICO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">027865106</td>
+                <td class="farm">NAVELBINE*1CPS 20MG</td>
+                <td class="atc">L01CA04</td>
+                <td class="princ">VINORELBINA BITARTRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">027865118</td>
+                <td class="farm">NAVELBINE*1CPS 30MG</td>
+                <td class="atc">L01CA04</td>
+                <td class="princ">VINORELBINA BITARTRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">027686082</td>
+                <td class="farm">NORDITROPIN SIMPLEXX*15MG/1,5M</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">027686068</td>
+                <td class="farm">NORDITROPIN SIMPLEXX*5MG/1,5ML</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043153030</td>
+                <td class="farm">NOVOEIGHT*EV FL 1000UI+SIR 4ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">TUROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043153042</td>
+                <td class="farm">NOVOEIGHT*EV FL 1500UI+SIR 4ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">TUROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043153055</td>
+                <td class="farm">NOVOEIGHT*EV FL 2000UI+SIR 4ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">TUROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043153016</td>
+                <td class="farm">NOVOEIGHT*EV FL 250UI+SIR 4ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">TUROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043153067</td>
+                <td class="farm">NOVOEIGHT*EV FL 3000UI+SIR 4ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">TUROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043153028</td>
+                <td class="farm">NOVOEIGHT*EV FL 500UI+SIR 4ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">TUROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037059019</td>
+                <td class="farm">NOXAFIL*OS SOSP 105ML 40MG/ML</td>
+                <td class="atc">J02AC04</td>
+                <td class="princ">POSACONAZOLO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036583033</td>
+                <td class="farm">NUTROPINAQ*SC 1CART 10MG 2ML</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043534039</td>
+                <td class="farm">NUWIQ*EV FL 1000UI+SIR 2,5ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">SIMOCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043534041</td>
+                <td class="farm">NUWIQ*EV FL 2000UI+SIR 2,5ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">SIMOCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043534015</td>
+                <td class="farm">NUWIQ*EV FL 250UI+SIR 2,5ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">SIMOCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043534027</td>
+                <td class="farm">NUWIQ*EV FL 500UI+SIR 2,5ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">SIMOCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">044557015</td>
+                <td class="farm">OBIZUR*1F 500U</td>
+                <td class="atc">B02BD14</td>
+                <td class="princ">SUSOCTOCOG (FATTORE VIII PORCINO RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045889019</td>
+                <td class="farm">OCREVUS*EV 1FL 300MG 10ML</td>
+                <td class="atc">L04AA36</td>
+                <td class="princ">OCRELIZUMAB</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037106073</td>
+                <td class="farm">OMNITROPE*SC CART 10MG/1,5ML</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037106046</td>
+                <td class="farm">OMNITROPE*SC CART 5MG/1,5ML</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039857026</td>
+                <td class="farm">ORALAIR*30CPR SUBL 300IR</td>
+                <td class="atc">V01AA02</td>
+                <td class="princ">POLLINE GRAMINACEE PHLEUM PRATENSE/DACTYLIS GLOMERATA/ANTHOXANTHUM</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039857014</td>
+                <td class="farm">ORALAIR*31CPR SUBL 100IR-300IR</td>
+                <td class="atc">V01AA02</td>
+                <td class="princ">ODORATUM/LOLIUM PERENNE/POA PRATENSIS POLLINE GRAMINACEE PHLEUM PRATENSE/DACTYLIS GLOMERATA/ANTHOXANTHUM</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039857038</td>
+                <td class="farm">ORALAIR*90CPR SUBL 300IR</td>
+                <td class="atc">V01AA02</td>
+                <td class="princ">ODORATUM/LOLIUM PERENNE/POA PRATENSIS POLLINE GRAMINACEE PHLEUM PRATENSE/DACTYLIS GLOMERATA/ANTHOXANTHUM</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035575051</td>
+                <td class="farm">PROTOPIC*UNG 0,03% 10G</td>
+                <td class="atc">D11AH01</td>
+                <td class="princ">ODORATUM/LOLIUM PERENNE/POA PRATENSIS TACROLIMUS MONOIDRATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035575012</td>
+                <td class="farm">PROTOPIC*UNG 0,03% 30G</td>
+                <td class="atc">D11AH01</td>
+                <td class="princ">TACROLIMUS MONOIDRATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035575063</td>
+                <td class="farm">PROTOPIC*UNG 0,1% 10G</td>
+                <td class="atc">D11AH01</td>
+                <td class="princ">TACROLIMUS MONOIDRATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035575036</td>
+                <td class="farm">PROTOPIC*UNG 0,1% 30G</td>
+                <td class="atc">D11AH01</td>
+                <td class="princ">TACROLIMUS MONOIDRATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">023288032</td>
+                <td class="farm">PROTROMPLEX TIM3*F 600UI+20ML</td>
+                <td class="atc">B02BD</td>
+                <td class="princ">COMPLESSO PROTROMBINICO UMANO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">024748042</td>
+                <td class="farm">PROVERTIN UM TIM3*IV FL 600UI</td>
+                <td class="atc">B02BD05</td>
+                <td class="princ">FATTORE VII DI COAGULAZIONE DEL SANGUE UMANO LIOFILIZZATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029352010</td>
+                <td class="farm">PULMOZYME*INAL 6F 2500U 2,5ML</td>
+                <td class="atc">R05CB13</td>
+                <td class="princ">DESOSSIRIBONUCLEASI</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034459026</td>
+                <td class="farm">REBETOL*140CPS 200MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034459038</td>
+                <td class="farm">REBETOL*168CPS 200MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034459014</td>
+                <td class="farm">REBETOL*84CPS 200MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034459040</td>
+                <td class="farm">REBETOL*OS FL 100ML 40MG/ML</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">028687034</td>
+                <td class="farm">RECOMBINATE*FL 1000UI+FL 10ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">028687010</td>
+                <td class="farm">RECOMBINATE*FL 250UI+FL 10ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">028687022</td>
+                <td class="farm">RECOMBINATE*FL 500UI+FL 10ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">OCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034421014</td>
+                <td class="farm">REFACTO AF*IV 1FL 250UI+SIR4ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">MOROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034421026</td>
+                <td class="farm">REFACTO AF*IV 1FL 500UI+SIR4ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">MOROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034421038</td>
+                <td class="farm">REFACTO AF*IV 1FL1000UI+SIR4ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">MOROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034421040</td>
+                <td class="farm">REFACTO AF*IV 1FL2000UI+SIR4ML</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">MOROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034421091</td>
+                <td class="farm">REFACTO AF*IV 1SIR 250UI+DISP</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">MOROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034421065</td>
+                <td class="farm">REFACTO AF*IV 1SIR 500UI+DISP</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">MOROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034421077</td>
+                <td class="farm">REFACTO AF*IV 1SIR1000UI+DISP</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">MOROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034421089</td>
+                <td class="farm">REFACTO AF*IV 1SIR2000UI+DISP</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">MOROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034421053</td>
+                <td class="farm">REFACTO AF*IV 1SIR3000UI+DISP</td>
+                <td class="atc">B02BD02</td>
+                <td class="princ">MOROCTOCOG ALFA (FATTORE VIII DI COAGULAZIONE, RICOMBINANTE)</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036982015</td>
+                <td class="farm">REVATIO*90CPR RIV 20MG</td>
+                <td class="atc">G04BE03</td>
+                <td class="princ">SILDENAFIL CITRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">040750034</td>
+                <td class="farm">RIBAVIRINA MYL*FL 140CPS 200MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">040750046</td>
+                <td class="farm">RIBAVIRINA MYL*FL 168CPS 200MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">040558203</td>
+                <td class="farm">RIBAVIRINA SANDOZ*140CPS 200MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">040558241</td>
+                <td class="farm">RIBAVIRINA SANDOZ*168CPS 200MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039363039</td>
+                <td class="farm">RIBAVIRINA TEVA*168CPS 200MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039617030</td>
+                <td class="farm">RIBAVIRINA TEVA*42CPR 200MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039363015</td>
+                <td class="farm">RIBAVIRINA TEVA*84CPS 200MG</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039989037</td>
+                <td class="farm">RILUZOLO CRI*56CPR RIV 50MG</td>
+                <td class="atc">N07XX02</td>
+                <td class="princ">RILUZOLO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041549054</td>
+                <td class="farm">RILUZOLO MYL*56CPR RIV 50MG</td>
+                <td class="atc">N07XX02</td>
+                <td class="princ">RILUZOLO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041946031</td>
+                <td class="farm">RILUZOLO SAN*56CPR RIV 50MG</td>
+                <td class="atc">N07XX02</td>
+                <td class="princ">RILUZOLO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">040801019</td>
+                <td class="farm">RILUZOLO SUN*56CPR RIV 50MG</td>
+                <td class="atc">N07XX02</td>
+                <td class="princ">RILUZOLO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041327026</td>
+                <td class="farm">RILUZOLO TEVA*56CPR RIV 50MG</td>
+                <td class="atc">N07XX02</td>
+                <td class="princ">RILUZOLO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042155010</td>
+                <td class="farm">RILUZOLO ZENT*56CPR RIV 50MG</td>
+                <td class="atc">N07XX02</td>
+                <td class="princ">RILUZOLO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026863148</td>
+                <td class="farm">SAIZEN*1CART 5,83MG/ML 1,03ML</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026863163</td>
+                <td class="farm">SAIZEN*1CART 8MG/ML 1,50ML</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026863011</td>
+                <td class="farm">SAIZEN*1FL 1,33MG(4UI)+1F 1ML</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026863100</td>
+                <td class="farm">SAIZEN*1FL 8MG+1CART+CLICKEASY</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">029526047</td>
+                <td class="farm">SALAGEN*84CPR RIV 5MG</td>
+                <td class="atc">N07AX01</td>
+                <td class="princ">PILOCARPINA CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037884018</td>
+                <td class="farm">SEBIVO*28CPR RIV 600MG</td>
+                <td class="atc">J05AF11</td>
+                <td class="princ">TELBIVUDINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033120092</td>
+                <td class="farm">SIGMACILLINA*1SI 1200000UI/2,5</td>
+                <td class="atc">J01CE08</td>
+                <td class="princ">BENZILPENICILLINA BENZATINICA</td>
+                <td class="pt">PT - Nota 92</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042032045</td>
+                <td class="farm">SIGNIFOR*SC 60F 0,3MG 1ML</td>
+                <td class="atc">H01CB05</td>
+                <td class="princ">PASIREOTIDE DIASPARTATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042032084</td>
+                <td class="farm">SIGNIFOR*SC 60F 0,6MG 1ML</td>
+                <td class="atc">H01CB05</td>
+                <td class="princ">PASIREOTIDE DIASPARTATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042032122</td>
+                <td class="farm">SIGNIFOR*SC 60F 0,9MG 1ML</td>
+                <td class="atc">H01CB05</td>
+                <td class="princ">PASIREOTIDE DIASPARTATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045493044</td>
+                <td class="farm">SKILARENCE*90CPR GASTR 120MG</td>
+                <td class="atc">D11AH05</td>
+                <td class="princ">DIMETILFUMARATO</td>
+                <td class="pt">Nota 65</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045242068</td>
+                <td class="farm">SOLACUTAN*GEL 60G 3%</td>
+                <td class="atc">D11AX18</td>
+                <td class="princ">DICLOFENAC SODICO</td>
+                <td class="pt">PT - Nota 95 *</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034129039</td>
+                <td class="farm">SOLARAZE*GEL 60G 3%</td>
+                <td class="atc">D11AX18</td>
+                <td class="princ">DICLOFENAC SODICO</td>
+                <td class="pt">PT - Nota 95 *</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035726049</td>
+                <td class="farm">SOMAVERT*SC 1FL 20MG+1FL 8ML</td>
+                <td class="atc">H01AX01</td>
+                <td class="princ">PEGVISOMANT</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035726013</td>
+                <td class="farm">SOMAVERT*SC 30FL 10MG+30FL 8ML</td>
+                <td class="atc">H01AX01</td>
+                <td class="princ">PEGVISOMANT</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035726025</td>
+                <td class="farm">SOMAVERT*SC 30FL 15MG+30FL 8ML</td>
+                <td class="atc">H01AX01</td>
+                <td class="princ">PEGVISOMANT</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035726037</td>
+                <td class="farm">SOMAVERT*SC 30FL 20MG+30FL 8ML</td>
+                <td class="atc">H01AX01</td>
+                <td class="princ">PEGVISOMANT</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038936047</td>
+                <td class="farm">STELARA*SC 1SIR 1ML 90MG</td>
+                <td class="atc">L04C05</td>
+                <td class="princ">USTEKINUMAB</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037604016</td>
+                <td class="farm">SUBOXONE*7CPR SUBLING 2+0,5MG</td>
+                <td class="atc">N07BC51</td>
+                <td class="princ">BUPRENORFINA CLORIDRATO/NALOXONE CLORIDRATO DIIDRATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037604030</td>
+                <td class="farm">SUBOXONE*7CPR SUBLING 8MG+2MG</td>
+                <td class="atc">N07BC51</td>
+                <td class="princ">BUPRENORFINA CLORIDRATO/NALOXONE CLORIDRATO DIIDRATO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034529038</td>
+                <td class="farm">SYNAGIS*IM FL 0,5ML 100MG/ML</td>
+                <td class="atc">J06BB16</td>
+                <td class="princ">PALIVIZUMAB</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034529040</td>
+                <td class="farm">SYNAGIS*IM FL 1ML 100MG/ML</td>
+                <td class="atc">J06BB16</td>
+                <td class="princ">PALIVIZUMAB</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037148032</td>
+                <td class="farm">TALATE*1000UI+FL 10ML+SIR C/AG</td>
+                <td class="atc">B02BD06</td>
+                <td class="princ">FATTORE VIII UMANO DI COAGULAZIONE/FATTORE DI VON WILLEBRAND</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035710019</td>
+                <td class="farm">TARGRETIN*FL 100CPS 75MG</td>
+                <td class="atc">L01XX25</td>
+                <td class="princ">BEXAROTENE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043217025</td>
+                <td class="farm">TECFIDERA*56CPS 240MG</td>
+                <td class="atc">D11AH05</td>
+                <td class="princ">DIMETILFUMARATO</td>
+                <td class="pt">Nota 65</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034527059</td>
+                <td class="farm">TEMODAL*1FL 5CPS 100MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034527034</td>
+                <td class="farm">TEMODAL*1FL 5CPS 20MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034527073</td>
+                <td class="farm">TEMODAL*1FL 5CPS 250MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034527010</td>
+                <td class="farm">TEMODAL*1FL 5CPS 5MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034527150</td>
+                <td class="farm">TEMODAL*5BUST 5CPS 100MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034527174</td>
+                <td class="farm">TEMODAL*5BUST 5CPS 140MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034527198</td>
+                <td class="farm">TEMODAL*5BUST 5CPS 180MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034527135</td>
+                <td class="farm">TEMODAL*5BUST 5CPS 20MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034527212</td>
+                <td class="farm">TEMODAL*5BUST 5CPS 250MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034527236</td>
+                <td class="farm">TEMODAL*5BUST 5CPS 5MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042082053</td>
+                <td class="farm">TEMOMEDAC*FL 5CPS 100MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042082077</td>
+                <td class="farm">TEMOMEDAC*FL 5CPS 140MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042082091</td>
+                <td class="farm">TEMOMEDAC*FL 5CPS 180MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042082038</td>
+                <td class="farm">TEMOMEDAC*FL 5CPS 20MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042082115</td>
+                <td class="farm">TEMOMEDAC*FL 5CPS 250MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042082014</td>
+                <td class="farm">TEMOMEDAC*FL 5CPS 5MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039883057</td>
+                <td class="farm">TEMOZOLOMIDE CRINOS*5CPS 100MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039883032</td>
+                <td class="farm">TEMOZOLOMIDE CRINOS*5CPS 20MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039883119</td>
+                <td class="farm">TEMOZOLOMIDE CRINOS*5CPS 250MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039883018</td>
+                <td class="farm">TEMOZOLOMIDE CRINOS*5CPS 5MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039762051</td>
+                <td class="farm">TEMOZOLOMIDE SAND*FL 5CPS 20MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039762012</td>
+                <td class="farm">TEMOZOLOMIDE SAND*FL 5CPS 5MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039762101</td>
+                <td class="farm">TEMOZOLOMIDE SAND*FL5CPS 100MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039762149</td>
+                <td class="farm">TEMOZOLOMIDE SAND*FL5CPS 140MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039762188</td>
+                <td class="farm">TEMOZOLOMIDE SAND*FL5CPS 180MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039762226</td>
+                <td class="farm">TEMOZOLOMIDE SAND*FL5CPS 250MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041333055</td>
+                <td class="farm">TEMOZOLOMIDE SUN*FL 5CPS 100MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041333079</td>
+                <td class="farm">TEMOZOLOMIDE SUN*FL 5CPS 140MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041333093</td>
+                <td class="farm">TEMOZOLOMIDE SUN*FL 5CPS 180MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041333030</td>
+                <td class="farm">TEMOZOLOMIDE SUN*FL 5CPS 20MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041333117</td>
+                <td class="farm">TEMOZOLOMIDE SUN*FL 5CPS 250MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041333016</td>
+                <td class="farm">TEMOZOLOMIDE SUN*FL 5CPS 5MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039649052</td>
+                <td class="farm">TEMOZOLOMIDE TEVA*5CPS 100MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039649076</td>
+                <td class="farm">TEMOZOLOMIDE TEVA*5CPS 140MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039649090</td>
+                <td class="farm">TEMOZOLOMIDE TEVA*5CPS 180MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039649037</td>
+                <td class="farm">TEMOZOLOMIDE TEVA*5CPS 20MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039649114</td>
+                <td class="farm">TEMOZOLOMIDE TEVA*5CPS 250MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039649013</td>
+                <td class="farm">TEMOZOLOMIDE TEVA*5CPS 5MG</td>
+                <td class="atc">L01AX03</td>
+                <td class="princ">TEMOZOLOMIDE</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042291029</td>
+                <td class="farm">TEYSUNO*126CPS 15+4,35+11,8MG</td>
+                <td class="atc">L01BC53</td>
+                <td class="princ">TEGAFUR/GIMERACIL/OTERACIL</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042291017</td>
+                <td class="farm">TEYSUNO*42CPS 15+4,35+11,8MG</td>
+                <td class="atc">L01BC53</td>
+                <td class="princ">TEGAFUR/GIMERACIL/OTERACIL</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042291031</td>
+                <td class="farm">TEYSUNO*42CPS 20+5,8+15,8MG</td>
+                <td class="atc">L01BC53</td>
+                <td class="princ">TEGAFUR/GIMERACIL/OTERACIL</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042291043</td>
+                <td class="farm">TEYSUNO*84CPS 20+5,8+15,8MG</td>
+                <td class="atc">L01BC53</td>
+                <td class="princ">TEGAFUR/GIMERACIL/OTERACIL</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034767018</td>
+                <td class="farm">TOBI*NEBUL 56F 1D 300MG/5ML</td>
+                <td class="atc">J01GB01</td>
+                <td class="princ">TOBRAMICINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041632011</td>
+                <td class="farm">TOBRAMICINA TEVA*NEBUL56F300MG</td>
+                <td class="atc">J01GB01</td>
+                <td class="princ">TOBRAMICINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">046491015</td>
+                <td class="farm">TOLERAK*CREMA 20G 40MG/G</td>
+                <td class="atc">L01BC02</td>
+                <td class="princ">FLUOROURACILE</td>
+                <td class="pt">PT - Nota 95 *</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045772011</td>
+                <td class="farm">TREMFYA*SC 1SIR 100MG/1ML</td>
+                <td class="atc">L04AC16</td>
+                <td class="princ">GUSELKUMAB</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">023309103</td>
+                <td class="farm">UMANCOMPLEX D.I.*FL 500UI+F20M</td>
+                <td class="atc">B02BD</td>
+                <td class="princ">COMPLESSO PROTROMBINICO UMANO</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036019026</td>
+                <td class="farm">VENTAVIS*NEB 100F 2ML 10MCG/ML</td>
+                <td class="atc">B01AC11</td>
+                <td class="princ">ILOPROST SALE DI TROMETAMOLO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036019014</td>
+                <td class="farm">VENTAVIS*NEB 30F 2ML 10MCG/ML</td>
+                <td class="atc">B01AC11</td>
+                <td class="princ">ILOPROST SALE DI TROMETAMOLO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036019040</td>
+                <td class="farm">VENTAVIS*NEB 3X30F 2ML10MCG/ML</td>
+                <td class="atc">B01AC11</td>
+                <td class="princ">ILOPROST SALE DI TROMETAMOLO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035628179</td>
+                <td class="farm">VFEND*28CPR RIV 200MG</td>
+                <td class="atc">J02AC03</td>
+                <td class="princ">VORICONAZOLO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035628054</td>
+                <td class="farm">VFEND*28CPR RIV 50MG</td>
+                <td class="atc">J02AC03</td>
+                <td class="princ">VORICONAZOLO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035628268</td>
+                <td class="farm">VFEND*OS SOSP FL 45G 40MG/ML</td>
+                <td class="atc">J02AC03</td>
+                <td class="princ">VORICONAZOLO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041380015</td>
+                <td class="farm">VICTRELIS*336CPS 200MG</td>
+                <td class="atc">J05AE12</td>
+                <td class="princ">BOCEPREVIR</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041380027</td>
+                <td class="farm">VICTRELIS*84CPS 200MG</td>
+                <td class="atc">J05AE12</td>
+                <td class="princ">BOCEPREVIR</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">026875017</td>
+                <td class="farm">VIRAZOLE*AER FL LIOF 6G</td>
+                <td class="atc">J05AB04</td>
+                <td class="princ">RIBAVIRINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038528042</td>
+                <td class="farm">VOLIBRIS*30CPR RIV 10MG</td>
+                <td class="atc">C02KX02</td>
+                <td class="princ">AMBRISENTAN</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038528028</td>
+                <td class="farm">VOLIBRIS*30CPR RIV 5MG</td>
+                <td class="atc">C02KX02</td>
+                <td class="princ">AMBRISENTAN</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039385024</td>
+                <td class="farm">WILATE*FL 900+800UI+FL10ML+SIR</td>
+                <td class="atc">B02BD06</td>
+                <td class="princ">FATTORE VIII UMANO DI COAGULAZIONE/FATTORE DI VON WILLEBRAND</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039385048</td>
+                <td class="farm">WILATE*FL1000+1000UI+FL10ML+SI</td>
+                <td class="atc">B02BD06</td>
+                <td class="princ">FATTORE VIII UMANO DI COAGULAZIONE/FATTORE DI VON WILLEBRAND</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036694014</td>
+                <td class="farm">WILZIN*FL 250CPS 25MG</td>
+                <td class="atc">A16AX05</td>
+                <td class="princ">ZINCO ACETATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036694026</td>
+                <td class="farm">WILZIN*FL 250CPS 50MG</td>
+                <td class="atc">A16AX05</td>
+                <td class="princ">ZINCO ACETATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036745014</td>
+                <td class="farm">XAGRID*FL 100CPS 0,5MG</td>
+                <td class="atc">L01XX35</td>
+                <td class="princ">ANAGRELIDE CLORIDRATO</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038744278</td>
+                <td class="farm">XARELTO*56CPR RIV 2,5MG</td>
+                <td class="atc">B01AF01</td>
+                <td class="princ">RIVAROXABAN</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035219029</td>
+                <td class="farm">XELODA*120CPR RIV 500MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035219017</td>
+                <td class="farm">XELODA*60CPR RIV 150MG</td>
+                <td class="atc">L01BC06</td>
+                <td class="princ">CAPECITABINA</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036892089</td>
+                <td class="farm">XOLAIR*SC 1SIR 150MG 1ML</td>
+                <td class="atc">R03DX05</td>
+                <td class="princ">OMALIZUMAB</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036892053</td>
+                <td class="farm">XOLAIR*SC 1SIR 75MG 0,5ML</td>
+                <td class="atc">R03DX05</td>
+                <td class="princ">OMALIZUMAB</td>
+                <td class="pt">PT</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035798014</td>
+                <td class="farm">ZAVESCA*84CPS 100MG</td>
+                <td class="atc">A16AX06</td>
+                <td class="princ">MIGLUSTAT</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">027743032</td>
+                <td class="farm">ZOMACTON*SC 1FL 4MG+F 3,5 SOLV</td>
+                <td class="atc">H01AC01</td>
+                <td class="princ">SOMATROPINA</td>
+                <td class="pt">PT - Nota 39</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043585025</td>
+                <td class="farm">ZYCLARA*CR 3,75% 28BUST 250MG</td>
+                <td class="atc">D06BB10</td>
+                <td class="princ">IMIQUIMOD</td>
+                <td class="pt">PT - Nota 95 *</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035410226</td>
+                <td class="farm">ZYVOXID*10CPR RIV 600MG BLIST</td>
+                <td class="atc">J01XX08</td>
+                <td class="princ">LINEZOLID</td>
+                <td class="pt"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035410075</td>
+                <td class="farm">ZYVOXID*OS GRATxSOSP 100MG/5ML</td>
+                <td class="atc">J01XX08</td>
+                <td class="princ">LINEZOLID</td>
+                <td class="pt"></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+</div>
+
+<script>
+(function () {
+    "use strict";
+    var inputs = {
+        global: document.getElementById("q-global"),
+        aic: document.getElementById("q-aic"),
+        farm: document.getElementById("q-farm"),
+        atc: document.getElementById("q-atc"),
+        princ: document.getElementById("q-princ"),
+        pt: document.getElementById("q-pt")
+    };
+    var resetBtn = document.getElementById("reset-filters");
+    var countInfo = document.getElementById("count-info");
+
+    function groupRows(tbody) {
+        var groups = [];
+        var current = null;
+        Array.prototype.forEach.call(tbody.rows, function (row) {
+            if (row.classList.contains("note")) {
+                if (current) { current.rows.push(row); groups.push(current); current = null; }
+                else { groups.push({ rows: [row], drugs: [] }); }
+            } else {
+                if (!current) current = { rows: [], drugs: [] };
+                current.rows.push(row);
+                current.drugs.push(row);
+            }
+        });
+        if (current) groups.push(current);
+        return groups;
+    }
+
+    function rowText(row, colIdx) {
+        if (!row.cells || !row.cells[colIdx]) return "";
+        return (row.cells[colIdx].textContent || "").toLowerCase();
+    }
+
+    function passes(row) {
+        var aic = rowText(row, 0);
+        var farm = rowText(row, 1);
+        var atc = rowText(row, 2);
+        var princ = rowText(row, 3);
+        var pt = rowText(row, 4);
+        var all = (aic + " " + farm + " " + atc + " " + princ + " " + pt).toLowerCase();
+
+        var g = (inputs.global.value || "").toLowerCase().trim();
+        if (g && all.indexOf(g) === -1) return false;
+        var a = (inputs.aic.value || "").toLowerCase().trim();
+        if (a && aic.indexOf(a) === -1) return false;
+        var f = (inputs.farm.value || "").toLowerCase().trim();
+        if (f && farm.indexOf(f) === -1) return false;
+        var t = (inputs.atc.value || "").toLowerCase().trim();
+        if (t && atc.indexOf(t) === -1) return false;
+        var p = (inputs.princ.value || "").toLowerCase().trim();
+        if (p && princ.indexOf(p) === -1) return false;
+        var ptv = (inputs.pt.value || "").toLowerCase().trim();
+        if (ptv && pt.indexOf(ptv) === -1) return false;
+        return true;
+    }
+
+    function applyFilters() {
+        var tables = document.querySelectorAll("table.dpc");
+        var totalVisible = 0;
+        var totalAll = 0;
+        var sectionHasVisible = false;
+        tables.forEach(function (table) {
+            var tbody = table.tBodies[0];
+            if (!tbody) return;
+            var groups = groupRows(tbody);
+            groups.forEach(function (g) {
+                var drugs = g.drugs || [];
+                var anyVisible = drugs.some(passes);
+                if (anyVisible) sectionHasVisible = true;
+                drugs.forEach(function (r) {
+                    totalAll++;
+                    if (anyVisible && passes(r)) {
+                        r.style.display = "";
+                        totalVisible++;
+                    } else {
+                        r.style.display = "none";
+                    }
+                });
+                g.rows.forEach(function (r) {
+                    if (r.classList.contains("note")) {
+                        r.style.display = anyVisible ? "" : "none";
+                    }
+                });
+            });
+        });
+        var sec = document.querySelector("section.page-block");
+        if (sec) sec.style.display = sectionHasVisible ? "" : "none";
+        if (countInfo) countInfo.textContent = totalVisible + " / " + totalAll + " righe visibili";
+    }
+
+    Object.keys(inputs).forEach(function (k) {
+        if (inputs[k]) inputs[k].addEventListener("input", applyFilters);
+    });
+    if (resetBtn) {
+        resetBtn.addEventListener("click", function () {
+            Object.keys(inputs).forEach(function (k) {
+                if (inputs[k]) inputs[k].value = "";
+            });
+            applyFilters();
+        });
+    }
+    applyFilters();
+})();
+</script>
+
+<script>
+(function () {
+    "use strict";
+    function setup(table) {
+        if (!table) return;
+        var tbody = table.tBodies[0];
+        if (!tbody) return;
+        var ths = table.querySelectorAll("thead th.sortable");
+        function groupRows() {
+            var groups = [];
+            var current = null;
+            Array.prototype.forEach.call(tbody.rows, function (row) {
+                if (row.classList.contains("note")) {
+                    if (current) { current.rows.push(row); groups.push(current); current = null; }
+                    else { groups.push({ rows: [row] }); }
+                } else {
+                    if (!current) current = { rows: [] };
+                    current.rows.push(row);
+                }
+            });
+            if (current) groups.push(current);
+            return groups;
+        }
+        function cellText(row, col) {
+            if (!row || !row.cells || !row.cells[col]) return "";
+            return (row.cells[col].textContent || "").trim();
+        }
+        function compare(a, b, col, dir) {
+            var ra = a.rows.find(function (r) { return r.classList.contains("drug"); }) || a.rows[0];
+            var rb = b.rows.find(function (r) { return r.classList.contains("drug"); }) || b.rows[0];
+            var va = cellText(ra, col);
+            var vb = cellText(rb, col);
+            var na = parseFloat(va.replace(/\s/g, ""));
+            var nb = parseFloat(vb.replace(/\s/g, ""));
+            var cmp;
+            if (!isNaN(na) && !isNaN(nb) && /^\d/.test(va) && /^\d/.test(vb)) {
+                cmp = na - nb;
+            } else {
+                cmp = va.localeCompare(vb, "it", { sensitivity: "base", numeric: true });
+            }
+            return dir === "asc" ? cmp : -cmp;
+        }
+        ths.forEach(function (th) {
+            th.addEventListener("click", function () {
+                var col = parseInt(th.getAttribute("data-col"), 10);
+                var dir = th.classList.contains("asc") ? "desc" : "asc";
+                ths.forEach(function (t) { t.classList.remove("asc", "desc"); });
+                th.classList.add(dir);
+                var groups = groupRows();
+                groups.sort(function (a, b) { return compare(a, b, col, dir); });
+                groups.forEach(function (g) {
+                    g.rows.forEach(function (r) { tbody.appendChild(r); });
+                });
+            });
+        });
+    }
+    document.querySelectorAll("table.dpc").forEach(setup);
+})();
+</script>
+</body>
+</html>

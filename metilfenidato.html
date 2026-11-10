@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elenco Farmaci Distribuiti in DPC — pag. 41</title>
+<style>
+
+    :root {
+        --bg1: #0f172a;
+        --bg2: #1e293b;
+        --accent: #38bdf8;
+        --accent2: #a78bfa;
+        --glass: rgba(255, 255, 255, 0.06);
+        --glass-border: rgba(255, 255, 255, 0.16);
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        min-height: 100vh;
+        background: #0f172a;
+        color: var(--text);
+        padding: 32px 16px 48px;
+    }
+    .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.35;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .orb.o1 { width: 400px; height: 400px; background: #38bdf8; top: -120px; left: -100px; }
+    .orb.o2 { width: 340px; height: 340px; background: #a78bfa; bottom: -100px; right: -80px; }
+    .orb.o3 { width: 260px; height: 260px; background: #f472b6; top: 40%; left: 50%; }
+    .orb.o4 { width: 200px; height: 200px; background: #34d399; top: 20%; right: 15%; }
+    .container { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; }
+    .back {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .back:hover { text-decoration: underline; }
+    .page, .page-block, section.page-block {
+        background: var(--glass);
+        backdrop-filter: blur(14px) saturate(140%);
+        -webkit-backdrop-filter: blur(14px) saturate(140%);
+        border: 1px solid var(--glass-border);
+        border-radius: 18px;
+        padding: 26px 24px 40px;
+        box-shadow: 0 1px 6px rgba(0,0,0,0.25);
+    }
+    .indice-box {
+        position: absolute;
+        top: 14px;
+        right: 18px;
+        border: 1px solid var(--glass-border);
+        background: rgba(255,255,255,0.06);
+        padding: 2px 10px;
+        border-radius: 8px;
+        line-height: 1;
+    }
+    .indice-box a {
+        color: var(--accent);
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: bold;
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 1px;
+    }
+    h1, h1.doc-title, h2, h3 {
+        color: var(--text);
+    }
+    h1.doc-title {
+        margin: 34px auto 26px;
+        text-align: center;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(26px, 4.5vw, 38px);
+        line-height: 1.15;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #FF2800;
+    }
+    .bar-green {
+        background: linear-gradient(90deg, #22c55e, #16a34a);
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+        letter-spacing: 0.5px;
+        padding: 8px 10px;
+        border: 1px solid var(--glass-border);
+        border-bottom: none;
+        border-radius: 10px 10px 0 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 18px;
+        background: rgba(255,255,255,0.03);
+    }
+    th, td {
+        padding: 6px 9px;
+        vertical-align: middle;
+        border: 1px solid var(--glass-border);
+        color: var(--text);
+        font-size: 13px;
+    }
+    th {
+        background: rgba(56, 189, 248, 0.12);
+        font-weight: bold;
+        text-align: center;
+    }
+    table.dpc th.sortable {
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        padding-right: 16px;
+    }
+    table.dpc th.sortable::after {
+        content: " ⇅";
+        font-size: 11px;
+        color: var(--muted);
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    table.dpc th.sortable.asc::after  { content: " ▲"; color: var(--accent); }
+    table.dpc th.sortable.desc::after { content: " ▼"; color: var(--accent); }
+    table.dpc th.sortable:hover { background: rgba(56, 189, 248, 0.22); }
+    td.aic, td.minsan { white-space: nowrap; }
+    tr.note td, .note {
+        background: rgba(255,255,255,0.04);
+        font-style: italic;
+        color: var(--muted);
+    }
+    p, .note { line-height: 1.5; margin: 8px 0; }
+    ul { margin: 8px 0 8px 22px; line-height: 1.5; }
+    .footer {
+        position: relative;
+        margin-top: 44px;
+        min-height: 60px;
+    }
+    .brand {
+        position: absolute;
+        left: 0;
+        top: 14px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .page-number {
+        width: 54px;
+        height: 54px;
+        margin: 0 auto;
+        border: 1px solid var(--glass-border);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 16px;
+        background: radial-gradient(circle at center, rgba(255,255,255,0.12) 55%, rgba(255,255,255,0.04) 100%);
+    }
+
+</style>
+</head>
+<body>
+<div class="container">
+<a class="back" href="index.html">← Home</a>
+<div class="page">
+    <h1 class="doc-title">Elenco Farmaci<br>Distribuiti in DPC</h1>
+
+
+        <span class="center-only">va invitato a recarsi presso le strutture ASP</span>
+    </div>
+
+    <!-- ================= METILFENIDATO ================= -->
+    <div class="bar-green">METILFENIDATO CLORIDRATO DPC MA DA EROGARE IN CONVENZIONATA</div>
+    <table class="dpc">
+        <thead>
+            <tr>
+                <th class="sortable" data-col="0">Minsan</th>
+                <th class="sortable" data-col="1">Descrizione</th>
+                <th class="sortable" data-col="2">Principio Attivo</th>
+                <th class="sortable" data-col="3">ATC</th>
+                <th class="sortable" data-col="4">PT AIFA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="drug">
+                <td class="minsan">041889041</td>
+                <td class="descr">EQUASYM*30CPS 10MG RM</td>
+                <td class="princ">METILFENIDATO CLORIDRATO *</td>
+                <td class="atc">N06BA04</td>
+                <td class="pt">PT AIFA - MMR Stup.II^sez.A</td>
+            </tr>
+            <tr class="drug">
+                <td class="minsan">041889104</td>
+                <td class="descr">EQUASYM*30CPS 20MG RM</td>
+                <td class="princ">METILFENIDATO CLORIDRATO *</td>
+                <td class="atc">N06BA04</td>
+                <td class="pt">PT AIFA - MMR Stup.II^sez.A</td>
+            </tr>
+            <tr class="drug">
+                <td class="minsan">041889155</td>
+                <td class="descr">EQUASYM*30CPS 30MG RM</td>
+                <td class="princ">METILFENIDATO CLORIDRATO *</td>
+                <td class="atc">N06BA04</td>
+                <td class="pt">PT AIFA - MMR Stup.II^sez.A</td>
+            </tr>
+            <tr class="note">
+                <td colspan="5">
+                    Indicata x disturbo deficit e iperattività (ADHD) bambini dai 6 anni e adolescenti se correttive risultano insufficienti<br>
+                    <strong>NON erogabile</strong> a soggetti già in trattamento prima del 18° anno di età (nemmeno dall'ASP)
+                </td>
+            </tr>
+            <tr class="drug">
+                <td class="minsan">041438045</td>
+                <td class="descr">MEDIKINET*30CPS 10MG RM</td>
+                <td class="princ">METILFENIDATO CLORIDRATO *</td>
+                <td class="atc">N06BA04</td>
+                <td class="pt">PT AIFA - MMR Stup.II^sez.A [agg. 19/10/2023 – AIFA/RITA] rimborsabile SSN anche adulto nuova diagnosi</td>
+            </tr>
+            <tr class="drug">
+                <td class="minsan">041438060</td>
+                <td class="descr">MEDIKINET*30CPS 20MG RM</td>
+                <td class="princ">METILFENIDATO CLORIDRATO *</td>
+                <td class="atc">N06BA04</td>
+                <td class="pt">PT AIFA - MMR Stup.II^sez.A [agg. 19/10/2023 – AIFA/RITA] rimborsabile SSN anche adulto nuova diagnosi</td>
+            </tr>
+            <tr class="drug">
+                <td class="minsan">041438084</td>
+                <td class="descr">MEDIKINET*30CPS 30MG RM</td>
+                <td class="princ">METILFENIDATO CLORIDRATO *</td>
+                <td class="atc">N06BA04</td>
+                <td class="pt">PT AIFA - MMR Stup.II^sez.A [agg. 19/10/2023 – AIFA/RITA] rimborsabile SSN anche adulto nuova diagnosi</td>
+            </tr>
+            <tr class="drug">
+                <td class="minsan">041438108</td>
+                <td class="descr">MEDIKINET*30CPS 40MG RM</td>
+                <td class="princ">METILFENIDATO CLORIDRATO *</td>
+                <td class="atc">N06BA04</td>
+                <td class="pt">PT AIFA - MMR Stup.II^sez.A [agg. 19/10/2023 – AIFA/RITA] rimborsabile SSN anche adulto nuova diagnosi</td>
+            </tr>
+            <tr class="drug">
+                <td class="minsan">041438021</td>
+                <td class="descr">MEDIKINET*30CPS&nbsp; 5MG RM</td>
+                <td class="princ">METILFENIDATO CLORIDRATO *</td>
+                <td class="atc">N06BA04</td>
+                <td class="pt">PT AIFA - MMR Stup.II^sez.A [agg. 19/10/2023 – AIFA/RITA] rimborsabile SSN anche adulto nuova diagnosi</td>
+            </tr>
+            <tr class="note">
+                <td colspan="5">
+                    Indicata x disturbo deficit e iperattività (ADHD) bambini dai 6 anni e adolescenti se correttive risultano insufficienti<br>
+                    Inoltre anche adulti di nuova diagnosi oppure già in trattamento prima del 18° anno di età
+                </td>
+            </tr>
+            <tr class="drug">
+                <td class="minsan">035040017</td>
+                <td class="descr">RITALIN*30CPR 10MG</td>
+                <td class="princ">METILFENIDATO CLORIDRATO *</td>
+                <td class="atc">N06BA04</td>
+                <td class="pt">PT AIFA - MMR Stup.II^sez.A</td>
+            </tr>
+            <tr class="note">
+                <td colspan="5">
+                    Indicata x disturbo deficit e iperattività (ADHD) bambini dai 6 anni e adolescenti se correttive risultano insufficienti<br>
+                    Per adulti elenco della <strong>Legge 648/1996 e non può essere erogata dalle farmacie</strong> ma solo dalle strutture ASP
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="foot-note">* Prescrizione solo su ricetta Modello Ministeriale a Ricalco - MMR&nbsp; e&nbsp; Piano Terapeutico</div>
+    </div>
+
+</div>
+
+<script>
+(function () {
+    "use strict";
+    var table = document.querySelector("table.dpc");
+    if (!table) return;
+    var tbody = table.tBodies[0];
+    if (!tbody) return;
+    var ths = table.querySelectorAll("thead th.sortable");
+
+    function groupRows() {
+        var groups = [];
+        var current = null;
+        Array.prototype.forEach.call(tbody.rows, function (row) {
+            if (row.classList.contains("note")) {
+                if (current) { current.rows.push(row); groups.push(current); current = null; }
+                else { groups.push({ rows: [row] }); }
+            } else {
+                if (!current) current = { rows: [] };
+                current.rows.push(row);
+            }
+        });
+        if (current) groups.push(current);
+        return groups;
+    }
+
+    function cellText(row, col) {
+        if (!row || !row.cells || !row.cells[col]) return "";
+        return (row.cells[col].textContent || "").trim();
+    }
+
+    function compare(a, b, col, dir) {
+        var ra = a.rows.find(function (r) { return r.classList.contains("drug"); }) || a.rows[0];
+        var rb = b.rows.find(function (r) { return r.classList.contains("drug"); }) || b.rows[0];
+        var va = cellText(ra, col);
+        var vb = cellText(rb, col);
+        // ordinamento numerico se entrambi numerici (es. Minsan)
+        var na = parseFloat(va.replace(/\s/g, ""));
+        var nb = parseFloat(vb.replace(/\s/g, ""));
+        var cmp;
+        if (!isNaN(na) && !isNaN(nb) && /^\d/.test(va) && /^\d/.test(vb)) {
+            cmp = na - nb;
+        } else {
+            cmp = va.localeCompare(vb, "it", { sensitivity: "base", numeric: true });
+        }
+        return dir === "asc" ? cmp : -cmp;
+    }
+
+    ths.forEach(function (th) {
+        th.addEventListener("click", function () {
+            var col = parseInt(th.getAttribute("data-col"), 10);
+            var dir = th.classList.contains("asc") ? "desc" : "asc";
+            // reset indicatori
+            ths.forEach(function (t) { t.classList.remove("asc", "desc"); });
+            th.classList.add(dir);
+
+            var groups = groupRows();
+            groups.sort(function (a, b) { return compare(a, b, col, dir); });
+
+            // riappendi in ordine
+            groups.forEach(function (g) {
+                g.rows.forEach(function (r) { tbody.appendChild(r); });
+            });
+        });
+    });
+})();
+</script>
+
+</div>
+</body>
+</html>

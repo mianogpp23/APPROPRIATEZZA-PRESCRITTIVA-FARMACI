@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elenco Farmaci DPC — Home</title>
+<style>
+    :root {
+        --bg1: #0f172a;
+        --bg2: #1e293b;
+        --accent: #38bdf8;
+        --accent2: #a78bfa;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+        min-height: 100vh;
+        background: radial-gradient(1200px 600px at 20% 10%, #1e3a8a 0%, transparent 60%),
+                    radial-gradient(1000px 500px at 80% 90%, #4c1d95 0%, transparent 60%),
+                    linear-gradient(135deg, var(--bg1), var(--bg2));
+        color: var(--text);
+        overflow: hidden;
+    }
+
+    .stage {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h1.title {
+        position: absolute;
+        top: 36px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: clamp(20px, 3.5vw, 34px);
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        z-index: 5;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .circle-wrap {
+        position: relative;
+        width: min(78vmin, 720px);
+        height: min(78vmin, 720px);
+        animation: spin 40s linear infinite;
+    }
+
+    .sphere {
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 180px; height: 180px;
+        margin: -90px 0 0 -90px;
+        border-radius: 50%;
+        background:
+            radial-gradient(circle at 28% 22%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.2) 14%, transparent 28%),
+            radial-gradient(circle at 22% 48%, rgba(34,197,94,0.6) 0%, rgba(34,197,94,0.0) 18%),
+            radial-gradient(circle at 68% 42%, rgba(34,197,94,0.55) 0%, rgba(34,197,94,0.0) 20%),
+            radial-gradient(circle at 40% 72%, rgba(34,197,94,0.5) 0%, rgba(34,197,94,0.0) 22%),
+            radial-gradient(circle at 78% 68%, rgba(34,197,94,0.45) 0%, rgba(34,197,94,0.0) 16%),
+            radial-gradient(circle at 50% 50%, #1d4ed8 0%, #1e3a8a 30%, #0f172a 70%, #020617 100%);
+        border: 1px solid rgba(147, 197, 253, 0.35);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        padding: 8px;
+        box-shadow:
+            inset -10px -14px 28px rgba(0, 0, 0, 0.55),
+            inset 8px 10px 20px rgba(255, 255, 255, 0.12),
+            0 0 0 2px rgba(56, 189, 248, 0.15),
+            0 16px 40px rgba(0, 0, 0, 0.5),
+            0 0 30px rgba(56, 189, 248, 0.25);
+        transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.6s ease, box-shadow 0.3s ease;
+        opacity: 0;
+        will-change: transform, opacity;
+        z-index: 2;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .sphere::before {
+        content: "";
+        position: absolute;
+        top: 6%; left: 14%;
+        width: 38%; height: 26%;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%);
+        pointer-events: none; z-index: 0;
+    }
+    .sphere .inner {
+        position: relative; z-index: 1;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        animation: spinrev 40s linear infinite;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+    .sphere .num { font-size: 20px; font-weight: 700; color: #fff; }
+    .sphere .label { font-size: 18px; font-weight: 700; color: #fff; margin-top: 4px; }
+    .sphere:hover {
+        transform: scale(1.1) !important;
+        box-shadow:
+            inset -10px -14px 28px rgba(0, 0, 0, 0.55),
+            inset 8px 10px 20px rgba(255, 255, 255, 0.12),
+            0 0 0 2px rgba(56, 189, 248, 0.4),
+            0 16px 40px rgba(0, 0, 0, 0.5),
+            0 0 40px rgba(56, 189, 248, 0.45);
+    }
+
+    .center-dot {
+        position: absolute; top: 50%; left: 50%;
+        width: 14px; height: 14px; margin: -7px 0 0 -7px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        box-shadow: 0 0 24px rgba(56, 189, 248, 0.6);
+        z-index: 1;
+    }
+
+    .sphere-stage-footer {
+        position: absolute;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--muted);
+        font-size: 12px;
+        z-index: 5;
+        text-align: center;
+    }
+
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes spinrev { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+    @media (max-width: 600px) {
+        .sphere { width: 130px; height: 130px; margin: -65px 0 0 -65px; }
+        .sphere .label { font-size: 14px; }
+    }
+</style>
+</head>
+<body>
+
+<div class="stage">
+    <h1 class="title">Elenco Farmaci DPC</h1>
+    <div class="circle-wrap" id="wrap">
+        <div class="center-dot"></div>
+    </div>
+    <div class="sphere-stage-footer">Clicca una sfera per aprire l'elenco.</div>
+</div>
+
+<script>
+(function () {
+    "use strict";
+
+    var items = [
+        { n: "01", label: "Metilfenidato", href: "metilfenidato.html" },
+        { n: "02", label: "Farmaci DPC", href: "farmaci_dpc.html" },
+        { n: "03", label: "Distr. diretta", href: "distribuzione_diretta.html" },
+        { n: "04", label: "Formalismi", href: "formalismi.html" },
+        { n: "05", label: "NO DPC", href: "farmaci_no_dpc.html" },
+        { n: "06", label: "Nota 99", href: "nota_99.html" }
+    ];
+
+    var wrap = document.getElementById("wrap");
+    var N = items.length;
+    var radius = wrap.clientWidth * 0.42;
+
+    var nodes = items.map(function (it) {
+        var a = document.createElement("a");
+        a.className = "sphere";
+        a.href = it.href;
+        a.innerHTML = '<div class="inner"><span class="num">' + it.n + '</span><span class="label">' + it.label + '</span></div>';
+        wrap.appendChild(a);
+        return a;
+    });
+
+    var finals = items.map(function (it, i) {
+        var angle = (i / N) * Math.PI * 2 - Math.PI / 2;
+        return { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius };
+    });
+
+    nodes.forEach(function (node, i) {
+        var startX = (Math.random() - 0.5) * window.innerWidth * 0.6;
+        var startY = window.innerHeight * 0.6 + Math.random() * 200;
+        node.style.transform = "translate(" + startX + "px, " + startY + "px) scale(0.3)";
+        node.style.opacity = "0";
+        node.style.transitionDelay = (i * 0.08 + Math.random() * 0.2) + "s";
+    });
+
+    requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+            nodes.forEach(function (node, i) {
+                var f = finals[i];
+                node.style.transform = "translate(" + f.x + "px, " + f.y + "px) scale(1)";
+                node.style.opacity = "1";
+            });
+        });
+    });
+
+    nodes.forEach(function (node, i) {
+        var f = finals[i];
+        node.addEventListener("mouseenter", function () {
+            node.style.transition = "transform 0.25s ease, box-shadow 0.3s ease";
+            node.style.transform = "translate(" + f.x + "px, " + f.y + "px) scale(1.1)";
+        });
+        node.addEventListener("mouseleave", function () {
+            node.style.transition = "transform 1.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.6s ease, box-shadow 0.3s ease";
+            node.style.transform = "translate(" + f.x + "px, " + f.y + "px) scale(1)";
+        });
+    });
+
+    window.addEventListener("resize", function () {
+        radius = wrap.clientWidth * 0.42;
+        finals.forEach(function (f, i) {
+            var angle = (i / N) * Math.PI * 2 - Math.PI / 2;
+            f.x = Math.cos(angle) * radius;
+            f.y = Math.sin(angle) * radius;
+        });
+        nodes.forEach(function (node, i) {
+            var f = finals[i];
+            node.style.transform = "translate(" + f.x + "px, " + f.y + "px) scale(1)";
+        });
+    });
+})();
+</script>
+<a href="index_list.html" style="position:fixed;top:16px;right:20px;z-index:20;padding:8px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.06);color:#e2e8f0;font-weight:600;font-size:13px;text-decoration:none;">Vista lista</a>
+</body>
+</html>
+EOF
+echo "written"

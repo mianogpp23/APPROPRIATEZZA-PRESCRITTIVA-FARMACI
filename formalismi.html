@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIEPILOGO FORMALISMI VIGENTI SOLO IN SICILIA — pag. 64</title>
+<style>
+
+    :root {
+        --bg1: #0f172a;
+        --bg2: #1e293b;
+        --accent: #38bdf8;
+        --accent2: #a78bfa;
+        --glass: rgba(255, 255, 255, 0.06);
+        --glass-border: rgba(255, 255, 255, 0.16);
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        min-height: 100vh;
+        background: #0f172a;
+        color: var(--text);
+        padding: 32px 16px 48px;
+    }
+    .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.35;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .orb.o1 { width: 400px; height: 400px; background: #38bdf8; top: -120px; left: -100px; }
+    .orb.o2 { width: 340px; height: 340px; background: #a78bfa; bottom: -100px; right: -80px; }
+    .orb.o3 { width: 260px; height: 260px; background: #f472b6; top: 40%; left: 50%; }
+    .orb.o4 { width: 200px; height: 200px; background: #34d399; top: 20%; right: 15%; }
+    .container { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; }
+    .back {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .back:hover { text-decoration: underline; }
+    .page, .page-block, section.page-block {
+        background: var(--glass);
+        backdrop-filter: blur(14px) saturate(140%);
+        -webkit-backdrop-filter: blur(14px) saturate(140%);
+        border: 1px solid var(--glass-border);
+        border-radius: 18px;
+        padding: 26px 24px 40px;
+        box-shadow: 0 1px 6px rgba(0,0,0,0.25);
+    }
+    .indice-box {
+        position: absolute;
+        top: 14px;
+        right: 18px;
+        border: 1px solid var(--glass-border);
+        background: rgba(255,255,255,0.06);
+        padding: 2px 10px;
+        border-radius: 8px;
+        line-height: 1;
+    }
+    .indice-box a {
+        color: var(--accent);
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: bold;
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 1px;
+    }
+    h1, h1.doc-title {
+        color: var(--text);
+    }
+    h2, h3 {
+        color: #7FFF00;
+        text-align: center;
+    }
+    h1.doc-title {
+        margin: 34px auto 26px;
+        text-align: center;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(26px, 4.5vw, 38px);
+        line-height: 1.15;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #FF2800;
+    }
+    .bar-green {
+        background: linear-gradient(90deg, #22c55e, #16a34a);
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+        letter-spacing: 0.5px;
+        padding: 8px 10px;
+        border: 1px solid var(--glass-border);
+        border-bottom: none;
+        border-radius: 10px 10px 0 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 18px;
+        background: rgba(255,255,255,0.03);
+    }
+    th, td {
+        padding: 6px 9px;
+        vertical-align: middle;
+        border: 1px solid var(--glass-border);
+        color: var(--text);
+        font-size: 13px;
+    }
+    th {
+        background: rgba(56, 189, 248, 0.12);
+        font-weight: bold;
+        text-align: center;
+    }
+    table.dpc th.sortable {
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        padding-right: 16px;
+    }
+    table.dpc th.sortable::after {
+        content: " ⇅";
+        font-size: 11px;
+        color: var(--muted);
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    table.dpc th.sortable.asc::after  { content: " ▲"; color: var(--accent); }
+    table.dpc th.sortable.desc::after { content: " ▼"; color: var(--accent); }
+    table.dpc th.sortable:hover { background: rgba(56, 189, 248, 0.22); }
+    td.aic, td.minsan { white-space: nowrap; }
+    tr.note td, .note {
+        background: rgba(255,255,255,0.04);
+        font-style: italic;
+        color: var(--muted);
+    }
+    p, .note { line-height: 1.5; margin: 8px 0; }
+    ul { margin: 8px 0 8px 22px; line-height: 1.5; }
+    .footer {
+        position: relative;
+        margin-top: 44px;
+        min-height: 60px;
+    }
+    .brand {
+        position: absolute;
+        left: 0;
+        top: 14px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .page-number {
+        width: 54px;
+        height: 54px;
+        margin: 0 auto;
+        border: 1px solid var(--glass-border);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 16px;
+        background: radial-gradient(circle at center, rgba(255,255,255,0.12) 55%, rgba(255,255,255,0.04) 100%);
+    }
+
+</style>
+</head>
+<body>
+<div class="container">
+<a class="back" href="index.html">← Home</a>
+<div class="page">
+    <h1 class="doc-title">RIEPILOGO FORMALISMI<br>VIGENTI SOLO IN SICILIA PER L'EROGAZIONE<br>PER ALCUNE CATEGORIE DI FARMACI</h1>
+
+    <h2>INSULINE EROGATE IN DPC CON SCHEDA MONITORAGGIO MOTIVATA 1^ PRESCRIZIONE</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Principio attivo</th>
+                <th>Farmaco o Tipologia di Farmaco</th>
+                <th>SM/PT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>INSULINA GLARGINE</td>
+                <td>LANTUS 100U/ML - TOUJEO 300U/ML = NO Scheda Monitoraggio</td>
+                <td>NO</td>
+            </tr>
+            <tr>
+                <td>E DETEMIR</td>
+                <td>ABASAGLAR - LEVEMIR = Dicitura su ricetta &ldquo;prescrizione di terapia a maggior costo &rdquo; altrimenti ---&gt;</td>
+                <td>SM</td>
+            </tr>
+            <tr>
+                <td>DEGLUTEC</td>
+                <td>TRESIBA = Eliminato Piano Terapeutico dal 17/10/2022 (circ.ass. n. 46580 del 17/10/2022)</td>
+                <td>NO</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>DUPLICE VIA DI DISTRIBUZIONE: EPARINE - ENOXAPARINE</h2>
+    <p>La ricetta DEM può essere erogata in Convenzionata solo se il Medico riporta nel campo note della ricetta la dicitura &ldquo;Erogare in Convenzionata&rdquo; ciò per superare la dicitura &ldquo;Farmaco DPC nella Regione di appartenenza &rdquo; che SistemaTS riporta sulla ricetta DEM (come indicato dall'Assessorato). Senza la dicitura va sempre erogata in DPC (per TVP - continuità terapeutica - chirurgia maggiore)</p>
+    <p>La ricetta Rossa va erogata in DPC (per TVP - continuità terapeutica - chirurgia maggiore) solo se il Medico riporta la dicitura &ldquo;DPC&rdquo; Senza la dicitura &ldquo;DPC&rdquo; erogare sempre in Convenzionata</p>
+    <p>EBPM: In caso di c.d. Terapia Ponte (Bridging Therapy) &ndash; trattamento del tromboembolismo nella sospensione degli anti-vitamina K (AVK) per manovre chirurgiche e/o invasive (bridging) - oppure - utilizzo nella profilassi delle trombosi venose profonde in pazienti oncologici ambulatoriali a rischio (KHORANA 3) - oppure - profilassi del tromboembolismo in gravidanza e puerperio per le pazienti a rischio, la prescrizione è specialistica con acquisizione del consenso informato e compilazione del registro, ai sensi della Legge 648/96 e pertanto, in questi casi le specialità si erogano esclusivamente in Distribuzione Diretta ASP</p>
+    <p>Fondaparinux -ARIXTRA è un farmaco autorizzato solo per TVP e quindi va sempre erogato in DPC</p>
+
+    <h3>ENOXAPARINA SODICA: EROGAZIONE IN DPC</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Principio attivo</th>
+                <th>Farmaco o Tipologia di Farmaco</th>
+                <th>SM</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ENOXAPARINA<br>SODICA *</td>
+                <td>INHIXA* = NO Scheda di Monitoraggio</td>
+                <td>SI</td>
+            </tr>
+            <tr>
+                <td>Erogabili in DPC solo se da 2000 e 4000 Ui</td>
+                <td>per le altre specialità allegare la scheda di monitoraggio &ldquo;motivata&rdquo;</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>*INHIXA x TVP - EP pure</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>6000 - 8000 - 10000Ui</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Erogare in DPC se ricetta Rossa con dicitura &ldquo;DPC&rdquo; oppure se DEM senza dicitura &ldquo;Erogare in convenzionata&rdquo;</td>
+                <td>NO</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>ENOXAPARINA SODICA: EROGAZIONE IN CONVENZIONATA</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Principio attivo</th>
+                <th>Farmaco o Tipologia di Farmaco</th>
+                <th>SM</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ENOXAPARINA<br>SODICA</td>
+                <td>CLEXANE Ricetta con dicitura &ldquo;Paziente in continuità terapeutica&rdquo; altrimenti allegare scheda monitoraggio<br>Solo se da 2000 e 4000 Ui erogare in Convenzionata se ricetta Rossa senza dicitura &ldquo;DPC&rdquo; oppure se DEM con dicitura &ldquo;Erogare in convenzionata&rdquo;</td>
+                <td>SI</td>
+            </tr>
+            <tr>
+                <td>ENOXAPARINA<br>SODICA</td>
+                <td>GHEMAXAN - ENOXAPARINA ROVI - INHIXA - ROVINADIL* = NO Scheda di Monitoraggio<br>Erogabili tutti i dosaggi<br>Solo se da 2000 e 4000 Ui erogare in Convenzionata se ricetta Rossa senza alcuna dicitura &ldquo;DPC&rdquo; oppure se DEM con dicitura &ldquo;Erogare in convenzionata&rdquo;</td>
+                <td>NO</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="note">* ROVINADIL non è inclusa tra le specialità in DPC perché non è andata a gara, quindi, risulta erogabile solo in Convenzionata in tutti i dosaggi (No DPC)</p>
+    <p class="note">Se la ricetta Dematerializzata è di &ldquo;Fuori Regione&rdquo; o del tipo NA (naviganti) la farmacia NON deve allegare la scheda.</p>
+
+    <h2>INSULINE RAPIDE a far data dal 20/06/2022</h2>
+    <p>Il Farmacista all&rsquo;atto della dispensazione delle Insuline a maggior costo/DDD, come evidenziate dall&rsquo;ASP nella seguente tabella:</p>
+    <p>avrà cura di verificare:</p>
+    <ul>
+        <li>Prescrizione a pazienti naive (prima prescrizione): il Prescrittore sulla ricetta DEM apporrà nel campo &ldquo;motivazNote&rdquo; la dicitura &ldquo;prescrizione di terapia a maggior costo&rdquo; e ciò vale, così come precisato per le vie brevi dall&rsquo;Assessorato, anche nel caso di ricetta Rossa sulla quale dovrà essere riscontrata analoga dicitura nel corpo della prescrizione.</li>
+        <li>Prescrizione a pazienti già in trattamento (prosecuzione): il Prescrittore apporrà nel campo &ldquo;motivazNote&rdquo; la dicitura &ldquo;continuità terapeutica&rdquo; per indicare che quel paziente era già in terapia con detti farmaci.</li>
+    </ul>
+    <p>Dette disposizioni NON si applicano ai farmaci indicati nella tabella a minor costo/DDD.</p>
+    <p>Si ricorda che all&rsquo;atto della dispensazione del medicinale NON è consentita la sostituzione automatica da originator a biosimilare e viceversa da parte del Farmacista, quindi, occorre rimandare l&rsquo;utente dal medico per ottenere la prescrizione di un farmaco diverso.</p>
+    </div>
+
+</div>
+</div>
+</body>
+</html>

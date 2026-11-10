@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nota 99 — pagg. 66-67</title>
+<style>
+
+    :root {
+        --bg1: #0f172a;
+        --bg2: #1e293b;
+        --accent: #38bdf8;
+        --accent2: #a78bfa;
+        --glass: rgba(255, 255, 255, 0.06);
+        --glass-border: rgba(255, 255, 255, 0.16);
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        min-height: 100vh;
+        background: #0f172a;
+        color: var(--text);
+        padding: 32px 16px 48px;
+    }
+    .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.35;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .orb.o1 { width: 400px; height: 400px; background: #38bdf8; top: -120px; left: -100px; }
+    .orb.o2 { width: 340px; height: 340px; background: #a78bfa; bottom: -100px; right: -80px; }
+    .orb.o3 { width: 260px; height: 260px; background: #f472b6; top: 40%; left: 50%; }
+    .orb.o4 { width: 200px; height: 200px; background: #34d399; top: 20%; right: 15%; }
+    .container { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; }
+    .back {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .back:hover { text-decoration: underline; }
+    .page, .page-block, section.page-block {
+        background: var(--glass);
+        backdrop-filter: blur(14px) saturate(140%);
+        -webkit-backdrop-filter: blur(14px) saturate(140%);
+        border: 1px solid var(--glass-border);
+        border-radius: 18px;
+        padding: 26px 24px 40px;
+        box-shadow: 0 1px 6px rgba(0,0,0,0.25);
+    }
+    .indice-box {
+        position: absolute;
+        top: 14px;
+        right: 18px;
+        border: 1px solid var(--glass-border);
+        background: rgba(255,255,255,0.06);
+        padding: 2px 10px;
+        border-radius: 8px;
+        line-height: 1;
+    }
+    .indice-box a {
+        color: var(--accent);
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: bold;
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 1px;
+    }
+    h1, h1.doc-title, h2, h3 {
+        color: var(--text);
+    }
+    h1.doc-title {
+        margin: 34px auto 26px;
+        text-align: center;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(26px, 4.5vw, 38px);
+        line-height: 1.15;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #FF2800;
+    }
+    .bar-green {
+        background: linear-gradient(90deg, #22c55e, #16a34a);
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+        letter-spacing: 0.5px;
+        padding: 8px 10px;
+        border: 1px solid var(--glass-border);
+        border-bottom: none;
+        border-radius: 10px 10px 0 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 18px;
+        background: rgba(255,255,255,0.03);
+    }
+    th, td {
+        padding: 6px 9px;
+        vertical-align: middle;
+        border: 1px solid var(--glass-border);
+        color: var(--text);
+        font-size: 13px;
+    }
+    th {
+        background: rgba(56, 189, 248, 0.12);
+        font-weight: bold;
+        text-align: center;
+    }
+    table.dpc th.sortable {
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        padding-right: 16px;
+    }
+    table.dpc th.sortable::after {
+        content: " ⇅";
+        font-size: 11px;
+        color: var(--muted);
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    table.dpc th.sortable.asc::after  { content: " ▲"; color: var(--accent); }
+    table.dpc th.sortable.desc::after { content: " ▼"; color: var(--accent); }
+    table.dpc th.sortable:hover { background: rgba(56, 189, 248, 0.22); }
+    td.aic, td.minsan { white-space: nowrap; }
+    tr.note td, .note {
+        background: rgba(255,255,255,0.04);
+        font-style: italic;
+        color: var(--muted);
+    }
+    p, .note { line-height: 1.5; margin: 8px 0; }
+    ul { margin: 8px 0 8px 22px; line-height: 1.5; }
+    .footer {
+        position: relative;
+        margin-top: 44px;
+        min-height: 60px;
+    }
+    .brand {
+        position: absolute;
+        left: 0;
+        top: 14px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .page-number {
+        width: 54px;
+        height: 54px;
+        margin: 0 auto;
+        border: 1px solid var(--glass-border);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 16px;
+        background: radial-gradient(circle at center, rgba(255,255,255,0.12) 55%, rgba(255,255,255,0.04) 100%);
+    }
+
+
+    .page-block:not(:first-of-type) {
+        max-height: 60vh;
+        overflow-y: auto;
+        margin-top: 16px;
+    }
+    .page-block:not(:first-of-type) table { margin-bottom: 0; }
+
+
+    .filter-bar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        background: rgba(15, 23, 42, 0.85);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 12px;
+    }
+    .filter-bar input {
+        flex: 1 1 140px;
+        min-width: 120px;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.18);
+        background: rgba(255,255,255,0.06);
+        color: #e2e8f0;
+        font-size: 16px;
+        outline: none;
+    }
+    .filter-bar input:focus { border-color: #38bdf8; }
+    .filter-bar button {
+        padding: 12px 18px;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.18);
+        background: rgba(56,189,248,0.15);
+        color: #38bdf8;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .filter-bar button:hover { background: rgba(56,189,248,0.25); }
+    #count-info {
+        font-size: 12px;
+        color: #94a3b8;
+        margin-left: auto;
+        white-space: nowrap;
+    }
+
+
+    .page-title {
+        text-align: center;
+        color: #FF2800;
+        font-size: clamp(20px, 3.5vw, 30px);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 16px;
+        font-family: Georgia, "Times New Roman", serif;
+    }
+
+</style>
+</head>
+<body>
+<div class="container">
+<a class="back" href="index.html">← Home</a>
+    
+<h1 class="page-title">NOTA 99 - CONFEZIONI MEDICINALI PER USO INALATORIO</h1>
+<div class="filter-bar">
+    <input type="text" id="q-global" placeholder="Ricerca globale (tutte le colonne)..." />
+    <input type="text" id="q-aic" placeholder="AIC..." />
+    <input type="text" id="q-med" placeholder="Medicinale..." />
+    <input type="text" id="q-princ" placeholder="Principio attivo..." />
+    <input type="text" id="q-bpc" placeholder="Indicazioni BPCO..." />
+    <input type="text" id="q-ssn" placeholder="SSN..." />
+    <button id="reset-filters">Reset</button>
+    <span id="count-info"></span>
+</div>
+
+<section class="page-block" id="unified">
+        
+        <table class="dpc">
+            <thead><tr><thead>
+                <tr>
+                    <th class="sortable" data-col="0">AIC</th><th class="sortable" data-col="1">Medicinale</th><th class="sortable" data-col="2">Principio attivo</th><th class="sortable" data-col="3">Indicazioni BPCO</th><th class="sortable" data-col="4">SSN non soggette a Nota 99</th></tr></thead>
+            <tbody>
+<tr class="drug">
+                <td class="aic">042292021</td>
+                <td class="med">ABRIFF*120 dosi sosp inal 125 mcg + 5 mcg</td>
+                <td class="princ">FLUTICASONE PROPIONATO/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042292033</td>
+                <td class="med">ABRIFF*120 dosi sosp inal 250 mcg + 10 mcg</td>
+                <td class="princ">FLUTICASONE PROPIONATO/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042292019</td>
+                <td class="med">ABRIFF*120 dosi sosp inal 50 mcg + 5 mcg</td>
+                <td class="princ">FLUTICASONE PROPIONATO/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042293023</td>
+                <td class="med">AFFERA*120 dosi sosp inal 125 mcg + 5 mcg</td>
+                <td class="princ">FLUTICASONE PROPIONATO/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042293035</td>
+                <td class="med">AFFERA*120 dosi sosp inal 250 mcg + 5 mcg</td>
+                <td class="princ">FLUTICASONE PROPIONATO/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042293011</td>
+                <td class="med">AFFERA*120 dosi sosp inal 50 mcg + 5 mcg</td>
+                <td class="princ">FLUTICASONE PROPIONATO/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042293050</td>
+                <td class="med">AFFERA*K-haler 120 dosi sosp inal 125 mcg + 5 mcg</td>
+                <td class="princ">FLUTICASONE PROPIONATO/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045958016</td>
+                <td class="med">AIRBUFO FORSPIRO*1 inalatore da 60 dosi 160 mcg + 4,5 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045958028</td>
+                <td class="med">AIRBUFO FORSPIRO*2 inalatori da 60 dosi 160 mcg + 4,5 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043262029</td>
+                <td class="med">AIRFLUSAL FORSPIRO*polv inal 60 dosi 50 mcg + 500 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045152016</td>
+                <td class="med">AIRFLUSAL*SPRAYHALER sosp press inal 120 dosi 25 mcg + 125 mcg 1 fl</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045152081</td>
+                <td class="med">AIRFLUSAL*SPRAYHALER sosp press inal 120 dosi 25 mcg + 250 mcg 1 fl</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">044250025</td>
+                <td class="med">AIRSUS*sosp inal 120 erog 25 + 125 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">044250037</td>
+                <td class="med">AIRSUS*sosp inal 120 erog 25 + 250 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">044250013</td>
+                <td class="med">AIRSUS*sosp inal 120 erog 25 + 50 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037776034</td>
+                <td class="med">ALABASTER*polv inal 120 dosi 100 mcg + 6 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037776109</td>
+                <td class="med">ALABASTER*polv inal 120 erog 200 mcg + 6 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037776010</td>
+                <td class="med">ALABASTER*soluz inal 120 erog 100 mcg + 6 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037776073</td>
+                <td class="med">ALABASTER*soluz inal 120 erog 200 mcg + 6 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034463048</td>
+                <td class="med">ALIFLUS*DISKUS polv inal 60 dosi 50 mcg + 100 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034463051</td>
+                <td class="med">ALIFLUS*DISKUS polv inal 60 dosi 50 mcg + 250 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034463063</td>
+                <td class="med">ALIFLUS*DISKUS polv inal 60 dosi 50 mcg + 500 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034463113</td>
+                <td class="med">ALIFLUS*sosp inal 120 erog 25 + 125 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034463125</td>
+                <td class="med">ALIFLUS*sosp inal 120 erog 25 + 250 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034463101</td>
+                <td class="med">ALIFLUS*sosp inal 120 erog 25 + 50 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043438023</td>
+                <td class="med">ANORO ELLIPTA*30 dosi polv inal 55 mcg + 22 mcg</td>
+                <td class="princ">UMECLIDINIO BROMURO/VILANTEROLO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035363062</td>
+                <td class="med">ASSIEME MITE*polv inal 120 dosi 80 mcg + 4,5 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035362060</td>
+                <td class="med">ASSIEME*polv inal 120 dosi 160 mcg + 4,5 mcg turbohaler</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035362110</td>
+                <td class="med">ASSIEME*polv inal 60 dosi 320/9 mcg turbohaler</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035791058</td>
+                <td class="med">ATIMOS*100 dosi soluz inal 12 mcg</td>
+                <td class="princ">FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035791019</td>
+                <td class="med">ATIMOS*60 dosi polv inal 12 mcg</td>
+                <td class="princ">FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">047476015</td>
+                <td class="med">BEVESPI AEROSPHERE*sosp inal 1 inal 7,2 mcg + 5 mcg 120 erog</td>
+                <td class="princ">GLICOPIRRONIO BROMURO/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043365016</td>
+                <td class="med">BIRESP SPIROMAX*1 inal 120 dosi 160 mcg + 4,5 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043365042</td>
+                <td class="med">BIRESP SPIROMAX*1 inal 60 dosi 320 mcg + 9 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">049256011</td>
+                <td class="med">BISKUS*polv inal 1 inal 60 dosi 50 mcg + 100 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">049256050</td>
+                <td class="med">BISKUS*polv inal 1 inal 60 dosi 50 mcg + 250 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">049256098</td>
+                <td class="med">BISKUS*polv inal 2 inal 60 dosi 50 mcg + 500 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042470029</td>
+                <td class="med">BRETARIS GENUAIR*1 flacone 60 dosi polv inal 322 mcg</td>
+                <td class="princ">ACLIDINIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043773011</td>
+                <td class="med">BRIMICA GENUAIR*1 inal 60 dosi polv inal 340 mcg + 12 mcg</td>
+                <td class="princ">ACLIDINIO BROMURO/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043777010</td>
+                <td class="med">DUAKLIR GENUAIR*1 inal 60 dosi polv inal 340 mcg + 12 mcg</td>
+                <td class="princ">ACLIDINIO BROMURO/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043366018</td>
+                <td class="med">DUORESP SPIROMAX*polv inal 120 dosi 160 mcg + 4,5 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043366044</td>
+                <td class="med">DUORESP SPIROMAX*polv inal 60 dosi 320 mcg + 9 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042471021</td>
+                <td class="med">EKLIRA GENUAIR*1 inalatore 60 dosi polv inal 322 mcg</td>
+                <td class="princ">ACLIDINIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045789029</td>
+                <td class="med">ELEBRATO ELLIPTA*30 dosi polv inal 92 mcg + 55 mcg + 22 mcg</td>
+                <td class="princ">VILANTEROLO TRIFENATATO/UMECLIDINIO BROMURO/FLUTICASONE FUROATO A-PT-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042304030</td>
+                <td class="med">ENUREV BREEZHALER*polv inal 30 cps 44 mcg</td>
+                <td class="princ">GLICOPIRRONIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041893013</td>
+                <td class="med">FLUSALIO*polv inal 60 dosi 50 mcg + 250 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041893025</td>
+                <td class="med">FLUSALIO*polv inal 60 dosi 50 mcg + 500 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042294025</td>
+                <td class="med">FLUTIFORMO*120 dosi sosp inal 125 mcg + 5 mcg</td>
+                <td class="princ">FLUTICASONE PROPIONATO/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042294037</td>
+                <td class="med">FLUTIFORMO*120 dosi sosp inal 250 mcg + 10 mcg</td>
+                <td class="princ">FLUTICASONE PROPIONATO/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042294013</td>
+                <td class="med">FLUTIFORMO*120 dosi sosp inal 50 mcg + 5 mcg</td>
+                <td class="princ">FLUTICASONE PROPIONATO/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043369040</td>
+                <td class="med">FOBULER*EASYHALER polv inal 120 dosi 160 mcg + 4,5 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043369127</td>
+                <td class="med">FOBULER*EASYHALER polv inal 120 dosi 80 mcg + 4,5 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043369077</td>
+                <td class="med">FOBULER*EASYHALER polv inal 60 dosi 320 mcg + 9 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">027660051</td>
+                <td class="med">FORADIL*30 cps polv inal 12 mcg</td>
+                <td class="princ">FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">027660075</td>
+                <td class="med">FORADIL*60 cps polv inal 12 mcg</td>
+                <td class="princ">FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037778038</td>
+                <td class="med">FORMODUAL*polv inal 120 dosi 100 mcg + 6 mcg nexthaler</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037778103</td>
+                <td class="med">FORMODUAL*polv inal 120 dosi 200 mcg + 6 mcg nexthaler</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037778014</td>
+                <td class="med">FORMODUAL*soluz inal 120 erog 100 mcg + 6 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037778077</td>
+                <td class="med">FORMODUAL*soluz inal 120 erog 200 mcg + 6 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036215022</td>
+                <td class="med">FORMOTEROLO (EG)*100 cps 12 mcg polv inal + erog</td>
+                <td class="princ">FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036215010</td>
+                <td class="med">FORMOTEROLO (EG)*60 cps 12 mcg polv inal + erogatore</td>
+                <td class="princ">FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037316066</td>
+                <td class="med">FORMOTEROLO VIATRIS NOVOLIZER*60 dosi 12 mcg polv inal 1 inal + 1 cart</td>
+                <td class="princ">FORMOTEROLO FUMARATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036218028</td>
+                <td class="med">FOROTAN*100 cps 12 mcg polv inal + erogatore</td>
+                <td class="princ">FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036218016</td>
+                <td class="med">FOROTAN*60 cps 12 mcg polv inal + erogatore</td>
+                <td class="princ">FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036213027</td>
+                <td class="med">FORTASINT*100 cps 12 mcg polv inal + erogatore</td>
+                <td class="princ">FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036213015</td>
+                <td class="med">FORTASINT*60 cps 12 mcg polv inal + erogatore</td>
+                <td class="princ">FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037789031</td>
+                <td class="med">FOSTER*polv inal 120 dosi 100 mcg + 6 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037789017</td>
+                <td class="med">FOSTER*soluz inal 120 erog 100 mcg + 6 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037789106</td>
+                <td class="med">FOSTER*polv inal 120 dosi 200 mcg + 6 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037789070</td>
+                <td class="med">FOSTER*soluz inal 120 erog 200 mcg + 6 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043507045</td>
+                <td class="med">GIBITER*120 dosi 160 + 4,5 mcg polv inal easyhaler</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043507134</td>
+                <td class="med">GIBITER*120 dosi 80 + 4,5 mcg polv inal easyhaler</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043507072</td>
+                <td class="med">GIBITER*60 dosi 320 + 9 mcg polv inal easyhaler</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039699020</td>
+                <td class="med">HIROBRIZ BREEZHALER*polv inal 30 cps 150 mcg</td>
+                <td class="princ">INDACATEROLO MALEATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039699071</td>
+                <td class="med">HIROBRIZ BREEZHALER*polv inal 30 cps 300 mcg</td>
+                <td class="princ">INDACATEROLO MALEATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043374026</td>
+                <td class="med">INCRUSE ELLIPTA*30 dosi polv inalaz 55 mcg</td>
+                <td class="princ">UMECLIDINIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037798030</td>
+                <td class="med">INUVER*polv inal 120 dosi 100 mcg + 6 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037798105</td>
+                <td class="med">INUVER*polv inal 120 dosi 200 mcg + 6 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037798079</td>
+                <td class="med">INUVER*soluz inal 120 dosi 200 mcg + 6 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">037798016</td>
+                <td class="med">INUVER*soluz inal 120 erog 100 mcg + 6 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036939078</td>
+                <td class="med">KUROVENT*100 cps 12 mcg polv inal + inal</td>
+                <td class="princ">FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036939066</td>
+                <td class="med">KUROVENT*60 cps 12 mcg polv inal + inalatore</td>
+                <td class="princ">FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043444025</td>
+                <td class="med">LAVENTAIR ELLIPTA*30 dosi polv inal 55 mcg + 22 mcg</td>
+                <td class="princ">UMECLIDINIO BROMURO/VILANTEROLO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036210021</td>
+                <td class="med">LEVOVENT*100 cps polv inal 12 mcg + erogatore</td>
+                <td class="princ">FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">036210019</td>
+                <td class="med">LEVOVENT*60 cps polv inal 12 mcg + erogatore</td>
+                <td class="princ">FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035793052</td>
+                <td class="med">LIFEROL*100 dosi soluz inal 12 mcg</td>
+                <td class="princ">FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035793013</td>
+                <td class="med">LIFEROL*60 dosi polv inal 12 mcg</td>
+                <td class="princ">FORMOTEROLO FUMARATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039664026</td>
+                <td class="med">ONBREZ BREEZHALER*polv inal 30 cps 150 mcg</td>
+                <td class="princ">INDACATEROLO MALEATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">039664077</td>
+                <td class="med">ONBREZ BREEZHALER*polv inal 30 cps 300 mcg</td>
+                <td class="princ">INDACATEROLO MALEATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">033312024</td>
+                <td class="med">OXIS TURBOHALER*60 dosi polv inal 9 mcg/dose</td>
+                <td class="princ">FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043403070</td>
+                <td class="med">PULMELIA*1 inalatore 60 dosi 400 mcg + 12 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043403056</td>
+                <td class="med">PULMELIA*2x1 inalatore 60 dosi 200 mcg + 6 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043154057</td>
+                <td class="med">RELVAR ELLIPTA*polv inal 184 mcg + 22 mcg 30 dosi</td>
+                <td class="princ">FLUTICASONE FUROATO/VILANTEROLO TRIFENATATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043154020</td>
+                <td class="med">RELVAR ELLIPTA*polv inal 92 mcg + 22 mcg 30 dosi</td>
+                <td class="princ">FLUTICASONE FUROATO/VILANTEROLO TRIFENATATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043446057</td>
+                <td class="med">REVINTY ELLIPTA*polv inal 184 mcg + 22 mcg 30 dosi</td>
+                <td class="princ">FLUTICASONE FUROATO/VILANTEROLO TRIFENATATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043446020</td>
+                <td class="med">REVINTY ELLIPTA*polv inal 92 mcg + 22 mcg 30 dosi</td>
+                <td class="princ">FLUTICASONE FUROATO/VILANTEROLO TRIFENATATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041500012</td>
+                <td class="med">ROLENIUM*polv inal 60 dosi 50 mcg + 250 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">041500024</td>
+                <td class="med">ROLENIUM*polv inal 60 dosi 50 mcg + 500 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045321027</td>
+                <td class="med">ROLUFTA ELLIPTA*1 inal 30 dosi 55 mcg</td>
+                <td class="princ">UMECLIDINIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045961012</td>
+                <td class="med">SAFUBREF*polv inal 60 dosi 50 mcg + 250 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045961048</td>
+                <td class="med">SAFUBREF*polv inal 60 dosi 50 mcg + 500 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045960010</td>
+                <td class="med">SAFUMIX*polv inal 60 dosi 50 mcg + 250 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045960073</td>
+                <td class="med">SAFUMIX*polv inal 60 dosi 50 mcg + 500 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">027892126</td>
+                <td class="med">SALMETEDUR DISKUS*60 dosi 50 mcg polv inal</td>
+                <td class="princ">SALMETEROLO XINAFOATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">027892138</td>
+                <td class="med">SALMETEDUR*sosp inal 120 erog 25 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">047074012</td>
+                <td class="med">SALMETEROLO E FLUTICASONE (DOC GENERICI)*1 inal 60 dosi polv inal 50 mcg + 500 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">049255096</td>
+                <td class="med">SALMETEROLO E FLUTICASONE (EG STADA)*polv inal 1 inal 60 dosi 50 mcg + 500 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">049255058</td>
+                <td class="med">SALMETEROLO E FLUTICASONE (EG STADA)*polv inal 1 inal 60 dosi 50 mcg + 250 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">049255019</td>
+                <td class="med">SALMETEROLO E FLUTICASONE (EG STADA)*polv inal 1 inal 60 dosi 50 mcg + 100 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045124029</td>
+                <td class="med">SALMETEROLO E FLUTICASONE (MYLAN)*sosp press inal 120 dosi 25 mcg + 250 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043019025</td>
+                <td class="med">SALMETEROLO E FLUTICASONE (DOC)*sosp inal 120 erog 25 + 250 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">046084036</td>
+                <td class="med">SALMETEROLO E FLUTICASONE (SF)*sosp pressa inal 120 dosi 25 mcg + 250 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043019013</td>
+                <td class="med">SALMETEROLO E FLUTICASONE (DOC)*sosp press inal 120 dosi 25 mcg + 125 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045124017</td>
+                <td class="med">SALMETEROLO E FLUTICASONE (MYLAN)*sosp press inal 120 dosi 25 mcg + 125 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">046084024</td>
+                <td class="med">SALMETEROLO E FLUTICASONE (SF)*sosp press inal 120 dosi 25 mcg + 125 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">046084012</td>
+                <td class="med">SALMETEROLO E FLUTICASONE (SF)*sosp press inal 120 dosi 25 mcg + 50 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042306035</td>
+                <td class="med">SEEBRI BREEZHALER*30 cps 44 mcg polv inal</td>
+                <td class="princ">GLICOPIRRONIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034371043</td>
+                <td class="med">SERETIDE*DISKUS polv inal 60 dosi 50 + 100 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034371056</td>
+                <td class="med">SERETIDE*DISKUS polv inal 60 dosi 50 + 250 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034371068</td>
+                <td class="med">SERETIDE*DISKUS polv inal 60 dosi 50 mcg + 500 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034371118</td>
+                <td class="med">SERETIDE*sosp inal 120 erog 25 + 125 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034371120</td>
+                <td class="med">SERETIDE*sosp inal 120 erog 25 + 250 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">034371106</td>
+                <td class="med">SERETIDE*sosp inal 120 erog 25 + 50 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO/FLUTICASONE PROPIONATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">027890146</td>
+                <td class="med">SEREVENT DISKUS*60 dosi 50 mcg polv inal</td>
+                <td class="princ">SALMETEROLO XINAFOATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">027890110</td>
+                <td class="med">SEREVENT*sosp inal 120 erog 25 mcg</td>
+                <td class="princ">SALMETEROLO XINAFOATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035260064</td>
+                <td class="med">SINESTIC*TURBOHALER polv inal 120 dosi 160 mcg + 4,5 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035260215</td>
+                <td class="med">SINESTIC*TURBOHALER polv inal 60 dosi 320 mcg + 9 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045959018</td>
+                <td class="med">SIRKAVA*30 cps polv inal 18 mcg neumohaler</td>
+                <td class="princ">TIOTROPIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043661077</td>
+                <td class="med">SPIOLTO RESPIMAT*2,5 mcg/2,5 mcg, sol per inal - 1 cart 60 erog</td>
+                <td class="princ">TIOTROPIO BROMURO/OLODATEROLO CLORIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043661053</td>
+                <td class="med">SPIOLTO RESPIMAT*soluz inal 1 inalatore 2,5 mcg + 2,5 mcg da 60 erogazioni + 1</td>
+                <td class="princ">TIOTROPIO BROMURO/OLODATEROLO CLORIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043661014</td>
+                <td class="med">cartuccia SPIOLTO RESPIMAT*soluz inal 1 inalatore 2,5 mcg + 2,5 mcg da 60 erogazioni</td>
+                <td class="princ">TIOTROPIO BROMURO/OLODATEROLO CLORIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038880074</td>
+                <td class="med">SPIRIVA RESPIMAT* 2,5 mcg, soluzione per inalazione - 1 cartuccia da 60 erogazioni</td>
+                <td class="princ">TIOTROPIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038880062</td>
+                <td class="med">SPIRIVA RESPIMAT**2,5 mcg, sol x inalaz - 1 inal respimat riutilizzabile + 3 cart da 60</td>
+                <td class="princ">TIOTROPIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038880050</td>
+                <td class="med">erog SPIRIVA RESPIMAT*soluz inal 60 erog 2,5 mcg + 1 cartuccia</td>
+                <td class="princ">TIOTROPIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038880011</td>
+                <td class="med">SPIRIVA RESPIMAT*soluz inal 60 erogazioni 2,5 mcg</td>
+                <td class="princ">TIOTROPIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">038880086</td>
+                <td class="med">SPIRIVA RESPIMAT*soluz inal 60 erogazioni 2,5 mcg 3 cartucce</td>
+                <td class="princ">TIOTROPIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035668019</td>
+                <td class="med">SPIRIVA*30 cps 18 mcg</td>
+                <td class="princ">TIOTROPIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035668058</td>
+                <td class="med">SPIRIVA*30 cps 18 mcg handihaler</td>
+                <td class="princ">TIOTROPIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043460056</td>
+                <td class="med">SRIVASSO*30 cps polv inal 18 mcg handihaler</td>
+                <td class="princ">TIOTROPIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042432017</td>
+                <td class="med">STRIVERDI RESPIMAT*soluz inal 60 erogazioni (30 dosi) 2,5 mcg</td>
+                <td class="princ">OLODATEROLO CLORIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042432070</td>
+                <td class="med">STRIVERDI RESPIMAT* 2,5 mcg, soluzione per inalazione - 1 cartuccia da 60 erogazioni</td>
+                <td class="princ">OLODATEROLO CLORIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042432056</td>
+                <td class="med">STRIVERDI RESPIMAT*soluz inal 60 erog (30 dosi) 2,5 mcg + 1 cart</td>
+                <td class="princ">OLODATEROLO CLORIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035603063</td>
+                <td class="med">SYMBICORT MITE*polv inal 120 dosi 80 mcg + 4,5 mcg turbohaler</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035194265</td>
+                <td class="med">SYMBICORT*sosp press inal 120 dosi 160 mcg + 4,5 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035194291</td>
+                <td class="med">SYMBICORT*sosp press inal 120 dosi 80 mcg + 2,25 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO</td>
+                <td class="bpc">NO</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035194063</td>
+                <td class="med">SYMBICORT*TURBOHALER polv inal 120 dosi 160 mcg + 4,5 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">035194214</td>
+                <td class="med">SYMBICORT*TURBOHALER polv inal 60 dosi 320 mcg + 9 mcg</td>
+                <td class="princ">BUDESONIDE/FORMOTEROLO FUMARATO DIIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn">SI</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">049424017</td>
+                <td class="med">TIOTROPIO DOC 30 cps rigide polv inal 18 mcg 1 inalatore</td>
+                <td class="princ">TIOTROPIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043854025</td>
+                <td class="med">TIOTROPIO (TEVA ITALIA)*30 cps rigide polv inal 10 mcg flacone</td>
+                <td class="princ">TIOTROPIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043756028</td>
+                <td class="med">TIOTROPIO (TEVA)*15 cps rigide polv inal 10 mcg</td>
+                <td class="princ">TIOTROPIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">042313039</td>
+                <td class="med">TOVANOR BREEZHALER*polv inal 30 cps 44 mcg</td>
+                <td class="princ">GLICOPIRRONIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045790021</td>
+                <td class="med">TRELEGY ELLIPTA*30 dosi polv inal 92 mcg + 55 mcg + 22 mcg</td>
+                <td class="princ">VILANTEROLO TRIFENATATO/UMECLIDINIO BROMURO/FLUTICASONE FUROATO A-PT-Nota</td>
+                <td class="bpc">99 [agg. 09/07/2026 – AIFA] triplice LAMA+LABA+ICS prescrivibile da MMG (RR), eliminata SVP</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">045489022</td>
+                <td class="med">TRIMBOW*soluz inal 120 erog 87 mcg + 5 mcg + 9 mcg</td>
+                <td class="princ">BECLOMETASONE DIPROPIONATO/FORMOTEROLO FUMARATO A-PT-Nota</td>
+                <td class="bpc">PT 99 [agg. 09/07/2026 – AIFA] triplice LAMA+LABA+ICS prescrivibile da MMG (RR), eliminata SVP</td>
+                <td class="ssn">Aifa</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">049279021</td>
+                <td class="med">TRIXEO AEROSPHERE*1 inalatore 5 mcg + 7,2 mcg + 160 mcg 120 erogazioni</td>
+                <td class="princ">DIIDRATO/GLICOPIRRONIO BROMURO FORMOTEROLO FUMARATO/GLICOPIRRONIO BROMURO /BUDENOSIDE A-PT-Nota</td>
+                <td class="bpc">Asma 99 [agg. 09/07/2026 – AIFA] triplice LAMA+LABA+ICS prescrivibile da MMG (RR), eliminata SVP</td>
+                <td class="ssn">*</td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043031032</td>
+                <td class="med">ULTIBRO BREEZHALER*polv inal 30x1 cps 85 mcg + 43 mcg</td>
+                <td class="princ">INDACATEROLO MALEATO/GLICOPIRRONIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043033036</td>
+                <td class="med">XOTERNA BREEZHALER*polv inal 30x1 cps 85 mcg + 43 mcg</td>
+                <td class="princ">INDACATEROLO MALEATO/GLICOPIRRONIO BROMURO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043660075</td>
+                <td class="med">YANIMO RESPIMAT* 2,5 mcg/2,5 mcg, soluzione per inalaz - 1 cart da 60 erog</td>
+                <td class="princ">TIOTROPIO BROMURO/OLODATEROLO CLORIDRATO A-Nota</td>
+                <td class="bpc">99</td>
+                <td class="ssn"></td>
+            </tr>
+<tr class="drug">
+                <td class="aic">043660051</td>
+                <td class="med">YANIMO RESPIMAT*soluz inal 1 inalatore 2,5 mcg + 2,5 mcg + 1 cartuccia italiana del Farmaco (AIFA) ha disposto per i farmaci a PT e Nota Tessera Sanitaria (TS), adottata in via esclusiva a far data dal 1° è consentita solo agli Specialisti. a video (come avviene già per i FANV con nota 97). In mancanza aprile 2023 la specialità medicinale TRIMBOW è anche erogabile AIFA specifico cartaceo in originale - prescritto da UU.OO.</td>
+                <td class="princ">TIOTROPIO BROMURO/OLODATEROLO CLORIDRATO A-Nota 99 l&#x27;introduzione della Scheda web based compilata settembre 2022. del Protocollo allegare fotocopia Scheda con Protocollo. esclusivamente nel trattamento dell’asma con la seguente di pneumologia, geriatria, medicina interna ed allergologia</td>
+                <td class="bpc">99 attraverso modalità:</td>
+                <td class="ssn">il sulla delle</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+</div>
+
+<script>
+(function () {
+    "use strict";
+    var inputs = {
+        global: document.getElementById("q-global"),
+        aic: document.getElementById("q-aic"),
+        med: document.getElementById("q-med"),
+        princ: document.getElementById("q-princ"),
+        bpc: document.getElementById("q-bpc"),
+        ssn: document.getElementById("q-ssn")
+    };
+    var resetBtn = document.getElementById("reset-filters");
+    var countInfo = document.getElementById("count-info");
+
+    function groupRows(tbody) {
+        var groups = [];
+        var current = null;
+        Array.prototype.forEach.call(tbody.rows, function (row) {
+            if (row.classList.contains("note")) {
+                if (current) { current.rows.push(row); groups.push(current); current = null; }
+                else { groups.push({ rows: [row], drugs: [] }); }
+            } else {
+                if (!current) current = { rows: [], drugs: [] };
+                current.rows.push(row);
+                current.drugs.push(row);
+            }
+        });
+        if (current) groups.push(current);
+        return groups;
+    }
+
+    function rowText(row, colIdx) {
+        if (!row.cells || !row.cells[colIdx]) return "";
+        return (row.cells[colIdx].textContent || "").toLowerCase();
+    }
+
+    function passes(row) {
+        var aic = rowText(row, 0);
+        var med = rowText(row, 1);
+        var princ = rowText(row, 2);
+        var bpc = rowText(row, 3);
+        var ssn = rowText(row, 4);
+        var all = (aic + " " + med + " " + princ + " " + bpc + " " + ssn).toLowerCase();
+
+        var g = (inputs.global.value || "").toLowerCase().trim();
+        if (g && all.indexOf(g) === -1) return false;
+        var a = (inputs.aic.value || "").toLowerCase().trim();
+        if (a && aic.indexOf(a) === -1) return false;
+        var m = (inputs.med.value || "").toLowerCase().trim();
+        if (m && med.indexOf(m) === -1) return false;
+        var p = (inputs.princ.value || "").toLowerCase().trim();
+        if (p && princ.indexOf(p) === -1) return false;
+        var b = (inputs.bpc.value || "").toLowerCase().trim();
+        if (b && bpc.indexOf(b) === -1) return false;
+        var s = (inputs.ssn.value || "").toLowerCase().trim();
+        if (s && ssn.indexOf(s) === -1) return false;
+        return true;
+    }
+
+    function applyFilters() {
+        var tables = document.querySelectorAll("table.dpc");
+        var totalVisible = 0;
+        var totalAll = 0;
+        var sectionHasVisible = false;
+        tables.forEach(function (table) {
+            var tbody = table.tBodies[0];
+            if (!tbody) return;
+            var groups = groupRows(tbody);
+            groups.forEach(function (g) {
+                var drugs = g.drugs || [];
+                var anyVisible = drugs.some(passes);
+                if (anyVisible) sectionHasVisible = true;
+                drugs.forEach(function (r) {
+                    totalAll++;
+                    if (anyVisible && passes(r)) {
+                        r.style.display = "";
+                        totalVisible++;
+                    } else {
+                        r.style.display = "none";
+                    }
+                });
+                g.rows.forEach(function (r) {
+                    if (r.classList.contains("note")) {
+                        r.style.display = anyVisible ? "" : "none";
+                    }
+                });
+            });
+        });
+        var sec = document.querySelector("section.page-block");
+        if (sec) sec.style.display = sectionHasVisible ? "" : "none";
+        if (countInfo) countInfo.textContent = totalVisible + " / " + totalAll + " righe visibili";
+    }
+
+    Object.keys(inputs).forEach(function (k) {
+        if (inputs[k]) inputs[k].addEventListener("input", applyFilters);
+    });
+    if (resetBtn) {
+        resetBtn.addEventListener("click", function () {
+            Object.keys(inputs).forEach(function (k) {
+                if (inputs[k]) inputs[k].value = "";
+            });
+            applyFilters();
+        });
+    }
+    applyFilters();
+})();
+</script>
+
+<script>
+(function () {
+    "use strict";
+    function setup(table) {
+        if (!table) return;
+        var tbody = table.tBodies[0];
+        if (!tbody) return;
+        var ths = table.querySelectorAll("thead th.sortable");
+        function groupRows() {
+            var groups = [];
+            var current = null;
+            Array.prototype.forEach.call(tbody.rows, function (row) {
+                if (row.classList.contains("note")) {
+                    if (current) { current.rows.push(row); groups.push(current); current = null; }
+                    else { groups.push({ rows: [row] }); }
+                } else {
+                    if (!current) current = { rows: [] };
+                    current.rows.push(row);
+                }
+            });
+            if (current) groups.push(current);
+            return groups;
+        }
+        function cellText(row, col) {
+            if (!row || !row.cells || !row.cells[col]) return "";
+            return (row.cells[col].textContent || "").trim();
+        }
+        function compare(a, b, col, dir) {
+            var ra = a.rows.find(function (r) { return r.classList.contains("drug"); }) || a.rows[0];
+            var rb = b.rows.find(function (r) { return r.classList.contains("drug"); }) || b.rows[0];
+            var va = cellText(ra, col);
+            var vb = cellText(rb, col);
+            var na = parseFloat(va.replace(/\s/g, ""));
+            var nb = parseFloat(vb.replace(/\s/g, ""));
+            var cmp;
+            if (!isNaN(na) && !isNaN(nb) && /^\d/.test(va) && /^\d/.test(vb)) {
+                cmp = na - nb;
+            } else {
+                cmp = va.localeCompare(vb, "it", { sensitivity: "base", numeric: true });
+            }
+            return dir === "asc" ? cmp : -cmp;
+        }
+        ths.forEach(function (th) {
+            th.addEventListener("click", function () {
+                var col = parseInt(th.getAttribute("data-col"), 10);
+                var dir = th.classList.contains("asc") ? "desc" : "asc";
+                ths.forEach(function (t) { t.classList.remove("asc", "desc"); });
+                th.classList.add(dir);
+                var groups = groupRows();
+                groups.sort(function (a, b) { return compare(a, b, col, dir); });
+                groups.forEach(function (g) {
+                    g.rows.forEach(function (r) { tbody.appendChild(r); });
+                });
+            });
+        });
+    }
+    document.querySelectorAll("table.dpc").forEach(setup);
+})();
+</script>
+</body>
+</html>

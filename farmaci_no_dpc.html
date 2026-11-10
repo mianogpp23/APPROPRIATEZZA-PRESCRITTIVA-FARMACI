@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELENCO FARMACI NO DPC CON PARTICOLARITA' — pag. 65</title>
+<style>
+
+    :root {
+        --bg1: #0f172a;
+        --bg2: #1e293b;
+        --accent: #38bdf8;
+        --accent2: #a78bfa;
+        --glass: rgba(255, 255, 255, 0.06);
+        --glass-border: rgba(255, 255, 255, 0.16);
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        min-height: 100vh;
+        background: #0f172a;
+        color: var(--text);
+        padding: 32px 16px 48px;
+    }
+    .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.35;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .orb.o1 { width: 400px; height: 400px; background: #38bdf8; top: -120px; left: -100px; }
+    .orb.o2 { width: 340px; height: 340px; background: #a78bfa; bottom: -100px; right: -80px; }
+    .orb.o3 { width: 260px; height: 260px; background: #f472b6; top: 40%; left: 50%; }
+    .orb.o4 { width: 200px; height: 200px; background: #34d399; top: 20%; right: 15%; }
+    .container { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; }
+    .back {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .back:hover { text-decoration: underline; }
+    .page, .page-block, section.page-block {
+        background: var(--glass);
+        backdrop-filter: blur(14px) saturate(140%);
+        -webkit-backdrop-filter: blur(14px) saturate(140%);
+        border: 1px solid var(--glass-border);
+        border-radius: 18px;
+        padding: 26px 24px 40px;
+        box-shadow: 0 1px 6px rgba(0,0,0,0.25);
+    }
+    .indice-box {
+        position: absolute;
+        top: 14px;
+        right: 18px;
+        border: 1px solid var(--glass-border);
+        background: rgba(255,255,255,0.06);
+        padding: 2px 10px;
+        border-radius: 8px;
+        line-height: 1;
+    }
+    .indice-box a {
+        color: var(--accent);
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: bold;
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 1px;
+    }
+    h1, h1.doc-title {
+        color: var(--text);
+    }
+    h2, h3 {
+        color: #7FFF00;
+        text-align: center;
+    }
+    h1.doc-title {
+        margin: 34px auto 26px;
+        text-align: center;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(26px, 4.5vw, 38px);
+        line-height: 1.15;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #FF2800;
+    }
+    .bar-green {
+        background: linear-gradient(90deg, #22c55e, #16a34a);
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+        letter-spacing: 0.5px;
+        padding: 8px 10px;
+        border: 1px solid var(--glass-border);
+        border-bottom: none;
+        border-radius: 10px 10px 0 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 18px;
+        background: rgba(255,255,255,0.03);
+    }
+    th, td {
+        padding: 6px 9px;
+        vertical-align: middle;
+        border: 1px solid var(--glass-border);
+        color: var(--text);
+        font-size: 13px;
+    }
+    th {
+        background: rgba(56, 189, 248, 0.12);
+        font-weight: bold;
+        text-align: center;
+    }
+    table.dpc th.sortable {
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        padding-right: 16px;
+    }
+    table.dpc th.sortable::after {
+        content: " ⇅";
+        font-size: 11px;
+        color: var(--muted);
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    table.dpc th.sortable.asc::after  { content: " ▲"; color: var(--accent); }
+    table.dpc th.sortable.desc::after { content: " ▼"; color: var(--accent); }
+    table.dpc th.sortable:hover { background: rgba(56, 189, 248, 0.22); }
+    td.aic, td.minsan { white-space: nowrap; }
+    tr.note td, .note {
+        background: rgba(255,255,255,0.04);
+        font-style: italic;
+        color: var(--muted);
+    }
+    p, .note { line-height: 1.5; margin: 8px 0; }
+    ul { margin: 8px 0 8px 22px; line-height: 1.5; }
+    .footer {
+        position: relative;
+        margin-top: 44px;
+        min-height: 60px;
+    }
+    .brand {
+        position: absolute;
+        left: 0;
+        top: 14px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .page-number {
+        width: 54px;
+        height: 54px;
+        margin: 0 auto;
+        border: 1px solid var(--glass-border);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 16px;
+        background: radial-gradient(circle at center, rgba(255,255,255,0.12) 55%, rgba(255,255,255,0.04) 100%);
+    }
+        color: #94a3b8;
+        margin-left: auto;
+        white-space: nowrap;
+    }
+
+
+    .page-title {
+        text-align: center;
+        color: #FF2800;
+        font-size: clamp(20px, 3.5vw, 30px);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 16px;
+        font-family: Georgia, "Times New Roman", serif;
+    }
+
+</style>
+</head>
+<body>
+<div class="container">
+<a class="back" href="index.html">← Home</a>
+<div class="page">
+    <h1 class="doc-title">ELENCO FARMACI NO DPC<br>CON PARTICOLARITA'</h1>
+<h2>FARMACI IN CONVENZIONATA NO PHT CON PIANO TERAPEUTICO</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>AIC</th>
+                <th>Farmaco</th>
+                <th>Principio attivo</th>
+                <th>PT/Nota AIFA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td class="aic">-</td><td class="farm">ALBUMINA Varie Marche</td><td class="princ">Albumina Umana</td><td class="pt">PT - Nota 15</td></tr>
+            <tr><td class="aic">-</td><td class="farm">FLUOXETINA Varie Marche*12CPR SOL20MG</td><td class="princ">Fluoxetina<br>N.B.: il PT non è indicato per tutte le specialità infatti quelle autorizzate da EMA = NO PT</td><td class="pt">PT solo BB</td></tr>
+            <tr><td class="aic">-</td><td class="farm">FLUOXETINA Varie Marche*28CPR SOL20MG</td><td class="princ">Fluoxetina</td><td class="pt">PT solo BB</td></tr>
+            <tr><td class="aic">025970056</td><td class="farm">PROZAC*28CPR DISPERS 20MG</td><td class="princ">Fluoxetina</td><td class="pt">PT solo BB</td></tr>
+            <tr><td class="aic">025970043</td><td class="farm">PROZAC*28CPS 20MG</td><td class="princ">Fluoxetina</td><td class="pt">PT solo BB</td></tr>
+            <tr><td class="aic">039430018</td><td class="farm">PROZAC*28CPS 20MG</td><td class="princ">Fluoxetina</td><td class="pt">PT solo BB</td></tr>
+            <tr><td class="aic">025970029</td><td class="farm">PROZAC*OS SOL FL 60ML 20MG/5ML</td><td class="princ">Fluoxetina</td><td class="pt">PT solo BB</td></tr>
+            <tr><td class="aic">-</td><td class="farm">LEVOTIRSOL Varie</td><td class="princ">Levotiroxina Ridotta scadenza 5 m. validità Raccomandato AIFA 1 pezzo</td><td class="pt"></td></tr>
+            <tr><td class="aic">036983029</td><td class="farm">AZILECT*28CPR 1MG</td><td class="princ">Rasagilina mesilato AIDEX - RASABON - RASARAL - ROLDAP Rasagilina tartrato</td><td class="pt">PT neurologia</td></tr>
+            <tr><td class="aic">043906080</td><td class="farm">XADAGO*30CPR RIV 100MG</td><td class="princ">Safinamide metansolfonato</td><td class="pt">PT neurologia [agg. 17/11/2025 – Fed.Ragusa] PT web-based (GOpenPT) dal 17/11/2025; esclusivamente informatizzata dal 17/12/2025</td></tr>
+            <tr><td class="aic">043906039</td><td class="farm">XADAGO*30CPR RIV 50MG</td><td class="princ">Safinamide metansolfonato</td><td class="pt">PT neurologia [agg. 17/11/2025 – Fed.Ragusa] PT web-based (GOpenPT) dal 17/11/2025; esclusivamente informatizzata dal 17/12/2025</td></tr>
+            <tr><td class="aic">-</td><td class="farm">RANEXA*60 CPR 375 - 500 - 750 MG RP</td><td class="princ">Ranolazina Validità 3m Prima - 12m Prosecuzione- Obbligatorio dal 25/04/2023</td><td class="pt">PT</td></tr>
+            <tr><td class="aic">-</td><td class="farm">SILDENAFIL Varie Marche *8CPR RIV 25MG</td><td class="princ">Sildenafil citrato</td><td class="pt">PT - Nota 75</td></tr>
+            <tr><td class="aic">048971016</td><td class="farm">LIVOGIVA*1PEN 2,7ML20MCG/80MCL</td><td class="princ">Teriparatide biosimilare (a Minor costo biosimilare € 308,51)</td><td class="pt">PT 6 mesi- Nota 79</td></tr>
+            <tr><td class="aic">044450017</td><td class="farm">TERIPARATIDE TE*1PE20MCG/80MCL</td><td class="princ">Teriparatide di sintesi chimica (a Minor costo biosimilare € 308,51)</td><td class="pt">PT 6 mesi- Nota 79</td></tr>
+            <tr><td class="aic">045257019</td><td class="farm">TERROSA*1CAR 2,4ML 20MCG/80MCL</td><td class="princ">Teriparatide biosimilare (a Minor costo biosimilare € 308,51)</td><td class="pt">PT 6 mesi- Nota 79</td></tr>
+            <tr><td class="aic">045257033</td><td class="farm">TERROSA*1CAR+1PEN 20MCG/80MCL</td><td class="princ">Teriparatide biosimilare (a Minor costo biosimilare € 308,51)</td><td class="pt">PT 6 mesi- Nota 79</td></tr>
+            <tr><td class="aic">045256017</td><td class="farm">MOVYMIA*1CAR 2,4ML 20MCG/80MCL</td><td class="princ">Teriparatide biosimilare (a Minor costo biosimilare € 308,51)</td><td class="pt">PT 6 mesi- Nota 79</td></tr>
+            <tr><td class="aic">048019018</td><td class="farm">OSEFFYL*1PEN 2,4ML 20MCG/80ML</td><td class="princ">Teriparatide di sintesi chimica (a Minor costo biosimilare € 308,51)</td><td class="pt">PT 6 mesi- Nota 79</td></tr>
+            <tr><td class="aic">050007018</td><td class="farm">SONDELBAY*1PEN2,4ML20MCG/80MCL</td><td class="princ">Teriparatide biosimilare (a Minor costo biosimilare € 308,51)</td><td class="pt">PT 6 mesi- Nota 79</td></tr>
+            <tr><td class="aic">048990016</td><td class="farm">PATRIDE*1PEN 2,4ML 20MCG/80MCL</td><td class="princ">Teriparatide di sintesi chimica (a Minor costo biosimilare € 308,51)</td><td class="pt">PT 6 mesi- Nota 79</td></tr>
+            <tr><td class="aic">035926017</td><td class="farm">FORSTEO*1PEN 2,4ML 20MCG/80MCL</td><td class="princ">Teriparatide Originator (a Maggior costo presenza Motivazione € 317,08)</td><td class="pt">PT 6 mesi- Nota 79</td></tr>
+            <tr><td class="aic">045256031</td><td class="farm">MOVYMIA*1CAR 2,4ML+1PEN 20MCG</td><td class="princ">Teriparatide biosimilare (a Maggior costo presenza Motivazione € 341,84)</td><td class="pt">PT 6 mesi- Nota 79</td></tr>
+            <tr><td class="aic">042021016</td><td class="farm">BUCCOLAM*OS SOLUZ 4SIR 2,5MG Giallo</td><td class="princ">Midazolam - Da 6 mesi ad 1 anno - Sez. E stupefacenti Rrl</td><td class="pt">PT da 3m a &lt; 18 anni</td></tr>
+            <tr><td class="aic">042021028</td><td class="farm">BUCCOLAM*OS SOLUZ 4SIR 5MG Blu</td><td class="princ">Midazolam - Da 1 a 5 anni - Sez. E stupefacenti Rrl</td><td class="pt">PT (da 3 a 6 mesi in Osp.)</td></tr>
+            <tr><td class="aic">042021030</td><td class="farm">BUCCOLAM*OS SOLUZ 4SIR 7,5MG Viola</td><td class="princ">Midazolam - Da 5 a 10 anni - Sez. E stupefacenti Rrl</td><td class="pt">L.648 &gt; 18 anni oppure &gt; 3 a. febbr.prolungate</td></tr>
+            <tr><td class="aic">042021042</td><td class="farm">BUCCOLAM*OS SOLUZ 4SIR 10MG Arancione</td><td class="princ">Midazolam - Da 10 a &lt; 18 anni - Sez. E stupefacenti Rrl</td><td class="pt"></td></tr>
+            <tr><td class="aic">035675141</td><td class="farm">DOVOBET*GEL FL 30G</td><td class="princ">GEL/UNG NON SOST x PSORIASI CUOIO CAPELLUTO - SE AREE DIVERSE DIFFERENZA A CARICO UTENTE</td><td class="pt"></td></tr>
+        </tbody>
+    </table>
+    <p class="note">Quando si deve effettuare la sostituzione tra farmaci che non hanno il brevetto scaduto occorre farlo sempre professionalmente cioè annotando sulla ricetta: &ldquo;Sostituzione a norma DPR 371/98 art. 6 comma 2 o 3&rdquo; comma 2 &ldquo;mancanza nel ciclo distributivo&rdquo; comma 3 &ldquo;necessità o urgenza&rdquo; .</p>
+
+    <h2>FARMACI NOTA 4</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Sostituzione ammessa con farmaci equivalenti per indicazione</th>
+                <th>Principio attivo</th>
+                <th>Nota 4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Dolore neuropatico periferico e centrale soggetti adulti</td><td>Pregabalin</td><td>Si</td></tr>
+            <tr><td>Epilessia</td><td>Pregabalin</td><td>Senza nota</td></tr>
+        </tbody>
+    </table>
+    <p class="note">Il farmacista non può verificare l'ambito in cui avvenga la prescrizione e se la nota ci vuole o no, quindi, si può sempre erogare</p>
+
+    <h2>FARMACI NOTA 95 in Distribuzione Diretta ASP ma se mancanti erogabili in Convenzionata</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>AIC</th>
+                <th>Farmaco</th>
+                <th>Principio attivo</th>
+                <th>Modalità</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td class="aic">045236015</td><td class="farm">ACTIKERALL*1FLSOL CUT5+100MG/G</td><td class="princ">FLUOROURACILE/ACIDO SALICILICO</td><td class="pt">PT - Nota 95 *</td></tr>
+            <tr><td class="aic">049607017</td><td class="farm">KLISYRI*UNG CUT 5BUST 250MG</td><td class="princ"></td><td class="pt">PT - Nota 95 *</td></tr>
+            <tr><td class="aic">045242068</td><td class="farm">SOLACUTAN*GEL 60G 3%</td><td class="princ">DICLOFENAC SODICO</td><td class="pt">PT - Nota 95 *</td></tr>
+            <tr><td class="aic">034129039</td><td class="farm">SOLARAZE*GEL 60G 3%</td><td class="princ">DICLOFENAC SODICO</td><td class="pt">PT - Nota 95 *</td></tr>
+            <tr><td class="aic">046491015</td><td class="farm">TOLERAK*CREMA 20G 40MG/G</td><td class="princ">FLUOROURACILE</td><td class="pt">PT - Nota 95 *</td></tr>
+            <tr><td class="aic">043585025</td><td class="farm">ZYCLARA*CR 3,75% 28BUST 250MG</td><td class="princ">IMIQUIMOD</td><td class="pt">PT - Nota 95 *</td></tr>
+        </tbody>
+    </table>
+    <p class="note">Qualora la specialità risulta mancante lo Specialista dell'ASP che ha redatto il PT rilascia anche la DEMaterializzata (integrata con il proprio timbro) oppure la Ricetta SSN (Rossa) e la Farmacia Privata può così erogare i farmaci in convenzionata a carico SSN.</p>
+
+    <h2>FARMACI NOTA 96</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Concedibili esenti a soggetti aventi:</th>
+                <th>Principio attivo</th>
+                <th>Nota 96</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Età pediatrica</td><td>Colecalciferolo, colecalciferolo/sali di calcio e calcifediolo</td><td>Senza nota</td></tr>
+            <tr><td>Età maggiore 18 anni</td><td>Colecalciferolo, colecalciferolo/sali di calcio e calcifediolo</td><td>Nota 96</td></tr>
+        </tbody>
+    </table>
+
+    <h2>ALTRI FARMACI CON O SENZA NOTA 97 in Convenzionata</h2>
+    <p class="note">Erogare ricetta Rossa o DEM con nota 97 + Numero Protocollo Scheda Prescrittiva oppure allegare PT AIFA cartaceo</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Patologia</th>
+                <th>Principio attivo</th>
+                <th>Modalità</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Ictus in pazienti FANV</td><td>acenocumarolo-SINTROM e warfarin sodico-COUMADIN (erogare in Convenzionata)</td><td>Nota 97 + Prot.SP</td></tr>
+            <tr><td>Altre Patologie</td><td>acenocumarolo-SINTROM e warfarin sodico-COUMADIN (erogare in Convenzionata)</td><td>Senza nota</td></tr>
+        </tbody>
+    </table>
+
+    <h2>INVIO SCHEDE DI MONITORAGGIO NON DI PERTINENZA DELLE FARMACIE</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Principio attivo</th>
+                <th>Farmaco o Tipologia di Farmaco</th>
+                <th>SM/Nota AIFA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>ANTIBIOTICI AD USO INIETTIVO</td><td>ATC J01 = Decorrenza 12/05/2018 il Medico è tenuto a compilare e inviare la scheda all'ASP</td><td>SM Medici</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+</div>
+</div>
+
+</body>
+</html>
