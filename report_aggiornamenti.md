@@ -1,0 +1,104 @@
+# Report aggiornamenti — DPC / Second Brain
+
+**Generato:** 2026-11-10 14:20  
+**Progetto:** `/media/k10/BTRFS 741/dpc`  
+**Repository:** https://github.com/mianogpp23/APPROPRIATEZZA-PRESCRITTIVA-FARMACI (branch `main`)
+
+---
+
+## 1. Second Brain — verifica e sincronizzazione dell'archivio email
+
+- **Pacchetti indicizzati:** 532 (pagine wiki gemelle: 532, abbinamento 1:1)
+- **Per formato:** pdf: 211, html-email: 191, docx: 84, doc: 42, xlsx: 3, zip: 1
+- **File reali nella cartella sorgente** `/media/k10/PASSWORDLIST/backup-farmacia`: 513 (.pdf 193, .html 191, .docx 84, .doc 42, .xlsx 3) → **tutti indicizzati, 0 mancanti**
+- **PDF dentro archivi ZIP:** 18 (TURNI II SEMESTRE 2024.zip) + 1 pacchetto per il contenitore ZIP
+- **Riparazione qualità testo:** 7 pacchetti con font PDF a codifica personalizzata (testo illeggibile) → testo rigenerato con OCR tesseract (qualità 0,02 → 0,80)
+- **Annotazione:** 28 email 'varie' senza corpo testuale (contenuto solo in allegati) → annotate
+- **Indice:** registry ricostruito, QMD reindicizzato (lexical, model-free)
+
+## 2. Verifica multi-colonna delle righe farmaci
+
+Ricerca eseguita su **tutte** le colonne di ogni riga contemporaneamente: Minsan/AIC, Descrizione, Principio attivo, campo PT/SM/Nota AIFA.
+- Record analizzati: **1725** (6 elenchi: farmaci_dpc 1178, distribuzione_diretta 329, nota_99 158, farmaci_no_dpc 41, formalismi 10, metilfenidato 9)
+- Incrocio con la Second Brain (532 documenti) su 4 livelli di colonna, con filtro sui documenti che contengono provvedimenti concreti (revoca, determinazione, nuova immissione, carenza, prezzo/classe, nota/PT).
+- Verifica online: indice delle determine AIFA 2023-2026 (G.U.) + testi vigenti AIFA e Regione Siciliana (prot. 35765 del 09/07/2026).
+
+## 3. Normative rilevate e variazioni applicate
+
+| Data | Provvedimento | Righe |
+|---|---|---|
+| 21/11/2025 | Det. AIFA 1533/2025 – G.U. n. 271 del 21/11/2025 | 1 |
+| 18/11/2025 | Det. AIFA 11/11/2025, G.U. n. 267 del 17/11/2025 | 1 |
+| 12/04/2026 | Det. AIFA 421/2026 del 01/04/2026 – G.U. n. 84 del 11/04/202 | 1 |
+| 10/10/2025 | Det. AIFA 1322/2025 del 10/10/2025 – G.U. n. 241 del 16/10/2 | 1 |
+| 09/07/2026 | Det. AIFA 821/2026 (G.U. n. 144 del 24/06/2026) – prot. Regi | 1 |
+| 17/11/2025 | Federfarma Ragusa (circolare 102/2025) | 2 |
+| 09/07/2026 | AIFA | 3 |
+| 19/10/2023 | AIFA/RITA | 5 |
+| 09/07/2026 | Det. AIFA 821/2026, G.U. n. 144 del 24/06/2026 | 9 |
+| 13/09/2025 | DET PRES 1127/2025 – G.U. n. 213 del 13/09/2025 | 11 |
+| 12/04/2026 | Det. AIFA 422/2026 del 01/04/2026 – G.U. n. 84 del 11/04/202 | 12 |
+| 15/05/2025 | DET PRES 624/2025 – G.U. n. 111 del 15/05/2025 | 23 |
+| 06/07/2026 | Det. AIFA 914/2026 del 06/07/2026 – G.U. n. 157 del 09/07/20 | 24 |
+| 09/07/2026 | Det. AIFA 820/2026 (G.U. n. 144 del 24/06/2026) – prot. Regi | 37 |
+| 05/08/2025 | Det. AIFA 1037/2025 del 31/07/2025 – G.U. n. 180 del 05/08/2 | 49 |
+| 16/02/2026 | Det. AIFA 142/2026 – G.U. n. 38 del 16/02/2026 (DET PRES 142 | 127 |
+
+**Totale variazioni applicate: 344** su **307 record** con marker.
+
+### Note AIFA presenti nelle liste e stato
+
+| Nota | Righe | Stato |
+|---|---|---|
+| 8 | 2 | abrogata 18/11/2025 (Det. 1519/2025) — applicata |
+| 11 | 2 | abrogata 12/04/2026 (Det. 421/2026) — applicata |
+| 15 | 1 | nessun provvedimento 2024-2026 rilevato |
+| 36 | 4 | nessun provvedimento 2024-2026 rilevato |
+| 39 | 24 | aggiornata 17/06/2026 (Det. 819/2026) + allegato sostituito 06/07/2026 — applicata |
+| 40 | 34 | nessun provvedimento 2024-2026 |
+| 51 | 46 | aggiornata 07/11/2024 e 15/05/2025 — applicata |
+| 65 | 23 | nessun provvedimento 2024-2026 |
+| 74 | 37 | aggiornata 17/06/2026 (Det. 820/2026, età 45→46) — applicata |
+| 75 | 2 | nessun provvedimento 2024-2026 rilevato |
+| 79 | 22 | aggiornata 22/02/2025 e 13/09/2025 (denosumab senza PT) — applicata |
+| 84 | 24 | abrogata 12/04/2026 (Det. 422/2026) — applicata |
+| 85 | 254 | aggiornata 16/02/2026 (Det. 142/2026) — applicata |
+| 92 | 2 | abrogata 04/10/2025 (Det. 1224/2025) + rettifica 10/10/2025 — applicata |
+| 95 | 11 | nessun provvedimento 2024-2026 |
+| 96 | 1 | nessun provvedimento 2024-2026 |
+| 97 | 10 | aggiornata 17/06/2026 (Det. 821/2026) — applicata |
+| 98 | 2 | aggiornata 08/10/2024, 19/06/2025, 21/11/2025 — applicata |
+| 100 | 109 | aggiornata 05/08/2025 (Det. 1037/2025) — applicata |
+
+## 4. Stato delle modifiche alle pagine HTML
+
+| Pagina | Marker di aggiornamento |
+|---|---|
+| distribuzione_diretta.html | 59 |
+| farmaci_dpc.html | 266 |
+| farmaci_no_dpc.html | 13 |
+| formalismi.html | 0 |
+| index.html | 0 |
+| index_list.html | 0 |
+| metilfenidato.html | 4 |
+| nota_99.html | 2 |
+
+Totale marker negli HTML: **344** · sincronizzazione idempotente (0 differenze residue) · `<td>` bilanciati.
+
+## 5. Segnalazioni aperte (non applicate)
+
+1. **XARELTO 42cpr 15MG (038744138) e 28cpr 20MG (038744189)**: il DPC assegna *Nota 98* / *Nota 100*, il riepilogo a p.15 colloca tutte le cpr di XARELTO sotto *Nota 97* (Nota 98/100 sono note di diabete/anti-VEGF). Correzione non applicata: serve conferma dell'Assessorato.
+2. **SANIFOLIN 027683046**: nel DPC (p.54) la riga ha descrizione *SANIFOLIN* ma PA *CALCIO FOLINATO* e *Nota 11* → colonne disallineate nel documento regionale. Annotato nella riga; inoltre l'AIC è stato revocato il 02/01/2026.
+3. **TEV / TVP-EP domiciliare dei DOAC**: verificare con l'ASP se sopravvive il PT regionale (Nota 101 abrogata il 18/11/2025, DPC D.A. 278/2024 antecedente).
+4. **Nuove confezioni da valutare**: RYBELSUS 1,5/4/9 mg, DABIGATRAN ETEXILATO MEDICAL VALLEY 110/150 mg (in DPC regionale aggiornato?).
+5. **DPC di riferimento** (D.A. 278/2024, testo agg. 10/10/2024) antecedente alle determine 2025-2026: le liste sono aggiornate riga per riga, il documento sorgente no.
+
+## 6. Strumenti (riutilizzabili)
+
+- `scripts/sync_html_da_json.py` — riconcilia tutte le pagine HTML con il JSON (idempotente)
+- `scripts/aggiorna_note_2025_2026.py` — applica gli aggiornamenti delle Note AIFA 2024-2026
+- `scripts/aggiorna_note_97.py` — aggiornamenti Nota 97 / 8 / 92
+- `/home/k10/scripts/dpc_audit_html_vs_json.py` — audit di coerenza HTML ↔ JSON
+- `/home/k10/scripts/dpc_fase2_match_multi_colonna.py`, `dpc_fase2_evidenze.py`, `dpc_fase2_evidenze_documento.py` — matching multi-colonna con la Second Brain
+- `/home/k10/scripts/sb_audit_qualita_testo.py` — audit di leggibilità dei pacchetti (OCR dei PDF corrotti)
+- `/home/k10/scripts/ingest_backup_farmacia.py` — ingestione dell'archivio email nella Second Brain
