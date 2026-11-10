@@ -131,3 +131,17 @@ Sicilia n. 90 del 15/10/2025, prot. PRES. TS n. 218; Determine AIFA del 02/07/20
 Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in Convenzionata con ricetta a Nota 100.
 Tabella: 35 righe (molecola, nome commerciale, confezioni AIC, presenza nelle liste DPC, Nota 100
 obbligatoria) + ricerca. Nelle liste DPC risultano **31 record** (28 confezioni distinte) gia' marcati.
+
+## 9. Link verificati e colonne Nota 99 ricostruite
+
+**Link**: i link alla Gazzetta Ufficiale non mostravano il testo (pagina JavaScript di 11 KB; i pattern di
+download diretto restituiscono 404/400). Nel sito sono ora pubblicati i documenti originali in `docs/`:
+`nota-74.pdf`, `nota-97.pdf`, `nota-99.pdf`, `modifica-pt-nota-39.pdf`, `prot-35765-note-74-97-99.pdf`.
+Le altre fonti restano su AIFA / OMCeO / Regione Siciliana. `scripts/verifica_link.py` controlla ogni link:
+**18 verificati, 0 problemi**.
+
+**Colonne Nota 99**: la tabella del DPC (pp. 66-67) è stata ri-estratta con pdfplumber (5 colonne reali:
+AIC | Medicinale | Principio attivo | BPCO/regola | SSN non soggette a Nota 99). L'estrazione precedente aveva
+unito frammenti di colonne diverse (es. `A-PT-Nota` dentro il Principio attivo). Ora ogni dato sta nella sua
+colonna e il **sync ricostruisce le celle dal JSON** e **inserisce le righe mancanti** (recuperata
+OXIS TURBOHALER 4,5, AIC 033312012: 159 righe in pagina).
