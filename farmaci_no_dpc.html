@@ -4,23 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ELENCO FARMACI NO DPC CON PARTICOLARITA' — pag. 65</title>
+<link rel="stylesheet" href="theme.css">
 <style>
 
     :root {
-        --bg1: #0f172a;
-        --bg2: #1e293b;
-        --accent: #38bdf8;
-        --accent2: #a78bfa;
-        --glass: rgba(255, 255, 255, 0.06);
-        --glass-border: rgba(255, 255, 255, 0.16);
-        --text: #e2e8f0;
-        --muted: #94a3b8;
+        --bg1: rgb(var(--t-bg-rgb));
+        --bg2: rgb(var(--t-bg2-rgb));
+        --accent: rgb(var(--t-accent-rgb));
+        --accent2: rgb(var(--t-accent2-rgb));
+        --glass: rgba(var(--t-ov-rgb),0.06);
+        --glass-border: rgba(var(--t-ov-rgb),0.16);
+        --text: rgb(var(--t-text-rgb));
+        --muted: rgb(var(--t-muted-rgb));
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
         font-family: "Inter", "Segoe UI", Arial, sans-serif;
         min-height: 100vh;
-        background: #0f172a;
+        background: rgb(var(--t-bg-rgb));
         color: var(--text);
         padding: 32px 16px 48px;
     }
@@ -32,10 +33,10 @@
         pointer-events: none;
         z-index: 0;
     }
-    .orb.o1 { width: 400px; height: 400px; background: #38bdf8; top: -120px; left: -100px; }
-    .orb.o2 { width: 340px; height: 340px; background: #a78bfa; bottom: -100px; right: -80px; }
-    .orb.o3 { width: 260px; height: 260px; background: #f472b6; top: 40%; left: 50%; }
-    .orb.o4 { width: 200px; height: 200px; background: #34d399; top: 20%; right: 15%; }
+    .orb.o1 { width: 400px; height: 400px; background: rgb(var(--t-accent-rgb)); top: -120px; left: -100px; }
+    .orb.o2 { width: 340px; height: 340px; background: rgb(var(--t-accent2-rgb)); bottom: -100px; right: -80px; }
+    .orb.o3 { width: 260px; height: 260px; background: rgb(var(--t-pink-rgb)); top: 40%; left: 50%; }
+    .orb.o4 { width: 200px; height: 200px; background: rgb(var(--t-green2-rgb)); top: 20%; right: 15%; }
     .container { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; }
     .back {
         display: inline-block;
@@ -53,14 +54,14 @@
         border: 1px solid var(--glass-border);
         border-radius: 18px;
         padding: 26px 24px 40px;
-        box-shadow: 0 1px 6px rgba(0,0,0,0.25);
+        box-shadow: 0 1px 6px rgba(var(--t-ink-rgb),0.25);
     }
     .indice-box {
         position: absolute;
         top: 14px;
         right: 18px;
         border: 1px solid var(--glass-border);
-        background: rgba(255,255,255,0.06);
+        background: rgba(var(--t-ov-rgb),0.06);
         padding: 2px 10px;
         border-radius: 8px;
         line-height: 1;
@@ -79,7 +80,7 @@
         color: var(--text);
     }
     h2, h3 {
-        color: #7FFF00;
+        color: rgb(var(--t-green-rgb));
         text-align: center;
     }
     h1.doc-title {
@@ -91,11 +92,11 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 1px;
-        color: #FF2800;
+        color: rgb(var(--t-red-rgb));
     }
     .bar-green {
-        background: linear-gradient(90deg, #22c55e, #16a34a);
-        color: #ffffff;
+        background: linear-gradient(90deg, rgb(var(--t-green3-rgb)), rgb(var(--t-green4-rgb)));
+        color: rgb(var(--t-white-rgb));
         font-weight: bold;
         font-size: 15px;
         text-align: center;
@@ -109,7 +110,7 @@
         width: 100%;
         border-collapse: collapse;
         margin-bottom: 18px;
-        background: rgba(255,255,255,0.03);
+        background: rgba(var(--t-ov-rgb),0.03);
     }
     th, td {
         padding: 6px 9px;
@@ -119,7 +120,7 @@
         font-size: 13px;
     }
     th {
-        background: rgba(56, 189, 248, 0.12);
+        background: rgba(var(--t-accent-rgb),0.12);
         font-weight: bold;
         text-align: center;
     }
@@ -140,10 +141,10 @@
     }
     table.dpc th.sortable.asc::after  { content: " ▲"; color: var(--accent); }
     table.dpc th.sortable.desc::after { content: " ▼"; color: var(--accent); }
-    table.dpc th.sortable:hover { background: rgba(56, 189, 248, 0.22); }
+    table.dpc th.sortable:hover { background: rgba(var(--t-accent-rgb),0.22); }
     td.aic, td.minsan { white-space: nowrap; }
     tr.note td, .note {
-        background: rgba(255,255,255,0.04);
+        background: rgba(var(--t-ov-rgb),0.04);
         font-style: italic;
         color: var(--muted);
     }
@@ -174,9 +175,9 @@
         color: var(--text);
         font-family: Georgia, "Times New Roman", serif;
         font-size: 16px;
-        background: radial-gradient(circle at center, rgba(255,255,255,0.12) 55%, rgba(255,255,255,0.04) 100%);
+        background: radial-gradient(circle at center, rgba(var(--t-white-rgb),0.12) 55%, rgba(var(--t-ov-rgb),0.04) 100%);
     }
-        color: #94a3b8;
+        color: rgb(var(--t-muted-rgb));
         margin-left: auto;
         white-space: nowrap;
     }
@@ -184,7 +185,7 @@
 
     .page-title {
         text-align: center;
-        color: #FF2800;
+        color: rgb(var(--t-red-rgb));
         font-size: clamp(20px, 3.5vw, 30px);
         font-weight: 800;
         text-transform: uppercase;
@@ -194,6 +195,7 @@
     }
 
 </style>
+<script>(function(){try{var t=localStorage.getItem("dpc-tema");if(t){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();</script>
 </head>
 <body>
 <div class="container">
@@ -329,5 +331,6 @@
 </div>
 </div>
 
+<script src="theme.js" defer></script>
 </body>
 </html>

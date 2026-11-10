@@ -4,33 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Elenco Farmaci DPC — Home</title>
+<link rel="stylesheet" href="theme.css">
 <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
         font-family: "Inter", "Segoe UI", system-ui, sans-serif;
-        background: #0f172a;
-        color: #e2e8f0;
+        background: rgb(var(--t-bg-rgb));
+        color: rgb(var(--t-text-rgb));
         display: flex;
         min-height: 100vh;
     }
     .side {
         width: 280px;
-        background: #020617;
+        background: rgb(var(--t-bgdeep-rgb));
         padding: 32px 22px;
-        border-right: 1px solid rgba(255,255,255,0.08);
+        border-right: 1px solid rgba(var(--t-ov-rgb),0.08);
         flex-shrink: 0;
     }
     .side h1 {
         font-size: 26px;
         font-weight: 800;
         margin-bottom: 6px;
-        color: #38bdf8;
+        color: rgb(var(--t-accent-rgb));
         letter-spacing: 0.5px;
         text-transform: uppercase;
     }
     .side .sub {
         font-size: 12px;
-        color: #64748b;
+        color: rgb(var(--t-muted2-rgb));
         margin-bottom: 28px;
         line-height: 1.4;
     }
@@ -42,7 +43,7 @@
         border-radius: 10px;
         margin-bottom: 8px;
         text-decoration: none;
-        color: #cbd5e1;
+        color: rgb(var(--t-text2-rgb));
         font-size: 15px;
         font-weight: 700;
         text-transform: uppercase;
@@ -50,20 +51,20 @@
         transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
     }
     .side .item.active {
-        background: rgba(56, 189, 248, 0.2);
-        color: #ffffff;
+        background: rgba(var(--t-accent-rgb),0.2);
+        color: rgb(var(--t-white-rgb));
     }
     .side .item:hover {
-        background: rgba(56, 189, 248, 0.12);
-        color: #ffffff;
+        background: rgba(var(--t-accent-rgb),0.12);
+        color: rgb(var(--t-white-rgb));
         transform: translateX(4px);
     }
     .side .item .num {
         width: 30px;
         height: 30px;
         border-radius: 8px;
-        background: linear-gradient(135deg, #38bdf8, #a78bfa);
-        color: #0f172a;
+        background: linear-gradient(135deg, rgb(var(--t-accent-rgb)), rgb(var(--t-accent2-rgb)));
+        color: var(--t-onaccent);
         font-weight: 700;
         font-size: 12px;
         display: flex;
@@ -73,7 +74,7 @@
     }
     .side .item .meta {
         font-size: 11px;
-        color: #64748b;
+        color: rgb(var(--t-muted2-rgb));
         font-weight: 400;
         margin-top: 2px;
     }
@@ -87,10 +88,10 @@
         font-size: 32px;
         font-weight: 800;
         margin-bottom: 8px;
-        color: #f1f5f9;
+        color: rgb(var(--t-textlt-rgb));
     }
     .main p {
-        color: #94a3b8;
+        color: rgb(var(--t-muted-rgb));
         margin-bottom: 32px;
         font-size: 15px;
         line-height: 1.5;
@@ -102,18 +103,18 @@
         gap: 18px;
     }
     .card {
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(var(--t-ov-rgb),0.04);
+        border: 1px solid rgba(var(--t-ov-rgb),0.08);
         border-radius: 14px;
         padding: 20px 18px;
         text-decoration: none;
-        color: #e2e8f0;
+        color: rgb(var(--t-text-rgb));
         transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .card:hover {
         transform: translateY(-4px);
-        border-color: #38bdf8;
-        box-shadow: 0 12px 28px rgba(56, 189, 248, 0.12);
+        border-color: rgb(var(--t-accent-rgb));
+        box-shadow: 0 12px 28px rgba(var(--t-accent-rgb),0.12);
     }
     .card .top {
         display: flex;
@@ -125,8 +126,8 @@
         width: 36px;
         height: 36px;
         border-radius: 10px;
-        background: linear-gradient(135deg, #38bdf8, #a78bfa);
-        color: #0f172a;
+        background: linear-gradient(135deg, rgb(var(--t-accent-rgb)), rgb(var(--t-accent2-rgb)));
+        color: var(--t-onaccent);
         font-weight: 700;
         font-size: 14px;
         display: flex;
@@ -137,11 +138,11 @@
     .card h3 {
         font-size: 16px;
         font-weight: 700;
-        color: #f1f5f9;
+        color: rgb(var(--t-textlt-rgb));
     }
     .card p {
         font-size: 13px;
-        color: #94a3b8;
+        color: rgb(var(--t-muted-rgb));
         line-height: 1.5;
         margin-bottom: 12px;
     }
@@ -150,25 +151,25 @@
         font-size: 11px;
         padding: 3px 9px;
         border-radius: 6px;
-        background: rgba(56, 189, 248, 0.12);
-        color: #38bdf8;
+        background: rgba(var(--t-accent-rgb),0.12);
+        color: rgb(var(--t-accent-rgb));
         font-weight: 600;
         margin-right: 6px;
     }
 
     footer {
         margin-top: 40px;
-        color: #64748b;
+        color: rgb(var(--t-muted2-rgb));
         font-size: 12px;
     }
-    footer a { color: #38bdf8; text-decoration: none; }
+    footer a { color: rgb(var(--t-accent-rgb)); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
 
     .viewer-wrap {
         flex: 1;
-        background: rgba(255,255,255,0.02);
-        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(var(--t-ov-rgb),0.02);
+        border: 1px solid rgba(var(--t-ov-rgb),0.08);
         border-radius: 14px;
         overflow: hidden;
         min-height: 70vh;
@@ -177,15 +178,16 @@
         width: 100%;
         height: 78vh;
         border: none;
-        background: #0f172a;
+        background: rgb(var(--t-bg-rgb));
     }
 
     @media (max-width: 720px) {
         body { flex-direction: column; }
-        .side { width: 100%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .side { width: 100%; border-right: none; border-bottom: 1px solid rgba(var(--t-ov-rgb),0.08); }
         .main { padding: 32px 20px; }
     }
 </style>
+<script>(function(){try{var t=localStorage.getItem("dpc-tema");if(t){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();</script>
 </head>
 <body>
 
@@ -257,5 +259,6 @@
 </script>
 
 <a href="index.html" style="position:fixed;top:16px;right:20px;z-index:20;padding:8px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.06);color:#e2e8f0;font-weight:600;font-size:13px;text-decoration:none;">Vista sfere</a>
+<script src="theme.js" defer></script>
 </body>
 </html>
