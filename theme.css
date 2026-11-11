@@ -14,31 +14,6 @@
 /* ---------- Tema 1: NOTTE (predefinito, palette riveduta) ----------
    Blu notte profondo, azzurro ammorbidito, rosso Corsa profondo al posto del neon,
    giada al posto del lime fluorescente: stessi contrasti, resa piu' curata. */
-html[data-theme="notte"] {
-    --t-bg-rgb: 11, 18, 32;
-    --t-bg2-rgb: 22, 33, 56;
-    --t-bgdeep-rgb: 6, 11, 21;
-    --t-text-rgb: 232, 238, 248;
-    --t-textlt-rgb: 241, 245, 249;
-    --t-text2-rgb: 199, 210, 226;
-    --t-muted-rgb: 141, 158, 184;
-    --t-muted2-rgb: 108, 122, 143;
-    --t-accent-rgb: 77, 163, 245;
-    --t-accent2-rgb: 129, 116, 240;
-    --t-red-rgb: 225, 6, 0;
-    --t-green-rgb: 110, 231, 183;
-    --t-green2-rgb: 52, 211, 153;
-    --t-green3-rgb: 34, 197, 94;
-    --t-green4-rgb: 22, 163, 74;
-    --t-pink-rgb: 244, 114, 182;
-    --t-deepblue-rgb: 23, 45, 110;
-    --t-deepviolet-rgb: 58, 24, 120;
-    --t-blue2-rgb: 37, 99, 235;
-    --t-sky-rgb: 125, 193, 245;
-    --t-ov-rgb: 255, 255, 255;
-    --t-ink-rgb: 0, 0, 0;
-    --t-onaccent-rgb: 255, 255, 255;
-}
 
 /* ---------- Tema 2: CHIARO ---------- */
 html[data-theme="chiaro"] {
@@ -63,6 +38,31 @@ html[data-theme="chiaro"] {
     --t-blue2-rgb: 29, 78, 216;
     --t-sky-rgb: 125, 211, 252;
     --t-ov-rgb: 15, 23, 42;
+    --t-ink-rgb: 0, 0, 0;
+    --t-onaccent-rgb: 255, 255, 255;
+}
+html[data-theme="ambra"] {
+    --t-bg-rgb: 253, 250, 243;
+    --t-bg2-rgb: 255, 255, 255;
+    --t-bgdeep-rgb: 240, 231, 214;
+    --t-text-rgb: 41, 30, 12;
+    --t-textlt-rgb: 71, 55, 31;
+    --t-text2-rgb: 92, 73, 46;
+    --t-muted-rgb: 106, 87, 60;
+    --t-muted2-rgb: 140, 120, 89;
+    --t-accent-rgb: 180, 83, 9;
+    --t-accent2-rgb: 202, 116, 12;
+    --t-red-rgb: 185, 28, 28;
+    --t-green-rgb: 22, 122, 60;
+    --t-green2-rgb: 5, 150, 105;
+    --t-green3-rgb: 22, 163, 74;
+    --t-green4-rgb: 21, 128, 61;
+    --t-pink-rgb: 219, 39, 119;
+    --t-deepblue-rgb: 60, 42, 20;
+    --t-deepviolet-rgb: 76, 29, 149;
+    --t-blue2-rgb: 29, 78, 216;
+    --t-sky-rgb: 253, 230, 138;
+    --t-ov-rgb: 41, 30, 12;
     --t-ink-rgb: 0, 0, 0;
     --t-onaccent-rgb: 255, 255, 255;
 }

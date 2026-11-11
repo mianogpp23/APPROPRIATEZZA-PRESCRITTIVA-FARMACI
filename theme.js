@@ -4,19 +4,31 @@
     "use strict";
 
     var THEMES = [
-        { id: "notte",     label: "Notte",     sw: "linear-gradient(135deg,#0f172a,#38bdf8)" },
         { id: "chiaro",    label: "Chiaro",    sw: "linear-gradient(135deg,#f8fafc,#0284c7)" },
+        { id: "ambra",     label: "Ambra",     sw: "linear-gradient(135deg,#fdfaf3,#b45309)" },
         { id: "ghiaccio",  label: "Ghiaccio",  sw: "linear-gradient(135deg,#eaf4fb,#0b6fa4)" },
         { id: "grafite",   label: "Grafite",   sw: "linear-gradient(135deg,#1c1c1f,#d4d4d8)" },
         { id: "caldo",     label: "Caldo",     sw: "linear-gradient(135deg,#fff8ed,#c2410c)" }
     ];
 
     var KEY = "dpc-tema";
-    var DEFAULT = "notte";
+    var DEFAULT = "chiaro";
+
+    function saved() {
+        /* tema salvato alla scelta precedente; se non e' piu' valido (es. un tema
+           rimosso) si riparte dal tema predefinito */
+        try {
+            var v = window.localStorage.getItem(KEY);
+            return THEMES.some(function (x) { return x.id === v; }) ? v : null;
+        } catch (e) {
+            return null;
+        }
+    }
 
     function current() {
         var t = document.documentElement.getAttribute("data-theme");
-        return THEMES.some(function (x) { return x.id === t; }) ? t : DEFAULT;
+        if (THEMES.some(function (x) { return x.id === t; })) { return t; }
+        return saved() || DEFAULT;
     }
 
     function apply(id) {
