@@ -3,243 +3,193 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elenco Farmaci DPC — Home</title>
+<title>Particolarismi dispensazione farmaci — DPC Regione Siciliana</title>
+<meta name="description" content="Portale di supporto alla consultazione prescrittiva: farmaci in distribuzione per conto, Note AIFA e regole operative della Regione Siciliana.">
 <link rel="stylesheet" href="theme.css">
 <style>
     :root {
-        --bg1: rgb(var(--t-bg-rgb));
-        --bg2: rgb(var(--t-bg2-rgb));
-        --accent: rgb(var(--t-accent-rgb));
-        --accent2: rgb(var(--t-accent2-rgb));
-        --text: rgb(var(--t-text-rgb));
-        --muted: rgb(var(--t-muted-rgb));
+        --bg1: rgb(var(--t-bg-rgb)); --bg2: rgb(var(--t-bg2-rgb)); --accent: rgb(var(--t-accent-rgb));
+        --accent2: rgb(var(--t-accent2-rgb)); --glass: rgba(var(--t-ov-rgb),0.06);
+        --glass-border: rgba(var(--t-ov-rgb),0.16); --text: rgb(var(--t-text-rgb));
+        --muted: rgb(var(--t-muted-rgb)); --red: rgb(var(--t-red-rgb)); --green: rgb(var(--t-green-rgb));
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
+    * { box-sizing: border-box; }
     body {
-        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
-        min-height: 100vh;
-        background: radial-gradient(1200px 600px at 20% 10%, rgb(var(--t-deepblue-rgb)) 0%, transparent 60%),
-                    radial-gradient(1000px 500px at 80% 90%, rgb(var(--t-deepviolet-rgb)) 0%, transparent 60%),
-                    linear-gradient(135deg, var(--bg1), var(--bg2));
-        color: var(--text);
-        overflow: hidden;
+        margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        background: var(--bg1); color: var(--text); font-size: 17px; line-height: 1.55;
+        min-height: 100vh; display: flex; align-items: flex-start; justify-content: center;
+        padding: 28px 16px 60px;
     }
-
-    .stage {
-        position: relative;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .wrap { width: 100%; max-width: 900px; }
+    header { text-align: center; margin-bottom: 22px; }
+    h1 { color: var(--red); font-size: 30px; margin: 0 0 6px; text-transform: uppercase; line-height: 1.2; }
+    h2 { color: var(--green); font-size: 19px; margin: 0 0 10px; }
+    .sub { color: var(--muted); }
+    .card {
+        background: var(--glass); border: 1px solid var(--glass-border); border-radius: 14px;
+        padding: 18px 20px; margin-bottom: 16px;
     }
-
-    h1.title {
-        position: absolute;
-        top: 36px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: clamp(20px, 3.5vw, 34px);
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        background: linear-gradient(90deg, var(--accent), var(--accent2));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        z-index: 5;
-        text-align: center;
-        white-space: nowrap;
+    .card.intro { border-left: 4px solid var(--accent); }
+    .card.legal { border-left: 4px solid var(--red); }
+    .card.sources { border-left: 4px solid var(--green); }
+    p { margin: 0 0 10px; }
+    p:last-child { margin-bottom: 0; }
+    ul { margin: 6px 0 0; padding-left: 20px; }
+    li { margin-bottom: 7px; }
+    strong { color: var(--green); }
+    .scroll {
+        max-height: 40vh; overflow-y: auto; padding-right: 8px;
+        border: 1px solid var(--glass-border); border-radius: 10px; padding: 14px 16px;
+        background: rgba(var(--t-ov-rgb),0.03); font-size: 15.5px;
     }
-
-    .circle-wrap {
-        position: relative;
-        width: min(78vmin, 720px);
-        height: min(78vmin, 720px);
-        animation: spin 40s linear infinite;
+    .scroll h3 { color: var(--accent); font-size: 16px; margin: 14px 0 6px; }
+    .scroll h3:first-child { margin-top: 0; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 22px 0 10px; }
+    .btn {
+        display: inline-block; padding: 14px 30px; border-radius: 11px; font-weight: 800; font-size: 16px;
+        cursor: pointer; border: 1px solid transparent; text-decoration: none; text-align: center;
     }
-
-    .sphere {
-        position: absolute;
-        top: 50%; left: 50%;
-        width: 180px; height: 180px;
-        margin: -90px 0 0 -90px;
-        border-radius: 50%;
-        background:
-            radial-gradient(circle at 28% 22%, rgba(var(--t-white-rgb),0.9) 0%, rgba(var(--t-ov-rgb),0.2) 14%, transparent 28%),
-            radial-gradient(circle at 22% 48%, rgba(var(--t-green3-rgb),0.6) 0%, rgba(var(--t-green3-rgb),0.0) 18%),
-            radial-gradient(circle at 68% 42%, rgba(var(--t-green3-rgb),0.55) 0%, rgba(var(--t-green3-rgb),0.0) 20%),
-            radial-gradient(circle at 40% 72%, rgba(var(--t-green3-rgb),0.5) 0%, rgba(var(--t-green3-rgb),0.0) 22%),
-            radial-gradient(circle at 78% 68%, rgba(var(--t-green3-rgb),0.45) 0%, rgba(var(--t-green3-rgb),0.0) 16%),
-            radial-gradient(circle at 50% 50%, rgb(var(--t-blue2-rgb)) 0%, rgb(var(--t-deepblue-rgb)) 30%, rgb(var(--t-bg-rgb)) 70%, rgb(var(--t-bgdeep-rgb)) 100%);
-        border: 1px solid rgba(var(--t-sky-rgb),0.35);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        text-decoration: none;
-        color: rgb(var(--t-white-rgb));
-        padding: 8px;
-        box-shadow:
-            inset -10px -14px 28px rgba(var(--t-ink-rgb),0.55),
-            inset 8px 10px 20px rgba(var(--t-ov-rgb),0.12),
-            0 0 0 2px rgba(var(--t-accent-rgb),0.15),
-            0 16px 40px rgba(var(--t-ink-rgb),0.5),
-            0 0 30px rgba(var(--t-accent-rgb),0.25);
-        transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.6s ease, box-shadow 0.3s ease;
-        opacity: 0;
-        will-change: transform, opacity;
-        z-index: 2;
-        overflow: hidden;
-        cursor: pointer;
-    }
-    .sphere::before {
-        content: "";
-        position: absolute;
-        top: 6%; left: 14%;
-        width: 38%; height: 26%;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(var(--t-white-rgb),0.7) 0%, rgba(var(--t-ov-rgb),0) 70%);
-        pointer-events: none; z-index: 0;
-    }
-    .sphere .inner {
-        position: relative; z-index: 1;
-        display: flex; flex-direction: column; align-items: center; justify-content: center;
-        animation: spinrev 40s linear infinite;
-        text-shadow: 0 2px 6px rgba(var(--t-ink-rgb),0.6);
-    }
-    .sphere .num { font-size: 20px; font-weight: 700; color: rgb(var(--t-white-rgb)); }
-    .sphere .label { font-size: 18px; font-weight: 700; color: rgb(var(--t-white-rgb)); margin-top: 4px; }
-    .sphere:hover {
-        transform: scale(1.1) !important;
-        box-shadow:
-            inset -10px -14px 28px rgba(var(--t-ink-rgb),0.55),
-            inset 8px 10px 20px rgba(var(--t-ov-rgb),0.12),
-            0 0 0 2px rgba(var(--t-accent-rgb),0.4),
-            0 16px 40px rgba(var(--t-ink-rgb),0.5),
-            0 0 40px rgba(var(--t-accent-rgb),0.45);
-    }
-
-    .center-dot {
-        position: absolute; top: 50%; left: 50%;
-        width: 14px; height: 14px; margin: -7px 0 0 -7px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--accent), var(--accent2));
-        box-shadow: 0 0 24px rgba(var(--t-accent-rgb),0.6);
-        z-index: 1;
-    }
-
-    .sphere-stage-footer {
-        position: absolute;
-        bottom: 16px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: var(--muted);
-        font-size: 12px;
-        z-index: 5;
-        text-align: center;
-    }
-
-    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes spinrev { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
-
-    @media (max-width: 600px) {
-        .sphere { width: 130px; height: 130px; margin: -65px 0 0 -65px; }
-        .sphere .label { font-size: 14px; }
+    .btn.accept { background: var(--accent); color: rgb(var(--t-onaccent-rgb)); }
+    .btn.accept:hover { filter: brightness(1.1); }
+    .btn.reject { background: transparent; color: var(--text); border-color: var(--glass-border); }
+    .btn.reject:hover { background: rgba(var(--t-ov-rgb),0.08); }
+    .msg { display: none; margin: 14px auto 0; max-width: 620px; text-align: center;
+        padding: 13px 16px; border-radius: 10px; border: 1px solid var(--glass-border);
+        background: rgba(var(--t-red-rgb),0.12); color: var(--text); }
+    .msg.show { display: block; }
+    .foot { text-align: center; color: var(--muted); font-size: 14px; margin-top: 18px; }
+    .foot a { color: var(--accent); }
+    @media (max-width: 640px) {
+        h1 { font-size: 23px; }
+        .scroll { max-height: 46vh; }
+        .actions { flex-direction: column; }
+        .btn { width: 100%; }
     }
 </style>
-<script>(function(){try{var t=localStorage.getItem("dpc-tema");if(t){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();</script>
 </head>
 <body>
+<div class="wrap">
+    <header>
+        <h1>Particolarismi dispensazione farmaci</h1>
+        <div class="sub">Portale di supporto alla consultazione prescrittiva &mdash; Distribuzione Per Conto (DPC)
+            e Note AIFA &mdash; Regione Siciliana</div>
+    </header>
 
-<div class="stage">
-    <h1 class="title">Elenco Farmaci DPC</h1>
-    <div class="circle-wrap" id="wrap">
-        <div class="center-dot"></div>
+    <div class="card intro">
+        <h2>Che cos'è questo strumento</h2>
+        <p>Un indice di consultazione, costruito sul <strong>Documento di Controllo dell'appropriatezza
+            prescrittiva (DPC)</strong> della Regione Siciliana, che aiuta il farmacista a orientarsi
+            quickly fra:</p>
+        <ul>
+            <li>i farmaci <strong>in distribuzione per conto</strong> (DPC) e le regole di erogazione;</li>
+            <li>i farmaci <strong>in distribuzione diretta ASP</strong> e le relative particolarità;</li>
+            <li>le <strong>Note AIFA</strong> (74, 79, 85, 92, 97, 98, 99, 100…) con l'obbligo o l'esenzione di
+                Piano Terapeutico, scheda di valutazione e protocollo su SistemaTS;</li>
+            <li>i formalismi e i <strong>farmaci fuori DPC</strong> con le loro eccezioni.</li>
+        </ul>
+        <p>Ogni scheda riporta le <strong>pillole operative</strong> (cosa controllare al banco) e, accanto a
+            ogni aggiornamento, il <strong>link puntuale al provvedimento</strong>: non un indice generico, ma
+            la pagina precisa del documento da consultare.</p>
     </div>
-    <div class="sphere-stage-footer">Clicca una sfera per aprire l'elenco.</div>
+
+    <div class="card legal">
+        <h2>Disclaimer legale e avvertenze</h2>
+        <div class="scroll">
+            <h3>1. Natura e limitazione di responsabilità</h3>
+            <p>Questo portale è uno <strong>strumento di supporto alla consultazione</strong>, redatto a
+                scopo informativo e divulgativo. Non sostituisce il documento ufficiale, non costituisce
+                prescrizione, non è una fonte normativa e non può essere opposto a terzi. Le schede
+                riproducono e sintetizzano il testo del DPC regionale e delle determinazioni AIFA: in caso di
+                difformità, <strong>fanno fede esclusivamente gli atti originali</strong>, cui il portale
+                rimanda con link diretti. Chi si affida al portale per una decisione operativa lo fa a proprio
+                rischio e declina ogni responsabilità per conseguenze derivanti dall'uso delle informazioni
+                qui pubblicate.</p>
+
+            <h3>2. Uso gratuito e assenza di servizi a valore aggiunto</h3>
+            <p>Il servizio è <strong>gratuito</strong>, non richiede alcun corrispettivo, non registra profili utente
+                e non effettua alcuna profilazione o finalità di marketing. Non sono erogate prestazioni
+                professionali sanitarie: il farmacista resta l'unico responsabile della verifica di
+                congruità della prescrizione, dell'appropriatezza, del rispetto delle Note e dei Piani
+                Terapeutici e della corretta erogazione.</p>
+
+            <h3>3. Utilizzo di strumenti di intelligenza artificiale</h3>
+            <p>Le tabelle, le note operative e la struttura del portale sono state generate e verificate
+                con l'ausilio di <strong>strumenti di intelligenza artificiale</strong>, con controllo
+                umano e riscontro puntuale sui documenti originali citati. L'intelligenza artificiale
+                può commettere errori: ogni dato sostanziale è per questo accompagnato dal link al
+                provvedimento di riferimento. In caso di dubbio <strong>fare sempre fede il documento
+                originale</strong>.</p>
+
+            <h3>4. Verifica con la propria professionalità e i canali ufficiali</h3>
+            <p>Ogni farmacista è tenuto a verificare i dati con la propria professionalità e con i
+                <strong>canali ufficiali</strong>: Determinazioni AIFA e relative pubblicazioni sulla
+                Gazzetta Ufficiale, portale <em>TrovaNormeFarmaco</em>, protocolli regionali e
+                comunicazioni dell'Assessorato Salute. Questo portale è un aiuto alla ricerca rapida:
+                <strong>non sostituisce la verifica</strong>.</p>
+
+            <h3>5. Dati personali</h3>
+            <p>Il portale non raccoglie dati personali. La scelta di accettare le condizioni è memorizzata
+                esclusivamente nel <em>localStorage</em> del browser dell'utente, sul dispositivo, e non
+                viene trasmessa in alcun modo. Gli eventuali recapiti presenti nei documenti originali
+                sono quelli istituzionali dei servizi sanitari.</p>
+
+            <h3>6. Proprietà dei documenti</h3>
+            <p>I documenti originali citati appartengono ai rispettivi emittenti (Regione Siciliana,
+                Federfarma Messina, AIFA, ASP) e restano di loro esclusiva proprietà: sono riprodotti a
+                scopo di consultazione e citazione, con rimando alla fonte.</p>
+        </div>
+    </div>
+
+    <div class="card sources">
+        <h2>Fonti e aggiornamenti</h2>
+        <p>Il <strong>documento di base</strong> è il <em>Documento di Controllo dell'appropriatezza
+            prescrittiva</em> elaborato da <strong>Federfarma Messina</strong> (edizione 2023), basato
+            sull'Accordo transitorio per la Distribuzione Per Conto dei farmaci di cui al PHT (D.A. n. 278/2024,
+            G.U.R.S. n. 15 del 29/03/2024).</p>
+        <p>Il <strong>database e le regole operative</strong> qui pubblicati sono stati
+            <strong>successivamente aggiornati e integrati</strong> con le disposizioni più recenti:
+            determinazioni AIFA 2025-2026 (Note 74, 79, 85, 92, 97, 98, 99, 100, abrogazioni delle Note 8,
+            11 e 84, riclassificazioni di classe A), protocolli e comunicazioni dell'Assessorato Salute della
+            Regione Siciliana, circolari delle organizzazioni di categoria e aggiornamenti del DPC stesso.
+            Ogni variazione è marcata con data e fonte, e ogni marcatura è un <strong>link diretto al
+            provvedimento</strong> (con indicazione della pagina quando il documento è in PDF).</p>
+        <p>Le versioni del DPC successive al documento di base sono indicate con la data della pagina
+            citata: i link rimandano alla pagina esatta del PDF pubblicato.</p>
+    </div>
+
+    <div class="actions">
+        <a class="btn accept" href="#" id="accetto">ACCETTO</a>
+        <a class="btn reject" href="#" id="non-accetto">NON ACCETTO</a>
+    </div>
+    <div class="msg" id="msg">
+        L'accesso al portale richiede l'accettazione delle condizioni e delle avvertenze.
+        Puoi rileggerle in qualsiasi momento dalla pagina
+        <a href="disclaimer.html" style="color:var(--accent);">Disclaimer legale</a>.
+    </div>
+    <div class="foot">
+        <a href="disclaimer.html">Disclaimer legale completo</a> &middot;
+        strumento informativo, uso gratuito &middot; verifica sempre sui canali ufficiali
+    </div>
 </div>
 
+<script src="consent.js"></script>
 <script>
 (function () {
     "use strict";
-
-    var items = [
-        { n: "01", label: "Metilfenidato", href: "metilfenidato.html" },
-        { n: "02", label: "Farmaci DPC", href: "farmaci_dpc.html" },
-        { n: "03", label: "Distr. diretta", href: "distribuzione_diretta.html" },
-        { n: "04", label: "Formalismi", href: "formalismi.html" },
-        { n: "05", label: "NO DPC", href: "farmaci_no_dpc.html" },
-        { n: "06", label: "Nota 99", href: "nota_99.html" },
-        { n: "07", label: "In convenzionata", href: "dpc_convenzionata.html" }
-    ];
-
-    var wrap = document.getElementById("wrap");
-    var N = items.length;
-    var radius = wrap.clientWidth * 0.42;
-
-    var nodes = items.map(function (it) {
-        var a = document.createElement("a");
-        a.className = "sphere";
-        a.href = it.href;
-        a.innerHTML = '<div class="inner"><span class="num">' + it.n + '</span><span class="label">' + it.label + '</span></div>';
-        wrap.appendChild(a);
-        return a;
+    var accetto = document.getElementById("accetto");
+    var nonAccetto = document.getElementById("non-accetto");
+    var msg = document.getElementById("msg");
+    accetto.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.DPC.vaiAlPortale();
     });
-
-    var finals = items.map(function (it, i) {
-        var angle = (i / N) * Math.PI * 2 - Math.PI / 2;
-        return { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius };
-    });
-
-    nodes.forEach(function (node, i) {
-        var startX = (Math.random() - 0.5) * window.innerWidth * 0.6;
-        var startY = window.innerHeight * 0.6 + Math.random() * 200;
-        node.style.transform = "translate(" + startX + "px, " + startY + "px) scale(0.3)";
-        node.style.opacity = "0";
-        node.style.transitionDelay = (i * 0.08 + Math.random() * 0.2) + "s";
-    });
-
-    requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-            nodes.forEach(function (node, i) {
-                var f = finals[i];
-                node.style.transform = "translate(" + f.x + "px, " + f.y + "px) scale(1)";
-                node.style.opacity = "1";
-            });
-        });
-    });
-
-    nodes.forEach(function (node, i) {
-        var f = finals[i];
-        node.addEventListener("mouseenter", function () {
-            node.style.transition = "transform 0.25s ease, box-shadow 0.3s ease";
-            node.style.transform = "translate(" + f.x + "px, " + f.y + "px) scale(1.1)";
-        });
-        node.addEventListener("mouseleave", function () {
-            node.style.transition = "transform 1.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.6s ease, box-shadow 0.3s ease";
-            node.style.transform = "translate(" + f.x + "px, " + f.y + "px) scale(1)";
-        });
-    });
-
-    window.addEventListener("resize", function () {
-        radius = wrap.clientWidth * 0.42;
-        finals.forEach(function (f, i) {
-            var angle = (i / N) * Math.PI * 2 - Math.PI / 2;
-            f.x = Math.cos(angle) * radius;
-            f.y = Math.sin(angle) * radius;
-        });
-        nodes.forEach(function (node, i) {
-            var f = finals[i];
-            node.style.transform = "translate(" + f.x + "px, " + f.y + "px) scale(1)";
-        });
+    nonAccetto.addEventListener("click", function (e) {
+        e.preventDefault();
+        msg.classList.add("show");
+        accetto.focus();
     });
 })();
 </script>
-<a href="index_list.html" style="position:fixed;top:16px;right:20px;z-index:20;padding:8px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.06);color:#e2e8f0;font-weight:600;font-size:13px;text-decoration:none;">Vista lista</a>
 <script src="theme.js" defer></script>
 </body>
 </html>
-EOF
-echo "written"

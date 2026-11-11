@@ -1,0 +1,269 @@
+{
+  "farmaci_dpc.html": {
+    "titolo": "Regole operative — farmaci in distribuzione per conto (DPC)",
+    "pillole": [
+      {
+        "t": "PT on-line (obbligo di Piano Terapeutico)",
+        "d": "Eritroprietine e fattori di crescita granulocitari (dal 01/04/2014); Nota 51 (dal 01/08/2022); Nota 65 (dal 01/11/2022); Nota 74 (dal 01/04/2014); Nota 85 (dal 01/04/2023); everolimus/sirolimus/tacrolimus (dal 10/01/2024); altri con PT on-line (bicalutamide 01/08/2022, brivaracetam, cenobamato, cinacalcet 16/06/2023, clozapina, degarelix...). L'elenco completo è nelle pagine 10-11 del DPC.",
+        "link": {
+          "t": "DPC pag. 10-11",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=10"
+        }
+      },
+      {
+        "t": "Come si eroga (GopenDPC)",
+        "d": "Il Farmacista riscontra la presenza del PT «Autorizzato» sulla GopenDPC e solo dopo procede all'ordine e all'erogazione delle confezioni autorizzate. Le ricette con PT cartaceo (Specialista Fuori Regione) vanno trasmesse a dpc@asppalermo.org per l'autorizzazione.",
+        "link": {
+          "t": "DPC pag. 19",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=19"
+        }
+      },
+      {
+        "t": "Medici di Medicina Generale",
+        "d": "Compilano la Scheda di Valutazione e Prescrizione on-line su SistemaTS, che collega automaticamente alla ricetta il Protocollo DMDU0A0000…: la sua presenza va riscontrata a video o sulla ricetta, in mancanza si allega la fotocopia con il protocollo.",
+        "link": {
+          "t": "DPC pag. 19",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=19"
+        }
+      },
+      {
+        "t": "Diabete tipo 2: chi resta in DPC",
+        "d": "Restano in DPC con Scheda di Valutazione e Prescrizione (o Protocollo dal 01/02/2023) i GLP-1 RA (BYDUREON, BYETTA, LYXUMIA, OZEMPIC, RYBELSUS, TRULICITY, VICTOZA), le associazioni SGLT2i/DPP4i (GLYXAMBI, QTERN, STEGLUJAN) e le altre combinazioni insuliniche; i limiti di confezione sono indicati nel DPC (max 1 conf, da 3 mg max 1 conf).",
+        "link": {
+          "t": "DPC pag. 18",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=18"
+        }
+      },
+      {
+        "t": "Specialità carenti (Trulicity, Ozempic, Victoza)",
+        "d": "Se la Scheda di Valutazione e Prescrizione è stata redatta prima del 30/09/2024 con indicazione «valida per due confezioni»: se la prima ricetta è stata erogata e chiusa fino al 29/09/2024 si eroga e chiude la prima ricetta allegando la Scheda in originale e, dopo 23 giorni, alla seconda ricetta si allega la fotocopia indicando «originale Scheda allegata alla ricetta DPC num. … del mese di …»; se la prima ricetta è stata chiusa dal 30/09/2024 si eroga allo stesso modo e solo dopo si trasmette via mail la copia della Scheda specialistica.",
+        "link": {
+          "t": "DPC pag. 20",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=20"
+        }
+      },
+      {
+        "t": "Farmaco a maggior costo / DDD",
+        "d": "Per i farmaci a maggior costo va compilato il campo «motivazNote» con la dicitura «prescrizione di terapia a maggior costo» (es. insulina glargine ABASAGLAR: sempre, sia naive sia in prosecuzione). I farmaci a minor costo di terapia sono la prima scelta nel paziente naive.",
+        "link": {
+          "t": "DPC pag. 29",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=29"
+        }
+      },
+      {
+        "t": "Limiti di confezioni",
+        "d": "Esempi dal DPC: ELONVA max 1 confezione al mese; Prolia (denosumab, Nota 79) 1 confezione max ogni 6 mesi con validità del PT di 12 mesi.",
+        "link": {
+          "t": "DPC pag. 10 e 14",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=14"
+        }
+      }
+    ]
+  },
+  "distribuzione_diretta.html": {
+    "titolo": "Regole operative — distribuzione diretta ASP",
+    "pillole": [
+      {
+        "t": "Chi eroga",
+        "d": "I farmaci in distribuzione diretta (pagine 57-62 del DPC) sono erogati dall'ASP al paziente: non passano dalla farmacia e quindi non compaiono negli elenchi dei farmaci in DPC.",
+        "link": {
+          "t": "DPC pag. 58",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=58"
+        }
+      },
+      {
+        "t": "PT on-line e protocolli",
+        "d": "Valgono le stesse regole del canale DPC (PT «Autorizzato» su GopenDPC, Protocollo DMDU0A0000… per i Medici di Medicina Generale).",
+        "link": {
+          "t": "DPC pag. 18",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=18"
+        }
+      },
+      {
+        "t": "NAO / DOAC con Nota 97",
+        "d": "Gli anticoagulanti orali diretti richiedono la Nota 97; la prescrizione può avvenire su modello PT web-based AIFA cartaceo, compilato da UU.OO. riconosciute e da specialisti convenzionati delle branche indicate dal DPC.",
+        "link": {
+          "t": "DPC pag. 15",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=15"
+        }
+      },
+      {
+        "t": "Farmaci con Nota 95 in deroga",
+        "d": "Se la specialità richiesta è mancante, lo Specialista ASP che ha redatto il PT rilascia anche la DEM. L'elenco dei farmaci in deroga SSN è alle pagine 63-65 del DPC.",
+        "link": {
+          "t": "DPC pag. 63",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=63"
+        }
+      }
+    ]
+  },
+  "nota_99.html": {
+    "titolo": "Pillole operative — Nota 99 (inalatori)",
+    "pillole": [
+      {
+        "t": "Scheda web based su Tessera Sanitaria",
+        "d": "Per i farmaci a PT e Nota 99 la Scheda web based compilata attraverso il sistema Tessera Sanitaria (TS) è adottata in via esclusiva dal 1° settembre 2022. La prescrizione è consentita solo agli Specialisti.",
+        "link": {
+          "t": "DPC pag. 67",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=67"
+        }
+      },
+      {
+        "t": "Numero di protocollo",
+        "d": "Il Farmacista eroga la ricetta Rossa o DEM con Nota 99 riscontrando il numero di protocollo BPCO0A0000… sulla ricetta oppure a video (come per i FANV con Nota 97). In mancanza del Protocollo allega fotocopia della Scheda con il protocollo.",
+        "link": {
+          "t": "DPC pag. 67",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=67"
+        }
+      },
+      {
+        "t": "TRIMBOW per l'asma",
+        "d": "Dal 4 aprile 2023 TRIMBOW è erogabile anche esclusivamente nel trattamento dell'asma con Piano Terapeutico AIFA specifico cartaceo in originale, prescritto da UU.OO. di pneumologia, geriatria, medicina interna e allergologia, senza l'indicazione della Nota AIFA 99.",
+        "link": {
+          "t": "DPC pag. 67",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=67"
+        }
+      }
+    ]
+  },
+  "farmaci_no_dpc.html": {
+    "titolo": "Pillole operative — farmaci NO DPC (canale convenzionata)",
+    "pillole": [
+      {
+        "t": "Cosa significa «NO DPC»",
+        "d": "Sono farmaci non distribuiti per conto: si erogano nel canale della convenzionata, con le particolarita' di nota indicate dal DPC (pagine 65-66).",
+        "link": {
+          "t": "DPC pag. 65",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=65"
+        }
+      },
+      {
+        "t": "Nota 4 — sostituzione",
+        "d": "Sostituzione ammessa con farmaci equivalenti per indicazione. Il farmacista non può verificare l'ambito in cui avviene la prescrizione: con Prezzo di rimborso stabilito (farmaco «Si») si segue la sostituzione; con «Senza nota» si eroga come prescritto.",
+        "link": {
+          "t": "DPC pag. 65",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=65"
+        }
+      },
+      {
+        "t": "Nota 95 — farmaci in distribuzione diretta ASP non disponibili",
+        "d": "Se la specialità richiesta manca, lo Specialista ASP che ha redatto il PT rilascia anche la DEM e il farmaco è erogabile in convenzionata (con PT e Nota 95).",
+        "link": {
+          "t": "DPC pag. 65",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=65"
+        }
+      },
+      {
+        "t": "Nota 96 e Nota 97",
+        "d": "Nota 96: esenzione per età pediatrica o maggiore di 18 anni (con «Senza nota» o «Nota 96»). Nota 97 (FANV): per l'ictus in pazienti FANV serve la Nota 97 con il Protocollo della Scheda di Prescrizione; per le altre patologie rimborsabilità «Senza nota».",
+        "link": {
+          "t": "DPC pag. 65",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=65"
+        }
+      },
+      {
+        "t": "Schede di monitoraggio non di pertinenza delle farmacie",
+        "d": "Per i principi attivi elencati dal DPC (es. antibiotici iniettabili ATC J01) la scheda di monitoraggio non è di pertinenza delle farmacie.",
+        "link": {
+          "t": "DPC pag. 65",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=65"
+        }
+      }
+    ]
+  },
+  "metilfenidato.html": {
+    "titolo": "Pillole operative — metilfenidato (DPC pag. 41)",
+    "pillole": [
+      {
+        "t": "Chi prescrive",
+        "d": "La prescrizione richiede il Piano Terapeutico AIFA (PT AIFA - MMR Stup.II^sez.A): i farmaci a base di metilfenidato sono soggetti a Nota AIFA 79.",
+        "link": {
+          "t": "DPC pag. 41",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=41"
+        }
+      },
+      {
+        "t": "Bambini e adolescenti",
+        "d": "Indicato per il disturbo deficit e iperattività (ADHD) nei bambini dagli 6 anni e negli adolescenti, se le correttive risultano insufficienti. Non erogabile a soggetti già in trattamento prima del 18° anno di età (nemmeno dall'ASP).",
+        "link": {
+          "t": "DPC pag. 41",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=41"
+        }
+      },
+      {
+        "t": "Adulti",
+        "d": "Per gli adulti: nuova diagnosi oppure già in trattamento prima del 18° anno di età (inclusa la riclassificazione del 19/10/2023 AIFA/RITA). RITALIN segue l'elenco della Legge 648/1996: non può essere erogata dalle farmacie ma solo dalle strutture ASP.",
+        "link": {
+          "t": "DPC pag. 41",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=41"
+        }
+      }
+    ]
+  },
+  "formalismi.html": {
+    "titolo": "Pillole operative — riepilogo formalismi (DPC pag. 64)",
+    "pillole": [
+      {
+        "t": "Insuline a maggior costo / DDD",
+        "d": "LANTUS 100UI/ML e TOUJEO 300UI/ML: nessun formalismo richiesto. ABASAGLAR e LEVEMIR: se in prosa, dicitura «paziente in continuità terapeutica» o indicazione di terapia a maggior costo. TRESIBA (degludec): piano terapeutico abolito dal 17/10/2022 (circ. ass. n. 46580).",
+        "link": {
+          "t": "DPC pag. 64",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=64"
+        }
+      },
+      {
+        "t": "Eparine — duplice via di distribuzione",
+        "d": "La ricetta DEM puo' essere erogata in convenzionata solo con la dicitura «Erogare in Convenzionata» nel campo note; la ricetta Rossa va erogata in DPC solo con la dicitura «DPC». Fondaparinux (ARIXTRA), autorizzato solo per TVP, va sempre erogato in DPC.",
+        "link": {
+          "t": "DPC pag. 64",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=64"
+        }
+      },
+      {
+        "t": "EBPM e bridging therapy",
+        "d": "In caso di terapia ponte (bridging therapy) per sospensione degli AVK, o profilassi del tromboembolismo in pazienti oncologici a rischio (KHORANA 3), o in gravidanza e puerperio, la prescrizione e' specialistica con consenso informato e registro ai sensi della Legge 648/96: le specialita' si erogano esclusivamente in distribuzione diretta ASP.",
+        "link": {
+          "t": "DPC pag. 64",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=64"
+        }
+      },
+      {
+        "t": "Enoxaparina — due regimi",
+        "d": "IN DPC: solo se da 2000 e 4000 UI (INHIXA senza scheda di monitoraggio; per le altre specialita' allegare la scheda «motivata»; per TVP-EP pure 6000-8000-10000 UI erogare in DPC con ricetta Rossa «DPC» o DEM senza la dicitura «Erogare in convenzionata»). In convenzionata: tutti i dosaggi, con «paziente in continuità terapeutica» o ricetta Rossa senza dicitura «DPC».",
+        "link": {
+          "t": "DPC pag. 64",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=64"
+        }
+      }
+    ]
+  },
+  "dpc_convenzionata.html": {
+    "titolo": "Pillole operative — diabete tipo 2 a Nota AIFA 100",
+    "pillole": [
+      {
+        "t": "Regola del canale (dal 15 ottobre 2025)",
+        "d": "Per le specialità dell'elenco **non** deve essere compilata e allegata la «Scheda di Valutazione e Prescrizione» né verificata la presenza del «Protocollo DMDU»: l'erogazione va operata **nel canale della Convenzionata** con **obbligo di ricetta a Nota AIFA 100**.",
+        "link": {
+          "t": "DPC pag. 21",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=21"
+        }
+      },
+      {
+        "t": "Eccezione: dapagliflozin ed empagliflozin",
+        "d": "Dapagliflozin (FORXIGA) ed empagliflozin (JARDIANCE) possono essere prescritti **anche senza Nota AIFA 100** e rimborsati in convenzionata nelle indicazioni di insufficienza cardiaca cronica sintomatica (classe NYHA II e III, frazione di eiezione ridotta) e, per il solo dapagliflozin, nella malattia renale cronica. **Attenzione**: se sono prescritti su modello PT web-based AIFA cartaceo (tipo Prolia) non è un'erogazione DPC: la specialità va erogata **esclusivamente a Distribuzione Diretta dall'ASP**.",
+        "link": {
+          "t": "DPC pag. 21",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=21"
+        }
+      },
+      {
+        "t": "Cosa resta in DPC",
+        "d": "Restano in DPC con Scheda di Valutazione e Prescrizione (o Protocollo dal 01/02/2023) i GLP-1 RA, le associazioni SGLT2i/DPP4i (GLYXAMBI, QTERN, STEGLUJAN) e le altre combinazioni insuliniche; i limiti di confezione sono nel DPC.",
+        "link": {
+          "t": "DPC pag. 18",
+          "url": "docs/dpc-controllo-appropriatezza.pdf#page=18"
+        }
+      }
+    ]
+  }
+}

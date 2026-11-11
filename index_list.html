@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elenco Farmaci DPC — Home</title>
+<title>Elenco Farmaci DPC — Schede</title>
 <link rel="stylesheet" href="theme.css">
 <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -186,8 +186,16 @@
         .side { width: 100%; border-right: none; border-bottom: 1px solid rgba(var(--t-ov-rgb),0.08); }
         .main { padding: 32px 20px; }
     }
+
+    .site-foot {
+        margin: 26px auto 0; max-width: 1500px; padding: 14px 18px 22px;
+        border-top: 1px solid var(--glass-border); color: var(--muted); font-size: 13.5px; line-height: 1.5;
+    }
+    .site-foot p { margin: 0 0 6px; }
+    .site-foot a { color: var(--accent); }
 </style>
 <script>(function(){try{var t=localStorage.getItem("dpc-tema");if(t){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();</script>
+    <script src="consent.js"></script>
 </head>
 <body>
 
@@ -262,7 +270,20 @@
 })();
 </script>
 
-<a href="index.html" style="position:fixed;top:16px;right:20px;z-index:20;padding:8px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.06);color:#e2e8f0;font-weight:600;font-size:13px;text-decoration:none;">Vista sfere</a>
+<a href="home.html" style="position:fixed;top:16px;right:20px;z-index:20;padding:8px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.06);color:#e2e8f0;font-weight:600;font-size:13px;text-decoration:none;">Vista sfere</a>
 <script src="theme.js" defer></script>
+
+    <footer class="site-foot">
+        <p><strong>Documento di base:</strong> Documento di Controllo dell'appropriatezza prescrittiva
+            (DPC) di <strong>Federfarma Messina</strong> (edizione 2023, D.A. n. 278/2024 &ndash; G.U.R.S.
+            n. 15 del 29/03/2024). <strong>Database e regole operative</strong> successivamente aggiornati e
+            integrati con le disposizioni piu' recenti (determine AIFA 2025-2026, protocolli regionali,
+            circolari di categoria, versioni aggiornate del DPC): ogni variazione e' marcata e ogni marcatura
+            e' un link diretto al provvedimento.</p>
+        <p><a href="disclaimer.html">Disclaimer legale e avvertenze</a> &middot; strumento informativo,
+            uso gratuito &middot; verificare sempre con la propria professionalita' e sui canali ufficiali
+            &middot; <a href="index.html">Ingresso</a></p>
+    </footer>
+
 </body>
 </html>
