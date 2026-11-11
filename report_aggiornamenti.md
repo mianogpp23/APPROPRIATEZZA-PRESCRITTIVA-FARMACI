@@ -199,3 +199,11 @@ I marker `[agg. 10/11/2026 – DPC Regione Siciliana, pag. N]` rimandano al PDF 
 in `docs/dpc-controllo-appropriatezza.pdf` (72 pp., 8,2 MB). Ora il link include il frammento `#page=N`: il PDF
 si apre direttamente alla pagina indicata nel marker, non a pagina 1. Aggiornati 23 link (12 farmaci_dpc,
 8 distribuzione_diretta, 3 note di pagina della Nota 99 - pag. 67).
+
+## 13. Link delle righe inserite dal DPC: pagina dell'Assessorato invece del PDF
+
+Per le 20 righe aggiunte dal DPC regionale il testo coincide gia' con l'originale: il marker di provenienza
+`[agg. 10/11/2026 – DPC Regione Siciliana, pag. N]` ora rimanda alla **pagina dell'Assessorato** (Appropriatezza
+d'uso dei farmaci), dove e' pubblicato il DPC, invece che al PDF integrale da 8,2 MB. Il PDF del DPC resta
+pubblicato in `docs/` per le note di pagina della Nota 99 (pag. 67), che ne citano il testo alla lettera: li'
+aprono direttamente alla pagina grazie al frammento `#page=67`. Verifica link: **19, 0 problemi**.
