@@ -207,3 +207,29 @@ Per le 20 righe aggiunte dal DPC regionale il testo coincide gia' con l'original
 d'uso dei farmaci), dove e' pubblicato il DPC, invece che al PDF integrale da 8,2 MB. Il PDF del DPC resta
 pubblicato in `docs/` per le note di pagina della Nota 99 (pag. 67), che ne citano il testo alla lettera: li'
 aprono direttamente alla pagina grazie al frammento `#page=67`. Verifica link: **19, 0 problemi**.
+
+## 14. Ogni link apre il documento da consultare
+
+Verifica completa dei 398 link con marker (39 destinazioni distinte): le pagine-indice sono state sostituite
+con **il documento vero**:
+
+| Provvedimento | Prima (indice) | Ora (documento) |
+|---|---|---|
+| Det. 142/2026 (Nota 85) – 127 link | aifa.gov.it/nota-85 | PDF `Determina-Pres_09-02-2026_nota85.pdf` (3 pp.) |
+| Det. 1037/2025 (Nota 100) – 49 | pagina AIFA generica | PDF `Determina_31-07-2025_nota100.pdf` (3 pp.) |
+| Det. PRES 624/2025 (Nota 51) – 23 | aifa.gov.it/nota-51 | PDF `Determina_Pres_15-05-2025_nota51.pdf` (15 pp.) |
+| Det. 422/2026 (abrogazione Nota 84) – 12 | pagina comunicazione | PDF `Determina-Pres_01-04-2026_abrogazione_84.pdf` |
+| Det. 421/2026 (abrogazione Nota 11) – 2 | pagina comunicazione | PDF `Determina-Pres_01-04-2026_abrogazione_11.pdf` |
+| Det. 1127/2025 (Nota 79) – 11 | articolo OMCeO | PDF `Determina-Pres_08-09-2025_nota79.pdf` |
+| Det. 1533/2025 (Nota 98) – 1 | aifa.gov.it/nota-98 | PDF `Determina-Pres_15-09-2025_nota98.pdf` |
+| Det. 1322/2025 – 1 | indice medicoeleggi | PDF `Determina_Pres-1322-2025_rett_Det_Pres-1224-2025.pdf` |
+| Det. 30/09/2025 (abolizione Nota 92) – 1 | aifa.gov.it/nota-92 | PDF `Determina_Pres-1224-2025_abolizione_nota92.pdf` |
+| Det. 11/11/2025 (abolizione Note 101/8) – 1 | articolo OMCeO | PDF `Determina_Pres-1520-2025_abolizione_nota101.pdf` |
+| Fed. Sicilia 90/2025 – 31 | pagina AIFA generica | documento siciliano `docs/diabete-tipo2-nota-100.pdf` |
+| circ. Fed. 420/2025 – 7 | pagina AIFA generica | testo della Nota 100 in PDF (14 pp.) |
+| AIFA/Regione Sicilia – 3 | pagina AIFA generica | comunicazione AIFA/Regione Sicilia (02/07/2025) |
+| DPC Regione Siciliana – 20 | pagina indice Assessorato | PDF del DPC con `#page=N` (si apre alla pagina) |
+
+Ogni URL e' stato verificato per esistenza, raggiungibilita' e contenuto (200 + `application/pdf` + numero
+pagine + lettura del testo); `scripts/verifica_link.py` ora riporta anche il documento raggiunto.
+Totale: **38 link verificati, 0 problemi**.
