@@ -3662,7 +3662,7 @@
     "aic": "043443047",
     "descrizione": "JARDIANCE*28CPR RIV 25MG",
     "atc": "A10BD11",
-    "principio_attivo": "AEMIFAPAGLIFLOZIN",
+    "principio_attivo": "EMPAGLIFLOZIN",
     "note": "Se PT PT senza Nota [agg. 02/07/2025 – AIFA/Regione Sicilia] riclassificato classe A, convenzionata [agg. 27/11/2025 – circ. Fed. 420/2025] ATTENZIONE: non rientra nelle eccezioni alla Nota 100 (solo FORXIGA 5/10 mg e JARDIANCE 10 mg): per il diabete T2 la Nota 100 resta obbligatoria [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "distribuzione_diretta",
     "variazioni": [
@@ -3693,6 +3693,13 @@
         "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
         "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
+      },
+      {
+        "data": "11/11/2026",
+        "fonte": "DPC Regione Siciliana (distribuzione diretta, pag. 59: cella del PDF difettosa «AIFA»/«AEMIFAPAGLIFLOZIN»)",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf#page=59",
+        "testo_breve": "Principio attivo corretto in EMPAGLIFLOZIN (ATC A10BD11, JARDIANCE 25MG)",
+        "stato": "correzione"
       }
     ]
   },
@@ -7996,8 +8003,8 @@
   {
     "minsan": "026999058",
     "descrizione": "DECAPEPTYL*IM 11,25MG+2ML+1SIR",
-    "principio_attivo": "TRIPTORELINA |max 1",
-    "note": "ogni 80 gg. PT online - Nota 51 - CAP [agg. 15/05/2025 – DET PRES 624/2025, G.U. n. 111 del 15/05/2025] Nota 51 aggiornata (precedente Det. 620/2024, G.U. n. 261 del 07/11/2024): prostatotropi/GnRH",
+    "principio_attivo": "TRIPTORELINA",
+    "note": "|max 1 ogni 80 gg. PT online - Nota 51 - CAP [agg. 15/05/2025 – DET PRES 624/2025, G.U. n. 111 del 15/05/2025] Nota 51 aggiornata (precedente Det. 620/2024, G.U. n. 261 del 07/11/2024): prostatotropi/GnRH",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -8006,14 +8013,21 @@
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 51 aggiornata (prostatotropi)",
         "stato": "approvata"
+      },
+      {
+        "data": "11/11/2026",
+        "fonte": "DPC Regione Siciliana (tabella farmaci in DPC, pag. 55-56)",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf#page=55",
+        "testo_breve": "Principio attivo ripulito dal frammento di nota che nel DPC e' nella colonla nota",
+        "stato": "correzione"
       }
     ]
   },
   {
     "minsan": "026999021",
     "descrizione": "DECAPEPTYL*IM FL3,75MG+2ML+SIR",
-    "principio_attivo": "TRIPTORELINA |max 2",
-    "note": "m. PT online - Nota 51 - CAP [agg. 15/05/2025 – DET PRES 624/2025, G.U. n. 111 del 15/05/2025] Nota 51 aggiornata (precedente Det. 620/2024, G.U. n. 261 del 07/11/2024): prostatotropi/GnRH",
+    "principio_attivo": "TRIPTORELINA",
+    "note": "|max 2 m. PT online - Nota 51 - CAP [agg. 15/05/2025 – DET PRES 624/2025, G.U. n. 111 del 15/05/2025] Nota 51 aggiornata (precedente Det. 620/2024, G.U. n. 261 del 07/11/2024): prostatotropi/GnRH",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -8022,14 +8036,21 @@
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 51 aggiornata (prostatotropi)",
         "stato": "approvata"
+      },
+      {
+        "data": "11/11/2026",
+        "fonte": "DPC Regione Siciliana (tabella farmaci in DPC, pag. 55-56)",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf#page=55",
+        "testo_breve": "Principio attivo ripulito dal frammento di nota che nel DPC e' nella colonla nota",
+        "stato": "correzione"
       }
     ]
   },
   {
     "minsan": "026999060",
     "descrizione": "DECAPEPTYL*IM22,5MG/2ML RP+SIR",
-    "principio_attivo": "TRIPTORELINA |max 1",
-    "note": "ogni 120 gg PT online - Nota 51 - CAP [agg. 15/05/2025 – DET PRES 624/2025, G.U. n. 111 del 15/05/2025] Nota 51 aggiornata (precedente Det. 620/2024, G.U. n. 261 del 07/11/2024): prostatotropi/GnRH",
+    "principio_attivo": "TRIPTORELINA",
+    "note": "|max 1 ogni 120 gg PT online - Nota 51 - CAP [agg. 15/05/2025 – DET PRES 624/2025, G.U. n. 111 del 15/05/2025] Nota 51 aggiornata (precedente Det. 620/2024, G.U. n. 261 del 07/11/2024): prostatotropi/GnRH",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -8038,6 +8059,13 @@
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 51 aggiornata (prostatotropi)",
         "stato": "approvata"
+      },
+      {
+        "data": "11/11/2026",
+        "fonte": "DPC Regione Siciliana (tabella farmaci in DPC, pag. 55-56)",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf#page=55",
+        "testo_breve": "Principio attivo ripulito dal frammento di nota che nel DPC e' nella colonla nota",
+        "stato": "correzione"
       }
     ]
   },
@@ -9650,8 +9678,8 @@
   {
     "minsan": "042494070",
     "descrizione": "FORXIGA*28CPR RIV 10MG",
-    "principio_attivo": "DAPAGLIFLOZIN PROPANEDIOLO MONOIDRATO |max",
-    "note": "2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
+    "principio_attivo": "DAPAGLIFLOZIN PROPANEDIOLO MONOIDRATO",
+    "note": "|max 2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -9674,14 +9702,21 @@
         "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
         "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
+      },
+      {
+        "data": "11/11/2026",
+        "fonte": "DPC Regione Siciliana (tabella farmaci in DPC, pag. 55-56)",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf#page=55",
+        "testo_breve": "Principio attivo ripulito dal frammento di nota che nel DPC e' nella colonla nota",
+        "stato": "correzione"
       }
     ]
   },
   {
     "minsan": "042494029",
     "descrizione": "FORXIGA*28CPR RIV 5MG",
-    "principio_attivo": "DAPAGLIFLOZIN PROPANEDIOLO MONOIDRATO |max",
-    "note": "2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
+    "principio_attivo": "DAPAGLIFLOZIN PROPANEDIOLO MONOIDRATO",
+    "note": "|max 2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -9704,6 +9739,13 @@
         "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
         "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
+      },
+      {
+        "data": "11/11/2026",
+        "fonte": "DPC Regione Siciliana (tabella farmaci in DPC, pag. 55-56)",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf#page=55",
+        "testo_breve": "Principio attivo ripulito dal frammento di nota che nel DPC e' nella colonla nota",
+        "stato": "correzione"
       }
     ]
   },
@@ -10085,8 +10127,8 @@
   {
     "minsan": "045183050",
     "descrizione": "GLYXAMBI*30CPR RIV 10MG+5MG",
-    "principio_attivo": "EMPAGLIFLOZIN/LINAGLIPTIN |max",
-    "note": "2 m.- 3 patol SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
+    "principio_attivo": "EMPAGLIFLOZIN/LINAGLIPTIN",
+    "note": "|max 2 m.- 3 patol SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -10102,14 +10144,21 @@
         "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
         "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
+      },
+      {
+        "data": "11/11/2026",
+        "fonte": "DPC Regione Siciliana (tabella farmaci in DPC, pag. 55-56)",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf#page=55",
+        "testo_breve": "Principio attivo ripulito dal frammento di nota che nel DPC e' nella colonla nota",
+        "stato": "correzione"
       }
     ]
   },
   {
     "minsan": "045183148",
     "descrizione": "GLYXAMBI*30CPR RIV 25MG+5MG",
-    "principio_attivo": "EMPAGLIFLOZIN/LINAGLIPTIN |max",
-    "note": "2 m.- 3 patol SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
+    "principio_attivo": "EMPAGLIFLOZIN/LINAGLIPTIN",
+    "note": "|max 2 m.- 3 patol SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -10125,6 +10174,13 @@
         "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
         "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
+      },
+      {
+        "data": "11/11/2026",
+        "fonte": "DPC Regione Siciliana (tabella farmaci in DPC, pag. 55-56)",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf#page=55",
+        "testo_breve": "Principio attivo ripulito dal frammento di nota che nel DPC e' nella colonla nota",
+        "stato": "correzione"
       }
     ]
   },
@@ -10705,8 +10761,8 @@
   {
     "minsan": "043443136",
     "descrizione": "JARDIANCE*28CPR RIV 10MG",
-    "principio_attivo": "EMPAGLIFLOZIN |max",
-    "note": "2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
+    "principio_attivo": "EMPAGLIFLOZIN",
+    "note": "|max 2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] eccezione alla Nota 100: prescrivibile SSN anche senza nota 100 per indicazioni diverse dal diabete T2 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -10729,14 +10785,21 @@
         "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
         "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
+      },
+      {
+        "data": "11/11/2026",
+        "fonte": "DPC Regione Siciliana (tabella farmaci in DPC, pag. 55-56)",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf#page=55",
+        "testo_breve": "Principio attivo ripulito dal frammento di nota che nel DPC e' nella colonla nota",
+        "stato": "correzione"
       }
     ]
   },
   {
     "minsan": "043443047",
     "descrizione": "JARDIANCE*28CPR RIV 25MG",
-    "principio_attivo": "EMPAGLIFLOZIN |max",
-    "note": "2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] ATTENZIONE: non rientra nelle eccezioni alla Nota 100 (solo FORXIGA 5/10 mg e JARDIANCE 10 mg): per il diabete T2 la Nota 100 resta obbligatoria [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
+    "principio_attivo": "EMPAGLIFLOZIN",
+    "note": "|max 2 m.- 3 patol SP Nota 100 - se PT Diretta [agg. 27/11/2025 – circ. Fed. 420/2025] ATTENZIONE: non rientra nelle eccezioni alla Nota 100 (solo FORXIGA 5/10 mg e JARDIANCE 10 mg): per il diabete T2 la Nota 100 resta obbligatoria [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -10759,6 +10822,13 @@
         "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
         "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
+      },
+      {
+        "data": "11/11/2026",
+        "fonte": "DPC Regione Siciliana (tabella farmaci in DPC, pag. 55-56)",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf#page=55",
+        "testo_breve": "Principio attivo ripulito dal frammento di nota che nel DPC e' nella colonla nota",
+        "stato": "correzione"
       }
     ]
   },
@@ -13845,8 +13915,8 @@
   {
     "minsan": "044924025",
     "descrizione": "QTERN*28CPR RIV 5MG+10MG",
-    "principio_attivo": "SAXAGLIPTIN/DAPAGLIFLOZIN PROPANEDIOLO MONOIDRATO |max 2",
-    "note": "m.-3 patol SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
+    "principio_attivo": "SAXAGLIPTIN/DAPAGLIFLOZIN PROPANEDIOLO MONOIDRATO",
+    "note": "|max 2 m.-3 patol SP - Nota 100 Specialista solo [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022) [agg. 15/10/2025 – Fed. Sicilia 90/2025] in convenzionata dal 15/10/2025: non compilare e allegare la Scheda di Valutazione e Prescrizione, non verificare il Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -13862,6 +13932,13 @@
         "url_o_percorso": "https://www.gazzettaufficiale.it/eli/id/2025/07/04/153G0001/singola",
         "testo_breve": "Farmaci di diabete tipo 2 a Nota AIFA 100 passati in convenzionata dal 15/10/2025: niente Scheda di Valutazione e Prescrizione, niente Protocollo DMDU, erogazione in canale Convenzionata con ricetta a Nota AIFA 100",
         "stato": "approvata"
+      },
+      {
+        "data": "11/11/2026",
+        "fonte": "DPC Regione Siciliana (tabella farmaci in DPC, pag. 55-56)",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf#page=55",
+        "testo_breve": "Principio attivo ripulito dal frammento di nota che nel DPC e' nella colonla nota",
+        "stato": "correzione"
       }
     ]
   },
@@ -17110,7 +17187,7 @@
     "minsan": "038744189",
     "descrizione": "XARELTO*28CPR RIV 20MG",
     "principio_attivo": "RIVAROXABAN",
-    "note": "|max 2 m. PT AIFA |se FANV SP+Nota 100 [agg. 05/08/2025 – Det. AIFA 1037/2025, G.U. n. 180 del 05/08/2025] Nota 100 aggiornata (di cui alla determina n. 19/2022)",
+    "note": "|max 2 m. PT AIFA |se FANV SP+Nota 100 [agg. 11/11/2026 – DPC Regione Siciliana, pag. 15] Attenzione: nel riepilogo del DPC (pag. 15, «FARMACI CON O SENZA NOTA 97») tutte le confezioni di XARELTO in regime FANV sono a Nota 97; la voce «Nota 100» della tabella (pag. 56) e' incongruente, perche' la Nota 100 riguarda i farmaci per il diabete di tipo 2. Vale il riepilogo: FANV = Nota 97.",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -17119,6 +17196,13 @@
         "url_o_percorso": "https://www.medicoeleggi.com/indici2022/nazionale-argo-farmaci-note.htm",
         "testo_breve": "Nota AIFA 100 aggiornata (DMDU: SGLT2, GLP-1, DPP4, doppi agonisti)",
         "stato": "approvata"
+      },
+      {
+        "data": "11/11/2026",
+        "fonte": "DPC Regione Siciliana — riepilogo «FARMACI CON O SENZA NOTA 97», pag. 15",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf#page=15",
+        "testo_breve": "Nota 100 incongruente per XARELTO: nel riepilogo DPC (pag. 15) FANV = Nota 97",
+        "stato": "correzione"
       }
     ]
   },
@@ -17142,7 +17226,7 @@
     "minsan": "038744138",
     "descrizione": "XARELTO*42CPR RIV 15MG",
     "principio_attivo": "RIVAROXABAN",
-    "note": "|max 2 m. PT AIFA |se FANV SP+Nota 98 [agg. 21/11/2025 – Det. AIFA 1533/2025, G.U. n. 271 del 21/11/2025] Nota 98 aggiornata (ultimo aggiornamento; precedenti Det. 505/2024 e DET PRES 825/2025): anti-VEGF intravitreali per AMD e DME",
+    "note": "|max 2 m. PT AIFA |se FANV SP+Nota 98 [agg. 11/11/2026 – DPC Regione Siciliana, pag. 15] Attenzione: nel riepilogo del DPC (pag. 15, «FARMACI CON O SENZA NOTA 97») tutte le confezioni di XARELTO in regime FANV sono a Nota 97; la voce «Nota 98» della tabella (pag. 56) e' incongruente, perche' la Nota 98 riguarda gli anti-VEGF intravitreali per AMD e DME. Vale il riepilogo: FANV = Nota 97.",
     "elenco": "farmaci_dpc",
     "variazioni": [
       {
@@ -17151,6 +17235,13 @@
         "url_o_percorso": "https://www.terap.it/news.html",
         "testo_breve": "Nota AIFA 98 aggiornata (anti-VEGF intravitreali per AMD e DME)",
         "stato": "approvata"
+      },
+      {
+        "data": "11/11/2026",
+        "fonte": "DPC Regione Siciliana — riepilogo «FARMACI CON O SENZA NOTA 97», pag. 15",
+        "url_o_percorso": "docs/dpc-controllo-appropriatezza.pdf#page=15",
+        "testo_breve": "Nota 98 incongruente per XARELTO: nel riepilogo DPC (pag. 15) FANV = Nota 97",
+        "stato": "correzione"
       }
     ]
   },

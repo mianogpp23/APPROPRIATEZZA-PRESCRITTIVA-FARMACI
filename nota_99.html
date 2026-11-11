@@ -248,6 +248,16 @@
 <a class="back" href="index.html">← Home</a>
     
 <h1 class="page-title">NOTA 99 - CONFEZIONI MEDICINALI PER USO INALATORIO</h1>
+
+    <!-- DPC-PILL-BEGIN -->
+    <div class="pills-title">Pillole operative — Nota 99 (inalatori)</div>
+    <div class="pills">
+      <div class="pill"><b>Scheda web based su Tessera Sanitaria</b><span class="pill-d">Per i farmaci a PT e Nota 99 la Scheda web based compilata attraverso il sistema Tessera Sanitaria (TS) è adottata in via esclusiva dal 1° settembre 2022. La prescrizione è consentita solo agli Specialisti. &middot; <a class="pill-link" href="docs/dpc-controllo-appropriatezza.pdf#page=67" target="_blank" rel="noopener">DPC pag. 67</a></span></div>
+      <div class="pill"><b>Numero di protocollo</b><span class="pill-d">Il Farmacista eroga la ricetta Rossa o DEM con Nota 99 riscontrando il numero di protocollo BPCO0A0000… sulla ricetta oppure a video (come per i FANV con Nota 97). In mancanza del Protocollo allega fotocopia della Scheda con il protocollo. &middot; <a class="pill-link" href="docs/dpc-controllo-appropriatezza.pdf#page=67" target="_blank" rel="noopener">DPC pag. 67</a></span></div>
+      <div class="pill"><b>TRIMBOW per l&#x27;asma</b><span class="pill-d">Dal 4 aprile 2023 TRIMBOW è erogabile anche esclusivamente nel trattamento dell&#x27;asma con Piano Terapeutico AIFA specifico cartaceo in originale, prescritto da UU.OO. di pneumologia, geriatria, medicina interna e allergologia, senza l&#x27;indicazione della Nota AIFA 99. &middot; <a class="pill-link" href="docs/dpc-controllo-appropriatezza.pdf#page=67" target="_blank" rel="noopener">DPC pag. 67</a></span></div>
+    </div>
+    <!-- DPC-PILL-END -->
+
     <p class="scheda-nota"><strong>Aggiornamento 09/07/2026 – Det. AIFA 822/2026 (G.U. n. 144 del 24/06/2026), prot. Regione Siciliana 35765 del 09/07/2026:</strong> testo della Nota 99 aggiornato sulle linee guida GOLD; <strong>abrogata la Scheda di Valutazione e Prescrizione Specialistica (SVP)</strong> per i medicinali BPCO (LABA, LAMA, ICS in singolo erogatore o in associazione) e regime di fornitura riclassificato da RRL a RR. Le triplici associazioni LAMA+LABA+ICS sono prescrivibili dal MMG in ricetta rossa ripetibile (v. variazioni del 09/07/2026).</p>
 <div class="filter-bar">
     <input type="text" id="q-global" placeholder="Ricerca globale (tutte le colonne)..." />
@@ -1413,12 +1423,14 @@
         var current = null;
         Array.prototype.forEach.call(tbody.rows, function (row) {
             if (row.classList.contains("note")) {
-                if (current) { current.rows.push(row); groups.push(current); current = null; }
-                else { groups.push({ rows: [row], drugs: [] }); }
+                // la riga di nota resta agganciata alla riga farmaco che la precede
+                if (current) { current.rows.push(row); }
+                else { current = { rows: [row], drugs: [] }; groups.push(current); }
             } else {
-                if (!current) current = { rows: [], drugs: [] };
-                current.rows.push(row);
-                current.drugs.push(row);
+                // ogni riga farmaco e' un gruppo indipendente: accorpandole tutte in uno solo
+                // l'ordinamento non avrebbe nulla da riordinare
+                current = { rows: [row], drugs: [row] };
+                groups.push(current);
             }
         });
         if (current) groups.push(current);
@@ -1515,11 +1527,14 @@
             var current = null;
             Array.prototype.forEach.call(tbody.rows, function (row) {
                 if (row.classList.contains("note")) {
-                    if (current) { current.rows.push(row); groups.push(current); current = null; }
-                    else { groups.push({ rows: [row] }); }
+                    // la riga di nota resta agganciata alla riga farmaco che la precede
+                    if (current) { current.rows.push(row); }
+                    else { current = { rows: [row] }; groups.push(current); }
                 } else {
-                    if (!current) current = { rows: [] };
-                    current.rows.push(row);
+                    // ogni riga farmaco e' un gruppo indipendente: accorpandole tutte in uno solo
+                    // l'ordinamento non avrebbe nulla da riordinare
+                    current = { rows: [row] };
+                    groups.push(current);
                 }
             });
             if (current) groups.push(current);
