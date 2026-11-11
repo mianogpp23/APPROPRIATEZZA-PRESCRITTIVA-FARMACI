@@ -192,3 +192,10 @@ Le note sono conservate in `data/note_pagine.json` e re-inserite dal sync tra i 
 `<!-- DPC-NOTE-BEGIN -->` / `<!-- DPC-NOTE-END -->`, cosi' non si perdono alle successive sincronizzazioni.
 Ogni nota riporta il marker `[agg. 10/11/2026 – DPC Regione Siciliana, pag. 67]` cliccabile verso
 `docs/dpc-controllo-appropriatezza.pdf`. Link verificati: **19, 0 problemi**.
+
+## 12. I marker del DPC aprono il PDF alla pagina citata
+
+I marker `[agg. 10/11/2026 – DPC Regione Siciliana, pag. N]` rimandano al PDF del DPC regionale pubblicato
+in `docs/dpc-controllo-appropriatezza.pdf` (72 pp., 8,2 MB). Ora il link include il frammento `#page=N`: il PDF
+si apre direttamente alla pagina indicata nel marker, non a pagina 1. Aggiornati 23 link (12 farmaci_dpc,
+8 distribuzione_diretta, 3 note di pagina della Nota 99 - pag. 67).
