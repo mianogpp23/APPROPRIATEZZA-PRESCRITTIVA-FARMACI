@@ -4,142 +4,228 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DPC in Convenzionata — Nota AIFA 100 (diabete tipo 2)</title>
+<link rel="stylesheet" href="theme.css">
 <style>
     :root {
-        --bg1: #0b1220; --bg2: #162138; --accent: #4da3f5; --accent2: #8174f0;
-        --glass: rgba(255,255,255,0.06); --glass-border: rgba(255,255,255,0.16);
-        --text: #e8eef8; --muted: #8d9eb8;
+        --bg1: rgb(var(--t-bg-rgb)); --bg2: rgb(var(--t-bg2-rgb)); --accent: rgb(var(--t-accent-rgb));
+        --accent2: rgb(var(--t-accent2-rgb)); --glass: rgba(var(--t-ov-rgb),0.06);
+        --glass-border: rgba(var(--t-ov-rgb),0.16); --text: rgb(var(--t-text-rgb));
+        --muted: rgb(var(--t-muted-rgb)); --red: rgb(var(--t-red-rgb)); --green: rgb(var(--t-green-rgb));
     }
     * { box-sizing: border-box; }
     body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
         background: var(--bg1); color: var(--text); font-size: 17px; line-height: 1.5; }
-    .wrap { max-width: 1500px; margin: 0 auto; padding: 28px 18px 60px; }
-    h1 { color: #e10600; font-size: 28px; margin: 0 0 6px; text-transform: uppercase; }
-    h2 { color: #6ee7b7; font-size: 21px; margin: 26px 0 10px; }
+    .wrap { max-width: 1600px; margin: 0 auto; padding: 28px 18px 60px; }
+    h1 { color: var(--red); font-size: 28px; margin: 0 0 6px; text-transform: uppercase; }
+    h2 { color: var(--green); font-size: 21px; margin: 26px 0 10px; }
+    h3 { color: var(--accent); font-size: 17px; margin: 18px 0 8px; }
     .sub { color: var(--muted); margin-bottom: 16px; }
-    .box { background: var(--glass); border: 1px solid var(--glass-border); border-left: 4px solid #e10600;
+    .box { background: var(--glass); border: 1px solid var(--glass-border); border-left: 4px solid var(--red);
         border-radius: 12px; padding: 14px 18px; margin-bottom: 18px; }
-    .box b { color: #6ee7b7; }
+    .box b { color: var(--green); }
     .box a { color: var(--accent); }
     .filters { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:12px;
-        position:sticky; top:0; background:rgba(11,18,32,.95); padding:12px 0; z-index:5;
+        position:sticky; top:0; background:rgba(var(--t-bg-rgb),.95); padding:12px 0; z-index:5;
         border-bottom:1px solid var(--glass-border); }
-    input[type=text] { background:rgba(255,255,255,.07); border:1px solid var(--glass-border);
+    input[type=text] { background:rgba(var(--t-ov-rgb),.07); border:1px solid var(--glass-border);
         color:var(--text); padding:9px 12px; border-radius:9px; font-size:15px; min-width:230px; }
-    button { background:var(--accent); border:0; color:#06121f; font-weight:700; padding:9px 16px;
+    button { background:var(--accent); border:0; color:rgb(var(--t-onaccent-rgb)); font-weight:700; padding:9px 16px;
         border-radius:9px; font-size:15px; cursor:pointer; }
     #count { color:var(--muted); }
     .tablewrap { overflow:auto; max-height: 70vh; border:1px solid var(--glass-border); border-radius:12px; }
     table { border-collapse:collapse; width:100%; font-size:15px; }
-    th, td { padding:9px 12px; border-bottom:1px solid rgba(255,255,255,.08); text-align:left; vertical-align:top; }
+    th, td { padding:9px 12px; border-bottom:1px solid rgba(var(--t-ov-rgb),.08); text-align:left; vertical-align:top; }
     th { position:sticky; top:0; background:var(--bg2); color:var(--accent); white-space:nowrap; }
-    tr.grp td { background:rgba(109,231,183,.12); font-weight:700; color:#6ee7b7; }
-    .si { color:#6ee7b7; font-weight:700; }
+    table.dpc th.sortable { cursor:pointer; user-select:none; position:relative; padding-right:18px; }
+    table.dpc th.sortable::after { content: " ⇅"; font-size:11px; color:var(--muted); position:absolute;
+        right:4px; top:50%; transform:translateY(-50%); }
+    table.dpc th.sortable.asc::after { content: " ▲"; color: var(--accent); }
+    table.dpc th.sortable.desc::after { content: " ▼"; color: var(--accent); }
+    table.dpc th.sortable:hover { background: rgba(var(--t-accent-rgb),0.22); }
+    tr.grp td { background:rgba(var(--t-green-rgb),.12); font-weight:700; color:var(--green); }
+    .si { color:var(--green); font-weight:700; }
     .no { color:var(--muted); }
     .aic { font-variant-numeric: tabular-nums; }
     .back { display:inline-block; margin-bottom:14px; padding:9px 16px; border-radius:10px;
         border:1px solid var(--glass-border); background:var(--glass); color:var(--text);
         text-decoration:none; font-weight:600; }
     a { color: var(--accent); }
+    ul { margin: 8px 0 0; padding-left: 22px; }
+    li { margin-bottom: 7px; }
+    .nota-pdf { font-size: 14px; color: var(--muted); margin-top: 18px; }
 </style>
 </head>
 <body>
 <div class="wrap">
     <a class="back" href="index_list.html">&larr; Torna all'indice</a>
-    <h1>DPC in Convenzionata</h1>
-    <div class="sub">Farmaci per il diabete mellito di tipo 2 a <b>Nota AIFA 100</b> passati dal canale della
-        Distribuzione Per Conto (DPC) al canale della <b>Convenzionata</b> &mdash; dati aggiornati al 10/11/2026.</div>
+    <h1>Farmaci di diabete tipo 2 a Nota AIFA 100 in Convenzionata</h1>
+    <div class="sub">Scheda 07 &mdash; A far data dal 15 ottobre 2025 per le specialità di seguito indicate non deve essere compilata e allegata la &ldquo;Scheda di Valutazione e Prescrizione&rdquo; o verificata la presenza del &ldquo;Protocollo DMDU&rdquo; e l&rsquo;erogazione va operata nel canale della Convenzionata con obbligo di ricetta a Nota AIFA 100: Documento: <b>FARMACI DIATETE TIPO 2 A NOTA AIFA 100</b>
+        (pag. 2 &ldquo;in Convenzionata&rdquo;) &mdash; dati aggiornati al 11/11/2026.</div>
 
     <div class="box">
         <b>Regola operativa (dal 15 ottobre 2025)</b><br>
-        Per le specialita' di seguito indicate <b>non deve essere compilata e allegata la
-        &quot;Scheda di Valutazione e Prescrizione&quot;</b> ne' essere verificata la presenza del
-        <b>Protocollo DMDU</b>; l'erogazione va operata <b>nel canale della Convenzionata</b>, con
-        <b>obbligo di ricetta a Nota AIFA 100</b>.<br><br>
+        A far data dal 15 ottobre 2025 per le specialità di seguito indicate non deve essere compilata e allegata la &ldquo;Scheda di Valutazione e Prescrizione&rdquo; o verificata la presenza del &ldquo;Protocollo DMDU&rdquo; e l&rsquo;erogazione va operata nel canale della Convenzionata con obbligo di ricetta a Nota AIFA 100:
+        <br><br>
+        <b>Eccezioni (dal documento ufficiale)</b>
+        <ul>    <li>DAPAGLIFLOZIN O EMPAGLIFOZIN costituiscono un&rsquo;eccezione, in quanto possono essere prescritti anche SENZA NOTA AIFA 100 e rimborsati in convenzionata nelle seguenti indicazioni:</li>
+    <li>Dapagliflozin FORXIGA nelle indicazioni &ldquo;per il trattamento negli adulti dell&rsquo;insufficienza cardiaca cronica sintomatica in classe NYHA II e III con frazione di eiezione ridotta&rdquo; e &ldquo;malattia renale cronica&rdquo;</li>
+    <li>Empaglifozin JARDIANCE nell&rsquo;indicazione &ldquo;per il trattamento negli adulti dell&rsquo;insufficienza cardiaca cronica sintomatica con frazione di eiezione ridotta&rdquo;</li></ul>
+        <br>
         <b>Fonti:</b>
-        <a href="https://www.aifa.gov.it/-/diabete-mellito-tipo2-aggiornamento-nota-aifa-100" target="_blank" rel="noopener">Determine AIFA del 2 luglio 2025, G.U. n. 153 del 4 luglio 2025</a>
-        (riclassificazione dalla classe A-PHT alla classe A) &middot;
-        D.A. n. 367/2025 del 3 aprile 2025 (Accordo per la Distribuzione Per Conto dei farmaci di cui al PHT) &middot;
-        nota prot. Assessorato Salute &ndash; Servizio 7 n. 34212 del 18 luglio 2025 &middot;
-        <a href="https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-salute/dipartimento-pianificazione-strategica/appropriatezza-d-uso-farmaci" target="_blank" rel="noopener">circolare Federfarma Sicilia n. 90 del 15 ottobre 2025</a>
-        (prot. PRES. TS n. 218)<br>
+        <a href="docs/diabete-tipo2-nota-100.pdf" target="_blank" rel="noopener">documento ufficiale
+        &ldquo;FARMACI DIATETE TIPO 2 A NOTA AIFA 100&rdquo; (PDF, 2 pagine)</a> &middot;
+        <a href="https://www.aifa.gov.it/-/diabete-mellito-tipo2-aggiornamento-nota-aifa-100" target="_blank" rel="noopener">AIFA &mdash; aggiornamento Nota 100</a> &middot;
+        <a href="https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-salute/dipartimento-pianificazione-strategica/appropriatezza-d-uso-farmaci" target="_blank" rel="noopener">Assessorato Salute &mdash; appropriatezza d&rsquo;uso dei farmaci</a>
+        <br>
         <b>Nota:</b> restano fuori dal canale della convenzionata i medicinali a base di agonisti recettoriali
-        del GLP-1 e di doppi agonisti GIP/GLP-1 (es. BYETTA, BYDUREON), per i quali la Scheda di Valutazione
-        e Prescrizione resta obbligatoria. Eccezioni gia' riclassificate in convenzionata: FORXIGA 5 mg e 10 mg,
-        JARDIANCE 10 mg (senza obbligo di codice Nota 100 per indicazioni diverse dal diabete T2).
+        del GLP-1 e di doppi agonisti GIP/GLP-1 (BYETTA, BYDUREON, LYXUMIA, OZEMPIC, RYBELSUS, TRULICITY,
+        VICTOZA, XULTOPHY, SULIQUA, MOUNJARO): per questi la Scheda di Valutazione e Prescrizione resta
+        obbligatoria e l&rsquo;erogazione avviene in DPC (vedi la tabella sotto).
     </div>
 
-    <h2>Elenco completo molecole e specialita'</h2>
+    <h2>Farmaci di diabete tipo 2 a Nota AIFA 100 in Convenzionata</h2>
     <div class="filters">
         <input type="text" id="q" placeholder="Cerca molecola, specialita', AIC...">
         <button id="reset">Reset</button>
         <span id="count"></span>
     </div>
     <div class="tablewrap">
-        <table id="tbl">
+        <table id="tbl" class="dpc">
             <thead><tr>
-                <th>Gruppo</th><th>Molecola</th><th>Nome commerciale</th>
-                <th>Confezioni (AIC)</th><th>Nella lista DPC</th><th>Nota 100 obbligatoria</th>
+                <th class="sortable" data-col="0">Gruppo</th>
+                <th class="sortable" data-col="1">Molecola</th>
+                <th class="sortable" data-col="2">Nome commerciale</th>
+                <th class="sortable" data-col="3">Confezioni (AIC)</th>
+                <th class="sortable" data-col="4">Nelle liste DPC</th>
+                <th class="sortable" data-col="5">Nota 100 obbligatoria</th>
+                <th class="sortable" data-col="6">Eccezione (senza Nota 100)</th>
             </tr></thead>
-            <tbody><tr><td>DPP4i</td><td>Alogliptin</td><td>VIPIDIA</td><td class="aic">043051123, 043051212, 043051034</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i</td><td>Linagliptin</td><td>TRAJENTA</td><td class="aic">041401035</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i</td><td>Saxagliptin</td><td>ONGLYZA</td><td class="aic">039453129, 039453028</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i</td><td>Sitagliptin</td><td>JANUVIA</td><td class="aic">037793142, 037793027, 037793080</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i</td><td>Sitagliptin</td><td>MELIGLIX</td><td class="aic">049987163, 049987023, 049987098</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i</td><td>Sitagliptin</td><td>SITAGLIPTIN</td><td class="aic">048740056, 050096054, 050096015, 050096039, 047830031, 047830017, 047830029, 048257036 … (54 confezioni)</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i</td><td>Sitagliptin</td><td>TESAVEL</td><td class="aic">038448142, 038448027, 038448080</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i</td><td>Sitagliptin</td><td>XELEVIA</td><td class="aic">037794144, 037794029, 037794082</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i</td><td>Vildagliptin</td><td>GALVUS</td><td class="aic">038144059</td><td class="si">si (1 conf.)</td><td class="si">Si</td></tr>
-<tr><td>DPP4i</td><td>Vildagliptin</td><td>VILDAGLIPTIN</td><td class="aic">047877042, 047317021, 048636029, 047916135, 045209044, 048318051, 048948032, 050102021 … (28 confezioni)</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i</td><td>Vildagliptin</td><td>XILIARX</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td></tr>
-<tr><td>DPP4i / Metformina</td><td>Alogliptin / Metformina</td><td>VIPDOMET</td><td class="aic">043045172, 043045057</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i / Metformina</td><td>Linagliptin e metformina</td><td>JENTADUETO</td><td class="aic">042203190, 042203051</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i / Metformina</td><td>Saxagliptin e metformina</td><td>KOMBOGLYZE</td><td class="aic">041689086, 041689023</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i / Metformina</td><td>Sitagliptin / Metformina</td><td>DIESMIT</td><td class="aic">049984331, 049984192, 049984053</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i / Metformina</td><td>Sitagliptin / Metformina</td><td>EFFICIB</td><td class="aic">038773103, 038773038</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i / Metformina</td><td>Sitagliptin / Metformina</td><td>JANUMET</td><td class="aic">038672109, 038672034</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i / Metformina</td><td>Sitagliptin / Metformina</td><td>VELMETIA</td><td class="aic">038678102, 038678037</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i / Metformina</td><td>Sitagliptin / Metformina</td><td>SITAGLIPTIN MET.</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td></tr>
-<tr><td>DPP4i / Metformina</td><td>Vildagliptin / Metformina</td><td>EUCREAS</td><td class="aic">038252096, 038252033</td><td class="si">si (2 conf.)</td><td class="si">Si</td></tr>
-<tr><td>DPP4i / Metformina</td><td>Vildagliptin / Metformina</td><td>ZOMARIST</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td></tr>
-<tr><td>DPP4i / Metformina</td><td>Vildagliptin / Metformina</td><td>VILDAGLIPTIN E METFORMINA</td><td class="aic">049236033, 049236021, 048496020, 048496018, 049662188, 049662087, 048311082, 048311031 … (16 confezioni)</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>DPP4i / TZD</td><td>Alogliptin / Pioglitazone</td><td>INCRESYNC</td><td class="aic">043030030, 043030218</td><td class="no">no</td><td class="si">Si</td></tr>
-<tr><td>SGLT2i / DPP4i</td><td>Empagliflozin / Linagliptin</td><td>GLYXAMBI</td><td class="aic">045183050, 045183148</td><td class="si">si (2 conf.)</td><td class="si">Si</td></tr>
-<tr><td>SGLT2i / DPP4i</td><td>Ertugliflozin / Sitagliptin</td><td>STEGLUJAN</td><td class="aic">046342085, 046342022</td><td class="si">si (2 conf.)</td><td class="si">Si</td></tr>
-<tr><td>SGLT2i / DPP4i</td><td>Saxagliptin / Dapagliflozin</td><td>QTERN</td><td class="aic">044924025</td><td class="si">si (1 conf.)</td><td class="si">Si</td></tr>
-<tr><td>SGLT2i</td><td>Canagliflozin</td><td>INVOKANA</td><td class="aic">043145022, 043145061</td><td class="si">si (2 conf.)</td><td class="si">Si</td></tr>
-<tr><td>SGLT2i</td><td>Dapagliflozin</td><td>FORXIGA</td><td class="aic">042494070, 042494029</td><td class="si">si (2 conf.)</td><td class="no">No</td></tr>
-<tr><td>SGLT2i</td><td>Empagliflozin</td><td>JARDIANCE</td><td class="aic">043443136, 043443047</td><td class="si">si (2 conf.)</td><td class="no">No</td></tr>
-<tr><td>SGLT2i</td><td>Ertugliflozin</td><td>STEGLATRO</td><td class="aic">046339089, 046339026</td><td class="si">si (2 conf.)</td><td class="si">Si</td></tr>
-<tr><td>SGLT2i / Metformina</td><td>Canagliflozin / Metformina</td><td>VOKANAMET</td><td class="aic">043375118, 043375082, 043375056, 043375029</td><td class="si">si (4 conf.)</td><td class="si">Si</td></tr>
-<tr><td>SGLT2i / Metformina</td><td>Dapagliflozin / Metformina</td><td>EBYMECT</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td></tr>
-<tr><td>SGLT2i / Metformina</td><td>Dapagliflozin / Metformina</td><td>XIGDUO</td><td class="aic">043208091, 043208038</td><td class="si">si (2 conf.)</td><td class="si">Si</td></tr>
-<tr><td>SGLT2i / Metformina</td><td>Ertugliflozin / Metformina</td><td>SEGLUROMET</td><td class="aic">046343113, 046343253</td><td class="si">si (2 conf.)</td><td class="si">Si</td></tr>
-<tr><td>SGLT2i / Metformina</td><td>Empagliflozin / Metformina</td><td>SYNJARDY</td><td class="aic">044229312, 044229223, 044229134, 044229045</td><td class="si">si (4 conf.)</td><td class="si">Si</td></tr></tbody>
+            <tbody><tr><td>DPP4i</td><td>Alogliptin</td><td>VIPIDIA</td><td class="aic">043051123, 043051212, 043051034</td><td class="no">no</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>DPP4i</td><td>Linagliptin</td><td>TRAJENTA</td><td class="aic">041401035</td><td class="no">no</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>DPP4i</td><td>Saxagliptin</td><td>ONGLYZA</td><td class="aic">039453129, 039453028</td><td class="no">no</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>DPP4i</td><td>Sitagliptin</td><td>JANUVIA – MELIGLIX – SITAGLIPTIN – TESAVEL – XELEVIA</td><td class="aic">037793142, 037793027, 037793080, 049987163, 049987023, 049987098, 048740056, 050096054 &hellip; (66 confezioni)</td><td class="no">no</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>DPP4i</td><td>Vildagliptin</td><td>GALVUS – VILDAGLIPTIN – XILIARX</td><td class="aic">038144059, 047877042, 047317021, 048636029, 047916135, 045209044, 048318051, 048948032 &hellip; (29 confezioni)</td><td class="si">si (1 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>DPP4i / MF</td><td>Alogliptin /Metformina</td><td>VIPDOMET</td><td class="aic">043045172, 043045057</td><td class="no">no</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>DPP4i / MF</td><td>Linagliptin e metformina</td><td>JENTADUETO</td><td class="aic">042203190, 042203051</td><td class="no">no</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>DPP4i / MF</td><td>Saxagliptin e metformina</td><td>KOMBOGLYZE</td><td class="aic">041689086, 041689023</td><td class="no">no</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>DPP4i / MF</td><td>Sitagliptin/Metformina</td><td>DIESMIT – EFFICIB – JANUMET – VELMETIA – SITAGLIPTIN MET.</td><td class="aic">049984331, 049984192, 049984053, 038773103, 038773038, 038672109, 038672034, 038678102 &hellip; (9 confezioni)</td><td class="no">no</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>DPP4i / MF</td><td>Vildagliptin/Metformina</td><td>EUCREAS – ZOMARIST – VILDAGLIPTIN E METFORMINA</td><td class="aic">038252096, 038252033, 049236033, 049236021, 048496020, 048496018, 049662188, 049662087 &hellip; (18 confezioni)</td><td class="si">si (2 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>DPP4i / TZD</td><td>Alogliptin /Pioglitazone</td><td>INCRESYNC</td><td class="aic">043030030, 043030218</td><td class="no">no</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>SGLT2i / DPP4i</td><td>Empaglifozin / Linagliptin</td><td>GLYXAMBI</td><td class="aic">045183050, 045183148</td><td class="si">si (2 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>SGLT2i / DPP4i</td><td>Ertuglifozin / Sitagliptin</td><td>STEGLUJAN</td><td class="aic">046342085, 046342022</td><td class="si">si (2 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>SGLT2i / DPP4i</td><td>Saxagliptin / Dapagliflozin</td><td>QTERN</td><td class="aic">044924025</td><td class="si">si (1 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>SGLT2i</td><td>Canaglifozin</td><td>INVOKANA</td><td class="aic">043145022, 043145061</td><td class="si">si (2 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>SGLT2i</td><td>Dapagliflozin</td><td>FORXIGA</td><td class="aic">042494070, 042494029</td><td class="si">si (2 conf.)</td><td class="si">Si</td><td class="si">Si</td></tr>
+<tr><td>SGLT2i</td><td>Empaglifozin</td><td>JARDIANCE</td><td class="aic">043443136, 043443047</td><td class="si">si (2 conf.)</td><td class="si">Si</td><td class="si">Si</td></tr>
+<tr><td>SGLT2i</td><td>Ertuglifozin</td><td>STEGLATRO</td><td class="aic">046339089, 046339026</td><td class="si">si (2 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>SGLT2i / MF</td><td>Canaglifozin / Metformina</td><td>VOKANAMET</td><td class="aic">043375118, 043375082, 043375056, 043375029</td><td class="si">si (4 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>SGLT2i / MF</td><td>Dapagliflozin / Metformina</td><td>EBYMECT - XIGDUO</td><td class="aic">043208091, 043208038</td><td class="si">si (2 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>SGLT2i / MF</td><td>Ertugligozin / Metformina</td><td>SEGLUROMET</td><td class="aic">046343113, 046343253</td><td class="si">si (2 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>SGLT2i / MF</td><td>Empaglifozin / Metformina</td><td>SYNJARDY</td><td class="aic">044229312, 044229223, 044229134, 044229045</td><td class="si">si (4 conf.)</td><td class="si">Si</td><td class="no">no</td></tr></tbody>
         </table>
+    </div>
+    <div class="nota-pdf">Colonna &ldquo;Confezioni (AIC)&rdquo; e &ldquo;Nelle liste DPC&rdquo;: dati delle liste
+        regionali DPC. &ldquo;Eccezione&rdquo;: dal documento ufficiale (Dapagliflozin / Empagliflozin).</div>
+
+    <h2>Restano in DPC (Piano Terapeutico on-line)</h2>
+    <div class="tablewrap">
+        <table id="tbl2" class="dpc">
+            <thead><tr>
+                <th class="sortable" data-col="0">Gruppo</th>
+                <th class="sortable" data-col="1">Molecola</th>
+                <th class="sortable" data-col="2">Nome commerciale</th>
+                <th class="sortable" data-col="3">Confezioni (AIC)</th>
+                <th class="sortable" data-col="4">Nelle liste DPC</th>
+                <th class="sortable" data-col="5">Nota 100 obbligatoria</th>
+                <th class="sortable" data-col="6">Eccezione (senza Nota 100)</th>
+            </tr></thead>
+            <tbody><tr><td>GLP1-RA</td><td>Exenatide &quot;a rilascio prolungato&quot;</td><td>BYDUREON</td><td class="aic">041276054</td><td class="si">si (1 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Exenatide</td><td>BYETTA</td><td class="aic">037568019, 037568033</td><td class="si">si (2 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Lixisenatide</td><td>LYXUMIA</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Semaglutide pen</td><td>OZEMPIC</td><td class="aic">046128029, 046128031, 046128056</td><td class="si">si (2 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Semaglutide orale</td><td>RYBELSUS</td><td class="aic">048719088, 048719025, 048719052</td><td class="si">si (3 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Dulaglutide</td><td>TRULICITY</td><td class="aic">043783024, 043783075</td><td class="si">si (2 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Liraglutide</td><td>VICTOZA</td><td class="aic">039365010</td><td class="si">si (1 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA / INSULINA</td><td>Insulina Deglutec / Liraglutide</td><td>XULTOPHY</td><td class="aic">043619030</td><td class="si">si (1 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA / INSULINA</td><td>Insulina Glargine / Lixisenatide</td><td>SULIQUA</td><td class="aic">045254036, 045254012</td><td class="si">si (2 conf.)</td><td class="si">Si</td><td class="no">no</td></tr>
+<tr><td>GIP / GLP1-RA</td><td>Tirzepatide</td><td>MOUNJARO</td><td class="aic">050357553, 050357577, 050357591, 050357490, 050357514, 050357538</td><td class="no">no</td><td class="si">Si</td><td class="no">no</td></tr></tbody>
+        </table>
+    </div>
+    <div class="box">
+        <b>Regole operative per i farmaci che restano in DPC (dal documento ufficiale, pag. 1)</b>
+        <ul>    <li>Gli Specialisti in Sicilia, a decorrere dal 1&deg; settembre 2025, devono prescrivere detti farmaci come PT-online. Il Farmacista, all&rsquo;atto dell&rsquo;inserimento della ricetta sulla GopenDPC, riscontra la presenza del PT &ldquo;Autorizzato&rdquo; e, solo dopo, pu&ograve; procedere con l&rsquo;ordine nonch&eacute; alla successiva erogazione delle confezioni cos&igrave; autorizzate.</li>
+    <li>La Scheda di Valutazione e Prescrizione cartacea compilata dallo Specialista prima del 01/09/2025 &egrave; valida fino alla naturale scadenza della stessa e il Farmacista allega alla ricetta la Scheda in originale.</li>
+    <li>Nel caso di prescrizione proveniente da uno Specialista Fuori Regione, tenuto a compilare la prevista &ldquo;Scheda di Valutazione e Prescrizione&rdquo; cartacea, questa dovr&agrave; essere trasmessa a <b>dpc@asppalermo.org</b> per la prevista autorizzazione.</li>
+    <li>I Medici di Medicina Generale sono tenuti a compilare la Scheda di Valutazione e Prescrizione on-line su SistemaTS, che collega automaticamente alla ricetta il Protocollo <b>DMDU0A0000&hellip;</b>: la sua presenza deve essere riscontrata dal Farmacista a video oppure sulla ricetta, o, in mancanza, occorre allegare la fotocopia riportante il relativo protocollo DMDU.</li>
+    <li>N.B.: il Protocollo DMDU vale anche per le prescrizioni di MMG Fuori Regione su ricetta DEM.</li></ul>
     </div>
 </div>
 <script>
-(function () {{
+(function () {
     "use strict";
-    var rows = Array.prototype.slice.call(document.querySelectorAll("#tbl tbody tr"));
-    var idx = rows.map(function (tr) {{ return tr.textContent.toLowerCase(); }});
-    function apply() {{
+    var tbl = document.getElementById("tbl");
+    var tbl2 = document.getElementById("tbl2");
+    var rows = Array.prototype.slice.call(tbl.tBodies[0].rows)
+        .concat(Array.prototype.slice.call(tbl2.tBodies[0].rows));
+    var idx = rows.map(function (tr) { return tr.textContent.toLowerCase(); });
+    function apply() {
         var q = document.getElementById("q").value.trim().toLowerCase();
         var n = 0;
-        rows.forEach(function (tr, i) {{
+        rows.forEach(function (tr, i) {
             var ok = !q || idx[i].indexOf(q) >= 0;
             tr.style.display = ok ? "" : "none";
             if (ok) n++;
-        }});
+        });
         document.getElementById("count").textContent = n + " / " + rows.length + " righe";
-    }}
+    }
     document.getElementById("q").addEventListener("input", apply);
-    document.getElementById("reset").addEventListener("click", function () {{
+    document.getElementById("reset").addEventListener("click", function () {
         document.getElementById("q").value = ""; apply();
-    }});
+    });
     apply();
-}})();
+})();
 </script>
+<script>
+(function () {
+    "use strict";
+    function setup(table) {
+        if (!table) return;
+        var tbody = table.tBodies[0];
+        if (!tbody) return;
+        var ths = table.querySelectorAll("thead th.sortable");
+        function cellText(row, col) {
+            if (!row || !row.cells || !row.cells[col]) return "";
+            return (row.cells[col].textContent || "").trim();
+        }
+        function compare(a, b, col, dir) {
+            var va = cellText(a, col);
+            var vb = cellText(b, col);
+            var na = parseFloat(va.replace(/\s/g, ""));
+            var nb = parseFloat(vb.replace(/\s/g, ""));
+            var cmp;
+            if (!isNaN(na) && !isNaN(nb) && /^\d/.test(va) && /^\d/.test(vb)) {
+                cmp = na - nb;
+            } else {
+                cmp = va.localeCompare(vb, "it", { sensitivity: "base", numeric: true });
+            }
+            return dir === "asc" ? cmp : -cmp;
+        }
+        ths.forEach(function (th) {
+            th.addEventListener("click", function () {
+                var col = parseInt(th.getAttribute("data-col"), 10);
+                var dir = th.classList.contains("asc") ? "desc" : "asc";
+                ths.forEach(function (t) { t.classList.remove("asc", "desc"); });
+                th.classList.add(dir);
+                var rs = Array.prototype.slice.call(tbody.rows);
+                rs.sort(function (a, b) { return compare(a, b, col, dir); });
+                rs.forEach(function (r) { tbody.appendChild(r); });
+                apply();
+            });
+        });
+    }
+    [tbl, tbl2].forEach(setup);
+})();
+</script>
+<script src="theme.js" defer></script>
 </body>
 </html>
