@@ -170,3 +170,25 @@ ogni pagina di Distribuzione diretta pp. 58-61).
 `docs/dpc-controllo-appropriatezza.pdf` (72 pp.). Pagine aggiornate: `farmaci_dpc.html` 1182 -> **1194**
 righe, `distribuzione_diretta.html` 329 -> **337** righe. Ripulite anche le entita' HTML residue in 4
 record. `scripts/verifica_link.py`: **19 link verificati, 0 problemi**.
+
+## 11. Regole di erogazione dei farmaci a PT e Nota 99 (DPC pag. 67)
+
+Le tre note in fondo alla pagina 67 del DPC (Nota 99) **non erano presenti** sul sito e sono state inserite
+nella pagina `nota_99.html`, subito sotto la tabella:
+
+1. **Scheda web based**: per i farmaci a PT e Nota 99 la Scheda web based compilata attraverso il sistema
+   Tessera Sanitaria (TS) e' adottata in via esclusiva dal 1° settembre 2022; la prescrizione e' consentita
+   solo agli Specialisti.
+2. **Numero di protocollo**: il Farmacista eroga la ricetta Rossa o DEM con Nota 99 riscontrando la presenza
+   del numero di protocollo `BPCO0A0000......` sulla ricetta oppure a video (come per i FANV con Nota 97);
+   in mancanza del Protocollo allega fotocopia della Scheda con Protocollo.
+3. **TRIMBOW**: dal 4 aprile 2023 la specialita' TRIMBOW e' erogabile anche esclusivamente nel trattamento
+   dell'asma con Piano Terapeutico AIFA specifico cartaceo in originale, prescritto da UU.OO. di
+   pneumologia, geriatria, medicina interna ed allergologia (strutture ospedaliere, territoriali o
+   convenzionate con il SSN) - **senza l'indicazione della Nota AIFA 99** (riferimento `*` nella riga
+   TRIMBOW, colonna "PT Aifa Asma *").
+
+Le note sono conservate in `data/note_pagine.json` e re-inserite dal sync tra i marcatori
+`<!-- DPC-NOTE-BEGIN -->` / `<!-- DPC-NOTE-END -->`, cosi' non si perdono alle successive sincronizzazioni.
+Ogni nota riporta il marker `[agg. 10/11/2026 – DPC Regione Siciliana, pag. 67]` cliccabile verso
+`docs/dpc-controllo-appropriatezza.pdf`. Link verificati: **19, 0 problemi**.
