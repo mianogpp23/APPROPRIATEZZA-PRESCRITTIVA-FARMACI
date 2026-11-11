@@ -4,7 +4,7 @@
 - **Snapshot versionato qui**: `dati_farmaci.json` (copia generata automaticamente)
 - **Marker di aggiornamento negli HTML**: 796 occorrenze `[agg. <data> – <fonte>]`
 - **Rigenerazione**: `python3 scripts/sync_html_da_json.py --apply`
-- **Ultima sincronizzazione**: 2026-11-11T09:18:46
+- **Ultima sincronizzazione**: 2026-11-11T09:30:19
 
 Il sito statico non dipende dal JSON: il JSON serve per tracciare la versione dei dati
 da cui sono state generate le pagine e per rigenerarle in futuro.
