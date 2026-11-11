@@ -1,0 +1,18 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body><pre id="o">in corso</pre>
+<iframe id="f" style="width:600px;height:400px"></iframe>
+<script>
+try { localStorage.clear(); } catch(e){}
+var f = document.getElementById("f");
+f.src = "index_list.html#consenso=1";
+f.addEventListener("load", function () {
+  setTimeout(function () {
+    var d = f.contentDocument, w = f.contentWindow;   // rilett DOPO la navigazione
+    var out = [];
+    out.push("URL: " + w.location.pathname + w.location.hash);
+    out.push("documento: " + (d.getElementById("accetto") ? "SPLASH (loop)" : "portale") +
+             " | schede elencate: " + d.querySelectorAll("a.item").length);
+    try { out.push("consenso salvato: " + w.localStorage.getItem("dpc-consenso")); } catch(e){ out.push("consenso: throw"); }
+    document.getElementById("o").textContent = out.join("\n");
+  }, 2500);
+});
+</script></body></html>
