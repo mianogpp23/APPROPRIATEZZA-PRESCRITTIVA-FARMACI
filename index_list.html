@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elenco Farmaci DPC — Schede</title>
+<link rel="stylesheet" href="theme.css">
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+        background: rgb(var(--t-bg-rgb));
+        color: rgb(var(--t-text-rgb));
+        display: flex;
+        min-height: 100vh;
+    }
+    .side {
+        width: 280px;
+        background: rgb(var(--t-bgdeep-rgb));
+        padding: 32px 22px;
+        border-right: 1px solid rgba(var(--t-ov-rgb),0.08);
+        flex-shrink: 0;
+    }
+    .side h1 {
+        font-size: 26px;
+        font-weight: 800;
+        margin-bottom: 6px;
+        color: rgb(var(--t-accent-rgb));
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+    .side .sub {
+        font-size: 12px;
+        color: rgb(var(--t-muted2-rgb));
+        margin-bottom: 28px;
+        line-height: 1.4;
+    }
+    .side .item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        border-radius: 10px;
+        margin-bottom: 8px;
+        text-decoration: none;
+        color: rgb(var(--t-text2-rgb));
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .side .item.active {
+        background: rgba(var(--t-accent-rgb),0.2);
+        color: rgb(var(--t-white-rgb));
+    }
+    .side .item:hover {
+        background: rgba(var(--t-accent-rgb),0.12);
+        color: rgb(var(--t-white-rgb));
+        transform: translateX(4px);
+    }
+    .side .item .num {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, rgb(var(--t-accent-rgb)), rgb(var(--t-accent2-rgb)));
+        color: var(--t-onaccent);
+        font-weight: 700;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .side .item .meta {
+        font-size: 11px;
+        color: rgb(var(--t-muted2-rgb));
+        font-weight: 400;
+        margin-top: 2px;
+    }
+
+    .main {
+        flex: 1;
+        padding: 48px 40px;
+        overflow-y: auto;
+    }
+    .main h2 {
+        font-size: 32px;
+        font-weight: 800;
+        margin-bottom: 8px;
+        color: rgb(var(--t-textlt-rgb));
+    }
+    .main p {
+        color: rgb(var(--t-muted-rgb));
+        margin-bottom: 32px;
+        font-size: 15px;
+        line-height: 1.5;
+        max-width: 620px;
+    }
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+    }
+    .card {
+        background: rgba(var(--t-ov-rgb),0.04);
+        border: 1px solid rgba(var(--t-ov-rgb),0.08);
+        border-radius: 14px;
+        padding: 20px 18px;
+        text-decoration: none;
+        color: rgb(var(--t-text-rgb));
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+        transform: translateY(-4px);
+        border-color: rgb(var(--t-accent-rgb));
+        box-shadow: 0 12px 28px rgba(var(--t-accent-rgb),0.12);
+    }
+    .card .top {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+    }
+    .card .icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, rgb(var(--t-accent-rgb)), rgb(var(--t-accent2-rgb)));
+        color: var(--t-onaccent);
+        font-weight: 700;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .card h3 {
+        font-size: 16px;
+        font-weight: 700;
+        color: rgb(var(--t-textlt-rgb));
+    }
+    .card p {
+        font-size: 13px;
+        color: rgb(var(--t-muted-rgb));
+        line-height: 1.5;
+        margin-bottom: 12px;
+    }
+    .card .badge {
+        display: inline-block;
+        font-size: 11px;
+        padding: 3px 9px;
+        border-radius: 6px;
+        background: rgba(var(--t-accent-rgb),0.12);
+        color: rgb(var(--t-accent-rgb));
+        font-weight: 600;
+        margin-right: 6px;
+    }
+
+    footer {
+        margin-top: 40px;
+        color: rgb(var(--t-muted2-rgb));
+        font-size: 12px;
+    }
+    footer a { color: rgb(var(--t-accent-rgb)); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+
+    .viewer-wrap {
+        flex: 1;
+        background: rgba(var(--t-ov-rgb),0.02);
+        border: 1px solid rgba(var(--t-ov-rgb),0.08);
+        border-radius: 14px;
+        overflow: hidden;
+        min-height: 70vh;
+    }
+    #viewer {
+        width: 100%;
+        height: 78vh;
+        border: none;
+        background: rgb(var(--t-bg-rgb));
+    }
+
+    @media (max-width: 720px) {
+        body { flex-direction: column; }
+        .side { width: 100%; border-right: none; border-bottom: 1px solid rgba(var(--t-ov-rgb),0.08); }
+        .main { padding: 32px 20px; }
+    }
+
+
+    .site-foot {
+        margin: 26px 0 0; padding: 14px 0 0;
+        border-top: 1px solid var(--glass-border); color: var(--muted); font-size: 13.5px; line-height: 1.5;
+    }
+    .site-foot p { margin: 0 0 6px; }
+    .site-foot a { color: var(--accent); }
+</style>
+<script>(function(){try{var t=localStorage.getItem("dpc-tema");if(t){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();</script>
+    <script src="consent.js"></script>
+</head>
+<body>
+
+<aside class="side">
+    <h1>Farmaci DPC</h1>
+    <div class="sub">Portale documentale — Controllo appropriatezza prescrittiva</div>
+
+    <a class="item" data-href="metilfenidato.html">
+        <span class="num">01</span>
+        <span>Metilfenidato (DPC)<div class="meta">9 farmaci · 5 col</div></span>
+    </a>
+    <a class="item" data-href="farmaci_dpc.html">
+        <span class="num">02</span>
+        <span>Farmaci in distribuzione DPC<div class="meta">~1.187 farmaci · 4 col</div></span>
+    </a>
+    <a class="item" data-href="distribuzione_diretta.html">
+        <span class="num">03</span>
+        <span>Distribuzione diretta ASP<div class="meta">329 farmaci · 5 col</div></span>
+    </a>
+    <a class="item" data-href="formalismi.html">
+        <span class="num">04</span>
+        <span>Riepilogo formalismi<div class="meta">Testo + tabelle</div></span>
+    </a>
+    <a class="item" data-href="farmaci_no_dpc.html">
+        <span class="num">05</span>
+        <span>Farmaci NO DPC<div class="meta">6 tabelle</div></span>
+    </a>
+    <a class="item" data-href="nota_99.html">
+        <span class="num">06</span>
+        <span>NOTA 99 — INALATORIO<div class="meta">158 farmaci · 5 col</div></span>
+    </a>
+    <a class="item" data-href="dpc_convenzionata.html">
+        <span class="num">07</span>
+        <span>Farmaci Nota 100<div class="meta">Nota AIFA 100 &middot; dal 15/10/2025</div></span>
+    </a>
+</aside>
+
+<main class="main">
+    <h2>Elenco Farmaci DPC</h2>
+
+    <div class="viewer-wrap">
+        <iframe id="viewer" src="metilfenidato.html" title="Elenco" loading="lazy"></iframe>
+    </div>
+
+
+    <footer class="site-foot">
+        <p><strong>Documento di base:</strong> Documento di Controllo dell'appropriatezza prescrittiva
+            (DPC) di <strong>Federfarma Messina</strong> (edizione 2023, D.A. n. 278/2024 &ndash; G.U.R.S.
+            n. 15 del 29/03/2024). <strong>Database e regole operative</strong> successivamente aggiornati e
+            integrati con le disposizioni piu' recenti (determine AIFA 2025-2026, protocolli regionali,
+            circolari di categoria, versioni aggiornate del DPC): ogni variazione e' marcata e ogni marcatura
+            e' un link diretto al provvedimento.</p>
+        <p><a href="disclaimer.html">Disclaimer legale e avvertenze</a> &middot; strumento informativo,
+            uso gratuito &middot; verificare sempre con la propria professionalita' e sui canali ufficiali
+            &middot; <a href="index.html">Ingresso</a></p>
+    </footer>
+
+</main>
+
+
+<script>
+(function () {
+    "use strict";
+    var viewer = document.getElementById("viewer");
+    var items = document.querySelectorAll(".side .item");
+    function load(href) {
+        if (!href) return;
+        viewer.src = href;
+        items.forEach(function (it) {
+            if (it.getAttribute("data-href") === href) it.classList.add("active");
+            else it.classList.remove("active");
+        });
+        try { localStorage.setItem("homeHref", href); } catch (e) {}
+    }
+    items.forEach(function (it) {
+        it.addEventListener("click", function (e) {
+            e.preventDefault();
+            load(it.getAttribute("data-href"));
+        });
+    });
+    var savedHref = null;
+    try { savedHref = localStorage.getItem("homeHref"); } catch (e) {}
+    if (!savedHref) savedHref = "metilfenidato.html";
+    load(savedHref);
+})();
+</script>
+
+<a href="home.html" style="position:fixed;top:16px;right:20px;z-index:20;padding:8px 16px;border-radius:10px;border:1px solid var(--glass-border);background:var(--glass);color:rgb(var(--t-textlt-rgb));font-weight:600;font-size:13px;text-decoration:none;">Vista sfere</a>
+<script src="theme.js" defer></script>
+
+
+</body>
+</html>
