@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DPC in Convenzionata — Nota AIFA 100 (diabete tipo 2)</title>
+<link rel="stylesheet" href="theme.css">
+<style>
+    :root {
+        --bg1: rgb(var(--t-bg-rgb)); --bg2: rgb(var(--t-bg2-rgb)); --accent: rgb(var(--t-accent-rgb));
+        --accent2: rgb(var(--t-accent2-rgb)); --glass: rgba(var(--t-ov-rgb),0.06);
+        --glass-border: rgba(var(--t-ov-rgb),0.16); --text: rgb(var(--t-text-rgb));
+        --muted: rgb(var(--t-muted-rgb)); --red: rgb(var(--t-red-rgb)); --green: rgb(var(--t-green-rgb));
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        background: var(--bg1); color: var(--text); font-size: 17px; line-height: 1.5; }
+    .wrap { max-width: 1600px; margin: 0 auto; padding: 28px 18px 60px; }
+    h1 { color: var(--red); font-size: 28px; margin: 0 0 6px; text-transform: uppercase; }
+    h2 { color: var(--green); font-size: 21px; margin: 26px 0 10px; }
+    h3 { color: var(--accent); font-size: 17px; margin: 18px 0 8px; }
+    .sub { color: var(--muted); margin-bottom: 16px; }
+    .box { background: var(--glass); border: 1px solid var(--glass-border); border-left: 4px solid var(--red);
+        border-radius: 12px; padding: 14px 18px; margin-bottom: 18px; }
+    .box b { color: var(--green); }
+    .box a { color: var(--accent); }
+    .filters { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:12px;
+        position:sticky; top:0; background:rgba(var(--t-bg-rgb),.95); padding:12px 0; z-index:5;
+        border-bottom:1px solid var(--glass-border); }
+    input[type=text] { background:rgba(var(--t-ov-rgb),.07); border:1px solid var(--glass-border);
+        color:var(--text); padding:9px 12px; border-radius:9px; font-size:15px; min-width:230px; }
+    button { background:var(--accent); border:0; color:rgb(var(--t-onaccent-rgb)); font-weight:700; padding:9px 16px;
+        border-radius:9px; font-size:15px; cursor:pointer; }
+    #count { color:var(--muted); }
+    .tablewrap { overflow:auto; max-height: 70vh; border:1px solid var(--glass-border); border-radius:12px; }
+    table { border-collapse:collapse; width:100%; font-size:15px; }
+    th, td { padding:9px 12px; border-bottom:1px solid rgba(var(--t-ov-rgb),.08); text-align:left; vertical-align:top; }
+    th { position:sticky; top:0; background:var(--bg2); color:var(--accent); white-space:nowrap; }
+    table.dpc th.sortable { cursor:pointer; user-select:none; position:relative; padding-right:18px; }
+    table.dpc th.sortable::after { content: " ⇅"; font-size:11px; color:var(--muted); position:absolute;
+        right:4px; top:50%; transform:translateY(-50%); }
+    table.dpc th.sortable.asc::after { content: " ▲"; color: var(--accent); }
+    table.dpc th.sortable.desc::after { content: " ▼"; color: var(--accent); }
+    table.dpc th.sortable:hover { background: rgba(var(--t-accent-rgb),0.22); }
+    tr.grp td { background:rgba(var(--t-green-rgb),.12); font-weight:700; color:var(--green); }
+    .si { color:var(--green); font-weight:700; }
+    .no { color:var(--muted); }
+    .aic { font-variant-numeric: tabular-nums; }
+    .back { display:inline-block; margin-bottom:14px; padding:9px 16px; border-radius:10px;
+        border:1px solid var(--glass-border); background:var(--glass); color:var(--text);
+        text-decoration:none; font-weight:600; }
+    a { color: var(--accent); }
+    ul { margin: 8px 0 0; padding-left: 22px; }
+    li { margin-bottom: 7px; }
+    .nota-pdf { font-size: 14px; color: var(--muted); margin-top: 18px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <a class="back" href="index_list.html">&larr; Torna all'indice</a>
+    <h1>Farmaci Nota 100</h1>
+
+    <!-- DPC-PILL-BEGIN -->
+    <div class="pills-title">Pillole operative — diabete tipo 2 a Nota AIFA 100</div>
+    <div class="pills">
+      <div class="pill"><b>Regola del canale (dal 15 ottobre 2025)</b><span class="pill-d">Per le specialità dell&#x27;elenco **non** deve essere compilata e allegata la «Scheda di Valutazione e Prescrizione» né verificata la presenza del «Protocollo DMDU»: l&#x27;erogazione va operata **nel canale della Convenzionata** con **obbligo di ricetta a Nota AIFA 100**. &middot; <a class="pill-link" href="docs/dpc-controllo-appropriatezza.pdf#page=21" target="_blank" rel="noopener">DPC pag. 21</a></span></div>
+      <div class="pill"><b>Eccezione: dapagliflozin ed empagliflozin</b><span class="pill-d">Dapagliflozin (FORXIGA) ed empagliflozin (JARDIANCE) possono essere prescritti **anche senza Nota AIFA 100** e rimborsati in convenzionata nelle indicazioni di insufficienza cardiaca cronica sintomatica (classe NYHA II e III, frazione di eiezione ridotta) e, per il solo dapagliflozin, nella malattia renale cronica. **Attenzione**: se sono prescritti su modello PT web-based AIFA cartaceo (tipo Prolia) non è un&#x27;erogazione DPC: la specialità va erogata **esclusivamente a Distribuzione Diretta dall&#x27;ASP**. &middot; <a class="pill-link" href="docs/dpc-controllo-appropriatezza.pdf#page=21" target="_blank" rel="noopener">DPC pag. 21</a></span></div>
+      <div class="pill"><b>Cosa resta in DPC</b><span class="pill-d">Restano in DPC con Scheda di Valutazione e Prescrizione (o Protocollo dal 01/02/2023) i GLP-1 RA, le associazioni SGLT2i/DPP4i (GLYXAMBI, QTERN, STEGLUJAN) e le altre combinazioni insuliniche; i limiti di confezione sono nel DPC. &middot; <a class="pill-link" href="docs/dpc-controllo-appropriatezza.pdf#page=18" target="_blank" rel="noopener">DPC pag. 18</a></span></div>
+    </div>
+    <!-- DPC-PILL-END -->
+
+    <div class="sub">Scheda 07 &mdash; A far data dal 15 ottobre 2025 per le specialità di seguito indicate non deve essere compilata e allegata la &ldquo;Scheda di Valutazione e Prescrizione&rdquo; o verificata la presenza del &ldquo;Protocollo DMDU&rdquo; e l&rsquo;erogazione va operata nel canale della Convenzionata con obbligo di ricetta a Nota AIFA 100: Documento: <b>FARMACI DIATETE TIPO 2 A NOTA AIFA 100</b>
+        (pag. 2 &ldquo;in Convenzionata&rdquo;) &mdash; dati aggiornati al 11/11/2026.</div>
+
+    <div class="box">
+        <b>Regola operativa (dal 15 ottobre 2025)</b><br>
+        A far data dal 15 ottobre 2025 per le specialità di seguito indicate non deve essere compilata e allegata la &ldquo;Scheda di Valutazione e Prescrizione&rdquo; o verificata la presenza del &ldquo;Protocollo DMDU&rdquo; e l&rsquo;erogazione va operata nel canale della Convenzionata con obbligo di ricetta a Nota AIFA 100:
+        <br><br>
+        <b>Eccezioni (dal documento ufficiale)</b>
+        <ul>    <li>DAPAGLIFLOZIN O EMPAGLIFOZIN costituiscono un&rsquo;eccezione, in quanto possono essere prescritti anche SENZA NOTA AIFA 100 e rimborsati in convenzionata nelle seguenti indicazioni:</li>
+    <li>Dapagliflozin FORXIGA nelle indicazioni &ldquo;per il trattamento negli adulti dell&rsquo;insufficienza cardiaca cronica sintomatica in classe NYHA II e III con frazione di eiezione ridotta&rdquo; e &ldquo;malattia renale cronica&rdquo;</li>
+    <li>Empaglifozin JARDIANCE nell&rsquo;indicazione &ldquo;per il trattamento negli adulti dell&rsquo;insufficienza cardiaca cronica sintomatica con frazione di eiezione ridotta&rdquo;</li></ul>
+        <br>
+        <b>Fonti:</b>
+        <a href="docs/diabete-tipo2-nota-100.pdf" target="_blank" rel="noopener">documento ufficiale
+        &ldquo;FARMACI DIATETE TIPO 2 A NOTA AIFA 100&rdquo; (PDF, 2 pagine)</a> &middot;
+        <a href="https://www.aifa.gov.it/-/diabete-mellito-tipo2-aggiornamento-nota-aifa-100" target="_blank" rel="noopener">AIFA &mdash; aggiornamento Nota 100</a> &middot;
+        <a href="https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-salute/dipartimento-pianificazione-strategica/appropriatezza-d-uso-farmaci" target="_blank" rel="noopener">Assessorato Salute &mdash; appropriatezza d&rsquo;uso dei farmaci</a>
+        <br>
+        <b>Nota:</b> restano fuori dal canale della convenzionata i medicinali a base di agonisti recettoriali
+        del GLP-1 e di doppi agonisti GIP/GLP-1 (BYETTA, BYDUREON, LYXUMIA, OZEMPIC, RYBELSUS, TRULICITY,
+        VICTOZA, XULTOPHY, SULIQUA, MOUNJARO): per questi la Scheda di Valutazione e Prescrizione resta
+        obbligatoria e l&rsquo;erogazione avviene in DPC (vedi la tabella sotto).
+    </div>
+
+    <h2>Farmaci Nota 100</h2>
+    <div class="filters">
+        <input type="text" id="q" placeholder="Cerca molecola, specialita', AIC...">
+        <button id="reset">Reset</button>
+        <span id="count"></span>
+    </div>
+    <div class="tablewrap">
+        <table id="tbl" class="dpc">
+            <thead><tr>
+                <th class="sortable" data-col="0">Gruppo</th>
+                <th class="sortable" data-col="1">Molecola</th>
+                <th class="sortable" data-col="2">Nome commerciale</th>
+                <th class="sortable" data-col="3">Confezioni (AIC)</th>
+                <th class="sortable" data-col="4">Nelle liste DPC</th>
+                <th class="sortable" data-col="5">Nota 100 obbligatoria</th>
+                <th class="sortable" data-col="6">Eccezione (senza Nota 100)</th>
+            </tr></thead>
+            <tbody><tr><td>DPP4i</td><td>Alogliptin</td><td>VIPIDIA</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>DPP4i</td><td>Linagliptin</td><td>TRAJENTA</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>DPP4i</td><td>Saxagliptin</td><td>ONGLYZA</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>DPP4i</td><td>Sitagliptin</td><td>JANUVIA – MELIGLIX – SITAGLIPTIN – TESAVEL – XELEVIA</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>DPP4i</td><td>Vildagliptin</td><td>GALVUS – VILDAGLIPTIN – XILIARX</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>DPP4i / MF</td><td>Alogliptin /Metformina</td><td>VIPDOMET</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>DPP4i / MF</td><td>Linagliptin e metformina</td><td>JENTADUETO</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>DPP4i / MF</td><td>Saxagliptin e metformina</td><td>KOMBOGLYZE</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>DPP4i / MF</td><td>Sitagliptin/Metformina</td><td>DIESMIT – EFFICIB – JANUMET – VELMETIA – SITAGLIPTIN MET.</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>DPP4i / MF</td><td>Vildagliptin/Metformina</td><td>EUCREAS – ZOMARIST – VILDAGLIPTIN E METFORMINA</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>DPP4i / TZD</td><td>Alogliptin /Pioglitazone</td><td>INCRESYNC</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>SGLT2i / DPP4i</td><td>Empaglifozin / Linagliptin</td><td>GLYXAMBI</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>SGLT2i / DPP4i</td><td>Ertuglifozin / Sitagliptin</td><td>STEGLUJAN</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>SGLT2i / DPP4i</td><td>Saxagliptin / Dapagliflozin</td><td>QTERN</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>SGLT2i</td><td>Canaglifozin</td><td>INVOKANA</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>SGLT2i</td><td>Dapagliflozin</td><td>FORXIGA</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="si">Si</td></tr>
+<tr><td>SGLT2i</td><td>Empaglifozin</td><td>JARDIANCE</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="si">Si</td></tr>
+<tr><td>SGLT2i</td><td>Ertuglifozin</td><td>STEGLATRO</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>SGLT2i / MF</td><td>Canaglifozin / Metformina</td><td>VOKANAMET</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>SGLT2i / MF</td><td>Dapagliflozin / Metformina</td><td>EBYMECT - XIGDUO</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>SGLT2i / MF</td><td>Ertugligozin / Metformina</td><td>SEGLUROMET</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>SGLT2i / MF</td><td>Empaglifozin / Metformina</td><td>SYNJARDY</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr></tbody>
+        </table>
+    </div>
+    <div class="nota-pdf">Colonna &ldquo;Confezioni (AIC)&rdquo; e &ldquo;Nelle liste DPC&rdquo;: dati delle liste
+        regionali DPC. &ldquo;Eccezione&rdquo;: dal documento ufficiale (Dapagliflozin / Empagliflozin).</div>
+
+    <h2>Restano in DPC (Piano Terapeutico on-line)</h2>
+    <div class="tablewrap">
+        <table id="tbl2" class="dpc">
+            <thead><tr>
+                <th class="sortable" data-col="0">Gruppo</th>
+                <th class="sortable" data-col="1">Molecola</th>
+                <th class="sortable" data-col="2">Nome commerciale</th>
+                <th class="sortable" data-col="3">Confezioni (AIC)</th>
+                <th class="sortable" data-col="4">Nelle liste DPC</th>
+                <th class="sortable" data-col="5">Nota 100 obbligatoria</th>
+                <th class="sortable" data-col="6">Eccezione (senza Nota 100)</th>
+            </tr></thead>
+            <tbody><tr><td>GLP1-RA</td><td>Exenatide &quot;a rilascio prolungato&quot;</td><td>BYDUREON</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Exenatide</td><td>BYETTA</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Lixisenatide</td><td>LYXUMIA</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Semaglutide pen</td><td>OZEMPIC</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Semaglutide orale</td><td>RYBELSUS</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Dulaglutide</td><td>TRULICITY</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Liraglutide</td><td>VICTOZA</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA / INSULINA</td><td>Insulina Deglutec / Liraglutide</td><td>XULTOPHY</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA / INSULINA</td><td>Insulina Glargine / Lixisenatide</td><td>SULIQUA</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GIP / GLP1-RA</td><td>Tirzepatide</td><td>MOUNJARO</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr></tbody>
+        </table>
+    </div>
+    <div class="box">
+        <b>Regole operative per i farmaci che restano in DPC (dal documento ufficiale, pag. 1)</b>
+        <ul>    <li>Gli Specialisti in Sicilia, a decorrere dal 1&deg; settembre 2025, devono prescrivere detti farmaci come PT-online. Il Farmacista, all&rsquo;atto dell&rsquo;inserimento della ricetta sulla GopenDPC, riscontra la presenza del PT &ldquo;Autorizzato&rdquo; e, solo dopo, pu&ograve; procedere con l&rsquo;ordine nonch&eacute; alla successiva erogazione delle confezioni cos&igrave; autorizzate.</li>
+    <li>La Scheda di Valutazione e Prescrizione cartacea compilata dallo Specialista prima del 01/09/2025 &egrave; valida fino alla naturale scadenza della stessa e il Farmacista allega alla ricetta la Scheda in originale.</li>
+    <li>Nel caso di prescrizione proveniente da uno Specialista Fuori Regione, tenuto a compilare la prevista &ldquo;Scheda di Valutazione e Prescrizione&rdquo; cartacea, questa dovr&agrave; essere trasmessa a <b>dpc@asppalermo.org</b> per la prevista autorizzazione.</li>
+    <li>I Medici di Medicina Generale sono tenuti a compilare la Scheda di Valutazione e Prescrizione on-line su SistemaTS, che collega automaticamente alla ricetta il Protocollo <b>DMDU0A0000&hellip;</b>: la sua presenza deve essere riscontrata dal Farmacista a video oppure sulla ricetta, o, in mancanza, occorre allegare la fotocopia riportante il relativo protocollo DMDU.</li>
+    <li>N.B.: il Protocollo DMDU vale anche per le prescrizioni di MMG Fuori Regione su ricetta DEM.</li></ul>
+    </div>
+</div>
+<script>
+(function () {
+    "use strict";
+    var tbl = document.getElementById("tbl");
+    var tbl2 = document.getElementById("tbl2");
+    var rows = Array.prototype.slice.call(tbl.tBodies[0].rows)
+        .concat(Array.prototype.slice.call(tbl2.tBodies[0].rows));
+    var idx = rows.map(function (tr) { return tr.textContent.toLowerCase(); });
+    function apply() {
+        var q = document.getElementById("q").value.trim().toLowerCase();
+        var n = 0;
+        rows.forEach(function (tr, i) {
+            var ok = !q || idx[i].indexOf(q) >= 0;
+            tr.style.display = ok ? "" : "none";
+            if (ok) n++;
+        });
+        document.getElementById("count").textContent = n + " / " + rows.length + " righe";
+    }
+    document.getElementById("q").addEventListener("input", apply);
+    document.getElementById("reset").addEventListener("click", function () {
+        document.getElementById("q").value = ""; apply();
+    });
+    apply();
+})();
+</script>
+<script>
+(function () {
+    "use strict";
+    var tbl = document.getElementById("tbl");
+    var tbl2 = document.getElementById("tbl2");
+    function setup(table) {
+        if (!table) return;
+        var tbody = table.tBodies[0];
+        if (!tbody) return;
+        var ths = table.querySelectorAll("thead th.sortable");
+        function cellText(row, col) {
+            if (!row || !row.cells || !row.cells[col]) return "";
+            return (row.cells[col].textContent || "").trim();
+        }
+        function compare(a, b, col, dir) {
+            var va = cellText(a, col);
+            var vb = cellText(b, col);
+            var na = parseFloat(va.replace(/\s/g, ""));
+            var nb = parseFloat(vb.replace(/\s/g, ""));
+            var cmp;
+            if (!isNaN(na) && !isNaN(nb) && /^\d/.test(va) && /^\d/.test(vb)) {
+                cmp = na - nb;
+            } else {
+                cmp = va.localeCompare(vb, "it", { sensitivity: "base", numeric: true });
+            }
+            return dir === "asc" ? cmp : -cmp;
+        }
+        ths.forEach(function (th) {
+            th.addEventListener("click", function () {
+                var col = parseInt(th.getAttribute("data-col"), 10);
+                var dir = th.classList.contains("asc") ? "desc" : "asc";
+                ths.forEach(function (t) { t.classList.remove("asc", "desc"); });
+                th.classList.add(dir);
+                var rs = Array.prototype.slice.call(tbody.rows);
+                rs.sort(function (a, b) { return compare(a, b, col, dir); });
+                rs.forEach(function (r) { tbody.appendChild(r); });
+                // FIX: apply() non è visibile qui (è dentro l'altra IIFE):
+                // rilancio il filtro simulando un input sulla casella di ricerca
+                var q = document.getElementById("q");
+                if (q) q.dispatchEvent(new Event("input"));
+            });
+        });
+    }
+    [tbl, tbl2].forEach(setup);
+})();
+</script>
+
+
+<script src="consent.js"></script>
+<script src="theme.js" defer></script>
+</body>
+</html>
