@@ -149,16 +149,16 @@
                 <th class="sortable" data-col="5">Nota 100 obbligatoria</th>
                 <th class="sortable" data-col="6">Eccezione (senza Nota 100)</th>
             </tr></thead>
-            <tbody><tr><td>GLP1-RA</td><td>Exenatide &quot;a rilascio prolungato&quot;</td><td>BYDUREON</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
-<tr><td>GLP1-RA</td><td>Exenatide</td><td>BYETTA</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
-<tr><td>GLP1-RA</td><td>Lixisenatide</td><td>LYXUMIA</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
-<tr><td>GLP1-RA</td><td>Semaglutide pen</td><td>OZEMPIC</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
-<tr><td>GLP1-RA</td><td>Semaglutide orale</td><td>RYBELSUS</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
-<tr><td>GLP1-RA</td><td>Dulaglutide</td><td>TRULICITY</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
-<tr><td>GLP1-RA</td><td>Liraglutide</td><td>VICTOZA</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
-<tr><td>GLP1-RA / INSULINA</td><td>Insulina Deglutec / Liraglutide</td><td>XULTOPHY</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
-<tr><td>GLP1-RA / INSULINA</td><td>Insulina Glargine / Lixisenatide</td><td>SULIQUA</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr>
-<tr><td>GIP / GLP1-RA</td><td>Tirzepatide</td><td>MOUNJARO</td><td class="aic">&mdash;</td><td class="no">no</td><td class="no">&mdash;</td><td class="no">no</td></tr></tbody>
+            <tbody><tr><td>GLP1-RA</td><td>Exenatide &quot;a rilascio prolungato&quot;</td><td>BYDUREON</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Exenatide</td><td>BYETTA</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Lixisenatide</td><td>LYXUMIA</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Semaglutide pen</td><td>OZEMPIC</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Semaglutide orale</td><td>RYBELSUS</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Dulaglutide</td><td>TRULICITY</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA</td><td>Liraglutide</td><td>VICTOZA</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA / INSULINA</td><td>Insulina Deglutec / Liraglutide</td><td>XULTOPHY</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GLP1-RA / INSULINA</td><td>Insulina Glargine / Lixisenatide</td><td>SULIQUA</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr>
+<tr><td>GIP / GLP1-RA</td><td>Tirzepatide</td><td>MOUNJARO</td><td class="aic">&mdash;</td><td class="si">Si</td><td class="no">&mdash;</td><td class="no">no</td></tr></tbody>
         </table>
     </div>
     <div class="box">
@@ -198,6 +198,8 @@
 <script>
 (function () {
     "use strict";
+    var tbl = document.getElementById("tbl");
+    var tbl2 = document.getElementById("tbl2");
     function setup(table) {
         if (!table) return;
         var tbody = table.tBodies[0];
@@ -229,7 +231,10 @@
                 var rs = Array.prototype.slice.call(tbody.rows);
                 rs.sort(function (a, b) { return compare(a, b, col, dir); });
                 rs.forEach(function (r) { tbody.appendChild(r); });
-                apply();
+                // FIX: apply() non è visibile qui (è dentro l'altra IIFE):
+                // rilancio il filtro simulando un input sulla casella di ricerca
+                var q = document.getElementById("q");
+                if (q) q.dispatchEvent(new Event("input"));
             });
         });
     }
