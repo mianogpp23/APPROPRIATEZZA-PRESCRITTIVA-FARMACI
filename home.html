@@ -36,10 +36,6 @@
     }
 
     h1.title {
-        position: absolute;
-        top: 36px;
-        left: 50%;
-        transform: translateX(-50%);
         font-size: clamp(20px, 3.5vw, 34px);
         font-weight: 700;
         letter-spacing: -0.5px;
@@ -47,9 +43,9 @@
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        z-index: 5;
         text-align: center;
         white-space: nowrap;
+        margin-bottom: 24px;
     }
 
     .circle-wrap {
@@ -162,8 +158,9 @@
 </head>
 <body>
 
+<h1 class="title">Formalismi dispensazione farmaci DPC e casi particolari</h1>
+
 <div class="stage">
-    <h1 class="title">Formalismi dispensazione farmaci DPC e casi particolari</h1>
     <div class="circle-wrap" id="wrap">
         <div class="center-dot"></div>
     </div>
