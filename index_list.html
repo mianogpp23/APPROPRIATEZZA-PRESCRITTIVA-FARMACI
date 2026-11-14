@@ -200,6 +200,14 @@
 </head>
 <body>
 
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     Banner scorrevole "Farmacia di turno — Vittoria" (dati da data/turni_vittoria.json)
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<div class="turno-banner">
+    <span class="turno-label">🕒 Farmacia di turno — Vittoria</span>
+    <span class="turno-marquee-wrap" id="turno-marquee">Caricamento…</span>
+</div>
+
 <aside class="side">
     <h1>Farmaci DPC</h1>
     <div class="sub">Portale documentale — Controllo appropriatezza prescrittiva</div>
@@ -308,6 +316,7 @@
 (function () {
     "use strict";
 
+    var elMarquee = document.getElementById("turno-marquee");
     var elData   = document.getElementById("turno-data");
     var elFarm   = document.getElementById("turno-farmacia");
     var elIndir  = document.getElementById("turno-indirizzo");
@@ -324,6 +333,13 @@
     }
 
     function mostra(turno) {
+        var testo = turno.farmacia + " — " + turno.indirizzo + ", " + turno.cap + " " + turno.comune +
+            " • Tel: " + turno.telefono +
+            " • Mattina " + (turno.orario_mattina_start || "—") + "–" + (turno.orario_mattina_end || "—") +
+            " | Pomeriggio " + (turno.orario_pomeriggio_start || "—") + "–" + (turno.orario_pomeriggio_end || "—") +
+            (turno.nota_orario_notturno ? " | Notte: " + turno.nota_orario_notturno : "") +
+            " • Accesso a battenti chiusi solo con ricetta medica urgente";
+        if (elMarquee) elMarquee.textContent = testo;
         elData.textContent = fmtDate(turno.data);
         elFarm.textContent = turno.farmacia;
         elIndir.textContent = turno.indirizzo;

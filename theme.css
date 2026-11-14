@@ -309,3 +309,36 @@ html[data-theme="caldo"] {
     text-align: center;
     padding: 14px;
 }
+
+/* ═════════════════════════════════════════════════════════════════════
+   Banner scorrevole "Farmacia di turno" — testa pagina
+   ═════════════════════════════════════════════════════════════════════ */
+.turno-banner {
+    background: rgb(var(--t-accent-rgb));
+    color: var(--t-onaccent-rgb);
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(var(--t-ink-rgb), 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+.turno-banner .turno-label {
+    display: inline-block;
+    margin-right: 16px;
+    background: rgba(var(--t-ink-rgb), 0.15);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+.turno-marquee-wrap {
+    display: inline-block;
+    animation: scorrere 18s linear infinite;
+}
+@keyframes scorrere {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
