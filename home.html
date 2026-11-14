@@ -13,7 +13,6 @@
         --accent2: rgb(var(--t-accent2-rgb));
         --text: rgb(var(--t-text-rgb));
         --muted: rgb(var(--t-muted-rgb));
-        --red: rgb(var(--t-red-rgb));
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -25,6 +24,15 @@
                     linear-gradient(135deg, var(--bg1), var(--bg2));
         color: var(--text);
         overflow: hidden;
+    }
+
+    .stage {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     h1.title {
@@ -40,69 +48,103 @@
         margin-bottom: 24px;
     }
 
-    .pills-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
-        padding: 0 20px;
+    .circle-wrap {
+        position: relative;
+        width: min(78vmin, 720px);
+        height: min(78vmin, 720px);
+        animation: spin 40s linear infinite;
     }
 
-    .pill {
+    .sphere {
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 180px; height: 180px;
+        margin: -90px 0 0 -90px;
+        border-radius: 50%;
+        background:
+            radial-gradient(circle at 28% 22%, rgba(var(--t-white-rgb),0.9) 0%, rgba(var(--t-ov-rgb),0.2) 14%, transparent 28%),
+            radial-gradient(circle at 22% 48%, rgba(var(--t-green3-rgb),0.6) 0%, rgba(var(--t-green3-rgb),0.0) 18%),
+            radial-gradient(circle at 68% 42%, rgba(var(--t-green3-rgb),0.55) 0%, rgba(var(--t-green3-rgb),0.0) 20%),
+            radial-gradient(circle at 40% 72%, rgba(var(--t-green3-rgb),0.5) 0%, rgba(var(--t-green3-rgb),0.0) 22%),
+            radial-gradient(circle at 78% 68%, rgba(var(--t-green3-rgb),0.45) 0%, rgba(var(--t-green3-rgb),0.0) 16%),
+            radial-gradient(circle at 50% 50%, rgb(var(--t-blue2-rgb)) 0%, rgb(var(--t-deepblue-rgb)) 30%, rgb(var(--t-bg-rgb)) 70%, rgb(var(--t-bgdeep-rgb)) 100%);
+        border: 1px solid rgba(var(--t-sky-rgb),0.35);
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        width: min(260px, 90vw);
-        padding: 14px 20px;
-        border-radius: 999px;
-        border: 1px solid rgba(var(--t-ov-rgb), 0.18);
+        justify-content: center;
+        text-align: center;
         text-decoration: none;
         color: rgb(var(--t-white-rgb));
-        font-weight: 700;
-        font-size: 17px;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-        position: relative;
+        padding: 8px;
+        box-shadow:
+            inset -10px -14px 28px rgba(var(--t-ink-rgb),0.55),
+            inset 8px 10px 20px rgba(var(--t-ov-rgb),0.12),
+            0 0 0 2px rgba(var(--t-accent-rgb),0.15),
+            0 16px 40px rgba(var(--t-ink-rgb),0.5),
+            0 0 30px rgba(var(--t-accent-rgb),0.25);
+        transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.6s ease, box-shadow 0.3s ease;
+        opacity: 0;
+        will-change: transform, opacity;
+        z-index: 2;
         overflow: hidden;
+        cursor: pointer;
     }
-
-    .pill::before {
+    .sphere::before {
         content: "";
         position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        border-radius: 999px;
-        background: linear-gradient(90deg, rgb(var(--t-red-rgb)), rgb(var(--t-accent-rgb)));
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: 0;
+        top: 6%; left: 14%;
+        width: 38%; height: 26%;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(var(--t-white-rgb),0.7) 0%, rgba(var(--t-ov-rgb),0) 70%);
+        pointer-events: none; z-index: 0;
+    }
+    .sphere .inner {
+        position: relative; z-index: 1;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        animation: spinrev 40s linear infinite;
+        text-shadow: 0 2px 6px rgba(var(--t-ink-rgb),0.6);
+    }
+    .sphere .num { font-size: 20px; font-weight: 700; color: rgb(var(--t-white-rgb)); }
+    .sphere .label { font-size: 18px; font-weight: 700; color: rgb(var(--t-white-rgb)); margin-top: 4px; }
+    .sphere:hover {
+        transform: scale(1.1) !important;
+        box-shadow:
+            inset -10px -14px 28px rgba(var(--t-ink-rgb),0.55),
+            inset 8px 10px 20px rgba(var(--t-ov-rgb),0.12),
+            0 0 0 2px rgba(var(--t-accent-rgb),0.4),
+            0 16px 40px rgba(var(--t-ink-rgb),0.5),
+            0 0 40px rgba(var(--t-accent-rgb),0.45);
     }
 
-    .pill:hover::before {
-        opacity: 0.9;
-    }
-
-    .pill span {
-        position: relative;
+    .center-dot {
+        position: absolute; top: 50%; left: 50%;
+        width: 14px; height: 14px; margin: -7px 0 0 -7px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        box-shadow: 0 0 24px rgba(var(--t-accent-rgb),0.6);
         z-index: 1;
     }
 
-    .pill .num {
-        font-size: 15px;
-        margin-right: 12px;
-        opacity: 0.9;
-    }
-
-    .pill:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(var(--t-ink-rgb), 0.25);
-        border-color: rgba(var(--t-accent-rgb), 0.5);
-    }
-
-    .pill-stage-footer {
-        text-align: center;
-        margin-top: 32px;
+    .sphere-stage-footer {
+        position: absolute;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
         color: var(--muted);
         font-size: 12px;
+        z-index: 5;
+        text-align: center;
     }
+
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes spinrev { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+    @media (max-width: 600px) {
+        .sphere { width: 130px; height: 130px; margin: -65px 0 0 -65px; }
+        .sphere .label { font-size: 14px; }
+    }
+
 
     .site-foot {
         margin: 26px 0 0; padding: 14px 0 0;
@@ -118,20 +160,93 @@
 
 <h1 class="title">Formalismi dispensazione farmaci DPC e casi particolari</h1>
 
-<div class="pills-grid">
-    <a class="pill" href="metilfenidato.html"><span><span class="num">01</span>Metilfenidato (DPC)</span></a>
-    <a class="pill" href="farmaci_dpc.html"><span><span class="num">02</span>Farmaci in distribuzione DPC</span></a>
-    <a class="pill" href="distribuzione_diretta.html"><span><span class="num">03</span>Distribuzione diretta ASP</span></a>
-    <a class="pill" href="formalismi.html"><span><span class="num">04</span>Riepilogo formalismi</span></a>
-    <a class="pill" href="farmaci_no_dpc.html"><span><span class="num">05</span>Farmaci NO DPC</span></a>
-    <a class="pill" href="nota_99.html"><span><span class="num">06</span>NOTA 99 — INALATORIO</span></a>
-    <a class="pill" href="dpc_convenzionata.html"><span><span class="num">07</span>Farmaci Nota 100</span></a>
+<div class="stage">
+    <div class="circle-wrap" id="wrap">
+        <div class="center-dot"></div>
+    </div>
+    <div class="sphere-stage-footer">Clicca una sfera per aprire l'elenco.</div>
 </div>
 
-<div class="pill-stage-footer">Clicca una pillola per aprire l'elenco.</div>
+<script>
+(function () {
+    "use strict";
 
+    var items = [
+        { n: "01", label: "Metilfenidato (DPC)", href: "metilfenidato.html" },
+        { n: "02", label: "Farmaci in distribuzione DPC", href: "farmaci_dpc.html" },
+        { n: "03", label: "Distribuzione diretta ASP", href: "distribuzione_diretta.html" },
+        { n: "04", label: "Riepilogo formalismi", href: "formalismi.html" },
+        { n: "05", label: "Farmaci NO DPC", href: "farmaci_no_dpc.html" },
+        { n: "06", label: "NOTA 99 — INALATORIO", href: "nota_99.html" },
+        { n: "07", label: "Farmaci Nota 100", href: "dpc_convenzionata.html" }
+    ];
+
+    var wrap = document.getElementById("wrap");
+    var N = items.length;
+    var radius = wrap.clientWidth * 0.42;
+
+    var nodes = items.map(function (it) {
+        var a = document.createElement("a");
+        a.className = "sphere";
+        a.href = it.href;
+        a.innerHTML = '<div class="inner"><span class="num">' + it.n + '</span><span class="label">' + it.label + '</span></div>';
+        wrap.appendChild(a);
+        return a;
+    });
+
+    var finals = items.map(function (it, i) {
+        var angle = (i / N) * Math.PI * 2 - Math.PI / 2;
+        return { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius };
+    });
+
+    nodes.forEach(function (node, i) {
+        var startX = (Math.random() - 0.5) * window.innerWidth * 0.6;
+        var startY = window.innerHeight * 0.6 + Math.random() * 200;
+        node.style.transform = "translate(" + startX + "px, " + startY + "px) scale(0.3)";
+        node.style.opacity = "0";
+        node.style.transitionDelay = (i * 0.08 + Math.random() * 0.2) + "s";
+    });
+
+    requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+            nodes.forEach(function (node, i) {
+                var f = finals[i];
+                node.style.transform = "translate(" + f.x + "px, " + f.y + "px) scale(1)";
+                node.style.opacity = "1";
+            });
+        });
+    });
+
+    nodes.forEach(function (node, i) {
+        var f = finals[i];
+        node.addEventListener("mouseenter", function () {
+            node.style.transition = "transform 0.25s ease, box-shadow 0.3s ease";
+            node.style.transform = "translate(" + f.x + "px, " + f.y + "px) scale(1.1)";
+        });
+        node.addEventListener("mouseleave", function () {
+            node.style.transition = "transform 1.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.6s ease, box-shadow 0.3s ease";
+            node.style.transform = "translate(" + f.x + "px, " + f.y + "px) scale(1)";
+        });
+    });
+
+    window.addEventListener("resize", function () {
+        radius = wrap.clientWidth * 0.42;
+        finals.forEach(function (f, i) {
+            var angle = (i / N) * Math.PI * 2 - Math.PI / 2;
+            f.x = Math.cos(angle) * radius;
+            f.y = Math.sin(angle) * radius;
+        });
+        nodes.forEach(function (node, i) {
+            var f = finals[i];
+            node.style.transform = "translate(" + f.x + "px, " + f.y + "px) scale(1)";
+        });
+    });
+})();
+</script>
 <a href="index_list.html" style="position:fixed;top:16px;right:20px;z-index:20;padding:8px 16px;border-radius:10px;border:1px solid var(--glass-border);background:var(--glass);color:rgb(var(--t-textlt-rgb));font-weight:600;font-size:13px;text-decoration:none;">Vista lista</a>
 <script src="theme.js" defer></script>
+
+
 
     <footer class="site-foot">
         <p><strong>Documento di base:</strong> Documento di Controllo dell'appropriatezza prescrittiva
@@ -147,3 +262,5 @@
 
 </body>
 </html>
+EOF
+echo "written"
