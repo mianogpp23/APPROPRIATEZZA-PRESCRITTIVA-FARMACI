@@ -52,7 +52,7 @@
       },
       {
         "t": "Limiti di confezioni",
-        "d": "Esempi dal DPC: ELONVA max 1 confezione al mese; Prolia (denosumab, Nota 79) 1 confezione max ogni 6 mesi con validità del PT di 12 mesi.",
+        "d": "Esempi dal DPC: ELONVA max 1 confezione al mese; Prolia (denosumab, Nota 79) 1 confezione max ogni 6 mesi con validità del PT di 12 mesi; PT abolito (Det. AIFA 1127/2025, 13/09/2025): prescrivibile dal MMG senza PT web-based.",
         "link": {
           "t": "DPC pag. 10 e 14",
           "url": "docs/dpc-controllo-appropriatezza.pdf#page=14"
@@ -250,7 +250,7 @@
       },
       {
         "t": "Eccezione: dapagliflozin ed empagliflozin",
-        "d": "Dapagliflozin (FORXIGA) ed empagliflozin (JARDIANCE) possono essere prescritti **anche senza Nota AIFA 100** e rimborsati in convenzionata nelle indicazioni di insufficienza cardiaca cronica sintomatica (classe NYHA II e III, frazione di eiezione ridotta) e, per il solo dapagliflozin, nella malattia renale cronica. **Attenzione**: se sono prescritti su modello PT web-based AIFA cartaceo (tipo Prolia) non è un'erogazione DPC: la specialità va erogata **esclusivamente a Distribuzione Diretta dall'ASP**.",
+        "d": "Dapagliflozin (FORXIGA) ed empagliflozin (JARDIANCE) possono essere prescritti **anche senza Nota AIFA 100** e rimborsati in convenzionata nelle indicazioni di insufficienza cardiaca cronica sintomatica (classe NYHA II e III, frazione di eiezione ridotta) e, per il solo dapagliflozin, nella malattia renale cronica. **Attenzione**: se sono prescritti su modello PT web-based AIFA cartaceo non è un'erogazione DPC: la specialità va erogata **esclusivamente a Distribuzione Diretta dall'ASP**.",
         "link": {
           "t": "DPC pag. 21",
           "url": "docs/dpc-controllo-appropriatezza.pdf#page=21"
