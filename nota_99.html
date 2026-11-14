@@ -137,19 +137,13 @@
     }
     table.dpc th.sortable.asc::after  { content: " ▲"; color: var(--accent); }
     table.dpc th.sortable.desc::after { content: " ▼"; color: var(--accent); }
-.pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 24px;
-}
 .pill {
-    flex: 1 1 280px;
     background: var(--glass);
     border: 1px solid var(--glass-border);
     border-radius: 12px;
     padding: 16px;
     box-sizing: border-box;
+    margin-bottom: 16px;
 }
 .pill b { display: block; margin-bottom: 8px; font-size: 15px; }
     table.dpc th.sortable:hover { background: rgba(var(--t-accent-rgb),0.22); }
