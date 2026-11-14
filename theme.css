@@ -245,3 +245,65 @@ html[data-theme="caldo"] {
 .pill-d { color: rgb(var(--t-text-rgb)); }
 .pill-link { color: rgb(var(--t-accent-rgb)); white-space: nowrap; font-weight: 600; }
 .pill-link:hover { text-decoration: underline; }
+
+
+/* ═════════════════════════════════════════════════════════════════════
+   Card "Farmacia di turno oggi e domani" — accanto a Elenco Farmaci DPC
+   ═════════════════════════════════════════════════════════════════════ */
+.turno-card-oggi {
+    margin: 0 0 24px 0;
+    padding: 18px 22px;
+    background: rgba(var(--t-accent-rgb), 0.10);
+    border: 1px solid rgba(var(--t-accent-rgb), 0.30);
+    border-left: 5px solid rgb(var(--t-accent-rgb));
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.turno-card-title {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgb(var(--t-accent-rgb));
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.turno-card-title::before {
+    content: ''; width: 9px; height: 9px; border-radius: 50%; background: rgb(var(--t-accent-rgb)); flex-shrink: 0;
+}
+.turno-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.turno-card-grid .k {
+    color: rgb(var(--t-muted2-rgb));
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+.turno-card-grid .v { color: rgb(var(--t-text-rgb)); }
+.turno-card-grid .v b { color: rgb(var(--t-red-rgb)); }
+.turno-card-dettagli {
+    font-size: 13px;
+    color: rgb(var(--t-muted-rgb));
+    font-style: italic;
+    margin-top: 4px;
+}
+.turno-card-link {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: rgb(var(--t-accent-rgb));
+    font-weight: 700;
+    text-decoration: none;
+}
+.turno-card-link:hover { text-decoration: underline; }
+

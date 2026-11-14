@@ -235,6 +235,17 @@
 </aside>
 
 <main class="main">
+    <!-- Card farmacia di turno oggi e domani -->
+    <div class="turno-card-oggi">
+        <div class="turno-card-title">Farmacia di turno oggi e domani</div>
+        <div class="turno-card-grid">
+            <div class="k">Oggi</div><div class="v" id="turno-oggi-farmacia">—</div>
+            <div class="k">Domani</div><div class="v" id="turno-domani-farmacia">—</div>
+        </div>
+        <div class="turno-card-dettagli" id="turno-card-dettagli"></div>
+        <a class="turno-card-link" href="https://www.farmacistiragusa.it/farmacie-di-turno" target="_blank" rel="noopener">Vedi sul sito dell’Ordine</a>
+    </div>
+
     <h2>Elenco Farmaci DPC</h2>
 
     <div class="viewer-wrap">
@@ -285,8 +296,63 @@
 </script>
 
 <a href="home.html" style="position:fixed;top:16px;right:20px;z-index:20;padding:8px 16px;border-radius:10px;border:1px solid var(--glass-border);background:var(--glass);color:rgb(var(--t-textlt-rgb));font-weight:600;font-size:13px;text-decoration:none;">Vista sfere</a>
+
+
+<script>
+(function () {
+    "use strict";
+
+    var elOggi = document.getElementById("turno-oggi-farmacia");
+    var elDomani = document.getElementById("turno-domani-farmacia");
+    var elDettagli = document.getElementById("turno-card-dettagli");
+
+    function fmtDate(iso) {
+        var p = iso.split("-");
+        return p[2] + "/" + p[1] + "/" + p[0];
+    }
+
+    function mostra(turno) {
+        if (elOggi) elOggi.textContent = turno.farmacia + " — " + turno.indirizzo + ", " + turno.cap + " " + turno.comune;
+        if (elDettagli) {
+            var orari = "Mattina " + (turno.orario_mattina_start || "—") + "–" + (turno.orario_mattina_end || "—") +
+                " | Pomeriggio " + (turno.orario_pomeriggio_start || "—") + "–" + (turno.orario_pomeriggio_end || "—");
+            if (turno.nota_orario_notturno) orari += " · Notte: " + turno.nota_orario_notturno;
+            elDettagli.textContent = orari + " • Tel: " + turno.telefono;
+        }
+    }
+
+    function errore() {
+        if (elOggi) elOggi.textContent = "Turni non disponibili";
+        if (elDomani) elDomani.textContent = "—";
+        if (elDettagli) elDettagli.textContent = "";
+    }
+
+    fetch("data/turni_vittoria.json")
+        .then(function (r) {
+            if (!r.ok) throw new Error("JSON non trovato");
+            return r.json();
+        })
+        .then(function (d) {
+            var oggi = new Date();
+            oggi.setHours(0, 0, 0, 0);
+            var isoOggi = oggi.getFullYear() + "-" + String(oggi.getMonth() + 1).padStart(2, "0") + "-" + String(oggi.getDate()).padStart(2, "0");
+
+            var turnoOggi = d.turni.find(function (t) { return t.data === isoOggi; });
+            if (turnoOggi) mostra(turnoOggi);
+            else errore();
+
+            // Domani: cerca il turno del giorno successivo
+            var domani = new Date(oggi);
+            domani.setDate(domani.getDate() + 1);
+            var isoDomani = domani.getFullYear() + "-" + String(domani.getMonth() + 1).padStart(2, "0") + "-" + String(domani.getDate()).padStart(2, "0");
+            var turnoDomani = d.turni.find(function (t) { return t.data === isoDomani; });
+            if (elDomani) elDomani.textContent = turnoDomani ? turnoDomani.farmacia : "—";
+        })
+        .catch(function (e) {
+            errore();
+        });
+})();
+</script>
+
 <script src="theme.js" defer></script>
 
-
-</body>
-</html>
