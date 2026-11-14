@@ -81,7 +81,7 @@
       },
       {
         "t": "NAO / DOAC con Nota 97",
-        "d": "Gli anticoagulanti orali diretti richiedono la Nota 97; la prescrizione può avvenire su modello PT web-based AIFA cartaceo, compilato da UU.OO. riconosciute e da specialisti convenzionati delle branche indicate dal DPC.",
+        "d": "Gli anticoagulanti orali diretti richiedono la Nota 97; la prescrizione può avvenire su modello PT web-based AIFA cartaceo, compilato da UU.OO. riconosciute e da specialisti convenzionati delle branche indicate dal DPC. [agg. 24/06/2026 – Det. AIFA 821/2026, G.U. n. 144 del 24/06/2026]",
         "link": {
           "t": "DPC pag. 15",
           "url": "docs/dpc-controllo-appropriatezza.pdf#page=15"
@@ -102,7 +102,7 @@
     "pillole": [
       {
         "t": "Scheda web based su Tessera Sanitaria",
-        "d": "Per i farmaci a PT e Nota 99 la Scheda web based compilata attraverso il sistema Tessera Sanitaria (TS) è adottata in via esclusiva dal 1° settembre 2022. La prescrizione è consentita solo agli Specialisti.",
+        "d": "Per i farmaci a PT e Nota 99 la Scheda web based compilata attraverso il sistema Tessera Sanitaria (TS) è adottata in via esclusiva dal 1° settembre 2022. La prescrizione è consentita solo agli Specialisti. [agg. 09/07/2026 – Det. AIFA 822/2026, G.U. n. 144 del 24/06/2026] SVP abrogata dal 09/07/2026: verifica le modalità vigenti sul DPC Regione Siciliana.",
         "link": {
           "t": "DPC pag. 67",
           "url": "docs/dpc-controllo-appropriatezza.pdf#page=67"
