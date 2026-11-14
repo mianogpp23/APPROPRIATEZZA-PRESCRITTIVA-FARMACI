@@ -247,68 +247,162 @@ html[data-theme="caldo"] {
 .pill-link:hover { text-decoration: underline; }
 
 /* ═════════════════════════════════════════════════════════════════════
-   Box "Farmacia di turno" — sopra Elenco Farmaci DPC (area principale)
+   Card "Farmacia di turno" — sopra Elenco Farmaci DPC (area principale)
+   Clic per aprire popup con i dati completi
    ═════════════════════════════════════════════════════════════════════ */
-.turno-box-main {
+.turno-card {
     margin: 0 0 24px 0;
-    padding: 18px 20px;
+    padding: 16px 20px;
     background: rgba(var(--t-accent-rgb), 0.10);
     border: 1px solid rgba(var(--t-accent-rgb), 0.30);
     border-left: 5px solid rgb(var(--t-accent-rgb));
     border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
-.turno-box-main .turno-title {
+.turno-card:hover {
+    background: rgba(var(--t-accent-rgb), 0.16);
+    border-color: rgba(var(--t-accent-rgb), 0.5);
+    box-shadow: 0 4px 12px rgba(var(--t-accent-rgb), 0.15);
+}
+.turno-card:focus-visible {
+    outline: 3px solid rgb(var(--t-accent-rgb));
+    outline-offset: 2px;
+}
+.turno-card-title {
     font-size: 15px;
     font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: rgb(var(--t-accent-rgb));
-    margin: 0 0 12px;
+    margin: 0;
     display: flex;
     align-items: center;
     gap: 8px;
 }
-.turno-box-main .turno-title .badge {
+.turno-card-title .badge {
     width: 9px; height: 9px; border-radius: 50%; background: rgb(var(--t-accent-rgb)); flex-shrink: 0;
 }
-.turno-box-main .turno-grid {
+.turno-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 14px;
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+.turno-card-grid .k {
+    color: rgb(var(--t-muted2-rgb));
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+.turno-card-grid .v { color: rgb(var(--t-text-rgb)); }
+.turno-card-grid .v b { color: rgb(var(--t-red-rgb)); }
+.turno-card-hint {
+    font-size: 12px;
+    color: rgb(var(--t-muted-rgb));
+    margin-top: 4px;
+    font-style: italic;
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   Modal popup "Farmacia di turno"
+   ═════════════════════════════════════════════════════════════════════ */
+.turno-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+.turno-modal:target, .turno-modal.open { display: flex; }
+.turno-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(var(--t-ov-rgb), 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1;
+}
+.turno-modal-dialog {
+    position: relative;
+    z-index: 2;
+    width: min(480px, 92vw);
+    max-height: 90vh;
+    background: rgb(var(--t-bg2-rgb));
+    border: 1px solid rgba(var(--t-ov-rgb), 0.2);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(var(--t-ov-rgb), 0.3);
+    overflow: auto;
+}
+.turno-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    border-bottom: 1px solid rgba(var(--t-ov-rgb), 0.1);
+}
+.turno-modal-title {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 800;
+    color: rgb(var(--t-text-rgb));
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.turno-modal-close {
+    width: 32px; height: 32px;
+    border: none;
+    background: rgba(var(--t-ov-rgb), 0.1);
+    color: rgb(var(--t-text-rgb));
+    font-size: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.turno-modal-close:hover { background: rgba(var(--t-ov-rgb), 0.2); }
+.turno-modal-body { padding: 20px 22px; }
+.turno-modal-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px 16px;
     font-size: 14px;
     line-height: 1.6;
+    margin-bottom: 14px;
 }
-.turno-box-main .turno-grid .k {
+.turno-modal-grid .k {
     color: rgb(var(--t-muted2-rgb));
     font-weight: 700;
-    font-size: 13px;
+    font-size: 12.5px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
 }
-.turno-box-main .turno-grid .v { color: rgb(var(--t-text-rgb)); }
-.turno-box-main .turno-grid .v b { color: rgb(var(--t-red-rgb)); }
-.turno-box-main .turno-note {
-    margin-top: 12px;
-    font-size: 13px;
+.turno-modal-grid .v { color: rgb(var(--t-text-rgb)); }
+.turno-modal-grid .v b { color: rgb(var(--t-red-rgb)); }
+.turno-modal-note {
+    font-size: 12.5px;
     color: rgb(var(--t-muted-rgb));
-    border-top: 1px solid rgba(var(--t-ov-rgb), 0.1);
-    padding-top: 8px;
+    margin-bottom: 12px;
+    font-style: italic;
 }
-.turno-box-main .turno-link {
+.turno-modal-link {
     display: inline-block;
-    margin-top: 10px;
     font-size: 13px;
     color: rgb(var(--t-accent-rgb));
     font-weight: 700;
     text-decoration: none;
 }
-.turno-box-main .turno-link:hover { text-decoration: underline; }
-.turno-box-main .turno-empty {
-    font-size: 14px;
-    color: rgb(var(--t-muted-rgb));
-    text-align: center;
-    padding: 20px;
-}
+.turno-modal-link:hover { text-decoration: underline; }
 
 /* ═════════════════════════════════════════════════════════════════════
    Banner scorrevole "Farmacia di turno" — testa pagina
