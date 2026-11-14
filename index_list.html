@@ -200,14 +200,6 @@
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════════════════════════════════
-     Banner scorrevole "Farmacia di turno — Vittoria" (dati da data/turni_vittoria.json)
-     ══════════════════════════════════════════════════════════════════════════════ -->
-<div class="turno-banner">
-    <span class="turno-label">🕒 Farmacia di turno — Vittoria</span>
-    <span class="turno-marquee-wrap" id="turno-marquee">Caricamento…</span>
-</div>
-
 <aside class="side">
     <h1>Farmaci DPC</h1>
     <div class="sub">Portale documentale — Controllo appropriatezza prescrittiva</div>
@@ -240,31 +232,9 @@
         <span class="num">07</span>
         <span>Farmaci Nota 100<div class="meta">Nota AIFA 100 &middot; dal 15/10/2025</div></span>
     </a>
-
-    <!-- ═══════════════════════════════════════════════════════════
-         </aside>
+</aside>
 
 <main class="main">
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         Box "Farmacia di turno — Vittoria" sopra Elenco Farmaci DPC
-         ════════════════════════════════════════════════════════════════ -->
-    <div class="turno-box-main">
-        <div class="turno-title"><span class="badge"></span>Farmacia di turno — Vittoria</div>
-        <div class="turno-grid" id="turno-grid">
-            <div class="k">Data</div><div class="v" id="turno-data">—</div>
-            <div class="k">Farmacia</div><div class="v" id="turno-farmacia">—</div>
-            <div class="k">Indirizzo</div><div class="v" id="turno-indirizzo">—</div>
-            <div class="k">CAP / Comune</div><div class="v" id="turno-luogo">—</div>
-            <div class="k">Telefono</div><div class="v" id="turno-tel">—</div>
-            <div class="k">Tipo</div><div class="v" id="turno-tipo">—</div>
-            <div class="k">Mattina</div><div class="v" id="turno-mattina">—</div>
-            <div class="k">Pomeriggio</div><div class="v" id="turno-pomeriggio">—</div>
-        </div>
-        <div class="turno-note" id="turno-nota">Caricamento turni…</div>
-        <a class="turno-link" href="https://www.farmacistiragusa.it/farmacie-di-turno" target="_blank" rel="noopener">Vedi sul sito dell’Ordine</a>
-    </div>
-
     <h2>Elenco Farmaci DPC</h2>
 
     <div class="viewer-wrap">
@@ -311,78 +281,6 @@
     try { savedHref = localStorage.getItem("homeHref"); } catch (e) {}
     if (!savedHref) savedHref = "metilfenidato.html";
     load(savedHref);
-})();
-
-/* ══════════════════════════════════════════════════════════════════════
-   Farmacia di turno — carica data/turni_vittoria.json e mostra il turno di oggi
-   ══════════════════════════════════════════════════════════════════════ */
-(function () {
-    "use strict";
-
-    var elMarquee = document.getElementById("turno-marquee");
-    var elData   = document.getElementById("turno-data");
-    var elFarm   = document.getElementById("turno-farmacia");
-    var elIndir  = document.getElementById("turno-indirizzo");
-    var elLuogo  = document.getElementById("turno-luogo");
-    var elTel    = document.getElementById("turno-tel");
-    var elTipo   = document.getElementById("turno-tipo");
-    var elMatt   = document.getElementById("turno-mattina");
-    var elPom    = document.getElementById("turno-pomeriggio");
-    var elNota   = document.getElementById("turno-nota");
-
-    function fmtDate(iso) {
-        var p = iso.split("-");
-        return p[2] + "/" + p[1] + "/" + p[0];
-    }
-
-    function mostra(turno) {
-        var testo = turno.farmacia + " — " + turno.indirizzo + ", " + turno.cap + " " + turno.comune +
-            " • Tel: " + turno.telefono +
-            " • Mattina " + (turno.orario_mattina_start || "—") + "–" + (turno.orario_mattina_end || "—") +
-            " | Pomeriggio " + (turno.orario_pomeriggio_start || "—") + "–" + (turno.orario_pomeriggio_end || "—") +
-            (turno.nota_orario_notturno ? " | Notte: " + turno.nota_orario_notturno : "") +
-            " • Accesso a battenti chiusi solo con ricetta medica urgente";
-        if (elMarquee) elMarquee.textContent = testo;
-        elData.textContent = fmtDate(turno.data);
-        elFarm.textContent = turno.farmacia;
-        elIndir.textContent = turno.indirizzo;
-        elLuogo.textContent = turno.cap + " " + turno.comune;
-        elTel.textContent = turno.telefono;
-        elTipo.textContent = turno.tipo || (turno.notte ? "Notturno" : "Diurno");
-        elMatt.textContent = (turno.orario_mattina_start || "—") + " – " + (turno.orario_mattina_end || "—");
-        elPom.textContent  = (turno.orario_pomeriggio_start || "—") + " – " + (turno.orario_pomeriggio_end || "—");
-        if (turno.nota_orario_notturno) {
-            elPom.textContent += " · Notte: " + turno.nota_orario_notturno;
-        }
-        elNota.textContent = turno.nota || "";
-    }
-
-    function errore(msg) {
-        elNota.textContent = msg || "Turni non disponibili.";
-        [elData, elFarm, elIndir, elLuogo, elTel, elTipo, elMatt, elPom].forEach(function (el) {
-            if (el) el.textContent = "—";
-        });
-    }
-
-    fetch("data/turni_vittoria.json")
-        .then(function (r) {
-            if (!r.ok) throw new Error("JSON non trovato");
-            return r.json();
-        })
-        .then(function (d) {
-            var oggi = new Date();
-            oggi.setHours(0, 0, 0, 0);
-            var isoOggi = oggi.getFullYear() + "-" +
-                String(oggi.getMonth() + 1).padStart(2, "0") + "-" +
-                String(oggi.getDate()).padStart(2, "0");
-
-            var turno = d.turni.find(function (t) { return t.data === isoOggi; });
-            if (turno) mostra(turno);
-            else errore("Nessun turno per oggi.");
-        })
-        .catch(function (e) {
-            errore("Impossibile caricare i turni.");
-        });
 })();
 </script>
 
