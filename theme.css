@@ -314,29 +314,6 @@ html[data-theme="caldo"] {
     letter-spacing: 0.02em;
 }
 .turno-card-grid .v { color: rgb(var(--t-text-rgb)); }
-.turno-card-contatti {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 5px;
-    font-size: 12px;
-    margin-top: 3px;
-    border-top: 1px solid rgba(var(--t-ov-rgb), 0.08);
-    padding-top: 6px;
-}
-.turno-card-contatti .k {
-    color: rgb(var(--t-muted2-rgb));
-    font-weight: 700;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-}
-.turno-card-contatti .v { color: rgb(var(--t-text-rgb)); }
-.turno-card-contatti .v a {
-    color: rgb(var(--t-accent-rgb));
-    text-decoration: none;
-    font-weight: 600;
-}
-.turno-card-contatti .v a:hover { text-decoration: underline; }
 .turno-card-link {
     display: inline-block;
     margin-top: 6px;
@@ -435,16 +412,6 @@ html[data-theme="caldo"] {
         font-size: 11px;
     }
     .turno-card-grid .k { font-size: 9px; }
-    .turno-card-contatti {
-        grid-template-columns: 1fr;
-        gap: 5px 10px;
-        font-size: 11px;
-        margin-top: 2px;
-        padding-top: 5px;
-    }
-    .turno-card-contatti .k { font-size: 9px; }
-    .turno-card-contatti .v { font-size: 11px; }
-    .turno-card-contatti .v a { font-size: 11px; }
     .turno-card-link { font-size: 12px; margin-top: 5px; }
 
     .turno-card-btn {
@@ -473,10 +440,4 @@ html[data-theme="caldo"] {
     .main h2 { font-size: 26px; }
 
     .turno-card-oggi { padding: 14px 16px; gap: 8px; }
-    .turno-card-contatti { grid-template-columns: 1fr; gap: 5px; }
-}
-
-/* Desktop (> 1023px): layout completo già definito */
-@media (min-width: 1024px) {
-    .turno-card-contatti { grid-template-columns: 1fr 1fr 1fr; }
 }
