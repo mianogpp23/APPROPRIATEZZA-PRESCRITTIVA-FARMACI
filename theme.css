@@ -329,3 +329,75 @@ html[data-theme="caldo"] {
     text-decoration: none;
 }
 .turno-card-link:hover { text-decoration: underline; }
+
+/* Selettore giorno */
+.turno-card-select {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgb(var(--t-text-rgb));
+}
+.turno-card-select label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgb(var(--t-muted2-rgb));
+    letter-spacing: 0.03em;
+}
+.turno-card-select select {
+    font-size: 13px;
+    padding: 4px 8px;
+    border: 1px solid rgba(var(--t-accent-rgb), 0.40);
+    border-radius: 6px;
+    background: rgba(var(--t-bg-rgb), 0.6);
+    color: rgb(var(--t-text-rgb));
+    cursor: pointer;
+}
+.turno-card-select select:focus { outline: 2px solid rgb(var(--t-accent-rgb)); }
+
+/* Pulsante calendario */
+.turno-card-btn {
+    margin-top: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    background: rgb(var(--t-accent-rgb));
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+.turno-card-btn:hover { filter: brightness(0.92); }
+
+/* Lista calendario */
+.turno-card-calendario {
+    margin-top: 12px;
+    padding: 12px 14px;
+    background: rgba(var(--t-bg-rgb), 0.4);
+    border: 1px solid rgba(var(--t-accent-rgb), 0.20);
+    border-radius: 10px;
+    overflow-x: auto;
+}
+.turno-cal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+}
+.turno-cal-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: rgb(var(--t-muted2-rgb));
+    padding: 6px 8px;
+    border-bottom: 2px solid rgba(var(--t-accent-rgb), 0.30);
+}
+.turno-cal-table td {
+    padding: 6px 8px;
+    border-bottom: 1px solid rgba(var(--t-ov-rgb), 0.08);
+    color: rgb(var(--t-text-rgb));
+}
+.turno-cal-table tr:last-child td { border-bottom: none; }
