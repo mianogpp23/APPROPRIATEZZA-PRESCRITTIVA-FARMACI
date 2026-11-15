@@ -426,8 +426,10 @@
         if (elCittaNome) elCittaNome.textContent = citta.charAt(0).toUpperCase() + citta.slice(1);
         
         var url = citta === "vittoria" ? "data/turni_vittoria.json" : "data/turni_" + citta + ".json";
+        // Cache busting per evitare fetch cache
+        url += "?_=" + Date.now();
         
-        fetch(url)
+        fetch(url, { cache: "no-store" })
             .then(function (r) {
                 if (!r.ok) throw new Error("JSON non trovato per " + citta);
                 return r.json();
@@ -457,6 +459,8 @@
     if (elCittaSelect) {
         elCittaSelect.addEventListener("change", function () {
             var citta = elCittaSelect.value;
+            // Reset selettore giorno a "Oggi" (0)
+            if (elSelect) elSelect.value = "0";
             caricaCitta(citta);
         });
     }
