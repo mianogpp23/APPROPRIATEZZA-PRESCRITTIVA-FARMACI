@@ -314,10 +314,10 @@
     function mostra(turno) {
         if (elOggi) elOggi.textContent = turno.farmacia + " — " + turno.indirizzo + ", " + turno.cap + " " + turno.comune;
         if (elDettagli) {
-            var orari = "Mattina " + (turno.orario_mattina_start || "—") + "–" + (turno.orario_mattina_end || "—") +
-                " | Pomeriggio " + (turno.orario_pomeriggio_start || "—") + "–" + (turno.orario_pomeriggio_end || "—");
-            if (turno.nota_orario_notturno) orari += " · Notte: " + turno.nota_orario_notturno;
+            var tipo = turno.tipo === "festivo" ? "FESTIVO" : "DIURNO";
+            var orari = tipo + " " + (turno.orario_inizio || "—") + "–" + (turno.orario_fine || "—");
             elDettagli.textContent = orari + " • Tel: " + turno.telefono;
+            if (turno.note) elDettagli.textContent += " · " + turno.note;
         }
     }
 
