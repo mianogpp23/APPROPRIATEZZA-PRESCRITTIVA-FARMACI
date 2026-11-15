@@ -252,7 +252,6 @@
         </div>
         <div class="turno-card-contatti">
             <div class="k">Telefono</div><div class="v" id="turno-cell">—</div>
-            <div class="k">Email</div><div class="v" id="turno-email">—</div>
         </div>
         <button id="turno-calendario" class="turno-card-btn">Calendario turni</button>
         <div id="turno-calendario-lista" class="turno-card-calendario" style="display:none;"></div>
@@ -318,7 +317,6 @@
     var elSelFarm = document.getElementById("turno-sel-farmacia");
     var elSelIndir = document.getElementById("turno-sel-indirizzo");
     var elCell = document.getElementById("turno-cell");
-    var elEmail = document.getElementById("turno-email");
     var elSelect = document.getElementById("turno-giorno");
     var elCalBtn = document.getElementById("turno-calendario");
     var elCalLista = document.getElementById("turno-calendario-lista");
@@ -334,17 +332,13 @@
         if (!t) {
             if (elSelFarm) elSelFarm.textContent = "—";
             if (elSelIndir) elSelIndir.textContent = "—";
-    
             if (elCell) elCell.textContent = "—";
-            if (elEmail) elEmail.textContent = "—";
-                return;
+            return;
         }
         if (elSelFarm) elSelFarm.textContent = t.farmacia;
         if (elSelIndir) elSelIndir.textContent = t.indirizzo + ", " + t.cap + " " + t.comune;
         // Telefono: mostra sempre il fisso (presente per tutti i turni dal PDF)
         if (elCell) elCell.textContent = t.telefono || "—";
-        // Email: se c'è la mostra, altrimenti "—"
-        if (elEmail) elEmail.textContent = t.email || "—";
 
     }
 
