@@ -235,9 +235,21 @@
 </aside>
 
 <main class="main">
+    <!-- Selettore città -->
+    <div class="turno-citta-select">
+        <label for="turno-citta">Città</label>
+        <select id="turno-citta">
+            <option value="vittoria">Vittoria</option>
+            <option value="acate">Acate</option>
+            <option value="comiso">Comiso</option>
+            <option value="pedalino">Pedalino</option>
+            <option value="scoglitti">Scoglitti</option>
+        </select>
+    </div>
+
     <!-- Card farmacia di turno oggi, domani e dopodomani -->
     <div class="turno-card-oggi">
-        <div class="turno-card-title">Farmacia di turno — Vittoria</div>
+        <div class="turno-card-title">Farmacia di turno — <span id="turno-citta-nome">Vittoria</span></div>
         <div class="turno-card-select">
             <label for="turno-giorno">Giorno</label>
             <select id="turno-giorno">
@@ -318,8 +330,12 @@
     var elSelect = document.getElementById("turno-giorno");
     var elCalBtn = document.getElementById("turno-calendario");
     var elCalLista = document.getElementById("turno-calendario-lista");
+    var elCittaSelect = document.getElementById("turno-citta");
+    var elCittaNome = document.getElementById("turno-citta-nome");
 
     var tuttiTurni = []; // popolato dopo il fetch
+    var turniCorrenti = []; // 3 giorni per il selettore giorno
+    var cittaCorrente = "vittoria";
 
     function fmtDate(iso) {
         var p = iso.split("-");
@@ -335,16 +351,39 @@
         }
         if (elSelFarm) elSelFarm.textContent = t.farmacia;
         if (elSelIndir) elSelIndir.textContent = t.indirizzo + ", " + t.cap + " " + t.comune;
-        // Telefono: mostra sempre il fisso (presente per tutti i turni dal PDF)
         if (elCell) elCell.textContent = t.telefono || "—";
-
     }
 
     function errore() {
         if (elSelFarm) elSelFarm.textContent = "—";
         if (elSelIndir) elSelIndir.textContent = "—";
         if (elCell) elCell.textContent = "—";
-        if (elEmail) elEmail.textContent = "—";
+    }
+
+    function calcolaTurniGiorni(turniOrdinati) {
+        var oggi = new Date();
+        oggi.setHours(0, 0, 0, 0);
+        var oggiIso = oggi.getFullYear() + "-" + String(oggi.getMonth() + 1).padStart(2, "0") + "-" + String(oggi.getDate()).padStart(2, "0");
+
+        var idxOggi = turniOrdinati.findIndex(function (t) { return t.data >= oggiIso; });
+        if (idxOggi === -1) idxOggi = turniOrdinati.length - 1;
+
+        var turni = [];
+        for (var i = 0; i < 3; i++) {
+            var idx = idxOggi + i;
+            if (idx < turniOrdinati.length) {
+                turni.push(turniOrdinati[idx]);
+            } else {
+                turni.push(null);
+            }
+        }
+        return turni;
+    }
+
+    function aggiornaUI(turniOrdinati) {
+        turniCorrenti = calcolaTurniGiorni(turniOrdinati);
+        if (turniCorrenti[0]) mostraTurno(turniCorrenti[0]);
+        else errore();
     }
 
     function mostraCalendario() {
@@ -360,11 +399,9 @@
             trh.appendChild(th);
         });
         thead.appendChild(trh);
-        table.appendChild(thead);
         var tbody = document.createElement("tbody");
         tuttiTurni.forEach(function (t) {
             var tr = document.createElement("tr");
-            ["td"].forEach(function () {});
             var td1 = document.createElement("td");
             td1.textContent = fmtDate(t.data);
             var td2 = document.createElement("td");
@@ -384,53 +421,50 @@
         elCalLista.style.display = elCalLista.style.display === "none" ? "block" : "none";
     }
 
-    fetch("data/turni_vittoria.json")
-        .then(function (r) {
-            if (!r.ok) throw new Error("JSON non trovato");
-            return r.json();
-        })
-        .then(function (d) {
-            tuttiTurni = d.turni.sort(function (a, b) { return a.data.localeCompare(b.data); });
+    function caricaCitta(citta) {
+        cittaCorrente = citta;
+        if (elCittaNome) elCittaNome.textContent = citta.charAt(0).toUpperCase() + citta.slice(1);
+        
+        var url = citta === "vittoria" ? "data/turni_vittoria.json" : "data/turni_" + citta + ".json";
+        
+        fetch(url)
+            .then(function (r) {
+                if (!r.ok) throw new Error("JSON non trovato per " + citta);
+                return r.json();
+            })
+            .then(function (d) {
+                tuttiTurni = d.turni.sort(function (a, b) { return a.data.localeCompare(b.data); });
+                aggiornaUI(tuttiTurni);
+            })
+            .catch(function (e) {
+                console.error(e);
+                errore();
+            });
+    }
 
-            var oggi = new Date();
-            oggi.setHours(0, 0, 0, 0);
-            var oggiIso = oggi.getFullYear() + "-" + String(oggi.getMonth() + 1).padStart(2, "0") + "-" + String(oggi.getDate()).padStart(2, "0");
+    // Carica città iniziale (Vittoria)
+    caricaCitta("vittoria");
 
-            // Trova la prima data >= oggi nel JSON (se oggi non c'è, usa la prima futura)
-            var idxOggi = tuttiTurni.findIndex(function (t) { return t.data >= oggiIso; });
-            if (idxOggi === -1) idxOggi = tuttiTurni.length - 1;
-
-            // Turni per oggi/domani/dopodomani (partendo dalla prima data >= oggi)
-            var turni = [];
-            for (var i = 0; i < 3; i++) {
-                var idx = idxOggi + i;
-                if (idx < tuttiTurni.length) {
-                    turni.push(tuttiTurni[idx]);
-                } else {
-                    turni.push(null);
-                }
-            }
-
-            // Mostra oggi di default
-            if (turni[0]) mostraTurno(turni[0]);
-            else errore();
-
-            // Select: cambia giorno
-            if (elSelect) {
-                elSelect.addEventListener("change", function () {
-                    var idx = parseInt(elSelect.value, 10);
-                    mostraTurno(turni[idx] || null);
-                });
-            }
-
-            // Calendario: toggle lista completa
-            if (elCalBtn) {
-                elCalBtn.addEventListener("click", mostraCalendario);
-            }
-        })
-        .catch(function (e) {
-            errore();
+    // Select: cambia giorno
+    if (elSelect) {
+        elSelect.addEventListener("change", function () {
+            var idx = parseInt(elSelect.value, 10);
+            mostraTurno(turniCorrenti[idx] || null);
         });
+    }
+
+    // Select: cambia città
+    if (elCittaSelect) {
+        elCittaSelect.addEventListener("change", function () {
+            var citta = elCittaSelect.value;
+            caricaCitta(citta);
+        });
+    }
+
+    // Calendario: toggle lista completa
+    if (elCalBtn) {
+        elCalBtn.addEventListener("click", mostraCalendario);
+    }
 })();
 </script>
 

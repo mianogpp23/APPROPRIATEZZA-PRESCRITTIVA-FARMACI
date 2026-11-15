@@ -299,6 +299,34 @@ html[data-theme="caldo"] {
     cursor: pointer;
 }
 .turno-card-select select:focus { outline: 1.5px solid rgb(var(--t-accent-rgb)); }
+
+/* Selettore città */
+.turno-citta-select {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: rgb(var(--t-text-rgb));
+}
+.turno-citta-select label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgb(var(--t-muted2-rgb));
+    letter-spacing: 0.03em;
+}
+.turno-citta-select select {
+    font-size: 12px;
+    padding: 3px 6px;
+    border: 1px solid rgba(var(--t-accent-rgb), 0.35);
+    border-radius: 5px;
+    background: rgba(var(--t-bg-rgb), 0.5);
+    color: rgb(var(--t-text-rgb));
+    cursor: pointer;
+}
+.turno-citta-select select:focus { outline: 1.5px solid rgb(var(--t-accent-rgb)); }
+
 .turno-card-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -406,6 +434,9 @@ html[data-theme="caldo"] {
     .turno-card-select { font-size: 11px; gap: 5px; }
     .turno-card-select label { font-size: 9px; }
     .turno-card-select select { font-size: 11px; padding: 2px 5px; border-radius: 4px; }
+    .turno-citta-select { font-size: 11px; gap: 5px; }
+    .turno-citta-select label { font-size: 9px; }
+    .turno-citta-select select { font-size: 11px; padding: 2px 5px; border-radius: 4px; }
     .turno-card-grid {
         grid-template-columns: 1fr;
         gap: 5px 10px;
