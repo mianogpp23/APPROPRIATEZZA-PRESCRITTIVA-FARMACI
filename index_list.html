@@ -250,7 +250,6 @@
             <div class="k">Farmacia</div><div class="v" id="turno-sel-farmacia">—</div>
             <div class="k">Indirizzo</div><div class="v" id="turno-sel-indirizzo">—</div>
         </div>
-        <div class="turno-card-dettagli" id="turno-card-dettagli"></div>
         <div class="turno-card-contatti">
             <div class="k">Telefono</div><div class="v" id="turno-cell">—</div>
             <div class="k">Email</div><div class="v" id="turno-email">—</div>
@@ -318,7 +317,6 @@
 
     var elSelFarm = document.getElementById("turno-sel-farmacia");
     var elSelIndir = document.getElementById("turno-sel-indirizzo");
-    var elDettagli = document.getElementById("turno-card-dettagli");
     var elCell = document.getElementById("turno-cell");
     var elEmail = document.getElementById("turno-email");
     var elSelect = document.getElementById("turno-giorno");
@@ -336,33 +334,23 @@
         if (!t) {
             if (elSelFarm) elSelFarm.textContent = "—";
             if (elSelIndir) elSelIndir.textContent = "—";
-            if (elDettagli) elDettagli.textContent = "Nessun turno";
+    
             if (elCell) elCell.textContent = "—";
             if (elEmail) elEmail.textContent = "—";
                 return;
         }
         if (elSelFarm) elSelFarm.textContent = t.farmacia;
         if (elSelIndir) elSelIndir.textContent = t.indirizzo + ", " + t.cap + " " + t.comune;
-        if (elDettagli) {
-            var tipo = t.tipo === "festivo" ? "FESTIVO" : "DIURNO";
-            var orari = tipo + " " + (t.orario_inizio || "—") + "–" + (t.orario_fine || "—");
-            elDettagli.textContent = orari + " • Tel: " + t.telefono;
-            if (t.note) elDettagli.textContent += " · " + t.note;
-        }
         // Telefono: mostra sempre il fisso (presente per tutti i turni dal PDF)
         if (elCell) elCell.textContent = t.telefono || "—";
         // Email: se c'è la mostra, altrimenti "—"
         if (elEmail) elEmail.textContent = t.email || "—";
-        // Cellulare (se presente) lo aggiungo nei dettagli
-        if (t.cell && elDettagli) {
-            elDettagli.textContent += " · Cell: " + t.cell;
-        }
+
     }
 
     function errore() {
         if (elSelFarm) elSelFarm.textContent = "—";
         if (elSelIndir) elSelIndir.textContent = "—";
-        if (elDettagli) elDettagli.textContent = "Turni non disponibili";
         if (elCell) elCell.textContent = "—";
         if (elEmail) elEmail.textContent = "—";
     }

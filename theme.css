@@ -314,12 +314,6 @@ html[data-theme="caldo"] {
     letter-spacing: 0.02em;
 }
 .turno-card-grid .v { color: rgb(var(--t-text-rgb)); }
-.turno-card-dettagli {
-    font-size: 11.5px;
-    color: rgb(var(--t-muted-rgb));
-    font-style: italic;
-    margin-top: 1px;
-}
 .turno-card-contatti {
     display: grid;
     grid-template-columns: 1fr;
@@ -441,7 +435,6 @@ html[data-theme="caldo"] {
         font-size: 11px;
     }
     .turno-card-grid .k { font-size: 9px; }
-    .turno-card-dettagli { font-size: 11px; margin-top: 1px; }
     .turno-card-contatti {
         grid-template-columns: 1fr;
         gap: 5px 10px;
