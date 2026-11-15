@@ -252,14 +252,14 @@ html[data-theme="caldo"] {
    ═════════════════════════════════════════════════════════════════════ */
 .turno-card-oggi {
     margin: 0 0 24px 0;
-    padding: 18px 22px;
+    padding: 20px 22px;
     background: rgba(var(--t-accent-rgb), 0.10);
     border: 1px solid rgba(var(--t-accent-rgb), 0.30);
     border-left: 5px solid rgb(var(--t-accent-rgb));
     border-radius: 14px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
 }
 .turno-card-title {
     font-size: 15px;
@@ -277,25 +277,48 @@ html[data-theme="caldo"] {
 }
 .turno-card-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px 16px;
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 13px;
+    line-height: 1.5;
 }
 .turno-card-grid .k {
     color: rgb(var(--t-muted2-rgb));
     font-weight: 700;
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
 }
 .turno-card-grid .v { color: rgb(var(--t-text-rgb)); }
 .turno-card-grid .v b { color: rgb(var(--t-red-rgb)); }
-.turno-card-dettagli {
+.turno-card-contatti {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px 14px;
     font-size: 13px;
+    margin-top: 4px;
+    border-top: 1px solid rgba(var(--t-ov-rgb), 0.1);
+    padding-top: 10px;
+}
+.turno-card-contatti .k {
+    color: rgb(var(--t-muted2-rgb));
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+.turno-card-contatti .v { color: rgb(var(--t-text-rgb)); }
+.turno-card-contatti .v a {
+    color: rgb(var(--t-accent-rgb));
+    text-decoration: none;
+    font-weight: 600;
+}
+.turno-card-contatti .v a:hover { text-decoration: underline; }
+.turno-card-dettagli {
+    font-size: 12.5px;
     color: rgb(var(--t-muted-rgb));
     font-style: italic;
-    margin-top: 4px;
+    margin-top: 2px;
 }
 .turno-card-link {
     display: inline-block;
@@ -306,4 +329,3 @@ html[data-theme="caldo"] {
     text-decoration: none;
 }
 .turno-card-link:hover { text-decoration: underline; }
-

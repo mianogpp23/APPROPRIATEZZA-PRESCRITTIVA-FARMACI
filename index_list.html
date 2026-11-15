@@ -235,14 +235,23 @@
 </aside>
 
 <main class="main">
-    <!-- Card farmacia di turno oggi e domani -->
+    <!-- Card farmacia di turno oggi, domani e dopodomani -->
     <div class="turno-card-oggi">
-        <div class="turno-card-title">Farmacia di turno oggi e domani</div>
+        <div class="turno-card-title">Farmacia di turno — 3 giorni</div>
         <div class="turno-card-grid">
-            <div class="k">Oggi</div><div class="v" id="turno-oggi-farmacia">—</div>
-            <div class="k">Domani</div><div class="v" id="turno-domani-farmacia">—</div>
+            <div class="k">Oggi</div><div class="v" id="turno-g1-farmacia">—</div>
+            <div class="k">Indirizzo</div><div class="v" id="turno-g1-indirizzo">—</div>
+            <div class="k">Domani</div><div class="v" id="turno-g2-farmacia">—</div>
+            <div class="k">Indirizzo</div><div class="v" id="turno-g2-indirizzo">—</div>
+            <div class="k">Dopodomani</div><div class="v" id="turno-g3-farmacia">—</div>
+            <div class="k">Indirizzo</div><div class="v" id="turno-g3-indirizzo">—</div>
         </div>
         <div class="turno-card-dettagli" id="turno-card-dettagli"></div>
+        <div class="turno-card-contatti">
+            <div class="k">Telefono</div><div class="v" id="turno-cell">—</div>
+            <div class="k">Email</div><div class="v" id="turno-email">—</div>
+            <div class="k">Maps</div><a class="v" id="turno-maps" href="#" target="_blank" rel="noopener">—</a>
+        </div>
         <a class="turno-card-link" href="https://www.farmacistiragusa.it/farmacie-di-turno" target="_blank" rel="noopener">Vedi sul sito dell’Ordine</a>
     </div>
 
@@ -302,29 +311,63 @@
 (function () {
     "use strict";
 
-    var elOggi = document.getElementById("turno-oggi-farmacia");
-    var elDomani = document.getElementById("turno-domani-farmacia");
+    var elG1Farm = document.getElementById("turno-g1-farmacia");
+    var elG1Indir = document.getElementById("turno-g1-indirizzo");
+    var elG2Farm = document.getElementById("turno-g2-farmacia");
+    var elG2Indir = document.getElementById("turno-g2-indirizzo");
+    var elG3Farm = document.getElementById("turno-g3-farmacia");
+    var elG3Indir = document.getElementById("turno-g3-indirizzo");
     var elDettagli = document.getElementById("turno-card-dettagli");
+    var elCell = document.getElementById("turno-cell");
+    var elEmail = document.getElementById("turno-email");
+    var elMaps = document.getElementById("turno-maps");
 
     function fmtDate(iso) {
         var p = iso.split("-");
         return p[2] + "/" + p[1] + "/" + p[0];
     }
 
-    function mostra(turno) {
-        if (elOggi) elOggi.textContent = turno.farmacia + " — " + turno.indirizzo + ", " + turno.cap + " " + turno.comune;
-        if (elDettagli) {
-            var tipo = turno.tipo === "festivo" ? "FESTIVO" : "DIURNO";
-            var orari = tipo + " " + (turno.orario_inizio || "—") + "–" + (turno.orario_fine || "—");
-            elDettagli.textContent = orari + " • Tel: " + turno.telefono;
-            if (turno.note) elDettagli.textContent += " · " + turno.note;
+    function mostraGiorni(turni) {
+        // Giorno 1 (oggi)
+        var t1 = turni[0];
+        if (t1 && elG1Farm) elG1Farm.textContent = t1.farmacia + " — " + t1.indirizzo + ", " + t1.cap + " " + t1.comune;
+        if (t1 && elG1Indir) elG1Indir.textContent = t1.indirizzo + ", " + t1.cap + " " + t1.comune;
+
+        // Giorno 2 (domani)
+        var t2 = turni[1];
+        if (t2 && elG2Farm) elG2Farm.textContent = t2.farmacia + " — " + t2.indirizzo + ", " + t2.cap + " " + t2.comune;
+        if (t2 && elG2Indir) elG2Indir.textContent = t2.indirizzo + ", " + t2.cap + " " + t2.comune;
+
+        // Giorno 3 (dopodomani)
+        var t3 = turni[2];
+        if (t3 && elG3Farm) elG3Farm.textContent = t3.farmacia + " — " + t3.indirizzo + ", " + t3.cap + " " + t3.comune;
+        if (t3 && elG3Indir) elG3Indir.textContent = t3.indirizzo + ", " + t3.cap + " " + t3.comune;
+
+        // Contatti del primo turno (oggi)
+        if (t1) {
+            if (elDettagli) {
+                var tipo = t1.tipo === "festivo" ? "FESTIVO" : "DIURNO";
+                var orari = tipo + " " + (t1.orario_inizio || "—") + "–" + (t1.orario_fine || "—");
+                elDettagli.textContent = orari + " • Tel: " + t1.telefono;
+                if (t1.note) elDettagli.textContent += " · " + t1.note;
+            }
+            if (elCell) elCell.textContent = t1.cell || "—";
+            if (elEmail) elEmail.textContent = t1.email || "—";
+            if (elMaps) {
+                elMaps.textContent = t1.maps_label || "Vedi su Maps";
+                elMaps.href = t1.maps_url || "#";
+            }
         }
     }
 
     function errore() {
-        if (elOggi) elOggi.textContent = "Turni non disponibili";
-        if (elDomani) elDomani.textContent = "—";
-        if (elDettagli) elDettagli.textContent = "";
+        [elG1Farm, elG1Indir, elG2Farm, elG2Indir, elG3Farm, elG3Indir].forEach(function (el) {
+            if (el) el.textContent = "—";
+        });
+        if (elDettagli) elDettagli.textContent = "Turni non disponibili";
+        if (elCell) elCell.textContent = "—";
+        if (elEmail) elEmail.textContent = "—";
+        if (elMaps) { elMaps.textContent = "—"; elMaps.href = "#"; }
     }
 
     fetch("data/turni_vittoria.json")
@@ -335,18 +378,19 @@
         .then(function (d) {
             var oggi = new Date();
             oggi.setHours(0, 0, 0, 0);
-            var isoOggi = oggi.getFullYear() + "-" + String(oggi.getMonth() + 1).padStart(2, "0") + "-" + String(oggi.getDate()).padStart(2, "0");
 
-            var turnoOggi = d.turni.find(function (t) { return t.data === isoOggi; });
-            if (turnoOggi) mostra(turnoOggi);
+            var turni = [];
+            for (var i = 0; i < 3; i++) {
+                var d2 = new Date(oggi);
+                d2.setDate(d2.getDate() + i);
+                var iso = d2.getFullYear() + "-" + String(d2.getMonth() + 1).padStart(2, "0") + "-" + String(d2.getDate()).padStart(2, "0");
+                var turno = d.turni.find(function (t) { return t.data === iso; });
+                turni.push(turno || null);
+            }
+
+            var hayTurno = turni.some(function (t) { return t !== null; });
+            if (hayTurno) mostraGiorni(turni);
             else errore();
-
-            // Domani: cerca il turno del giorno successivo
-            var domani = new Date(oggi);
-            domani.setDate(domani.getDate() + 1);
-            var isoDomani = domani.getFullYear() + "-" + String(domani.getMonth() + 1).padStart(2, "0") + "-" + String(domani.getDate()).padStart(2, "0");
-            var turnoDomani = d.turni.find(function (t) { return t.data === isoDomani; });
-            if (elDomani) elDomani.textContent = turnoDomani ? turnoDomani.farmacia : "—";
         })
         .catch(function (e) {
             errore();
