@@ -398,3 +398,92 @@ html[data-theme="caldo"] {
     color: rgb(var(--t-text-rgb));
 }
 .turno-cal-table tr:last-child td { border-bottom: none; }
+
+/* ═════════════════════════════════════════════════════════════════════
+   Responsive — adattamento a tutti i device (mobile, tablet, desktop)
+   ═════════════════════════════════════════════════════════════════════ */
+
+/* Mobile piccolo (< 600px): colonna unica, sidebar nascosta/ridotta */
+@media (max-width: 599px) {
+    body { flex-direction: column; }
+    .side {
+        width: 100%;
+        padding: 16px 12px;
+        border-right: none;
+        border-bottom: 1px solid rgba(var(--t-ov-rgb),0.08);
+        flex-shrink: 0;
+    }
+    .side h1 { font-size: 20px; }
+    .side .sub { font-size: 11px; margin-bottom: 16px; }
+    .side .item { font-size: 13px; padding: 10px 12px; margin-bottom: 6px; }
+    .side .item .num { width: 26px; height: 26px; font-size: 11px; }
+
+    .main {
+        flex: 1;
+        padding: 20px 12px;
+        overflow-y: auto;
+    }
+    .main h2 { font-size: 22px; margin-bottom: 6px; }
+
+    .turno-card-oggi {
+        margin: 0 0 12px 0;
+        padding: 10px 12px;
+        gap: 6px;
+    }
+    .turno-card-title { font-size: 12px; gap: 5px; }
+    .turno-card-title::before { width: 6px; height: 6px; }
+    .turno-card-select { font-size: 11px; gap: 5px; }
+    .turno-card-select label { font-size: 9px; }
+    .turno-card-select select { font-size: 11px; padding: 2px 5px; border-radius: 4px; }
+    .turno-card-grid {
+        grid-template-columns: 1fr;
+        gap: 5px 10px;
+        font-size: 11px;
+    }
+    .turno-card-grid .k { font-size: 9px; }
+    .turno-card-dettagli { font-size: 11px; margin-top: 1px; }
+    .turno-card-contatti {
+        grid-template-columns: 1fr;
+        gap: 5px 10px;
+        font-size: 11px;
+        margin-top: 2px;
+        padding-top: 5px;
+    }
+    .turno-card-contatti .k { font-size: 9px; }
+    .turno-card-contatti .v { font-size: 11px; }
+    .turno-card-contatti .v a { font-size: 11px; }
+    .turno-card-link { font-size: 12px; margin-top: 5px; }
+
+    .turno-card-btn {
+        margin-top: 5px;
+        padding: 5px 10px;
+        font-size: 11px;
+        border-radius: 5px;
+    }
+    .turno-card-calendario {
+        margin-top: 6px;
+        padding: 6px 10px;
+        border-radius: 6px;
+    }
+    .turno-cal-table { font-size: 10.5px; }
+    .turno-cal-table th { font-size: 9px; padding: 4px 6px; }
+    .turno-cal-table td { font-size: 10.5px; padding: 4px 6px; }
+}
+
+/* Tablet (600px–1023px): sidebar ridotta, main più compatto */
+@media (min-width: 600px) and (max-width: 1023px) {
+    .side { width: 220px; padding: 24px 16px; }
+    .side h1 { font-size: 22px; }
+    .side .item { font-size: 13px; padding: 10px 12px; }
+
+    .main { padding: 32px 24px; }
+    .main h2 { font-size: 26px; }
+
+    .turno-card-oggi { padding: 14px 16px; gap: 8px; }
+    .turno-card-contatti { grid-template-columns: repeat(2, 1fr); gap: 6px 12px; }
+}
+
+/* Desktop (> 1023px): layout completo già definito */
+@media (min-width: 1024px) {
+    .turno-card-contatti { grid-template-columns: 1fr 1fr 1fr; }
+}
