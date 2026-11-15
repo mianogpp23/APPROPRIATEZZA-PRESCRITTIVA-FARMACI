@@ -254,7 +254,6 @@
         <div class="turno-card-contatti">
             <div class="k">Telefono</div><div class="v" id="turno-cell">—</div>
             <div class="k">Email</div><div class="v" id="turno-email">—</div>
-            <div class="k">Maps</div><a class="v" id="turno-maps" href="#" target="_blank" rel="noopener">—</a>
         </div>
         <button id="turno-calendario" class="turno-card-btn">Calendario turni</button>
         <div id="turno-calendario-lista" class="turno-card-calendario" style="display:none;"></div>
@@ -322,7 +321,6 @@
     var elDettagli = document.getElementById("turno-card-dettagli");
     var elCell = document.getElementById("turno-cell");
     var elEmail = document.getElementById("turno-email");
-    var elMaps = document.getElementById("turno-maps");
     var elSelect = document.getElementById("turno-giorno");
     var elCalBtn = document.getElementById("turno-calendario");
     var elCalLista = document.getElementById("turno-calendario-lista");
@@ -341,8 +339,7 @@
             if (elDettagli) elDettagli.textContent = "Nessun turno";
             if (elCell) elCell.textContent = "—";
             if (elEmail) elEmail.textContent = "—";
-            if (elMaps) { elMaps.textContent = "—"; elMaps.href = "#"; }
-            return;
+                return;
         }
         if (elSelFarm) elSelFarm.textContent = t.farmacia;
         if (elSelIndir) elSelIndir.textContent = t.indirizzo + ", " + t.cap + " " + t.comune;
@@ -356,18 +353,6 @@
         if (elCell) elCell.textContent = t.telefono || "—";
         // Email: se c'è la mostra, altrimenti "—"
         if (elEmail) elEmail.textContent = t.email || "—";
-        // Maps: sempre visibile se c'è l'URL
-        if (elMaps) {
-            if (t.maps_url) {
-                elMaps.textContent = t.maps_label || "Vedi su Maps";
-                elMaps.href = t.maps_url;
-                elMaps.style.display = "inline";
-            } else {
-                elMaps.textContent = "—";
-                elMaps.href = "#";
-                elMaps.style.display = "inline";
-            }
-        }
         // Cellulare (se presente) lo aggiungo nei dettagli
         if (t.cell && elDettagli) {
             elDettagli.textContent += " · Cell: " + t.cell;
