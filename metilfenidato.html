@@ -193,20 +193,7 @@
 <div class="container">
 <a class="back" href="index_list.html">← Home</a>
 <div class="page">
-    <h1 class="doc-title">Metilfenidato (DPC)</h1>
-
-    <!-- DPC-PILL-BEGIN -->
-    <div class="pills-title">Pillole operative — metilfenidato (DPC pag. 41)</div>
-    <div class="pills">
-      <div class="pill"><b>Chi prescrive</b><span class="pill-d">La prescrizione richiede il Piano Terapeutico AIFA (PT AIFA - MMR Stup.II^sez.A) </span></div>
-      <div class="pill"><b>Bambini e adolescenti</b><span class="pill-d">Indicato per il disturbo deficit e iperattività (ADHD) nei bambini dagli 6 anni e negli adolescenti, se le correttive risultano insufficienti. Non erogabile a soggetti già in trattamento prima del 18° anno di età (nemmeno dall&#x27;ASP). </span></div>
-      <div class="pill"><b>Adulti</b><span class="pill-d">Per gli adulti: nuova diagnosi oppure già in trattamento prima del 18° anno di età (inclusa la riclassificazione del 19/10/2023 AIFA/RITA). RITALIN segue l&#x27;elenco della Legge 648/1996: non può essere erogata dalle farmacie ma solo dalle strutture ASP. </span></div>
-    </div>
-    <!-- DPC-PILL-END -->
-
-
-
-        <span class="center-only">va invitato a recarsi presso le strutture ASP</span>
+    <h1 class="doc-title">Metilfenidato (DPC)</h1><span class="center-only">va invitato a recarsi presso le strutture ASP</span>
     </div>
 
     <!-- ================= METILFENIDATO ================= -->
@@ -382,7 +369,8 @@
 </script>
 
 </div>
-<script src="theme.js" defer></script>
+<script src="theme_drawer.js" defer></script>
+    <script src="theme.js" defer></script>
 
 
 
@@ -398,5 +386,24 @@
             <a href="index.html">Ingresso</a></p>
     </footer>
 
-</body>
+    <!-- Drawer per pillole operative -->
+    <div id="info-drawer" class="info-drawer">
+        <div class="drawer-header">
+            <h2>Pillole operative — metilfenidato (DPC pag. 41)</h2>
+            <button class="drawer-close" title="Chiudi">&times;</button>
+        </div>
+        <div class="drawer-content">
+    <!-- DPC-PILL-BEGIN -->
+    <div class="pills-title">Pillole operative — metilfenidato (DPC pag. 41)</div>
+    <div class="pills">
+      <div class="pill"><b>Chi prescrive</b><span class="pill-d">La prescrizione richiede il Piano Terapeutico AIFA (PT AIFA - MMR Stup.II^sez.A): i farmaci a base di metilfenidato sono soggetti a Nota AIFA 79. &middot; <a class="pill-link" href="docs/dpc-controllo-appropriatezza.pdf#page=41" target="_blank" rel="noopener">DPC pag. 41</a></span></div>
+      <div class="pill"><b>Bambini e adolescenti</b><span class="pill-d">Indicato per il disturbo deficit e iperattività (ADHD) nei bambini dagli 6 anni e negli adolescenti, se le correttive risultano insufficienti. Non erogabile a soggetti già in trattamento prima del 18° anno di età (nemmeno dall'ASP). &middot; <a class="pill-link" href="docs/dpc-controllo-appropriatezza.pdf#page=41" target="_blank" rel="noopener">DPC pag. 41</a></span></div>
+      <div class="pill"><b>Adulti</b><span class="pill-d">Per gli adulti: nuova diagnosi oppure già in trattamento prima del 18° anno di età (inclusa la riclassificazione del 19/10/2023 AIFA/RITA). RITALIN segue l'elenco della Legge 648/1996: non può essere erogata dalle farmacie ma solo dalle strutture ASP. &middot; <a class="pill-link" href="docs/dpc-controllo-appropriatezza.pdf#page=41" target="_blank" rel="noopener">DPC pag. 41</a></span></div>
+    </div>
+    <!-- DPC-PILL-END -->
+        </div>
+    </div>
+
+    <!-- FAB per aprire il drawer -->
+    <button class="info-fab" onclick="toggleInfoDrawer()" title="Regole operative">ℹ️</button></body>
 </html>

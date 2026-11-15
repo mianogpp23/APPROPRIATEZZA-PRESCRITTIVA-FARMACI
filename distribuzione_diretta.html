@@ -261,17 +261,7 @@
     
 <h1 class="page-title">Distribuzione diretta ASP</h1>
 
-    <!-- DPC-PILL-BEGIN -->
-    <div class="pills-title">Regole operative — distribuzione diretta ASP</div>
-    <div class="pills">
-      <div class="pill"><b>Chi eroga</b><span class="pill-d">I farmaci in distribuzione diretta (pagine 57-62 del DPC) sono erogati dall&#x27;ASP al paziente: non passano dalla farmacia e quindi non compaiono negli elenchi dei farmaci in DPC. </span></div>
-      <div class="pill"><b>PT on-line e protocolli</b><span class="pill-d">Valgono le stesse regole del canale DPC (PT «Autorizzato» su GopenDPC, Protocollo DMDU0A0000… per i Medici di Medicina Generale). </span></div>
-      <div class="pill"><b>NAO / DOAC con Nota 97</b><span class="pill-d">Gli anticoagulanti orali diretti richiedono la Nota 97; <strong>la Scheda di prescrizione e valutazione (PT web-based) è stata abolita con Det. AIFA 821/2026 (G.U. n. 144 del 24/06/2026, in vigore dal 09/07/2026)</strong>: la prescrizione non richiede più il modello PT web-based AIFA cartaceo. </span></div>
-      <div class="pill"><b>Farmaci con Nota 95 in deroga</b><span class="pill-d">Se la specialità richiesta è mancante, lo Specialista ASP che ha redatto il PT rilascia anche la DEM. L&#x27;elenco dei farmaci in deroga SSN è alle pagine 63-65 del DPC. </span></div>
-    </div>
-    <!-- DPC-PILL-END -->
-
-<div class="filter-bar">
+    <div class="filter-bar">
     <input type="text" id="q-global" placeholder="Ricerca globale (tutte le colonne)..." />
     <input type="text" id="q-aic" placeholder="AIC..." />
     <input type="text" id="q-farm" placeholder="Farmaco..." />
@@ -2826,7 +2816,8 @@
     document.querySelectorAll("table.dpc").forEach(setup);
 })();
 </script>
-<script src="theme.js" defer></script>
+<script src="theme_drawer.js" defer></script>
+    <script src="theme.js" defer></script>
 
 
 
@@ -2842,5 +2833,25 @@
             <a href="index.html">Ingresso</a></p>
     </footer>
 
-</body>
+    <!-- Drawer per pillole operative -->
+    <div id="info-drawer" class="info-drawer">
+        <div class="drawer-header">
+            <h2>Regole operative — distribuzione diretta ASP</h2>
+            <button class="drawer-close" title="Chiudi">&times;</button>
+        </div>
+        <div class="drawer-content">
+    <!-- DPC-PILL-BEGIN -->
+    <div class="pills-title">Regole operative — distribuzione diretta ASP</div>
+    <div class="pills">
+      <div class="pill"><b>Chi eroga</b><span class="pill-d">I farmaci in distribuzione diretta (pagine 57-62 del DPC) sono erogati dall'ASP al paziente: non passano dalla farmacia e quindi non compaiono negli elenchi dei farmaci in DPC. &middot; <a class="pill-link" href="docs/dpc-controllo-appropriatezza.pdf#page=58" target="_blank" rel="noopener">DPC pag. 58</a></span></div>
+      <div class="pill"><b>PT on-line e protocolli</b><span class="pill-d">Valgono le stesse regole del canale DPC (PT «Autorizzato» su GopenDPC, Protocollo DMDU0A0000… per i Medici di Medicina Generale). &middot; <a class="pill-link" href="docs/dpc-controllo-appropriatezza.pdf#page=18" target="_blank" rel="noopener">DPC pag. 18</a></span></div>
+      <div class="pill"><b>NAO / DOAC con Nota 97</b><span class="pill-d">Gli anticoagulanti orali diretti richiedono la Nota 97; la prescrizione può avvenire su modello PT web-based AIFA cartaceo, compilato da UU.OO. riconosciute e da specialisti convenzionati delle branche indicate dal DPC. [agg. 24/06/2026 – Det. AIFA 821/2026, G.U. n. 144 del 24/06/2026] &middot; <a class="pill-link" href="docs/dpc-controllo-appropriatezza.pdf#page=15" target="_blank" rel="noopener">DPC pag. 15</a></span></div>
+      <div class="pill"><b>Farmaci con Nota 95 in deroga</b><span class="pill-d">Se la specialità richiesta è mancante, lo Specialista ASP che ha redatto il PT rilascia anche la DEM. L'elenco dei farmaci in deroga SSN è alle pagine 63-65 del DPC. &middot; <a class="pill-link" href="docs/dpc-controllo-appropriatezza.pdf#page=63" target="_blank" rel="noopener">DPC pag. 63</a></span></div>
+    </div>
+    <!-- DPC-PILL-END -->
+        </div>
+    </div>
+
+    <!-- FAB per aprire il drawer -->
+    <button class="info-fab" onclick="toggleInfoDrawer()" title="Regole operative">ℹ️</button></body>
 </html>

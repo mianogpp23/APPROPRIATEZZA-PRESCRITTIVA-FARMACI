@@ -472,3 +472,139 @@ html[data-theme="caldo"] {
 
     .turno-card-oggi { padding: 14px 16px; gap: 8px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FAB "Info" per aprire il drawer delle pillole operative
+   ═══════════════════════════════════════════════════════════════════════ */
+.info-fab {
+    position: fixed;
+    bottom: 76px; /* sopra il tema switch (bottom: 16px) */
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgb(var(--t-accent-rgb));
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    z-index: 998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease;
+}
+.info-fab:hover { transform: scale(1.08); }
+.info-fab:focus { outline: 2px solid rgb(var(--t-accent-rgb)); outline-offset: 2px; }
+
+/* Drawer laterale per le pillole operative */
+.info-drawer {
+    position: fixed;
+    top: 0;
+    right: -400px; /* chiuso di default */
+    width: 380px;
+    max-width: 92vw;
+    height: 100vh;
+    background: linear-gradient(180deg, rgb(var(--t-bg-rgb)) 0%, rgb(var(--t-bg2-rgb)) 100%);
+    border-left: 2px solid rgb(var(--t-accent-rgb));
+    box-shadow: -8px 0 28px rgba(0,0,0,0.3);
+    transition: right 0.35s cubic-bezier(0.25,0.8,0.25,1);
+    z-index: 997;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 26px 20px 40px;
+    flex-direction: column;
+}
+.info-drawer.open { right: 0; }
+
+.info-drawer::-webkit-scrollbar {
+    width: 8px;
+}
+.info-drawer::-webkit-scrollbar-thumb {
+    background: rgba(var(--t-accent-rgb),0.3);
+    border-radius: 4px;
+}
+
+.info-drawer .drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--glass-border);
+    margin-bottom: 20px;
+}
+
+.info-drawer .drawer-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(var(--t-red-rgb));
+    margin: 0;
+}
+
+.info-drawer .drawer-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: background 0.15s;
+}
+.info-drawer .drawer-close:hover {
+    background: rgba(var(--t-ink-rgb),0.08);
+    color: var(--text);
+}
+
+.info-drawer .drawer-content {
+    flex: 1;
+}
+
+.info-drawer .pills-title {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgb(var(--t-accent-rgb));
+    margin: 0 0 12px;
+}
+
+.info-drawer .pill {
+    background: rgba(var(--t-ov-rgb), 0.05);
+    border: 1px solid rgba(var(--t-ov-rgb), 0.12);
+    border-left: 3px solid rgb(var(--t-accent-rgb));
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.info-drawer .pill b {
+    display: block;
+    color: rgb(var(--t-green-rgb));
+    font-size: 13.5px;
+    margin-bottom: 4px;
+}
+.info-drawer .pill-d {
+    color: rgb(var(--t-text-rgb));
+}
+.info-drawer .pill-link {
+    color: rgb(var(--t-accent-rgb));
+    white-space: nowrap;
+    font-weight: 600;
+}
+.info-drawer .pill-link:hover { text-decoration: underline; }
+
+/* Tablet and below: drawer a larghezza intera (slide da destra) */
+@media (max-width: 600px) {
+    .info-drawer {
+        width: 100%;
+        right: -100%;
+    }
+    .info-drawer.open { right: 0; }
+}
