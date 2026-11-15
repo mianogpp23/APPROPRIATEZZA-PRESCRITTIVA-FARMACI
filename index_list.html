@@ -344,7 +344,7 @@
             if (elMaps) { elMaps.textContent = "—"; elMaps.href = "#"; }
             return;
         }
-        if (elSelFarm) elSelFarm.textContent = t.farmacia + " — " + t.indirizzo + ", " + t.cap + " " + t.comune;
+        if (elSelFarm) elSelFarm.textContent = t.farmacia;
         if (elSelIndir) elSelIndir.textContent = t.indirizzo + ", " + t.cap + " " + t.comune;
         if (elDettagli) {
             var tipo = t.tipo === "festivo" ? "FESTIVO" : "DIURNO";
