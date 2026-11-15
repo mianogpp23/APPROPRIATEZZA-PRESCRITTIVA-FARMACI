@@ -877,6 +877,30 @@
       "note": "Turno diurno - coppia mer-gio"
     },
     {
+      "data": "2027-01-29",
+      "farmacia": "FARMACIA DE PASQUALE SRL",
+      "indirizzo": "VIA CAVOUR N. 292",
+      "cap": "97019",
+      "comune": "Vittoria",
+      "telefono": "0932-981685",
+      "tipo": "diurno",
+      "orario_inizio": "08:30",
+      "orario_fine": "20:00",
+      "note": "Turno diurno - coppia ven-sab"
+    },
+    {
+      "data": "2027-01-30",
+      "farmacia": "FARMACIA DE PASQUALE SRL",
+      "indirizzo": "VIA CAVOUR N. 292",
+      "cap": "97019",
+      "comune": "Vittoria",
+      "telefono": "0932-981685",
+      "tipo": "diurno",
+      "orario_inizio": "08:30",
+      "orario_fine": "20:00",
+      "note": "Turno diurno - coppia ven-sab"
+    },
+    {
       "data": "2027-01-31",
       "farmacia": "FARMACIA DE PASQUALE SRL",
       "indirizzo": "VIA CAVOUR N. 292",
