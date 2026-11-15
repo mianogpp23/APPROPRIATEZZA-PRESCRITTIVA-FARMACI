@@ -352,11 +352,25 @@
             elDettagli.textContent = orari + " • Tel: " + t.telefono;
             if (t.note) elDettagli.textContent += " · " + t.note;
         }
-        if (elCell) elCell.textContent = t.cell || "—";
+        // Telefono: mostra sempre il fisso (presente per tutti i turni dal PDF)
+        if (elCell) elCell.textContent = t.telefono || "—";
+        // Email: se c'è la mostra, altrimenti "—"
         if (elEmail) elEmail.textContent = t.email || "—";
+        // Maps: sempre visibile se c'è l'URL
         if (elMaps) {
-            elMaps.textContent = t.maps_label || "Vedi su Maps";
-            elMaps.href = t.maps_url || "#";
+            if (t.maps_url) {
+                elMaps.textContent = t.maps_label || "Vedi su Maps";
+                elMaps.href = t.maps_url;
+                elMaps.style.display = "inline";
+            } else {
+                elMaps.textContent = "—";
+                elMaps.href = "#";
+                elMaps.style.display = "inline";
+            }
+        }
+        // Cellulare (se presente) lo aggiungo nei dettagli
+        if (t.cell && elDettagli) {
+            elDettagli.textContent += " · Cell: " + t.cell;
         }
     }
 
