@@ -205,6 +205,51 @@
 
 .pills { display: block !important; }
 .pill { width: 100%; }
+
+    .filter-bar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        background: rgba(var(--t-bg-rgb),0.85);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(var(--t-ov-rgb),0.12);
+        border-radius: 12px;
+    }
+    .filter-bar input {
+        flex: 1 1 140px;
+        min-width: 120px;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(var(--t-ov-rgb),0.18);
+        background: rgba(var(--t-ov-rgb),0.06);
+        color: rgb(var(--t-text-rgb));
+        font-size: 16px;
+        outline: none;
+    }
+    .filter-bar input:focus { border-color: rgb(var(--t-accent-rgb)); }
+    .filter-bar button {
+        padding: 12px 18px;
+        border-radius: 10px;
+        border: 1px solid rgba(var(--t-ov-rgb),0.18);
+        background: rgba(var(--t-accent-rgb),0.15);
+        color: rgb(var(--t-accent-rgb));
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 13px;
+    }
+    .filter-bar button:hover { background: rgba(var(--t-accent-rgb),0.25); }
+    #count-info {
+        font-size: 12px;
+        color: rgb(var(--t-muted-rgb));
+        margin-left: auto;
+        white-space: nowrap;
+    }
 </style>
 <script>(function(){try{var t=localStorage.getItem("dpc-tema");if(t){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();</script>
     <script src="consent.js"></script>
@@ -214,6 +259,17 @@
 <a class="back" href="index_list.html">← Home</a>
 <div class="page">
     <h1 class="doc-title">Farmaci NO DPC</h1><h2>FARMACI IN CONVENZIONATA NO PHT CON PIANO TERAPEUTICO</h2>
+
+    <div class="filter-bar">
+    <input type="text" id="q-global" placeholder="Ricerca globale (tutte le colonne)..." />
+    <input type="text" id="q-aic" placeholder="AIC..." />
+    <input type="text" id="q-descr" placeholder="Farmaco..." />
+    <input type="text" id="q-princ" placeholder="Principio attivo..." />
+    <input type="text" id="q-pt" placeholder="PT/Nota AIFA..." />
+    <button id="reset-filters">Reset</button>
+    <span id="count-info"></span>
+</div>
+
     <table>
         <thead>
             <tr>
@@ -380,5 +436,80 @@
     </div>
 
     <!-- FAB per aprire il drawer -->
-    <button class="info-fab" onclick="toggleInfoDrawer()" title="Regole operative">ℹ️</button></body>
+    <button class="info-fab" onclick="toggleInfoDrawer()" title="Regole operative">ℹ️</button>
+
+<script>
+(function () {
+    "use strict";
+    var inputs = {
+        global: document.getElementById("q-global"),
+        aic: document.getElementById("q-aic"),
+        descr: document.getElementById("q-descr"),
+        princ: document.getElementById("q-princ"),
+        pt: document.getElementById("q-pt")
+    };
+    var resetBtn = document.getElementById("reset-filters");
+    var countInfo = document.getElementById("count-info");
+
+    function rowText(row, colIdx) {
+        if (!row.cells || !row.cells[colIdx]) return "";
+        return (row.cells[colIdx].textContent || "").toLowerCase();
+    }
+
+    function passes(row) {
+        var aic = rowText(row, 0);
+        var descr = rowText(row, 1);
+        var princ = rowText(row, 2);
+        var pt = rowText(row, 3);
+        var all = (aic + " " + descr + " " + princ + " " + pt).toLowerCase();
+
+        var g = (inputs.global.value || "").toLowerCase().trim();
+        if (g && all.indexOf(g) === -1) return false;
+        var a = (inputs.aic.value || "").toLowerCase().trim();
+        if (a && aic.indexOf(a) === -1) return false;
+        var d = (inputs.descr.value || "").toLowerCase().trim();
+        if (d && descr.indexOf(d) === -1) return false;
+        var p = (inputs.princ.value || "").toLowerCase().trim();
+        if (p && princ.indexOf(p) === -1) return false;
+        var t = (inputs.pt.value || "").toLowerCase().trim();
+        if (t && pt.indexOf(t) === -1) return false;
+        return true;
+    }
+
+    function applyFilters() {
+        var tables = document.querySelectorAll("table");
+        var totalVisible = 0;
+        var totalAll = 0;
+        tables.forEach(function (table) {
+            var tbody = table.tBodies[0];
+            if (!tbody) return;
+            Array.prototype.forEach.call(tbody.rows, function (row) {
+                totalAll++;
+                if (passes(row)) {
+                    row.style.display = "";
+                    totalVisible++;
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        });
+        if (countInfo) countInfo.textContent = totalVisible + " / " + totalAll + " righe visibili";
+    }
+
+    Object.keys(inputs).forEach(function (k) {
+        if (inputs[k]) inputs[k].addEventListener("input", applyFilters);
+    });
+    if (resetBtn) {
+        resetBtn.addEventListener("click", function () {
+            Object.keys(inputs).forEach(function (k) {
+                if (inputs[k]) inputs[k].value = "";
+            });
+            applyFilters();
+        });
+    }
+    applyFilters();
+})();
+</script>
+
+</body>
 </html>
