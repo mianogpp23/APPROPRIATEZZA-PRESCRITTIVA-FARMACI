@@ -10,7 +10,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "",
+      "email": "farmainca@libero.it",
+      "maps_url": "https://maps.google.com/?q=Via+Adua+113/A,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-11-17",
@@ -22,7 +26,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "",
+      "email": "farmainca@libero.it",
+      "maps_url": "https://maps.google.com/?q=Via+Adua+113/A,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-11-18",
@@ -34,7 +42,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "farmacia.emaia@virgilio.it",
+      "maps_url": "https://maps.google.com/?q=Via+Garibaldi+465,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-11-19",
@@ -46,7 +58,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "farmacia.emaia@virgilio.it",
+      "maps_url": "https://maps.google.com/?q=Via+Garibaldi+465,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-11-20",
@@ -58,7 +74,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia ven-sab"
+      "note": "Turno diurno - coppia ven-sab",
+      "cell": "",
+      "email": "gl85@msn.com",
+      "maps_url": "https://maps.google.com/?q=Via+Garibaldi+303,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-11-21",
@@ -70,7 +90,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia ven-sab"
+      "note": "Turno diurno - coppia ven-sab",
+      "cell": "",
+      "email": "gl85@msn.com",
+      "maps_url": "https://maps.google.com/?q=Via+Garibaldi+303,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-11-22",
@@ -82,7 +106,11 @@
       "tipo": "festivo",
       "orario_inizio": "09:00",
       "orario_fine": "09:00",
-      "note": "TURNO FESTIVO domenica 22 Novembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
+      "note": "TURNO FESTIVO domenica 22 Novembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani",
+      "cell": "",
+      "email": "gl85@msn.com",
+      "maps_url": "https://maps.google.com/?q=Via+Garibaldi+303,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-11-23",
@@ -94,7 +122,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "351 141 8778",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Generale+Cascino+30/E,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-11-24",
@@ -106,7 +138,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "351 141 8778",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Generale+Cascino+30/E,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-11-25",
@@ -118,7 +154,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "farmaciachiarasnc@libero.it",
+      "maps_url": "https://maps.google.com/?q=Via+Neghelli+81,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-11-26",
@@ -130,7 +170,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "farmaciachiarasnc@libero.it",
+      "maps_url": "https://maps.google.com/?q=Via+Neghelli+81,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-11-27",
@@ -142,7 +186,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia ven-sab"
+      "note": "Turno diurno - coppia ven-sab",
+      "cell": "",
+      "email": "farmaciavittoria15@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Strada+Scoglitti+66,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-11-28",
@@ -154,7 +202,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia ven-sab"
+      "note": "Turno diurno - coppia ven-sab",
+      "cell": "",
+      "email": "farmaciavittoria15@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Strada+Scoglitti+66,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-11-29",
@@ -166,7 +218,11 @@
       "tipo": "festivo",
       "orario_inizio": "09:00",
       "orario_fine": "09:00",
-      "note": "TURNO FESTIVO domenica 29 Novembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
+      "note": "TURNO FESTIVO domenica 29 Novembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani",
+      "cell": "",
+      "email": "farmaciavittoria15@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Strada+Scoglitti+66,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-11-30",
@@ -178,7 +234,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar (continua 1/12)"
+      "note": "Turno diurno - coppia lun-mar (continua 1/12)",
+      "cell": "",
+      "email": "farmaciamicasrl@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Via+Emanuele+Nicosia+13,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-01",
@@ -190,7 +250,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar (da 30/11)"
+      "note": "Turno diurno - coppia lun-mar (da 30/11)",
+      "cell": "",
+      "email": "farmaciamicasrl@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Via+Emanuele+Nicosia+13,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-02",
@@ -202,7 +266,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "farmaciama.vittoria@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Strada+Forcone+112,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-03",
@@ -214,7 +282,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "farmaciama.vittoria@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Strada+Forcone+112,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-04",
@@ -226,7 +298,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia ven-sab"
+      "note": "Turno diurno - coppia ven-sab",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+F.+Lauretta+20,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-05",
@@ -238,7 +314,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia ven-sab"
+      "note": "Turno diurno - coppia ven-sab",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+F.+Lauretta+20,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-06",
@@ -250,7 +330,11 @@
       "tipo": "festivo",
       "orario_inizio": "09:00",
       "orario_fine": "09:00",
-      "note": "TURNO FESTIVO domenica 6 Dicembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
+      "note": "TURNO FESTIVO domenica 6 Dicembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+F.+Lauretta+20,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-07",
@@ -286,7 +370,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Roma+161/C,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-10",
@@ -298,7 +386,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Roma+161/C,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-11",
@@ -310,7 +402,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia ven-sab"
+      "note": "Turno diurno - coppia ven-sab",
+      "cell": "",
+      "email": "farmaciajacono@libero.it",
+      "maps_url": "https://maps.google.com/?q=Piazza+del+Popolo+1,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-12",
@@ -322,7 +418,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia ven-sab"
+      "note": "Turno diurno - coppia ven-sab",
+      "cell": "",
+      "email": "farmaciajacono@libero.it",
+      "maps_url": "https://maps.google.com/?q=Piazza+del+Popolo+1,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-13",
@@ -334,7 +434,11 @@
       "tipo": "festivo",
       "orario_inizio": "09:00",
       "orario_fine": "09:00",
-      "note": "TURNO FESTIVO domenica 13 Dicembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
+      "note": "TURNO FESTIVO domenica 13 Dicembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani",
+      "cell": "",
+      "email": "farmaciajacono@libero.it",
+      "maps_url": "https://maps.google.com/?q=Piazza+del+Popolo+1,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-14",
@@ -346,7 +450,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Milano+123,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-15",
@@ -358,7 +466,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Milano+123,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-16",
@@ -370,7 +482,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "farmacia.cali@outlook.com",
+      "maps_url": "https://maps.google.com/?q=Via+Garibaldi+30,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-17",
@@ -382,7 +498,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "farmacia.cali@outlook.com",
+      "maps_url": "https://maps.google.com/?q=Via+Garibaldi+30,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-18",
@@ -394,7 +514,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia ven-sab"
+      "note": "Turno diurno - coppia ven-sab",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Cavour+443,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-19",
@@ -406,7 +530,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia ven-sab"
+      "note": "Turno diurno - coppia ven-sab",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Cavour+443,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-20",
@@ -418,7 +546,11 @@
       "tipo": "festivo",
       "orario_inizio": "09:00",
       "orario_fine": "09:00",
-      "note": "TURNO FESTIVO domenica 20 Dicembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
+      "note": "TURNO FESTIVO domenica 20 Dicembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Cavour+443,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-21",
@@ -430,7 +562,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "366 246 6638",
+      "email": "farmadep@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Via+Cavour+292,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-22",
@@ -442,7 +578,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "366 246 6638",
+      "email": "farmadep@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Via+Cavour+292,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-23",
@@ -454,7 +594,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "info@farmaciaguastella.com",
+      "maps_url": "https://maps.google.com/?q=Via+Forcone+58,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-24",
@@ -466,7 +610,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "info@farmaciaguastella.com",
+      "maps_url": "https://maps.google.com/?q=Via+Forcone+58,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-25",
@@ -478,7 +626,11 @@
       "tipo": "festivo",
       "orario_inizio": "09:00",
       "orario_fine": "09:00",
-      "note": "TURNO FESTIVO venerdì 25 Dicembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
+      "note": "TURNO FESTIVO venerdì 25 Dicembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani",
+      "cell": "",
+      "email": "farmainca@libero.it",
+      "maps_url": "https://maps.google.com/?q=Via+Adua+113/A,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-26",
@@ -490,7 +642,11 @@
       "tipo": "festivo",
       "orario_inizio": "09:00",
       "orario_fine": "09:00",
-      "note": "TURNO FESTIVO sabato 26 Dicembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
+      "note": "TURNO FESTIVO sabato 26 Dicembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani",
+      "cell": "",
+      "email": "farmainca@libero.it",
+      "maps_url": "https://maps.google.com/?q=Via+Adua+113/A,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-27",
@@ -502,7 +658,11 @@
       "tipo": "festivo",
       "orario_inizio": "09:00",
       "orario_fine": "09:00",
-      "note": "TURNO FESTIVO domenica 27 Dicembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
+      "note": "TURNO FESTIVO domenica 27 Dicembre 2026: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani",
+      "cell": "",
+      "email": "farmainca@libero.it",
+      "maps_url": "https://maps.google.com/?q=Via+Adua+113/A,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-28",
@@ -514,7 +674,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "",
+      "email": "farmacia.emaia@virgilio.it",
+      "maps_url": "https://maps.google.com/?q=Via+Garibaldi+465,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-29",
@@ -526,7 +690,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "",
+      "email": "farmacia.emaia@virgilio.it",
+      "maps_url": "https://maps.google.com/?q=Via+Garibaldi+465,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-30",
@@ -538,7 +706,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "gl85@msn.com",
+      "maps_url": "https://maps.google.com/?q=Via+Garibaldi+303,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2026-12-31",
@@ -550,7 +722,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "gl85@msn.com",
+      "maps_url": "https://maps.google.com/?q=Via+Garibaldi+303,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-01",
@@ -562,7 +738,11 @@
       "tipo": "festivo",
       "orario_inizio": "09:00",
       "orario_fine": "09:00",
-      "note": "TURNO FESTIVO venerdì 1 Gennaio 2027: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
+      "note": "TURNO FESTIVO venerdì 1 Gennaio 2027: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani",
+      "cell": "351 141 8778",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Generale+Cascino+30/E,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-02",
@@ -574,7 +754,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno 2 gennaio 2027 (tra Capodanno e festivo 3/1)"
+      "note": "Turno diurno 2 gennaio 2027 (tra Capodanno e festivo 3/1)",
+      "cell": "351 141 8778",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Generale+Cascino+30/E,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-03",
@@ -586,7 +770,11 @@
       "tipo": "festivo",
       "orario_inizio": "09:00",
       "orario_fine": "09:00",
-      "note": "TURNO FESTIVO domenica 3 Gennaio 2027: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
+      "note": "TURNO FESTIVO domenica 3 Gennaio 2027: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani",
+      "cell": "351 141 8778",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Generale+Cascino+30/E,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-04",
@@ -598,7 +786,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "",
+      "email": "farmaciachiarasnc@libero.it",
+      "maps_url": "https://maps.google.com/?q=Via+Neghelli+81,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-05",
@@ -610,7 +802,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "",
+      "email": "farmaciachiarasnc@libero.it",
+      "maps_url": "https://maps.google.com/?q=Via+Neghelli+81,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-06",
@@ -622,7 +818,11 @@
       "tipo": "festivo",
       "orario_inizio": "09:00",
       "orario_fine": "09:00",
-      "note": "TURNO FESTIVO mercoledì 6 Gennaio 2027: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
+      "note": "TURNO FESTIVO mercoledì 6 Gennaio 2027: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani",
+      "cell": "",
+      "email": "farmaciavittoria15@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Strada+Scoglitti+66,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-07",
@@ -634,7 +834,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno giovedì 7 (venerdì 8 inizia coppia ven-sab con AMICA)"
+      "note": "Turno diurno giovedì 7 (venerdì 8 inizia coppia ven-sab con AMICA)",
+      "cell": "",
+      "email": "farmaciavittoria15@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Strada+Scoglitti+66,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-08",
@@ -646,7 +850,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia ven-sab"
+      "note": "Turno diurno - coppia ven-sab",
+      "cell": "",
+      "email": "farmaciamicasrl@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Via+Emanuele+Nicosia+13,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-09",
@@ -658,7 +866,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia ven-sab"
+      "note": "Turno diurno - coppia ven-sab",
+      "cell": "",
+      "email": "farmaciamicasrl@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Via+Emanuele+Nicosia+13,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-10",
@@ -670,7 +882,11 @@
       "tipo": "festivo",
       "orario_inizio": "09:00",
       "orario_fine": "09:00",
-      "note": "TURNO FESTIVO domenica 10 Gennaio 2027: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
+      "note": "TURNO FESTIVO domenica 10 Gennaio 2027: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani",
+      "cell": "",
+      "email": "farmaciamicasrl@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Via+Emanuele+Nicosia+13,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-11",
@@ -682,7 +898,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "",
+      "email": "farmaciama.vittoria@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Strada+Forcone+112,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-12",
@@ -694,7 +914,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "",
+      "email": "farmaciama.vittoria@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Strada+Forcone+112,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-13",
@@ -706,7 +930,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+F.+Lauretta+20,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-14",
@@ -718,7 +946,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+F.+Lauretta+20,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-15",
@@ -766,7 +998,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Roma+161/C,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-19",
@@ -778,7 +1014,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Roma+161/C,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-20",
@@ -790,7 +1030,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "farmaciajacono@libero.it",
+      "maps_url": "https://maps.google.com/?q=Piazza+del+Popolo+1,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-21",
@@ -802,7 +1046,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "farmaciajacono@libero.it",
+      "maps_url": "https://maps.google.com/?q=Piazza+del+Popolo+1,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-22",
@@ -814,7 +1062,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia ven-sab"
+      "note": "Turno diurno - coppia ven-sab",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Milano+123,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-23",
@@ -826,7 +1078,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia ven-sab"
+      "note": "Turno diurno - coppia ven-sab",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Milano+123,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-24",
@@ -838,7 +1094,11 @@
       "tipo": "festivo",
       "orario_inizio": "09:00",
       "orario_fine": "09:00",
-      "note": "TURNO FESTIVO domenica 24 Gennaio 2027: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
+      "note": "TURNO FESTIVO domenica 24 Gennaio 2027: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Milano+123,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-25",
@@ -850,7 +1110,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "",
+      "email": "farmacia.cali@outlook.com",
+      "maps_url": "https://maps.google.com/?q=Via+Garibaldi+30,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-26",
@@ -862,7 +1126,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia lun-mar"
+      "note": "Turno diurno - coppia lun-mar",
+      "cell": "",
+      "email": "farmacia.cali@outlook.com",
+      "maps_url": "https://maps.google.com/?q=Via+Garibaldi+30,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-27",
@@ -874,7 +1142,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Cavour+443,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-28",
@@ -886,7 +1158,11 @@
       "tipo": "diurno",
       "orario_inizio": "08:30",
       "orario_fine": "20:00",
-      "note": "Turno diurno - coppia mer-gio"
+      "note": "Turno diurno - coppia mer-gio",
+      "cell": "",
+      "email": "",
+      "maps_url": "https://maps.google.com/?q=Via+Cavour+443,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     },
     {
       "data": "2027-01-31",
@@ -898,7 +1174,11 @@
       "tipo": "festivo",
       "orario_inizio": "09:00",
       "orario_fine": "09:00",
-      "note": "TURNO FESTIVO domenica 31 Gennaio 2027: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
+      "note": "TURNO FESTIVO domenica 31 Gennaio 2027: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani",
+      "cell": "366 246 6638",
+      "email": "farmadep@gmail.com",
+      "maps_url": "https://maps.google.com/?q=Via+Cavour+292,+Vittoria+(RG)",
+      "maps_label": "Vedi su Maps"
     }
   ],
   "avviso_giorni_mancanti": [
