@@ -565,6 +565,18 @@
       "note": "TURNO FESTIVO venerdì 1 Gennaio 2027: 09:00-20:00 giorno + 20:00-09:00 notte dell'indomani"
     },
     {
+      "data": "2027-01-02",
+      "farmacia": "FARMACIA VACCARELLO DR. ROBERTO",
+      "indirizzo": "VIA G. CASCINO N. 30/E",
+      "cap": "97019",
+      "comune": "Vittoria",
+      "telefono": "0932-981803",
+      "tipo": "diurno",
+      "orario_inizio": "08:30",
+      "orario_fine": "20:00",
+      "note": "Turno diurno 2 gennaio 2027 (tra Capodanno e festivo 3/1)"
+    },
+    {
       "data": "2027-01-03",
       "farmacia": "FARMACIA VACCARELLO DR. ROBERTO",
       "indirizzo": "VIA G. CASCINO N. 30/E",
