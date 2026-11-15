@@ -396,15 +396,21 @@
 
             var oggi = new Date();
             oggi.setHours(0, 0, 0, 0);
+            var oggiIso = oggi.getFullYear() + "-" + String(oggi.getMonth() + 1).padStart(2, "0") + "-" + String(oggi.getDate()).padStart(2, "0");
 
-            // Turni per oggi/domani/dopodomani
+            // Trova la prima data >= oggi nel JSON (se oggi non c'è, usa la prima futura)
+            var idxOggi = tuttiTurni.findIndex(function (t) { return t.data >= oggiIso; });
+            if (idxOggi === -1) idxOggi = tuttiTurni.length - 1;
+
+            // Turni per oggi/domani/dopodomani (partendo dalla prima data >= oggi)
             var turni = [];
             for (var i = 0; i < 3; i++) {
-                var d2 = new Date(oggi);
-                d2.setDate(d2.getDate() + i);
-                var iso = d2.getFullYear() + "-" + String(d2.getMonth() + 1).padStart(2, "0") + "-" + String(d2.getDate()).padStart(2, "0");
-                var turno = d.turni.find(function (t) { return t.data === iso; });
-                turni.push(turno || null);
+                var idx = idxOggi + i;
+                if (idx < tuttiTurni.length) {
+                    turni.push(tuttiTurni[idx]);
+                } else {
+                    turni.push(null);
+                }
             }
 
             // Mostra oggi di default
