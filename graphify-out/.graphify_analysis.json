@@ -1,0 +1,395 @@
+{
+  "communities": {
+    "0": [
+      "argparse",
+      "datetime",
+      "json",
+      "pathlib",
+      "scripts_applica_consenso_e_piedi",
+      "scripts_applica_consenso_e_piedi_main",
+      "scripts_applica_consenso_e_piedi_rationale_2",
+      "scripts_applicazione_aggiorna_convenzionata",
+      "scripts_applicazione_aggiorna_convenzionata_export_rows",
+      "scripts_applicazione_aggiorna_convenzionata_main",
+      "scripts_applicazione_aggiorna_convenzionata_rationale_2",
+      "scripts_applicazione_aggiorna_convenzionata_rationale_57",
+      "scripts_applicazione_aggiorna_link_mancanti",
+      "scripts_applicazione_aggiorna_link_mancanti_main",
+      "scripts_applicazione_aggiorna_link_mancanti_rationale_2",
+      "scripts_applicazione_aggiorna_mancanti_dpc",
+      "scripts_applicazione_aggiorna_mancanti_dpc_main",
+      "scripts_applicazione_aggiorna_mancanti_dpc_rationale_2",
+      "scripts_applicazione_aggiorna_mancanti_dpc_variazione",
+      "scripts_applicazione_aggiorna_nota_97",
+      "scripts_applicazione_aggiorna_nota_97_main",
+      "scripts_applicazione_aggiorna_nota_97_patch_html",
+      "scripts_applicazione_aggiorna_nota_97_patch_records",
+      "scripts_applicazione_aggiorna_nota_97_rationale_2",
+      "scripts_applicazione_aggiorna_nota_97_rationale_82",
+      "scripts_applicazione_aggiorna_note_2025_2026",
+      "scripts_applicazione_aggiorna_note_2025_2026_main",
+      "scripts_applicazione_aggiorna_note_2025_2026_rationale_2",
+      "scripts_applicazione_apply_theme",
+      "scripts_applicazione_apply_theme_rationale_2",
+      "scripts_applicazione_correggi_associazioni",
+      "scripts_applicazione_correggi_associazioni_main",
+      "scripts_applicazione_correggi_associazioni_rationale_2",
+      "scripts_applicazione_fix_sorting_gruppi",
+      "scripts_applicazione_fix_sorting_gruppi_main",
+      "scripts_applicazione_fix_sorting_gruppi_rationale_2",
+      "scripts_applicazione_marker_dpc_mancanti",
+      "scripts_applicazione_marker_dpc_mancanti_main",
+      "scripts_applicazione_marker_dpc_mancanti_marker",
+      "scripts_applicazione_marker_dpc_mancanti_rationale_2",
+      "scripts_applicazione_pulisci_entita_json",
+      "scripts_applicazione_pulisci_entita_json_main",
+      "scripts_applicazione_pulisci_entita_json_pulisci_valore",
+      "scripts_applicazione_pulisci_entita_json_rationale_2",
+      "scripts_rendi_portabili",
+      "scripts_rendi_portabili_main",
+      "scripts_rendi_portabili_rationale_2",
+      "shutil",
+      "sys"
+    ],
+    "1": [
+      "match",
+      "scripts_sync_html_da_json",
+      "scripts_sync_html_da_json_apply_note_pagina",
+      "scripts_sync_html_da_json_apply_pillole_pagina",
+      "scripts_sync_html_da_json_build_row",
+      "scripts_sync_html_da_json_cells_of",
+      "scripts_sync_html_da_json_contesto_riga",
+      "scripts_sync_html_da_json_esc",
+      "scripts_sync_html_da_json_indice_pagine",
+      "scripts_sync_html_da_json_insert_missing_rows",
+      "scripts_sync_html_da_json_key_for_cells",
+      "scripts_sync_html_da_json_key_for_row",
+      "scripts_sync_html_da_json_link_for",
+      "scripts_sync_html_da_json_load_links",
+      "scripts_sync_html_da_json_load_note_pagine",
+      "scripts_sync_html_da_json_load_pillole_pagine",
+      "scripts_sync_html_da_json_load_records",
+      "scripts_sync_html_da_json_main",
+      "scripts_sync_html_da_json_marker_mancanti",
+      "scripts_sync_html_da_json_norm",
+      "scripts_sync_html_da_json_normalizza",
+      "scripts_sync_html_da_json_pagina_documento",
+      "scripts_sync_html_da_json_rationale_114",
+      "scripts_sync_html_da_json_rationale_148",
+      "scripts_sync_html_da_json_rationale_2",
+      "scripts_sync_html_da_json_rationale_388",
+      "scripts_sync_html_da_json_rationale_403",
+      "scripts_sync_html_da_json_rationale_434",
+      "scripts_sync_html_da_json_rationale_439",
+      "scripts_sync_html_da_json_rationale_460",
+      "scripts_sync_html_da_json_rationale_481",
+      "scripts_sync_html_da_json_rationale_492",
+      "scripts_sync_html_da_json_rationale_500",
+      "scripts_sync_html_da_json_rationale_519",
+      "scripts_sync_html_da_json_rationale_85",
+      "scripts_sync_html_da_json_render_note",
+      "scripts_sync_html_da_json_render_note_html",
+      "scripts_sync_html_da_json_rows_of",
+      "scripts_sync_html_da_json_sort_key",
+      "scripts_sync_html_da_json_strip_tags",
+      "scripts_sync_html_da_json_sync_page"
+    ],
+    "2": [
+      "re",
+      "scripts_applicazione_apply_theme_main",
+      "scripts_applicazione_apply_theme_main_repl_style",
+      "scripts_applicazione_apply_theme_tokenize",
+      "scripts_applicazione_apply_theme_tokenize_fix_highlight",
+      "scripts_applicazione_ocr_indice_pagine",
+      "scripts_applicazione_ocr_indice_pagine_main",
+      "scripts_applicazione_ocr_indice_pagine_normalizza",
+      "scripts_applicazione_ocr_indice_pagine_py_path",
+      "scripts_applicazione_ocr_indice_pagine_rationale_2",
+      "scripts_applicazione_ocr_indice_pagine_rationale_30",
+      "scripts_applicazione_ocr_indice_pagine_testo_pdf",
+      "scripts_validazione_audit_associazioni",
+      "scripts_validazione_audit_associazioni_main",
+      "scripts_validazione_audit_associazioni_note_citate",
+      "scripts_validazione_audit_associazioni_rationale_2",
+      "scripts_validazione_audit_associazioni_rationale_45",
+      "scripts_validazione_audit_associazioni_testo_riga",
+      "scripts_validazione_test_ordinamenti",
+      "scripts_validazione_test_ordinamenti_main",
+      "scripts_validazione_test_ordinamenti_rationale_2",
+      "scripts_validazione_verifica_deep_link",
+      "scripts_validazione_verifica_deep_link_main",
+      "scripts_validazione_verifica_deep_link_py_path",
+      "scripts_validazione_verifica_deep_link_rationale_2",
+      "scripts_validazione_verifica_deep_link_testo_pagine",
+      "scripts_validazione_verifica_link",
+      "scripts_validazione_verifica_link_check_url",
+      "scripts_validazione_verifica_link_document_stamp",
+      "scripts_validazione_verifica_link_main",
+      "scripts_validazione_verifica_link_py_path",
+      "scripts_validazione_verifica_link_rationale_2",
+      "scripts_validazione_verifica_link_rationale_37",
+      "subprocess",
+      "tempfile"
+    ],
+    "3": [
+      "csv",
+      "os",
+      "playwright_sync_api",
+      "scripts_applicazione_estrai_2023",
+      "scripts_applicazione_estrai_2023_band_chars",
+      "scripts_applicazione_estrai_2023_bucket_text",
+      "scripts_applicazione_estrai_2023_check_pause",
+      "scripts_applicazione_estrai_2023_classify",
+      "scripts_applicazione_estrai_2023_extract_diretta",
+      "scripts_applicazione_estrai_2023_extract_dpc",
+      "scripts_applicazione_estrai_2023_extract_nota99",
+      "scripts_applicazione_estrai_2023_hbands",
+      "scripts_applicazione_estrai_2023_main",
+      "scripts_applicazione_estrai_2023_norm",
+      "scripts_applicazione_estrai_2023_now_iso",
+      "scripts_applicazione_estrai_2023_rationale_103",
+      "scripts_applicazione_estrai_2023_rationale_2",
+      "scripts_applicazione_estrai_2023_rationale_67",
+      "scripts_applicazione_estrai_2023_rationale_84",
+      "scripts_applicazione_estrai_2023_save_progress",
+      "scripts_build_index",
+      "scripts_build_index_main",
+      "scripts_build_index_rationale_2",
+      "scripts_validazione_test_index",
+      "scripts_validazione_test_index_mono",
+      "scripts_validazione_test_index_rationale_2",
+      "socket",
+      "time"
+    ],
+    "4": [
+      "pdfplumber",
+      "scripts_applicazione_ricostruisci_nota99",
+      "scripts_applicazione_ricostruisci_nota99_clean",
+      "scripts_applicazione_ricostruisci_nota99_extract_table",
+      "scripts_applicazione_ricostruisci_nota99_main",
+      "scripts_applicazione_ricostruisci_nota99_rationale_2",
+      "scripts_validazione_audit_geometrico_dpc",
+      "scripts_validazione_audit_geometrico_dpc_clean",
+      "scripts_validazione_audit_geometrico_dpc_colonne_header",
+      "scripts_validazione_audit_geometrico_dpc_main",
+      "scripts_validazione_audit_geometrico_dpc_norm",
+      "scripts_validazione_audit_geometrico_dpc_rationale_2",
+      "scripts_validazione_audit_geometrico_dpc_rationale_66",
+      "scripts_validazione_audit_geometrico_dpc_righe_pagina",
+      "scripts_validazione_audit_tabelle_dpc",
+      "scripts_validazione_audit_tabelle_dpc_clean",
+      "scripts_validazione_audit_tabelle_dpc_estrai",
+      "scripts_validazione_audit_tabelle_dpc_main",
+      "scripts_validazione_audit_tabelle_dpc_norm",
+      "scripts_validazione_audit_tabelle_dpc_rationale_2"
+    ],
+    "5": [
+      "collections",
+      "importlib_util",
+      "scripts_validazione_audit_contaminazione",
+      "scripts_validazione_audit_contaminazione_main",
+      "scripts_validazione_audit_contaminazione_rationale_2",
+      "scripts_validazione_audit_estratore_vs_json",
+      "scripts_validazione_audit_estratore_vs_json_main",
+      "scripts_validazione_audit_estratore_vs_json_pulisci",
+      "scripts_validazione_audit_estratore_vs_json_rationale_2",
+      "scripts_validazione_qa_crosscheck",
+      "scripts_validazione_qa_crosscheck_norm",
+      "scripts_validazione_qa_crosscheck_rationale_2",
+      "scripts_validazione_qa_crosscheck_tok",
+      "scripts_validazione_verifica_atc",
+      "scripts_validazione_verifica_atc_hbands",
+      "scripts_validazione_verifica_atc_rationale_2",
+      "scripts_validazione_verifica_atc_txt",
+      "unicodedata"
+    ],
+    "6": [
+      "html",
+      "scripts_build_dpc_convenzionata",
+      "scripts_build_dpc_convenzionata_esc",
+      "scripts_build_dpc_convenzionata_main",
+      "scripts_build_dpc_convenzionata_main_confezioni",
+      "scripts_build_dpc_convenzionata_main_riga",
+      "scripts_build_dpc_convenzionata_norm_cella",
+      "scripts_build_dpc_convenzionata_rationale_2",
+      "scripts_build_dpc_convenzionata_rationale_78",
+      "scripts_build_dpc_convenzionata_tabelle_pdf"
+    ],
+    "7": [
+      "scripts_applicazione_aggiorna_norme_2026",
+      "scripts_applicazione_aggiorna_norme_2026_main",
+      "scripts_applicazione_aggiorna_norme_2026_patch_html",
+      "scripts_applicazione_aggiorna_norme_2026_patch_html_fix_row",
+      "scripts_applicazione_aggiorna_norme_2026_patch_html_fix_row_repl",
+      "scripts_applicazione_aggiorna_norme_2026_patch_records",
+      "scripts_applicazione_aggiorna_norme_2026_rationale_127",
+      "scripts_applicazione_aggiorna_norme_2026_rationale_2",
+      "scripts_applicazione_aggiorna_norme_2026_rationale_90",
+      "scripts_applicazione_aggiorna_norme_2026_rules_for_note"
+    ],
+    "8": [
+      "consent",
+      "consent_accettato",
+      "consent_consensonellasessione",
+      "consent_cookieconsentito",
+      "consent_pagina",
+      "consent_registra"
+    ],
+    "9": [
+      "theme",
+      "theme_apply",
+      "theme_build",
+      "theme_current",
+      "theme_propagate",
+      "theme_saved"
+    ]
+  },
+  "cohesion": {
+    "0": 0.10459183673469388,
+    "1": 0.09390243902439024,
+    "2": 0.10252100840336134,
+    "3": 0.1455026455026455,
+    "4": 0.16842105263157894,
+    "5": 0.13071895424836602,
+    "6": 0.3111111111111111,
+    "7": 0.28888888888888886,
+    "8": 0.4,
+    "9": 0.6666666666666666
+  },
+  "gods": [
+    {
+      "id": "scripts_sync_html_da_json_sync_page",
+      "label": "sync_page()",
+      "degree": 13
+    },
+    {
+      "id": "scripts_applicazione_estrai_2023_main",
+      "label": "main()",
+      "degree": 13
+    },
+    {
+      "id": "scripts_sync_html_da_json_esc",
+      "label": "esc()",
+      "degree": 7
+    },
+    {
+      "id": "scripts_sync_html_da_json_insert_missing_rows",
+      "label": "insert_missing_rows()",
+      "degree": 7
+    },
+    {
+      "id": "scripts_sync_html_da_json_main",
+      "label": "main()",
+      "degree": 7
+    },
+    {
+      "id": "scripts_sync_html_da_json_render_note",
+      "label": "render_note()",
+      "degree": 7
+    },
+    {
+      "id": "scripts_applicazione_estrai_2023_extract_diretta",
+      "label": "extract_diretta()",
+      "degree": 7
+    },
+    {
+      "id": "scripts_applicazione_estrai_2023_extract_nota99",
+      "label": "extract_nota99()",
+      "degree": 7
+    },
+    {
+      "id": "scripts_validazione_audit_geometrico_dpc_main",
+      "label": "main()",
+      "degree": 7
+    },
+    {
+      "id": "scripts_applicazione_aggiorna_convenzionata_main",
+      "label": "main()",
+      "degree": 6
+    }
+  ],
+  "surprises": [
+    {
+      "source": "export_rows()",
+      "target": "re",
+      "source_files": [
+        "scripts/applicazione/aggiorna_convenzionata.py",
+        ""
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 0 → community 2"
+    },
+    {
+      "source": "main()",
+      "target": "json",
+      "source_files": [
+        "scripts/applicazione/estrai_2023.py",
+        ""
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 3 → community 0"
+    },
+    {
+      "source": "main()",
+      "target": "pdfplumber",
+      "source_files": [
+        "scripts/applicazione/estrai_2023.py",
+        ""
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 3 → community 4"
+    },
+    {
+      "source": "norm()",
+      "target": "re",
+      "source_files": [
+        "scripts/applicazione/estrai_2023.py",
+        ""
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 3 → community 2"
+    },
+    {
+      "source": "clean()",
+      "target": "re",
+      "source_files": [
+        "scripts/applicazione/ricostruisci_nota99.py",
+        ""
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 4 → community 2"
+    }
+  ],
+  "questions": [
+    {
+      "type": "low_cohesion",
+      "question": "Should `json` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10459183673469388 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `sync_html_da_json.py` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09390243902439024 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `re` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10252100840336134 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `estrai_2023.py` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1455026455026455 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `audit_estratore_vs_json.py` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.13071895424836602 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
