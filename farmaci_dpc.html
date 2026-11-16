@@ -1834,6 +1834,12 @@
     <!-- FAB per aprire il drawer -->
     <button class="info-fab" onclick="toggleInfoDrawer()" title="Regole operative">ℹ️</button>
 
+<div id="ptModal" class="pt-modal" hidden>
+  <div class="pt-modal-box">
+    <button type="button" class="pt-modal-close" aria-label="Chiudi">&times;</button>
+    <pre id="ptModalText"></pre>
+  </div>
+</div>
 <script>
 document.addEventListener('click', function(e){
   var btn=e.target.closest('.pt-toggle');
@@ -1890,11 +1896,5 @@ document.addEventListener('click', function(e){
 })();
 </script>
 
-<div id="ptModal" class="pt-modal" hidden>
-  <div class="pt-modal-box">
-    <button type="button" class="pt-modal-close" aria-label="Chiudi">&times;</button>
-    <pre id="ptModalText"></pre>
-  </div>
-</div>
 </body>
 </html>
