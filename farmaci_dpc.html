@@ -1840,18 +1840,19 @@ document.addEventListener('click', function(e){
   if(!btn) return;
   e.preventDefault(); e.stopPropagation();
   var td=btn.closest('td');
+  var short=td.querySelector('.pt-short');
   var long=td.querySelector('.pt-long');
   var modal=document.getElementById('ptModal');
   var txt=document.getElementById('ptModalText');
-  if(modal && txt && long){ txt.textContent=long.textContent; modal.removeAttribute('hidden'); }
+  if(modal && txt && long){ txt.textContent=long.textContent; if(short) short.style.display='none'; modal.removeAttribute('hidden'); }
 });
 (function(){
   var modal=document.getElementById('ptModal');
   if(!modal) return;
   var close=modal.querySelector('.pt-modal-close');
-  if(close) close.addEventListener('click', function(){ modal.setAttribute('hidden',''); });
-  modal.addEventListener('click', function(e){ if(e.target===modal) modal.setAttribute('hidden',''); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') modal.setAttribute('hidden',''); });
+  if(close) close.addEventListener('click', function(){ modal.setAttribute('hidden',''); document.querySelectorAll('.pt-short').forEach(function(s){ s.style.display=''; }); });
+  modal.addEventListener('click', function(e){ if(e.target===modal){ modal.setAttribute('hidden',''); document.querySelectorAll('.pt-short').forEach(function(s){ s.style.display=''; }); } });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ modal.setAttribute('hidden',''); document.querySelectorAll('.pt-short').forEach(function(s){ s.style.display=''; }); } });
 })();
 </script>
 
