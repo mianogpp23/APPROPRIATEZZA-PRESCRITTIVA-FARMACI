@@ -267,6 +267,12 @@
     .resize-handle:hover, .resizing .resize-handle { background: rgba(var(--t-accent-rgb),0.5); }
     table.dpc td, table.dpc th { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     td.pt { white-space: normal; }
+
+    .pt-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+    .pt-modal[hidden] { display: none; }
+    .pt-modal-box { position: relative; max-width: 90vw; max-height: 80vh; overflow: auto; background: rgb(var(--t-bg-rgb)); color: var(--text); border: 1px solid var(--glass-border); border-radius: 14px; padding: 24px 28px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+    .pt-modal-box pre { white-space: pre-wrap; font-family: inherit; font-size: 13px; line-height: 1.5; margin: 0; }
+    .pt-modal-close { position: absolute; top: 8px; right: 12px; border: none; background: transparent; color: var(--text); font-size: 22px; cursor: pointer; }
 </style>
 <script>(function(){try{var t=localStorage.getItem("dpc-tema");if(t){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();</script>
     <script src="consent.js"></script>
@@ -1832,13 +1838,21 @@
 document.addEventListener('click', function(e){
   var btn=e.target.closest('.pt-toggle');
   if(!btn) return;
+  e.preventDefault(); e.stopPropagation();
   var td=btn.closest('td');
-  var short=td.querySelector('.pt-short');
   var long=td.querySelector('.pt-long');
-  var open = long.hasAttribute('hidden');
-  if(open){ long.removeAttribute('hidden'); short.style.display='none'; btn.textContent='chiudi'; btn.setAttribute('aria-expanded','true'); }
-  else { long.setAttribute('hidden',''); short.style.display='inline'; btn.textContent='vedi'; btn.setAttribute('aria-expanded','false'); }
+  var modal=document.getElementById('ptModal');
+  var txt=document.getElementById('ptModalText');
+  if(modal && txt && long){ txt.textContent=long.textContent; modal.removeAttribute('hidden'); }
 });
+(function(){
+  var modal=document.getElementById('ptModal');
+  if(!modal) return;
+  var close=modal.querySelector('.pt-modal-close');
+  if(close) close.addEventListener('click', function(){ modal.setAttribute('hidden',''); });
+  modal.addEventListener('click', function(e){ if(e.target===modal) modal.setAttribute('hidden',''); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') modal.setAttribute('hidden',''); });
+})();
 </script>
 
 <script>
@@ -1875,5 +1889,12 @@ document.addEventListener('click', function(e){
     document.querySelectorAll("table.dpc").forEach(makeResizable);
 })();
 </script>
+
+<div id="ptModal" class="pt-modal" hidden>
+  <div class="pt-modal-box">
+    <button type="button" class="pt-modal-close" aria-label="Chiudi">&times;</button>
+    <pre id="ptModalText"></pre>
+  </div>
+</div>
 </body>
 </html>
