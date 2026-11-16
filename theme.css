@@ -343,9 +343,9 @@ html[data-theme="caldo"] {
         width: 100%;
     }
     .turno-card-dati .v {
-        font-size: 17px;
-        font-weight: 600;
-        color: rgb(var(--t-text-rgb));
+        font-size: 28px;
+        font-weight: 700;
+        color: rgb(var(--t-red-rgb));
         text-align: center;
     }
 .turno-card-link {
