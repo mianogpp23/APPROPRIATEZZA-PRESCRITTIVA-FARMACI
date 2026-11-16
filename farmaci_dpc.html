@@ -260,6 +260,13 @@
     .pt-long { display: block; margin-top: 6px; padding: 8px 10px; background: rgba(var(--t-ov-rgb),0.08); border: 1px solid var(--glass-border); border-radius: 8px; white-space: pre-wrap; font-size: 12px; }
     .pt-empty { color: var(--muted); }
     .piano { text-align: center; font-size: 12px; }
+
+    table.dpc { table-layout: fixed; width: 100%; }
+    table.dpc th { position: relative; }
+    .resize-handle { position: absolute; top: 0; right: 0; width: 6px; height: 100%; cursor: col-resize; user-select: none; z-index: 2; }
+    .resize-handle:hover, .resizing .resize-handle { background: rgba(var(--t-accent-rgb),0.5); }
+    table.dpc td, table.dpc th { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    td.pt { white-space: normal; }
 </style>
 <script>(function(){try{var t=localStorage.getItem("dpc-tema");if(t){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();</script>
     <script src="consent.js"></script>
@@ -281,13 +288,20 @@
         <h1 class="page-title">Farmaci in distribuzione DPC</h1>
 
         <table class="dpc">
+            <colgroup>
+                <col class="col-minsan" style="width:110px">
+                <col class="col-descr" style="width:260px">
+                <col class="col-princ" style="width:180px">
+                <col class="col-piano" style="width:90px">
+                <col class="col-pt" style="width:220px">
+            </colgroup>
             <thead>
                 <tr>
-                    <th class="sortable" data-col="0">Minsan</th>
-                    <th class="sortable" data-col="1">Descrizione</th>
-                    <th class="sortable" data-col="2">Principio Attivo</th>
-                    <th class="sortable" data-col="3">Piano Web</th>
-                    <th class="sortable" data-col="4">PT/SM/Nota AIFA</th>
+                    <th class="sortable" data-col="0">Minsan<span class="resize-handle"></span></th>
+                    <th class="sortable" data-col="1">Descrizione<span class="resize-handle"></span></th>
+                    <th class="sortable" data-col="2">Principio Attivo<span class="resize-handle"></span></th>
+                    <th class="sortable" data-col="3">Piano Web<span class="resize-handle"></span></th>
+                    <th class="sortable" data-col="4">PT/SM/Nota AIFA<span class="resize-handle"></span></th>
                 </tr>
             </thead>
             <tbody>
@@ -1825,6 +1839,41 @@ document.addEventListener('click', function(e){
   if(open){ long.removeAttribute('hidden'); short.style.display='none'; btn.textContent='chiudi'; btn.setAttribute('aria-expanded','true'); }
   else { long.setAttribute('hidden',''); short.style.display='inline'; btn.textContent='vedi'; btn.setAttribute('aria-expanded','false'); }
 });
+</script>
+
+<script>
+(function () {
+    "use strict";
+    function makeResizable(table) {
+        if (!table) return;
+        var cols = table.querySelectorAll("colgroup col");
+        var ths = table.querySelectorAll("thead th");
+        ths.forEach(function (th, i) {
+            var handle = th.querySelector(".resize-handle");
+            if (!handle) return;
+            handle.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); });
+            handle.addEventListener("mousedown", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var startX = e.pageX;
+                var startW = cols[i].getBoundingClientRect().width;
+                document.body.classList.add("resizing");
+                function onMove(ev) {
+                    var newW = Math.max(60, startW + (ev.pageX - startX));
+                    cols[i].style.width = newW + "px";
+                }
+                function onUp() {
+                    document.body.classList.remove("resizing");
+                    document.removeEventListener("mousemove", onMove);
+                    document.removeEventListener("mouseup", onUp);
+                }
+                document.addEventListener("mousemove", onMove);
+                document.addEventListener("mouseup", onUp);
+            });
+        });
+    }
+    document.querySelectorAll("table.dpc").forEach(makeResizable);
+})();
 </script>
 </body>
 </html>
