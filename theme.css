@@ -262,7 +262,7 @@ html[data-theme="caldo"] {
     gap: 8px;
 }
 .turno-card-title {
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -279,18 +279,18 @@ html[data-theme="caldo"] {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 12px;
+    font-size: 14px;
     color: rgb(var(--t-text-rgb));
 }
 .turno-card-select label {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     color: rgb(var(--t-muted2-rgb));
     letter-spacing: 0.03em;
 }
 .turno-card-select select {
-    font-size: 12px;
+    font-size: 14px;
     padding: 3px 6px;
     border: 1px solid rgba(var(--t-accent-rgb), 0.35);
     border-radius: 5px;
@@ -306,18 +306,18 @@ html[data-theme="caldo"] {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 12px;
+    font-size: 14px;
     color: rgb(var(--t-text-rgb));
 }
 .turno-citta-select label {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     color: rgb(var(--t-muted2-rgb));
     letter-spacing: 0.03em;
 }
 .turno-citta-select select {
-    font-size: 12px;
+    font-size: 14px;
     padding: 3px 6px;
     border: 1px solid rgba(var(--t-accent-rgb), 0.35);
     border-radius: 5px;
@@ -331,13 +331,13 @@ html[data-theme="caldo"] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6px 12px;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.4;
 }
 .turno-card-grid .k {
     color: rgb(var(--t-muted2-rgb));
     font-weight: 700;
-    font-size: 10px;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.02em;
 }
@@ -345,7 +345,7 @@ html[data-theme="caldo"] {
 .turno-card-link {
     display: inline-block;
     margin-top: 6px;
-    font-size: 13px;
+    font-size: 15px;
     color: rgb(var(--t-accent-rgb));
     font-weight: 700;
     text-decoration: none;
