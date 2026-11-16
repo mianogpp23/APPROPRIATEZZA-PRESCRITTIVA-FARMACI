@@ -331,26 +331,23 @@ html[data-theme="caldo"] {
 }
 .turno-citta-select select:focus { outline: 1.5px solid rgb(var(--t-accent-rgb)); }
 
-.turno-card-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 16px;
-    font-size: 16px;
-    line-height: 1.5;
-    width: 100%;
-}
-.turno-card-grid .k {
-    color: rgb(var(--t-muted2-rgb));
-    font-weight: 700;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-}
-.turno-card-grid .v {
-    font-size: 17px;
-    font-weight: 600;
-    color: rgb(var(--t-text-rgb));
-}
+    .turno-card-dati {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 6px 12px;
+        font-size: 17px;
+        line-height: 1.5;
+        text-align: center;
+        width: 100%;
+    }
+    .turno-card-dati .v {
+        font-size: 17px;
+        font-weight: 600;
+        color: rgb(var(--t-text-rgb));
+        text-align: center;
+    }
 .turno-card-link {
     display: inline-block;
     margin-top: 6px;
@@ -446,12 +443,23 @@ html[data-theme="caldo"] {
     .turno-citta-select { font-size: 11px; gap: 5px; }
     .turno-citta-select label { font-size: 9px; }
     .turno-citta-select select { font-size: 11px; padding: 2px 5px; border-radius: 4px; }
-    .turno-card-grid {
-        grid-template-columns: 1fr;
-        gap: 5px 10px;
-        font-size: 11px;
+    .turno-card-dati {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 6px 12px;
+        font-size: 17px;
+        line-height: 1.5;
+        text-align: center;
+        width: 100%;
     }
-    .turno-card-grid .k { font-size: 10px; }
+    .turno-card-dati .v {
+        font-size: 17px;
+        font-weight: 600;
+        color: rgb(var(--t-text-rgb));
+        text-align: center;
+    }
     .turno-card-link { font-size: 12px; margin-top: 5px; }
 
     .turno-card-btn {
