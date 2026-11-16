@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eparinoidi in DPC</title>
+<link rel="stylesheet" href="theme.css">
+<style>
+
+    :root {
+        --bg1: rgb(var(--t-bg-rgb));
+        --bg2: rgb(var(--t-bg2-rgb));
+        --accent: rgb(var(--t-accent-rgb));
+        --accent2: rgb(var(--t-accent2-rgb));
+        --glass: rgba(var(--t-ov-rgb),0.06);
+        --glass-border: rgba(var(--t-ov-rgb),0.16);
+        --text: rgb(var(--t-text-rgb));
+        --muted: rgb(var(--t-muted-rgb));
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        min-height: 100vh;
+        background: rgb(var(--t-bg-rgb));
+        color: var(--text);
+        padding: 32px 16px 48px;
+    }
+    .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.35;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .orb.o1 { width: 400px; height: 400px; background: rgb(var(--t-accent-rgb)); top: -120px; left: -100px; }
+    .orb.o2 { width: 340px; height: 340px; background: rgb(var(--t-accent2-rgb)); bottom: -100px; right: -80px; }
+    .orb.o3 { width: 260px; height: 260px; background: rgb(var(--t-pink-rgb)); top: 40%; left: 50%; }
+    .orb.o4 { width: 200px; height: 200px; background: rgb(var(--t-green2-rgb)); top: 20%; right: 15%; }
+    .container { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; }
+    .back {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .back:hover { text-decoration: underline; }
+    .page, .page-block, section.page-block {
+        background: var(--glass);
+        backdrop-filter: blur(14px) saturate(140%);
+        -webkit-backdrop-filter: blur(14px) saturate(140%);
+        border: 1px solid var(--glass-border);
+        border-radius: 18px;
+        padding: 26px 24px 40px;
+        box-shadow: 0 1px 6px rgba(var(--t-ink-rgb),0.25);
+    }
+    .indice-box {
+        position: absolute;
+        top: 14px;
+        right: 18px;
+        border: 1px solid var(--glass-border);
+        background: rgba(var(--t-ov-rgb),0.06);
+        padding: 2px 10px;
+        border-radius: 8px;
+        line-height: 1;
+    }
+    .indice-box a {
+        color: var(--accent);
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: bold;
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 1px;
+    }
+    h1, h1.doc-title, h2, h3 {
+        color: var(--text);
+    }
+    h1.doc-title {
+        margin: 34px auto 26px;
+        text-align: center;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(26px, 4.5vw, 38px);
+        line-height: 1.15;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgb(var(--t-red-rgb));
+    }
+    .bar-green {
+        background: linear-gradient(90deg, rgb(var(--t-green3-rgb)), rgb(var(--t-green4-rgb)));
+        color: rgb(var(--t-white-rgb));
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+        letter-spacing: 0.5px;
+        padding: 8px 10px;
+        border: 1px solid var(--glass-border);
+        border-bottom: none;
+        border-radius: 10px 10px 0 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 18px;
+        background: rgba(var(--t-ov-rgb),0.03);
+    }
+    th, td {
+        padding: 6px 9px;
+        vertical-align: middle;
+        border: 1px solid var(--glass-border);
+        color: var(--text);
+        font-size: 13px;
+    }
+    th {
+        background: rgba(var(--t-accent-rgb),0.12);
+        font-weight: bold;
+        text-align: center;
+    }
+    table.dpc th.sortable {
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        padding-right: 16px;
+    }
+    table.dpc th.sortable::after {
+        content: " ⇅";
+        font-size: 11px;
+        color: var(--muted);
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    table.dpc th.sortable.asc::after  { content: " ▲"; color: var(--accent); }
+    table.dpc th.sortable.desc::after { content: " ▼"; color: var(--accent); }
+    table.dpc th.sortable:hover { background: rgba(var(--t-accent-rgb),0.22); }
+    td.aic, td.minsan { white-space: nowrap; }
+    tr.note td, .note {
+        background: rgba(var(--t-ov-rgb),0.04);
+        font-style: italic;
+        color: var(--muted);
+    }
+    p, .note { line-height: 1.5; margin: 8px 0; }
+    ul { margin: 8px 0 8px 22px; line-height: 1.5; }
+    .footer {
+        position: relative;
+        margin-top: 44px;
+        min-height: 60px;
+    }
+    .brand {
+        position: absolute;
+        left: 0;
+        top: 14px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .page-number {
+        width: 54px;
+        height: 54px;
+        margin: 0 auto;
+        border: 1px solid var(--glass-border);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 16px;
+        background: radial-gradient(circle at center, rgba(var(--t-white-rgb),0.12) 55%, rgba(var(--t-ov-rgb),0.04) 100%);
+    }
+
+
+    .filter-bar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        background: rgba(var(--t-bg-rgb),0.85);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(var(--t-ov-rgb),0.12);
+        border-radius: 12px;
+    }
+    .filter-bar input {
+        flex: 1 1 140px;
+        min-width: 120px;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(var(--t-ov-rgb),0.18);
+        background: rgba(var(--t-ov-rgb),0.06);
+        color: rgb(var(--t-text-rgb));
+        font-size: 16px;
+        outline: none;
+    }
+    .filter-bar input:focus { border-color: rgb(var(--t-accent-rgb)); }
+    .filter-bar button {
+        padding: 12px 18px;
+        border-radius: 10px;
+        border: 1px solid rgba(var(--t-ov-rgb),0.18);
+        background: rgba(var(--t-accent-rgb),0.15);
+        color: rgb(var(--t-accent-rgb));
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 13px;
+    }
+    .filter-bar button:hover { background: rgba(var(--t-accent-rgb),0.25); }
+    #count-info {
+        font-size: 12px;
+        color: rgb(var(--t-muted-rgb));
+        margin-left: auto;
+        white-space: nowrap;
+    }
+
+
+    .page-block:not(:first-of-type) {
+        max-height: 60vh;
+        overflow-y: auto;
+        margin-top: 16px;
+    }
+    .page-block:not(:first-of-type) table { margin-bottom: 0; }
+
+
+    .page-title {
+        text-align: center;
+        color: rgb(var(--t-red-rgb));
+        font-size: clamp(20px, 3.5vw, 30px);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 16px;
+        font-family: Georgia, "Times New Roman", serif;
+    }
+
+
+
+    .site-foot {
+        margin: 26px 0 0; padding: 14px 0 0;
+        border-top: 1px solid var(--glass-border); color: var(--muted); font-size: 13.5px; line-height: 1.5;
+    }
+    .site-foot p { margin: 0 0 6px; }
+    .site-foot a { color: var(--accent); }
+
+.pills { display: block !important; }
+.pill { width: 100%; }
+
+    /* PT popup toggle */
+    .pt { position: relative; }
+    .pt-short { display: inline; }
+    .pt-toggle { margin-left: 6px; padding: 1px 6px; font-size: 11px; border: 1px solid var(--glass-border); background: rgba(var(--t-ov-rgb),0.08); color: var(--accent); border-radius: 6px; cursor: pointer; }
+    .pt-toggle:hover { background: rgba(var(--t-accent-rgb),0.18); }
+    .pt-long { display: block; margin-top: 6px; padding: 8px 10px; background: rgba(var(--t-ov-rgb),0.08); border: 1px solid var(--glass-border); border-radius: 8px; white-space: pre-wrap; font-size: 12px; }
+    .pt-long[hidden] { display: none; }
+    .pt-empty { color: var(--muted); }
+    .piano { text-align: center; font-size: 12px; }
+
+    table.dpc { table-layout: fixed; width: 100%; }
+    table.dpc th { position: relative; }
+    .resize-handle { position: absolute; top: 0; right: 0; width: 6px; height: 100%; cursor: col-resize; user-select: none; z-index: 2; }
+    .resize-handle:hover, .resizing .resize-handle { background: rgba(var(--t-accent-rgb),0.5); }
+    table.dpc td, table.dpc th { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    td.pt { white-space: normal; }
+
+    .pt-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+    .pt-modal[hidden] { display: none; }
+    .pt-modal-box { position: relative; max-width: 90vw; max-height: 80vh; overflow: auto; background: rgb(var(--t-bg-rgb)); color: var(--text); border: 1px solid var(--glass-border); border-radius: 14px; padding: 24px 28px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+    .pt-modal-box pre { white-space: pre-wrap; font-family: inherit; font-size: 13px; line-height: 1.5; margin: 0; }
+    .pt-modal-close { position: absolute; top: 8px; right: 12px; border: none; background: transparent; color: var(--text); font-size: 22px; cursor: pointer; }
+    .pt-summary { font-size: 11px; color: var(--muted); margin-top: 3px; line-height: 1.3; }
+</style>
+<script>(function(){try{var t=localStorage.getItem("dpc-tema");if(t){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();</script>
+    <script src="consent.js"></script>
+</head>
+<body>
+<div class="container">
+
+    <div class="filter-bar">
+    <input type="text" id="q-global" placeholder="Ricerca globale (tutte le colonne)..." />
+    <input type="text" id="q-minsan" placeholder="Minsan..." />
+    <input type="text" id="q-descr" placeholder="Descrizione..." />
+    <input type="text" id="q-princ" placeholder="Principio attivo..." />
+    <input type="text" id="q-pt" placeholder="PT/SM/Nota..." />
+    <button id="reset-filters">Reset</button>
+    <span id="count-info"></span>
+</div>
+
+    <section class="page-block" id="eparinoidi-dpc">
+        <h1 class="page-title">Eparinoidi in DPC</h1>
+        <p class="meta">Aggregazione degli eparinoidi della scheda 02 con i formalismi della scheda 04. 89 confezioni.</p>
+
+        <table class="dpc">
+            <colgroup>
+                <col style="width:110px"><col style="width:260px"><col style="width:180px"><col style="width:90px"><col style="width:220px">
+            </colgroup>
+            <thead><tr>
+                <th class="sortable" data-col="0">Minsan<span class="resize-handle"></span></th>
+                <th class="sortable" data-col="1">Descrizione<span class="resize-handle"></span></th>
+                <th class="sortable" data-col="2">Principio Attivo<span class="resize-handle"></span></th>
+                <th class="sortable" data-col="3">Piano Web<span class="resize-handle"></span></th>
+                <th class="sortable" data-col="4">PT/SM/Nota AIFA<span class="resize-handle"></span></th>
+            </tr></thead>
+            <tbody>
+            <tr class="drug"><td class="minsan">035606072</td><td class="descr">ARIXTRA*SC 10SIR 1,5MG 0,3ML</td><td class="princ">FONDAPARINUX SODICO</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">035606173</td><td class="descr">ARIXTRA*SC 10SIR 10MG 0,8ML</td><td class="princ">FONDAPARINUX SODICO</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">035606033</td><td class="descr">ARIXTRA*SC 10SIR 2,5MG 0,5ML</td><td class="princ">FONDAPARINUX SODICO</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">035606110</td><td class="descr">ARIXTRA*SC 10SIR 5MG 0,4ML</td><td class="princ">FONDAPARINUX SODICO</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">035606146</td><td class="descr">ARIXTRA*SC 10SIR 7,5MG 0,6ML</td><td class="princ">FONDAPARINUX SODICO</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">022579193</td><td class="descr">CALCIPARINA*10F 12500UI 0,5ML</td><td class="princ">EPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">022579128</td><td class="descr">CALCIPARINA*10F 5000UI 0,2ML</td><td class="princ">EPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">022579155</td><td class="descr">CALCIPARINA*10SIR 12500UI0,5ML</td><td class="princ">EPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">022579142</td><td class="descr">CALCIPARINA*10SIR 5000UI 0,2ML</td><td class="princ">EPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">012627093</td><td class="descr">CLARISCO*EV SC 10F 12500UI/0,5</td><td class="princ">EPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">012627105</td><td class="descr">CLARISCO*EV SC 10F 5000UI/0,2M</td><td class="princ">EPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">012627081</td><td class="descr">CLARISCO*EV SC 10F 5000UI/1ML</td><td class="princ">EPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">029111109</td><td class="descr">CLEXANE T*10SIR 10000UI 1ML</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">029111085</td><td class="descr">CLEXANE T*10SIR 6000UI 0,6ML</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">029111097</td><td class="descr">CLEXANE T*10SIR 8000UI 0,8ML</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026966034</td><td class="descr">CLEXANE*6SIR 2000UI 0,2ML</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026966046</td><td class="descr">CLEXANE*6SIR 4000UI 0,4ML</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">028694053</td><td class="descr">CLIVARINA*SC 10SIR4200UI/0,6ML</td><td class="princ">REVIPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">028694103</td><td class="descr">CLIVARINA*SC 10SIR6300UI/0,9ML</td><td class="princ">REVIPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">028694038</td><td class="descr">CLIVARINA*SC10SIR1750UI/0,25ML</td><td class="princ">REVIPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">027429087</td><td class="descr">ECAFAST*SC 10F 0,2ML 5000UI</td><td class="princ">EPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">027429099</td><td class="descr">ECAFAST*SC 10F 0,5ML 12500UI</td><td class="princ">EPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">027429113</td><td class="descr">ECAFAST*SC 10SIR 0,2ML 5000UI</td><td class="princ">EPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">027429149</td><td class="descr">ECAFAST*SC 10SIR 0,5ML 12500UI</td><td class="princ">EPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">024939148</td><td class="descr">ECASOLV*10SIR 0,5ML 12500UI</td><td class="princ">EPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">028868026</td><td class="descr">EMOKLAR*10FSIR 12500UI 0,5ML</td><td class="princ">EPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">028868014</td><td class="descr">EMOKLAR*10FSIR 5000UI 0,2ML</td><td class="princ">EPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">044039028</td><td class="descr">ENOXAPARINA ROVI*6SIR 2000UI</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">044039079</td><td class="descr">ENOXAPARINA ROVI*6SIR 4000UI</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">033620028</td><td class="descr">EPARINA C.ALMUS*10FSIR 12500UI</td><td class="princ">EPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">006275010</td><td class="descr">EPARINA VISTER*F 10ML5000UI/ML</td><td class="princ">EPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">030705014</td><td class="descr">EPSOCLAR*SC EV 10F 5000UI 1ML</td><td class="princ">EPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026270076</td><td class="descr">FLUXUM*SC 6SIR 0,3ML 3200UIAXA</td><td class="princ">PARNAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026270088</td><td class="descr">FLUXUM*SC 6SIR 0,4ML 4250UIAXA</td><td class="princ">PARNAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026270090</td><td class="descr">FLUXUM*SC 6SIR 0,6ML 6400UIAXA</td><td class="princ">PARNAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026270126</td><td class="descr">FLUXUM*SC 6SIR 0,8ML 8500UIAXA</td><td class="princ">PARNAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">027276082</td><td class="descr">FRAGMIN*SC 4SIR 10000UI 0,4ML</td><td class="princ">DALTEPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">027276094</td><td class="descr">FRAGMIN*SC 4SIR 12500UI 0,5ML</td><td class="princ">DALTEPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">027276106</td><td class="descr">FRAGMIN*SC 4SIR 15000UI 0,6ML</td><td class="princ">DALTEPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">027276120</td><td class="descr">FRAGMIN*SC 4SIR 7500UI 0,3ML</td><td class="princ">DALTEPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">027276031</td><td class="descr">FRAGMIN*SC 6SIR 2500UI 0,2ML</td><td class="princ">DALTEPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">027276043</td><td class="descr">FRAGMIN*SC 6SIR 5000UI 0,2ML</td><td class="princ">DALTEPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026736088</td><td class="descr">FRAXIPARINA*10SIR 5700UI/0,6ML</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">026736090</td><td class="descr">FRAXIPARINA*10SIR 7600UI/0,8ML</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">026736102</td><td class="descr">FRAXIPARINA*10SIR 9500UI/1ML</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">026736064</td><td class="descr">FRAXIPARINA*6SIR 2850UI AXA</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">026736076</td><td class="descr">FRAXIPARINA*6SIR 3800UI AXA</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">036458014</td><td class="descr">FRAXODI*2SIR 11400UI AXA</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">036458040</td><td class="descr">FRAXODI*2SIR 15200UI AXA</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">036458077</td><td class="descr">FRAXODI*2SIR 19000UI AXA</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">044269037</td><td class="descr">GHEMAXAN*10SIR 2000UI 0,2ML+S</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">044269064</td><td class="descr">GHEMAXAN*10SIR 4000UI 0,4ML+S</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">045104104</td><td class="descr">INHIXA*10SIR 10000UI 1ML</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">045104027</td><td class="descr">INHIXA*10SIR 2000UI 0,2ML</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">045104041</td><td class="descr">INHIXA*10SIR 4000UI 0,4ML</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">045104142</td><td class="descr">INHIXA*10SIR 4000UI 0,4ML+COPR</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">045104066</td><td class="descr">INHIXA*10SIR 6000UI 0,6ML</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">045104080</td><td class="descr">INHIXA*10SIR 8000UI 0,8ML</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">045104332</td><td class="descr">INHIXA*6SIR 2000UI 0,2ML</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">045104357</td><td class="descr">INHIXA*6SIR 4000UI 0,4ML</td><td class="princ">ENOXAPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">047494125</td><td class="descr">INNOHEP*10SIR 10000UI/0,5ML</td><td class="princ">TINZAPARINA SODICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">047494188</td><td class="descr">INNOHEP*10SIR 12000UI/0,6ML</td><td class="princ">TINZAPARINA SODICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">047494240</td><td class="descr">INNOHEP*10SIR 14000UI/0,7ML</td><td class="princ">TINZAPARINA SODICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">047494303</td><td class="descr">INNOHEP*10SIR 16000UI/0,8ML</td><td class="princ">TINZAPARINA SODICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">047494366</td><td class="descr">INNOHEP*10SIR 18000UI/0,9ML</td><td class="princ">TINZAPARINA SODICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">047494075</td><td class="descr">INNOHEP*10SIR 2500UI/0,25ML</td><td class="princ">TINZAPARINA SODICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">047494087</td><td class="descr">INNOHEP*10SIR 3500UI/0,35ML</td><td class="princ">TINZAPARINA SODICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">047494099</td><td class="descr">INNOHEP*10SIR 4500UI/0,45ML</td><td class="princ">TINZAPARINA SODICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">047494036</td><td class="descr">INNOHEP*10SIR 8000UI/0,4ML</td><td class="princ">TINZAPARINA SODICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">035577182</td><td class="descr">IVOR*10SIR 10000UI 0,4ML</td><td class="princ">BEMIPARINA SODICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">035577028</td><td class="descr">IVOR*10SIR 2500UI 0,2ML</td><td class="princ">BEMIPARINA SODICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">035577067</td><td class="descr">IVOR*10SIR 3500UI 0,2ML</td><td class="princ">BEMIPARINA SODICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">035577105</td><td class="descr">IVOR*10SIR 5000UI0,2ML(25000U)</td><td class="princ">BEMIPARINA SODICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">035577143</td><td class="descr">IVOR*10SIR 7500UI0,3ML(25000U)</td><td class="princ">BEMIPARINA SODICA</td><td class="piano">NO</td><td class="pt"><span class="pt-empty">&mdash;</span></td></tr>
+            <tr class="drug"><td class="minsan">034692032</td><td class="descr">PHAREPA*EV SC 10F 5000UI/1ML</td><td class="princ">EPARINA SODICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">031126055</td><td class="descr">REOFLUS*SC 10FSIR 0,5ML12500UI</td><td class="princ">EPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">034668018</td><td class="descr">SELEDIE*2SIR 11400UI AXA/0,6ML</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">034668044</td><td class="descr">SELEDIE*2SIR 15200UI AXA/0,8ML</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">034668071</td><td class="descr">SELEDIE*2SIR 19000UI AXA/1ML</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026738070</td><td class="descr">SELEPARINA*10SIR 5700UI/0,6ML</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026738094</td><td class="descr">SELEPARINA*10SIR 7600UI/0,8ML</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026738118</td><td class="descr">SELEPARINA*10SIR 9500UI/1ML</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026738017</td><td class="descr">SELEPARINA*6SIR 0,3ML 2850UI</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026738056</td><td class="descr">SELEPARINA*6SIR 0,4ML 3800UI</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026738195</td><td class="descr">SELEPARINA*6SIR 3800UI+DISP</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">032916013</td><td class="descr">SOSEFLUSS*10SIR 12500UI/0,5ML</td><td class="princ">EPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026738183</td><td class="descr">SELEPARINA*6SIR 2850UI+DISP</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026738308</td><td class="descr">SELEPARINA*10SIR 3800UI+SIST</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            <tr class="drug"><td class="minsan">026738221</td><td class="descr">SELEPARINA*10SIR 5700UI+DISP</td><td class="princ">NADROPARINA CALCICA</td><td class="piano">NO</td> <td class="pt"><button type="button" class="pt-toggle" onclick="openPtModal(this)">particolarit&agrave;</button><div class="pt-summary">A7 - Distr. diretta</div><span class="pt-long" hidden>A7 - DISTR.DIR.ANCHE DA STRUT.PUBBL - CONTINUITA&#x27; TERAPEUTICA OSPEDALE-TERRITORIO</span></td></tr>
+            </tbody>
+        </table>
+
+        <h2>Formalismi eparinoidi (scheda 04)</h2>
+        <ul>
+            <li><strong>Erogazione in Convenzionata:</strong> la ricetta DEM va erogata in Convenzionata solo se il Medico riporta &ldquo;Erogare in Convenzionata&rdquo;; la Rossa va erogata in DPC solo con dicitura &ldquo;DPC&rdquo;, altrimenti in Convenzionata.</li>
+            <li><strong>Terapia ponte (bridging):</strong> profilassi tromboembolismo in sospensione AVK, pazienti oncologici ambulatoriali a rischio (KHORANA&ge;3), gravidanza/puerperio &rarr; solo Distribuzione Diretta ASP.</li>
+            <li><strong>Fondaparinux (ARIXTRA):</strong> autorizzato solo per TVP, va sempre erogato in DPC.</li>
+            <li><strong>ENOXAPARINA:</strong> CLEXANE richiede ricetta con dicitura &ldquo;Paziente in continuit&agrave; terapeutica&rdquo; o allegare scheda monitoraggio; dosaggi 2000/4000 Ui in Convenzionata se ricetta Rossa senza &ldquo;DPC&rdquo; o DEM con &ldquo;Erogare in convenzionata&rdquo;.</li>
+            <li><strong>Biosimilari:</strong> non sostituibili automaticamente dal farmacista.</li>
+        </ul>
+    </section>
+<div id="ptModal" class="pt-modal" hidden onclick="if(event.target===this) closePtModal()">
+  <div class="pt-modal-box">
+    <button type="button" class="pt-modal-close" aria-label="Chiudi" onclick="closePtModal()">&times;</button>
+    <pre id="ptModalText"></pre>
+  </div>
+</div>
+<script>
+function openPtModal(btn){
+  var long=btn.parentNode.querySelector('.pt-long');
+  var modal=document.getElementById('ptModal');
+  var txt=document.getElementById('ptModalText');
+  if(modal && txt && long){ txt.textContent=long.textContent; modal.removeAttribute('hidden'); }
+  return false;
+}
+function closePtModal(){
+  var modal=document.getElementById('ptModal');
+  if(modal) modal.setAttribute('hidden','');
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closePtModal(); });
+</script>
+
+
+</div>
+<script>
+(function () {
+    "use strict";
+    var inputs = {
+        global: document.getElementById("q-global"),
+        minsan: document.getElementById("q-minsan"),
+        descr: document.getElementById("q-descr"),
+        princ: document.getElementById("q-princ"),
+        pt: document.getElementById("q-pt")
+    };
+    var resetBtn = document.getElementById("reset-filters");
+    var countInfo = document.getElementById("count-info");
+
+    function groupRows(tbody) {
+        var groups = [];
+        var current = null;
+        Array.prototype.forEach.call(tbody.rows, function (row) {
+            if (row.classList.contains("note")) {
+                // la riga di nota resta agganciata alla riga farmaco che la precede
+                if (current) { current.rows.push(row); }
+                else { current = { rows: [row], drugs: [] }; groups.push(current); }
+            } else {
+                // ogni riga farmaco e' un gruppo indipendente: accorpandole tutte in uno solo
+                // l'ordinamento non avrebbe nulla da riordinare
+                current = { rows: [row], drugs: [row] };
+                groups.push(current);
+            }
+        });
+        if (current) groups.push(current);
+        // assign group index
+        groups.forEach(function (g, gi) {
+            g.rows.forEach(function (r) { r.dataset.group = gi; });
+        });
+        return groups;
+    }
+
+    function rowText(row, colIdx) {
+        if (!row.cells || !row.cells[colIdx]) return "";
+        return (row.cells[colIdx].textContent || "").toLowerCase();
+    }
+
+    function passes(row) {
+        var minsan = rowText(row, 0);
+        var descr = rowText(row, 1);
+        var princ = rowText(row, 2);
+        var pt = rowText(row, 3);
+        var all = (minsan + " " + descr + " " + princ + " " + pt).toLowerCase();
+
+        var g = (inputs.global.value || "").toLowerCase().trim();
+        if (g && all.indexOf(g) === -1) return false;
+        var m = (inputs.minsan.value || "").toLowerCase().trim();
+        if (m && minsan.indexOf(m) === -1) return false;
+        var d = (inputs.descr.value || "").toLowerCase().trim();
+        if (d && descr.indexOf(d) === -1) return false;
+        var p = (inputs.princ.value || "").toLowerCase().trim();
+        if (p && princ.indexOf(p) === -1) return false;
+        var t = (inputs.pt.value || "").toLowerCase().trim();
+        if (t && pt.indexOf(t) === -1) return false;
+        return true;
+    }
+
+    function applyFilters() {
+        var sections = document.querySelectorAll("section.page-block");
+        var totalVisible = 0;
+        var totalAll = 0;
+        sections.forEach(function (sec) {
+            var tables = sec.querySelectorAll("table.dpc");
+            var sectionHasVisible = false;
+            tables.forEach(function (table) {
+                var tbody = table.tBodies[0];
+                if (!tbody) return;
+                var groups = groupRows(tbody);
+                groups.forEach(function (g) {
+                    var drugs = g.drugs || [];
+                    var anyVisible = drugs.some(passes);
+                    if (anyVisible) sectionHasVisible = true;
+                    drugs.forEach(function (r) {
+                        totalAll++;
+                        if (anyVisible && passes(r)) {
+                            r.style.display = "";
+                            totalVisible++;
+                        } else {
+                            r.style.display = "none";
+                        }
+                    });
+                    g.rows.forEach(function (r) {
+                        if (r.classList.contains("note")) {
+                            r.style.display = anyVisible ? "" : "none";
+                        }
+                    });
+                });
+            });
+            // nascondi l'intera sezione se nessun risultato
+            sec.style.display = sectionHasVisible ? "" : "none";
+        });
+        if (countInfo) countInfo.textContent = totalVisible + " / " + totalAll + " righe visibili";
+    }
+
+    Object.keys(inputs).forEach(function (k) {
+        if (inputs[k]) inputs[k].addEventListener("input", applyFilters);
+    });
+    if (resetBtn) {
+        resetBtn.addEventListener("click", function () {
+            Object.keys(inputs).forEach(function (k) {
+                if (inputs[k]) inputs[k].value = "";
+            });
+            applyFilters();
+        });
+    }
+    // initial
+    applyFilters();
+})();
+</script>
+<script>
+(function () {
+    "use strict";
+    function setup(table) {
+        if (!table) return;
+        var tbody = table.tBodies[0];
+        if (!tbody) return;
+        var ths = table.querySelectorAll("thead th.sortable");
+        function groupRows() {
+            var groups = [];
+            var current = null;
+            Array.prototype.forEach.call(tbody.rows, function (row) {
+                if (row.classList.contains("note")) {
+                    // la riga di nota resta agganciata alla riga farmaco che la precede
+                    if (current) { current.rows.push(row); }
+                    else { current = { rows: [row] }; groups.push(current); }
+                } else {
+                    // ogni riga farmaco e' un gruppo indipendente: accorpandole tutte in uno solo
+                    // l'ordinamento non avrebbe nulla da riordinare
+                    current = { rows: [row] };
+                    groups.push(current);
+                }
+            });
+            if (current) groups.push(current);
+            return groups;
+        }
+        function cellText(row, col) {
+            if (!row || !row.cells || !row.cells[col]) return "";
+            return (row.cells[col].textContent || "").trim();
+        }
+        function compare(a, b, col, dir) {
+            var ra = a.rows.find(function (r) { return r.classList.contains("drug"); }) || a.rows[0];
+            var rb = b.rows.find(function (r) { return r.classList.contains("drug"); }) || b.rows[0];
+            var va = cellText(ra, col);
+            var vb = cellText(rb, col);
+            var na = parseFloat(va.replace(/\s/g, ""));
+            var nb = parseFloat(vb.replace(/\s/g, ""));
+            var cmp;
+            if (!isNaN(na) && !isNaN(nb) && /^\d/.test(va) && /^\d/.test(vb)) {
+                cmp = na - nb;
+            } else {
+                cmp = va.localeCompare(vb, "it", { sensitivity: "base", numeric: true });
+            }
+            return dir === "asc" ? cmp : -cmp;
+        }
+        ths.forEach(function (th) {
+            th.addEventListener("click", function () {
+                var col = parseInt(th.getAttribute("data-col"), 10);
+                var dir = th.classList.contains("asc") ? "desc" : "asc";
+                ths.forEach(function (t) { t.classList.remove("asc", "desc"); });
+                th.classList.add(dir);
+                var groups = groupRows();
+                groups.sort(function (a, b) { return compare(a, b, col, dir); });
+                groups.forEach(function (g) {
+                    g.rows.forEach(function (r) { tbody.appendChild(r); });
+                });
+            });
+        });
+    }
+    document.querySelectorAll("table.dpc").forEach(setup);
+})();
+</script>
+<script src="theme_drawer.js" defer></script>
+    <script src="theme.js" defer></script>
+
+
+
+    <footer class="site-foot">
+        <p><strong>Documento di base:</strong> Documento di Controllo dell'appropriatezza prescrittiva
+            (DPC) di <strong>Federfarma Messina</strong> (edizione 2023, D.A. n. 278/2024 &ndash; G.U.R.S.
+            n. 15 del 29/03/2024). <strong>Database e regole operative</strong> successivamente aggiornati e
+            integrati con le disposizioni piu' recenti (determine AIFA 2025-2026, protocolli regionali,
+            circolari di categoria, versioni aggiornate del DPC): ogni variazione e' marcata e ogni marcatura
+            e' un link diretto al provvedimento.</p>
+        <p><a href="disclaimer.html">Disclaimer legale e avvertenze</a> strumento informativo,
+            uso gratuito verificare sempre con la propria professionalita' e sui canali ufficiali
+            <a href="index.html">Ingresso</a></p>
+    </footer>
+
+    <!-- Drawer per pillole operative -->
+    <div id="info-drawer" class="info-drawer">
+        <div class="drawer-header">
+            <h2>Regole operative — Farmaci DPC</h2>
+            <button class="drawer-close" title="Chiudi">&times;</button>
+        </div>
+        <div class="drawer-content">
+    <!-- DPC-PILL-BEGIN -->
+    <div class="pills-title">Regole operative — farmaci in distribuzione per conto (DPC)</div>
+    <div class="pills">
+      <div class="pill"><b>PT on-line (obbligo di Piano Terapeutico)</b><span class="pill-d">Eritroprietine e fattori di crescita granulocitari (dal 01/04/2014); Nota 51 (dal 01/08/2022); Nota 65 (dal 01/11/2022); Nota 74 (dal 01/04/2014); Nota 85 (dal 01/04/2023); everolimus/sirolimus/tacrolimus (dal 10/01/2024); altri con PT on-line (bicalutamide 01/08/2022, brivaracetam, cenobamato, cinacalcet 16/06/2023, clozapina, degarelix...). L&#x27;elenco completo è nelle pagine 10-11 del DPC. </span></div>
+      <div class="pill"><b>Come si eroga (GopenDPC)</b><span class="pill-d">Il Farmacista riscontra la presenza del PT «Autorizzato» sulla GopenDPC e solo dopo procede all&#x27;ordine e all&#x27;erogazione delle confezioni autorizzate. Le ricette con PT cartaceo (Specialista Fuori Regione) vanno trasmesse a dpc@asppalermo.org per l&#x27;autorizzazione. </span></div>
+      <div class="pill"><b>Medici di Medicina Generale</b><span class="pill-d">Compilano la Scheda di Valutazione e Prescrizione on-line su SistemaTS, che collega automaticamente alla ricetta il Protocollo DMDU0A0000…: la sua presenza va riscontrata a video o sulla ricetta, in mancanza si allega la fotocopia con il protocollo. </span></div>
+      <div class="pill"><b>Diabete tipo 2: chi resta in DPC</b><span class="pill-d">Restano in DPC con Scheda di Valutazione e Prescrizione (o Protocollo dal 01/02/2023) i GLP-1 RA (BYDUREON, BYETTA, LYXUMIA, OZEMPIC, RYBELSUS, TRULICITY, VICTOZA), le associazioni SGLT2i/DPP4i (GLYXAMBI, QTERN, STEGLUJAN) e le altre combinazioni insuliniche; i limiti di confezione sono indicati nel DPC (max 1 conf, da 3 mg max 1 conf). </span></div>
+      <div class="pill"><b>Specialità carenti (Trulicity, Ozempic, Victoza)</b><span class="pill-d">Se la Scheda di Valutazione e Prescrizione è stata redatta prima del 30/09/2024 con indicazione «valida per due confezioni»: se la prima ricetta è stata erogata e chiusa fino al 29/09/2024 si eroga e chiude la prima ricetta allegando la Scheda in originale e, dopo 23 giorni, alla seconda ricetta si allega la fotocopia indicando «originale Scheda allegata alla ricetta DPC num. … del mese di …»; se la prima ricetta è stata chiusa dal 30/09/2024 si eroga allo stesso modo e solo dopo si trasmette via mail la copia della Scheda specialistica. </span></div>
+      <div class="pill"><b>Farmaco a maggior costo / DDD</b><span class="pill-d">Per i farmaci a maggior costo va compilato il campo «motivazNote» con la dicitura «prescrizione di terapia a maggior costo» (es. insulina glargine ABASAGLAR: sempre, sia naive sia in prosecuzione). I farmaci a minor costo di terapia sono la prima scelta nel paziente naive. </span></div>
+      <div class="pill"><b>Limiti di confezioni</b><span class="pill-d">Esempi dal DPC: ELONVA max 1 confezione al mese; Prolia (denosumab, Nota 79) 1 confezione max ogni 6 mesi; PT abolito (Det. AIFA 1127/2025, 13/09/2025): prescrivibile dal MMG senza PT web-based. </span></div>
+    </div>
+    <!-- DPC-PILL-END -->
+        </div>
+    </div>
+
+    <!-- FAB per aprire il drawer -->
+    <button class="info-fab" onclick="toggleInfoDrawer()" title="Regole operative">ℹ️</button>
+
+<div id="ptModal" class="pt-modal" hidden onclick="if(event.target===this) closePtModal()">
+  <div class="pt-modal-box">
+    <button type="button" class="pt-modal-close" aria-label="Chiudi" onclick="closePtModal()">&times;</button>
+    <pre id="ptModalText"></pre>
+  </div>
+</div>
+<script>
+function openPtModal(btn){
+  var long=btn.nextElementSibling;
+  var modal=document.getElementById('ptModal');
+  var txt=document.getElementById('ptModalText');
+  if(modal && txt && long){ txt.textContent=long.textContent; modal.removeAttribute('hidden'); }
+  return false;
+}
+function closePtModal(){
+  var modal=document.getElementById('ptModal');
+  if(modal) modal.setAttribute('hidden','');
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closePtModal(); });
+</script>
+
+<script>
+(function () {
+    "use strict";
+    function makeResizable(table) {
+        if (!table) return;
+        var cols = table.querySelectorAll("colgroup col");
+        var ths = table.querySelectorAll("thead th");
+        ths.forEach(function (th, i) {
+            var handle = th.querySelector(".resize-handle");
+            if (!handle) return;
+            handle.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); });
+            handle.addEventListener("mousedown", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var startX = e.pageX;
+                var startW = cols[i].getBoundingClientRect().width;
+                document.body.classList.add("resizing");
+                function onMove(ev) {
+                    var newW = Math.max(60, startW + (ev.pageX - startX));
+                    cols[i].style.width = newW + "px";
+                }
+                function onUp() {
+                    document.body.classList.remove("resizing");
+                    document.removeEventListener("mousemove", onMove);
+                    document.removeEventListener("mouseup", onUp);
+                }
+                document.addEventListener("mousemove", onMove);
+                document.addEventListener("mouseup", onUp);
+            });
+        });
+    }
+    document.querySelectorAll("table.dpc").forEach(makeResizable);
+})();
+</script>
+
+</body>
+</html>
