@@ -56,21 +56,10 @@
     }
     .side .item:hover {
         background: rgba(var(--t-accent-rgb),0.12);
-        color: rgb(var(--t-white-rgb));
-        transform: translateX(4px);
+        color: rgb(var(--t-accent-rgb));
     }
-    .side .item .num {
-        width: 30px;
-        height: 30px;
-        border-radius: 8px;
-        background: linear-gradient(135deg, rgb(var(--t-accent-rgb)), rgb(var(--t-accent2-rgb)));
-        color: var(--t-onaccent);
-        font-weight: 700;
-        font-size: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
+    .side .item:hover .meta {
+        color: rgb(var(--t-accent2-rgb));
     }
     .side .item .meta {
         font-size: 11px;
@@ -205,35 +194,27 @@
     <div class="sub">Portale documentale — Controllo appropriatezza prescrittiva</div>
 
     <a class="item" data-href="metilfenidato.html">
-        <span class="num">01</span>
         <span>Metilfenidato (DPC)<div class="meta">9 farmaci · 5 col</div></span>
     </a>
     <a class="item" data-href="farmaci_dpc.html">
-        <span class="num">02</span>
         <span>Farmaci in distribuzione DPC<div class="meta">~1.187 farmaci · 4 col</div></span>
     </a>
     <a class="item" data-href="distribuzione_diretta.html">
-        <span class="num">03</span>
         <span>Distribuzione diretta ASP<div class="meta">329 farmaci · 5 col</div></span>
     </a>
     <a class="item" data-href="insuline.html">
-        <span class="num">04</span>
         <span>Insuline in DPC<div class="meta">14 confezioni &middot; aggregato 02+04</div></span>
     </a>
     <a class="item" data-href="farmaci_no_dpc.html">
-        <span class="num">05</span>
         <span>Farmaci NO DPC<div class="meta">6 tabelle</div></span>
     </a>
     <a class="item" data-href="nota_99.html">
-        <span class="num">06</span>
         <span>NOTA 99 — INALATORIO<div class="meta">158 farmaci · 5 col</div></span>
     </a>
     <a class="item" data-href="dpc_convenzionata.html">
-        <span class="num">07</span>
         <span>Farmaci Nota 100<div class="meta">Nota AIFA 100 &middot; dal 15/10/2025</div></span>
     </a>
     <a class="item" data-href="eparinoidi.html">
-        <span class="num">08</span>
         <span>Eparinoidi in DPC<div class="meta">89 confezioni &middot; aggregato 02+04</div></span>
     </a>
 </aside>
