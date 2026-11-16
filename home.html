@@ -105,7 +105,6 @@
         animation: spinrev 40s linear infinite;
         text-shadow: 0 2px 6px rgba(var(--t-ink-rgb),0.6);
     }
-    .sphere .num { font-size: 20px; font-weight: 700; color: rgb(var(--t-white-rgb)); }
     .sphere .label { font-size: 18px; font-weight: 700; color: rgb(var(--t-white-rgb)); margin-top: 4px; }
     .sphere:hover {
         transform: scale(1.1) !important;
@@ -172,13 +171,14 @@
     "use strict";
 
     var items = [
-        { n: "01", label: "Metilfenidato (DPC)", href: "metilfenidato.html" },
-        { n: "02", label: "Farmaci in distribuzione DPC", href: "farmaci_dpc.html" },
-        { n: "03", label: "Distribuzione diretta ASP", href: "distribuzione_diretta.html" },
-        { n: "04", label: "Riepilogo formalismi", href: "formalismi.html" },
-        { n: "05", label: "Farmaci NO DPC", href: "farmaci_no_dpc.html" },
-        { n: "06", label: "NOTA 99 — INALATORIO", href: "nota_99.html" },
-        { n: "07", label: "Farmaci Nota 100", href: "dpc_convenzionata.html" }
+        { label: "Metilfenidato (DPC)", href: "metilfenidato.html" },
+        { label: "Farmaci in distribuzione DPC", href: "farmaci_dpc.html" },
+        { label: "Distribuzione diretta ASP", href: "distribuzione_diretta.html" },
+        { label: "Insuline in DPC", href: "insuline.html" },
+        { label: "Farmaci NO DPC", href: "farmaci_no_dpc.html" },
+        { label: "NOTA 99 — INALATORIO", href: "nota_99.html" },
+        { label: "Farmaci Nota 100", href: "dpc_convenzionata.html" },
+        { label: "Eparinoidi in DPC", href: "eparinoidi.html" }
     ];
 
     var wrap = document.getElementById("wrap");
@@ -189,7 +189,7 @@
         var a = document.createElement("a");
         a.className = "sphere";
         a.href = it.href;
-        a.innerHTML = '<div class="inner"><span class="num">' + it.n + '</span><span class="label">' + it.label + '</span></div>';
+        a.innerHTML = '<div class="inner"><span class="label">' + it.label + '</span></div>';
         wrap.appendChild(a);
         return a;
     });
