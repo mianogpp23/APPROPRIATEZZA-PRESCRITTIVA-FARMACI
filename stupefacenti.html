@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stupefacenti</title>
+<link rel="stylesheet" href="theme.css">
+<style>
+
+    :root {
+        --bg1: rgb(var(--t-bg-rgb));
+        --bg2: rgb(var(--t-bg2-rgb));
+        --accent: rgb(var(--t-accent-rgb));
+        --accent2: rgb(var(--t-accent2-rgb));
+        --glass: rgba(var(--t-ov-rgb),0.06);
+        --glass-border: rgba(var(--t-ov-rgb),0.16);
+        --text: rgb(var(--t-text-rgb));
+        --muted: rgb(var(--t-muted-rgb));
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        min-height: 100vh;
+        background: rgb(var(--t-bg-rgb));
+        color: var(--text);
+        padding: 32px 16px 48px;
+    }
+    .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.35;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .orb.o1 { width: 400px; height: 400px; background: rgb(var(--t-accent-rgb)); top: -120px; left: -100px; }
+    .orb.o2 { width: 340px; height: 340px; background: rgb(var(--t-accent2-rgb)); bottom: -100px; right: -80px; }
+    .orb.o3 { width: 260px; height: 260px; background: rgb(var(--t-pink-rgb)); top: 40%; left: 50%; }
+    .orb.o4 { width: 200px; height: 200px; background: rgb(var(--t-green2-rgb)); top: 20%; right: 15%; }
+    .container { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; }
+    .back {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .back:hover { text-decoration: underline; }
+    .page, .page-block, section.page-block {
+        background: var(--glass);
+        backdrop-filter: blur(14px) saturate(140%);
+        -webkit-backdrop-filter: blur(14px) saturate(140%);
+        border: 1px solid var(--glass-border);
+        border-radius: 18px;
+        padding: 26px 24px 40px;
+        box-shadow: 0 1px 6px rgba(var(--t-ink-rgb),0.25);
+    }
+    .indice-box {
+        position: absolute;
+        top: 14px;
+        right: 18px;
+        border: 1px solid var(--glass-border);
+        background: rgba(var(--t-ov-rgb),0.06);
+        padding: 2px 10px;
+        border-radius: 8px;
+        line-height: 1;
+    }
+    .indice-box a {
+        color: var(--accent);
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: bold;
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 1px;
+    }
+    h1, h1.doc-title, h2, h3 {
+        color: var(--text);
+    }
+    h1.doc-title {
+        margin: 34px auto 26px;
+        text-align: center;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(26px, 4.5vw, 38px);
+        line-height: 1.15;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgb(var(--t-red-rgb));
+    }
+    .bar-green {
+        background: linear-gradient(90deg, rgb(var(--t-green3-rgb)), rgb(var(--t-green4-rgb)));
+        color: rgb(var(--t-white-rgb));
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+        letter-spacing: 0.5px;
+        padding: 8px 10px;
+        border: 1px solid var(--glass-border);
+        border-bottom: none;
+        border-radius: 10px 10px 0 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 18px;
+        background: rgba(var(--t-ov-rgb),0.03);
+    }
+    th, td {
+        padding: 6px 9px;
+        vertical-align: middle;
+        border: 1px solid var(--glass-border);
+        color: var(--text);
+        font-size: 13px;
+    }
+    th {
+        background: rgba(var(--t-accent-rgb),0.12);
+        font-weight: bold;
+        text-align: center;
+    }
+    table.dpc th.sortable {
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        padding-right: 16px;
+    }
+    table.dpc th.sortable::after {
+        content: " ⇅";
+        font-size: 11px;
+        color: var(--muted);
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    table.dpc th.sortable.asc::after  { content: " ▲"; color: var(--accent); }
+    table.dpc th.sortable.desc::after { content: " ▼"; color: var(--accent); }
+    table.dpc th.sortable:hover { background: rgba(var(--t-accent-rgb),0.22); }
+    td.aic, td.minsan { white-space: nowrap; }
+    tr.note td, .note {
+        background: rgba(var(--t-ov-rgb),0.04);
+        font-style: italic;
+        color: var(--muted);
+    }
+    p, .note { line-height: 1.5; margin: 8px 0; }
+    ul { margin: 8px 0 8px 22px; line-height: 1.5; }
+    .footer {
+        position: relative;
+        margin-top: 44px;
+        min-height: 60px;
+    }
+    .brand {
+        position: absolute;
+        left: 0;
+        top: 14px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .page-number {
+        width: 54px;
+        height: 54px;
+        margin: 0 auto;
+        border: 1px solid var(--glass-border);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 16px;
+        background: radial-gradient(circle at center, rgba(var(--t-white-rgb),0.12) 55%, rgba(var(--t-ov-rgb),0.04) 100%);
+    }
+
+    .site-foot {
+        margin: 26px 0 0; padding: 14px 0 0;
+        border-top: 1px solid var(--glass-border); color: var(--muted); font-size: 13.5px; line-height: 1.5;
+    }
+    .site-foot p { margin: 0 0 6px; }
+    .site-foot a { color: var(--accent); }
+
+.pills { display: block !important; }
+.pill { width: 100%; }
+
+/* --- Galleria slide Stupefacenti --- */
+#slide-gallery { margin: 30px 0; }
+#slide-gallery h2 { font-size: 20px; margin-bottom: 10px; color: rgb(var(--t-accent-rgb)); }
+.slide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+}
+.slide-item {
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgb(var(--t-bg-rgb));
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.slide-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(var(--t-ink-rgb),0.2);
+    border-color: var(--accent);
+}
+.slide-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 220px;
+    object-fit: contain;
+}
+.slide-item .slide-label {
+    padding: 6px 8px;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    background: rgba(var(--t-ov-rgb),0.04);
+}
+.slide-item .slide-number {
+    font-weight: 700;
+    color: var(--accent);
+}
+/* Lightbox */
+#slide-lightbox {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.85); display: none;
+    align-items: center; justify-content: center;
+}
+#slide-lightbox.open { display: flex; }
+#slide-lightbox img { max-width: 95vh; max-height: 90vh; object-fit: contain; }
+#slide-lightbox .close {
+    position: absolute; top: 20px; right: 30px;
+    font-size: 36px; color: #fff; cursor: pointer; z-index: 10001;
+}
+#slide-lightbox .caption {
+    position: absolute; bottom: 40px; color: #fff;
+    font-size: 16px; text-align: center; max-width: 600px; padding: 0 20px;
+}
+</style>
+<script>(function(){try{var t=localStorage.getItem("dpc-tema");if(t){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();</script>
+    <script src="consent.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="page">
+    <h1 class="doc-title">Stupefacenti</h1>
+
+    <!-- ================= NORMATIVA STUPEFACENTI ================= -->
+    <div class="bar-green">NORMATIVA STUPEFACENTI — DPR 309/90 E SOSTANZE PSICOTROPE</div>
+
+    <!-- ================= SLIDE DI RIFERIMENTO (DPR 309/90) ================= -->
+    <section id="slide-gallery">
+        <h2>Slide di riferimento — Stupefacenti e sostanze psicotrope</h2>
+        <p class="note">Slide estratte dal corso FAD “Gestione dei medicinali uso umano e disciplina di
+        dispensazione al pubblico” (Dott. Michele Dalfino Spinelli), slide <strong>49 → 82</strong>.
+        Trattano il DPR 309/90, l’obbligo di RMR e il ricettario a ricalco per i medicinali stupefacenti.</p>
+        <div class="slide-grid" id="slide-grid">
+            <!-- Slide inserite dallo script: slide-49.jpg … slide-82.jpg -->
+        </div>
+    </section>
+</div>
+</div>
+
+<!-- Popolamento galleria slide + lightbox -->
+<div id="slide-lightbox" onclick="closeLightbox()">
+    <div class="close" onclick="event.stopPropagation(); closeLightbox();">&times;</div>
+    <img id="lb-img" src="" alt="">
+    <div class="caption" id="lb-caption"></div>
+</div>
+<script>
+(function () {
+    "use strict";
+    var grid = document.getElementById("slide-grid");
+    if (!grid) return;
+    for (var n = 49; n <= 82; n++) {
+        var file = "assets/stupefacenti/slide-" + String(n).padStart(2, "0") + ".jpg";
+        var item = document.createElement("div");
+        item.className = "slide-item";
+        item.title = "Slide " + n;
+        item.innerHTML =
+            '<img src="' + file + '" alt="Slide ' + n + '" loading="lazy">' +
+            '<div class="slide-label"><span class="slide-number">Slide ' + n + "</span></div>";
+        (function (f, num) {
+            item.addEventListener("click", function () {
+                openLightbox(f, num);
+            });
+        })(file, n);
+        grid.appendChild(item);
+    }
+})();
+
+function openLightbox(src, num) {
+    var lb = document.getElementById("slide-lightbox");
+    var img = document.getElementById("lb-img");
+    var cap = document.getElementById("lb-caption");
+    if (!lb || !img || !cap) return;
+    img.src = src;
+    cap.textContent = "Slide " + num + " — Stupefacenti / sostanze psicotrope";
+    lb.classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+function closeLightbox() {
+    var lb = document.getElementById("slide-lightbox");
+    if (!lb) return;
+    lb.classList.remove("open");
+    document.getElementById("lb-img").src = "";
+    document.body.style.overflow = "";
+}
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeLightbox();
+});
+</script>
+<script src="theme_drawer.js" defer></script>
+    <script src="theme.js" defer></script>
+
+
+
+    <footer class="site-foot">
+        <p><strong>Documento di base:</strong> Documento di Controllo dell'appropriatezza prescrittiva
+            (DPC) di <strong>Federfarma Messina</strong> (edizione 2023, D.A. n. 278/2024 &ndash; G.U.R.S.
+            n. 15 del 29/03/2024). <strong>Database e regole operative</strong> successivamente aggiornati e
+            integrati con le disposizioni piu' recenti: ogni variazione e' marcata e ogni marcatura
+            e' un link diretto al provvedimento.</p>
+        <p><a href="disclaimer.html">Disclaimer legale e avvertenze</a> strumento informativo,
+            uso gratuito verificare sempre con la propria professionalita' e sui canali ufficiali
+            <a href="index.html">Ingresso</a></p>
+    </footer>
+
+    <!-- Drawer per pillole operative -->
+    <div id="info-drawer" class="info-drawer">
+        <div class="drawer-header">
+            <h2>Pillole operative — stupefacenti</h2>
+            <button class="drawer-close" title="Chiudi">&times;</button>
+        </div>
+        <div class="drawer-content">
+    <!-- DPC-PILL-BEGIN -->
+    <div class="pills-title">Pillole operative — stupefacenti</div>
+    <div class="pills">
+      <div class="pill"><b>Prescrizione</b><span class="pill-d">I farmaci stupefacenti richiedono ricetta su Modello Ministeriale a Ricalco (MMR) e, dove previsto, Piano Terapeutico AIFA. &middot; <a class="pill-link" href="docs/dpc-controllo-appropriatezza.pdf" target="_blank" rel="noopener">DPC</a></span></div>
+    </div>
+    <!-- DPC-PILL-END -->
+        </div>
+    </div>
+
+    <!-- FAB per aprire il drawer -->
+    <button class="info-fab" onclick="toggleInfoDrawer()" title="Regole operative">ℹ️</button></body>
+</html>
