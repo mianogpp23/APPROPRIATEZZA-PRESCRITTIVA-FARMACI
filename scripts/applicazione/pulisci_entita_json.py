@@ -7,6 +7,13 @@ Backup automatico; il JSON resta identico byte per byte a parte le entita' sosti
 Uso: python3 pulisci_entita_json.py [--dry-run|--apply]
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML, JSON, BACKUP
+
 
 import argparse
 import json
@@ -15,9 +22,9 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-JSON_PATH = ROOT / "data" / "dati_farmaci.json"
-COPIA_SITO = ROOT / "html_estratto" / "dati_farmaci.json"
+# ROOT fornito da scripts.config
+JSON_PATH = JSON
+COPIA_SITO = HTML / "dati_farmaci.json"
 BACKUP = ROOT / "output" / "backup"
 SOSTITUZIONI = (("&nbsp;", "\u00a0"), ("&quot;", '"'), ("&amp;", "&"), ("&lt;", "<"), ("&gt;", ">"))
 

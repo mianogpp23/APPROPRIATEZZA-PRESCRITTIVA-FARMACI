@@ -9,15 +9,19 @@ alla riga farmaco che le precede.
 Uso: python3 fix_sorting_gruppi.py [--dry-run]
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML
+
 
 import argparse
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-
-HTML = ROOT / "html_estratto"
-
+# ROOT fornito da scripts.config
 # variante con array drugs (usata dal filtro)
 OLD_A = """            if (row.classList.contains("note")) {
                 if (current) { current.rows.push(row); groups.push(current); current = null; }

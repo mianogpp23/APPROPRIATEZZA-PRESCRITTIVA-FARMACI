@@ -8,10 +8,23 @@ Confronta, per ogni Minsan presente in entrambi:
   - note/PT (confronto per token, non per stringa esatta)
 Produce un report di concordanza + elenco delle discrepanze.
 """
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT
+
+# Fase 1: guard --help/--dry-run per evitare esecuzioni accidentali su path mancanti
+import sys as _sys_guard
+if any(a in ('--help', '-h') for a in _sys_guard.argv[1:]):
+    print(f'Uso: python3 {_sys_guard.argv[0]} [opzioni]')
+    print('Script storico/applicativo: vedere docstring e README_SYNCHRONIZZAZIONE.md')
+    raise SystemExit(0)
+
 import csv, json, re, os, collections, unicodedata
 
 BASE = str(ROOT)
-
 def norm(s):
     s = unicodedata.normalize("NFKD", (s or ""))
     s = "".join(c for c in s if not unicodedata.combining(c))
@@ -22,7 +35,18 @@ def norm(s):
 def tok(s):
     return set(norm(s).split())
 
-rows24 = list(csv.DictReader(open(os.path.join(BASE, "output/pp41-67_verificato.csv"), encoding="utf-8-sig")))
+richiesti = [os.path.join(BASE, "output", "pp41-67_verificato.csv")]
+richiesti += [os.path.join(BASE, "data", f"{s}.json") for s in ("dpc", "diretta", "nota99")]
+mancanti = [p for p in richiesti if not os.path.exists(p)]
+if mancanti:
+    print("ERRORE: artefatti storici mancanti per qa_crosscheck:")
+    for p in mancanti:
+        print(f"  - {p}")
+    print("Nota: crosscheck storico 2023/2024; nel clone possono mancare output/ e data/* estrazione.")
+    raise SystemExit(1)
+
+with open(os.path.join(BASE, "output", "pp41-67_verificato.csv"), encoding="utf-8-sig") as _f:
+    rows24 = list(csv.DictReader(_f))
 by24 = {r["minsan"]: r for r in rows24 if r.get("minsan")}
 
 # 2024: le colonne sono state parzialmente spostate per ATC non standard; ricostruisco

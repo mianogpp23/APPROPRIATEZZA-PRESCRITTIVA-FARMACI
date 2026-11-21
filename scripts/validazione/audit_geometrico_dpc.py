@@ -8,6 +8,20 @@ Confronto finale riga per riga con data/dati_farmaci.json.
 Uso: python3 audit_geometrico_dpc.py
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML, JSON, DOCS, PDF_DPC
+
+# Fase 1: guard --help/--dry-run per evitare esecuzioni accidentali su path mancanti
+import sys as _sys_guard
+if any(a in ('--help', '-h') for a in _sys_guard.argv[1:]):
+    print(f'Uso: python3 {_sys_guard.argv[0]} [opzioni]')
+    print('Script storico/applicativo: vedere docstring e README_SYNCHRONIZZAZIONE.md')
+    raise SystemExit(0)
+
 
 import json
 import re
@@ -17,10 +31,9 @@ from pathlib import Path
 
 import pdfplumber
 
-ROOT = Path(__file__).resolve().parents[2]
-PDF = ROOT / "docs" / "dpc" / "Controllo-appropriatezza-prescrittiva.pdf"
-JSON_PATH = ROOT / "data" / "dati_farmaci.json"
-
+# ROOT fornito da scripts.config
+PDF = PDF_DPC or (DOCS / "dpc-controllo-appropriatezza.pdf")  # da scripts.config
+JSON_PATH = JSON
 SPEC = {
     "farmaci_dpc": {
         "pagine": range(42, 57),

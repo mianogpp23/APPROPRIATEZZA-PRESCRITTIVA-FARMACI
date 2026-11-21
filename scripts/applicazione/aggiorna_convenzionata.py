@@ -11,6 +11,13 @@ Regola operativa: non compilare e allegare la Scheda di Valutazione e Prescrizio
 la presenza del Protocollo DMDU, erogare nel canale della Convenzionata con ricetta a Nota AIFA 100.
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, JSON, DOCS, BACKUP
+
 
 import argparse
 import datetime as dt
@@ -21,8 +28,8 @@ import shutil
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-JSON_PATH = ROOT / "data" / "dati_farmaci.json"
+# ROOT fornito da scripts.config
+JSON_PATH = JSON
 # export AIFA "Nota 100 obbligatoria": percorso configurabile (fuori dal progetto).
 # Se assente il generatore continua con i dati delle liste regionali.
 EXPORT = Path(os.environ.get("DPC_EXPORT_NOTA100",

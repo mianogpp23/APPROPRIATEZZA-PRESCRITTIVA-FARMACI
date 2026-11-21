@@ -8,6 +8,13 @@ Principio attivo, testi lunghi al posto della nota) e non era ricostruibile dal 
 Uso: python3 ricostruisci_nota99.py [--dry-run]
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML, JSON, DOCS, PDF_DPC
+
 
 import argparse
 import datetime as dt
@@ -19,9 +26,9 @@ from pathlib import Path
 
 import pdfplumber
 
-ROOT = Path(__file__).resolve().parents[2]
-JSON_PATH = ROOT / "data" / "dati_farmaci.json"
-PDF = ROOT / "docs" / "dpc" / "Controllo-appropriatezza-prescrittiva.pdf"
+# ROOT fornito da scripts.config
+JSON_PATH = JSON
+PDF = PDF_DPC or (DOCS / "dpc-controllo-appropriatezza.pdf")  # da scripts.config
 PAGES = (65, 66)   # pagine 66-67 (indici 0-based)
 
 # marker corretto per le 3 triplici (fonte: Det. AIFA 822/2026, G.U. n. 144 del 24/06/2026)

@@ -12,11 +12,18 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys as _sys
 from collections import Counter, defaultdict
 from pathlib import Path
+from pathlib import Path as _Path
 
-ROOT = Path(__file__).resolve().parents[2]
-DATA = json.loads((ROOT / "data" / "dati_farmaci.json").read_text(encoding="utf-8"))
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+
+from scripts.config import JSON  # noqa: E402
+
+DATA = json.loads(JSON.read_text(encoding="utf-8"))
 
 # ambito di molecole per Nota AIFA (dal DPC e dalle note AIFA)
 AMBITO: dict[str, str] = {

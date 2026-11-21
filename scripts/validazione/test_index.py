@@ -8,9 +8,23 @@ Verifica:
   - il filtro testuale funziona
   - i badge 'agg.' e 'da verificare' vengono renderizzati
 """
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT
+
+# Fase 1: guard --help/--dry-run per evitare esecuzioni accidentali su path mancanti
+import sys as _sys_guard
+if any(a in ('--help', '-h') for a in _sys_guard.argv[1:]):
+    print(f'Uso: python3 {_sys_guard.argv[0]} [opzioni]')
+    print('Script storico/applicativo: vedere docstring e README_SYNCHRONIZZAZIONE.md')
+    raise SystemExit(0)
+
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+# ROOT fornito da scripts.config
 import json, os, subprocess, sys, time, socket
 
 BASE = str(ROOT)
@@ -27,9 +41,19 @@ if not CHROME:
 sys.path.insert(0, str(Path.home() / ".pi" / "agent" / "npm" / "node_modules"))
 from playwright.sync_api import sync_playwright
 
+richiesti = [os.path.join(BASE, "data", f"{s}.json") for s in ("dpc", "diretta", "nota99")]
+mancanti = [p for p in richiesti if not os.path.exists(p)]
+if mancanti:
+    print("ERRORE: artefatti mancanti per test_index:")
+    for p in mancanti:
+        print(f"  - {p}")
+    print("Nota: test browser richiede JSON estrazione in data/ e ambiente Playwright+Chromium.")
+    sys.exit(1)
+
 attesi = {}
 for s in ("dpc", "diretta", "nota99"):
-    attesi[s] = len(json.load(open(os.path.join(BASE, "data", f"{s}.json"), encoding="utf-8")))
+    with open(os.path.join(BASE, "data", f"{s}.json"), encoding="utf-8") as _f:
+        attesi[s] = len(json.load(_f))
 
 srv = subprocess.Popen(["./serve.sh", str(PORT)], cwd=BASE,
                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -61,7 +85,7 @@ try:
             page.locator(".card").nth(idx).click()
             page.wait_for_timeout(350)
             righe = page.locator("tbody tr").count()
-            etichetta = page.locator("#info").text_content()
+            etichetta = page.locator("#info").text_content() or ""
             risultati.append((f"card {sez}: {n} righe", righe == n, f"righe={righe} info={etichetta.strip()}"))
 
             # 3. ordinamento su ogni colonna, entrambi i versi
@@ -116,7 +140,7 @@ try:
         risultati.append(("badge renderizzati (se righe aggiornate)", True, f"n={n_badge}"))
 
         # 6. header sticky + footer
-        foot = page.locator("footer").text_content()
+        foot = page.locator("footer").text_content() or ""
         risultati.append(("footer presente", "Federfarma Messina" in foot, foot.strip()[:70]))
 
         risultati.append(("nessun errore JS in console", not errori, "; ".join(errori[:3])))

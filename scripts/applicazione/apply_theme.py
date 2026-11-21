@@ -7,14 +7,19 @@
 Idempotente: se rilanciato non modifica nulla.
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML
+
 
 import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-
-HTML = ROOT / "html_estratto"
+# ROOT fornito da scripts.config
 PAGES = ["index.html", "index_list.html", "farmaci_dpc.html", "distribuzione_diretta.html",
          "farmaci_no_dpc.html", "formalismi.html", "metilfenidato.html", "nota_99.html"]
 

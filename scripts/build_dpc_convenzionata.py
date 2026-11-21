@@ -10,6 +10,20 @@ Arricchimento: confezioni AIC e flag "Nota 100 obbligatoria" dall'export AIFA (a
 Uso: python3 build_dpc_convenzionata.py
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML, JSON, DOCS, BACKUP, PDF_NOTA100
+
+# Fase 1: guard --help/--dry-run per evitare esecuzioni accidentali su path mancanti
+import sys as _sys_guard
+if any(a in ('--help', '-h') for a in _sys_guard.argv[1:]):
+    print(f'Uso: python3 {_sys_guard.argv[0]} [opzioni]')
+    print('Script storico/applicativo: vedere docstring e README_SYNCHRONIZZAZIONE.md')
+    raise SystemExit(0)
+
 
 import datetime as dt
 import html as htmllib
@@ -20,11 +34,10 @@ from pathlib import Path
 
 import pdfplumber
 
-ROOT = Path(__file__).resolve().parents[1]
-HTML = ROOT / "html_estratto"
-PDF = ROOT / "docs" / "dpc" / "FARMACI-DIATETE-TIPO-2-A-NOTA-AIFA-100.pdf"
+# ROOT fornito da scripts.config
+PDF = PDF_NOTA100 or (DOCS / "diabete-tipo2-nota-100.pdf")  # da scripts.config
 PDF_NEL_SITO = "docs/diabete-tipo2-nota-100.pdf"
-DATA = json.loads((ROOT / "data" / "dati_farmaci.json").read_text(encoding="utf-8"))
+DATA = json.loads(JSON.read_text(encoding="utf-8"))
 # export AIFA "Nota 100 obbligatoria": percorso configurabile (fuori dal progetto).
 # Se assente il generatore continua con i dati delle liste regionali.
 EXPORT = Path(os.environ.get("DPC_EXPORT_NOTA100",

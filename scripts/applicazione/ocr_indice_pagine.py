@@ -8,6 +8,13 @@ creato) e' riusato dal sync per generare i link 'documento.pdf#page=N'.
 Uso: python3 ocr_indice_pagine.py [--forza] [--solo nome.pdf]
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML, DOCS
+
 
 import argparse
 import json
@@ -17,11 +24,8 @@ import sys
 import tempfile
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-DOCS = ROOT / "html_estratto" / "docs"
-INDICE = ROOT / "data" / "pdf_pagine_ocr.json"
-
-
+# ROOT fornito da scripts.config
+INDICE = (ROOT / "data" / "pdf_pagine_ocr.json")
 def normalizza(s: str) -> str:
     return re.sub(r"[^A-Z0-9]", "", (s or "").upper())
 

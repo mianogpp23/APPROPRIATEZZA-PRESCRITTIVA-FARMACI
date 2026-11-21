@@ -18,7 +18,7 @@ Senza consenso le pagine interne reindirizzano automaticamente alla splash (`con
 | Pagina | Contenuto |
 |---|---|
 | `index.html` | splash di ingresso e disclaimer sintetico |
-| `index_list.html` | elenco delle 7 schede (portale) |
+| `index_list.html` | elenco delle schede (portale) |
 | `home.html` | vista a sferette delle schede |
 | `metilfenidato.html` | metilfenidato in DPC (pag. 41 del DPC) |
 | `farmaci_dpc.html` | farmaci in distribuzione per conto (pp. 42-56) |
@@ -27,11 +27,14 @@ Senza consenso le pagine interne reindirizzano automaticamente alla splash (`con
 | `farmaci_no_dpc.html` | farmaci fuori DPC con le loro eccezioni (p. 65) |
 | `nota_99.html` | confezioni per uso inalatorio in Nota 99 (pp. 66-67) |
 | `dpc_convenzionata.html` | diabete tipo 2 a Nota AIFA 100 passati in convenzionata |
+| `eparinoidi.html` | eparinoidi in DPC (aggregato 02+04) |
+| `insuline.html` | insuline in DPC (aggregato 02+04) |
+| `stupefacenti.html` | normativa stupefacenti (DPR 309/90, slide 49-82) |
 | `disclaimer.html` | disclaimer legale e avvertenze complete |
 
 ## Dati e documenti
 
-- `dati_farmaci.json` — **fonte di verità** (1746 record: descrizione, principio attivo, ATC, note, variazioni)
+- `dati_farmaci.json` — **fonte di verità** nel layout clone/root (1744 record: minsan, descrizione, principio_attivo, atc, note, elenco, variazioni). `scripts/config.py` risolve il percorso (preferisce `data/dati_farmaci.json` se presente, altrimenti root).
 - `data/note_pagine.json` — note di pagina (blocchi DPC-NOTE) delle schede
 - `data/pillole_pagine.json` — pillole operative (blocchi DPC-PILL) delle schede
 - `data/pdf_pagine_ocr.json` — indice OCR delle pagine dei PDF (deep linking `#page=N`)
@@ -56,8 +59,9 @@ protocolli regionali, circolari di categoria, versioni aggiornate del DPC).
 ## Strumenti
 
 `scripts/` contiene il workflow e i validatori (sincronizzazione dati → HTML, verifica dei link e dei deep
-link, test degli ordinamenti, audit delle associazioni). Sono pensati per la cartella di lavoro del
-progetto, in cui la radice contiene `data/`, `docs/`, `html_estratto/` e `scripts/`.
+link, test degli ordinamenti, audit delle associazioni). I percorsi sono centralizzati in `scripts/config.py`
+(rilevamento layout clone/root vs layout con `html_estratto/`, risoluzione JSON/PDF). Nel clone la radice
+contiene `*.html`, `dati_farmaci.json`, `data/` (file ausiliari), `docs/` e `scripts/`.
 
 ## Verifica
 

@@ -7,7 +7,11 @@ vengono rimossi dal lato JSON prima del confronto.
 Uso: python3 audit_estratore_vs_json.py
 """
 from __future__ import annotations
-
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
 import importlib.util
 import json
 import re
@@ -15,13 +19,24 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+from scripts.config import JSON, PDF_DPC, ROOT
+
+# Fase 1: guard --help/--dry-run per evitare esecuzioni accidentali su path mancanti
+import sys as _sys_guard
+if any(a in ('--help', '-h') for a in _sys_guard.argv[1:]):
+    print(f'Uso: python3 {_sys_guard.argv[0]} [opzioni]')
+    print('Script storico/applicativo: vedere docstring e README_SYNCHRONIZZAZIONE.md')
+    raise SystemExit(0)
+
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent
-spec = importlib.util.spec_from_file_location("estrai_2023", HERE / "estrai_2023.py")
+_ESTRAI = ROOT / "scripts" / "applicazione" / "estrai_2023.py"
+spec = importlib.util.spec_from_file_location("estrai_2023", _ESTRAI)
+if spec is None or spec.loader is None or not _ESTRAI.is_file():
+    raise FileNotFoundError(f"estrai_2023.py non trovato: {_ESTRAI}")
 E = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(E)
 
-DATA = json.loads((ROOT / "data" / "dati_farmaci.json").read_text(encoding="utf-8"))
+DATA = json.loads(JSON.read_text(encoding="utf-8"))
 MARK = re.compile(r"\s*\[agg\.[^\]]*\]")
 
 
@@ -35,7 +50,8 @@ def main() -> int:
     import pdfplumber
     anomalies = []
     pdf_rows = {}
-    with pdfplumber.open(str(ROOT / "docs" / "dpc" / "Controllo-appropriatezza-prescrittiva.pdf")) as pdf:
+    _pdf = PDF_DPC or (ROOT / "docs" / "dpc-controllo-appropriatezza.pdf")
+    with pdfplumber.open(str(_pdf)) as pdf:
         for pno in range(42, 57):
             for r in E.extract_dpc(pdf.pages[pno - 1], pno, anomalies):
                 pdf_rows[r["minsan"]] = ("farmaci_dpc", r)

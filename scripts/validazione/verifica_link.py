@@ -6,19 +6,31 @@
 Uso: python3 verifica_link.py
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML, DOCS
+
+# Fase 1: guard --help/--dry-run per evitare esecuzioni accidentali su path mancanti
+import sys as _sys_guard
+if any(a in ('--help', '-h') for a in _sys_guard.argv[1:]):
+    print(f'Uso: python3 {_sys_guard.argv[0]} [opzioni]')
+    print('Script storico/applicativo: vedere docstring e README_SYNCHRONIZZAZIONE.md')
+    raise SystemExit(0)
+
 
 import re
 import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-
-HTML = ROOT / "html_estratto"
+# ROOT fornito da scripts.config
 MIN_BYTES = 20000      # sotto questa soglia la pagina e' probabilmente una shell JS
 
 
-def check_url(url: str) -> tuple[str, str]:
+def check_url(url: str) -> tuple[str, str, str]:
     try:
         out = subprocess.run(
             ["curl", "-sS", "-L", "--max-time", "40", "-A",
@@ -68,6 +80,10 @@ def main() -> int:
             if u.startswith("#") or u.startswith("http") is False and u.endswith(".html"):
                 continue
             urls.setdefault(u, []).append(f.name)
+
+    if not urls:
+        print(f"ERRORE: nessun link trovato in {HTML} (*.html). Controllare layout/percorso.")
+        return 1
 
     problemi = 0
     for u, pages in sorted(urls.items()):

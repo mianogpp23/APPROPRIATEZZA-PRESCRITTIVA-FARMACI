@@ -8,6 +8,13 @@ temporaneamente nella cartella del sito (serve la stessa origine per l'iframe), 
 Uso: python3 test_ordinamenti.py [--url http://192.168.1.229:8081]
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML
+
 
 import argparse
 import re
@@ -17,9 +24,8 @@ import sys
 import tempfile
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-
-SITO = ROOT / "html_estratto"
+# ROOT fornito da scripts.config
+SITO = HTML
 TEST = """<!DOCTYPE html>
 <html lang="it"><head><meta charset="UTF-8"><title>test ordinamenti</title></head>
 <body><pre id="out">in corso...</pre><iframe id="f" style="width:1400px;height:700px"></iframe>
@@ -87,7 +93,8 @@ TEST = """<!DOCTYPE html>
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--url", default="http://192.168.1.229:8081")
+    ap.add_argument("--url", default="http://127.0.0.1:8081",
+                    help="URL base del sito servito (default: http://127.0.0.1:8081)")
     args = ap.parse_args()
 
     tmp = SITO / "_test_ordinamenti.html"
@@ -106,7 +113,10 @@ def main() -> int:
     ok = testo.count("ORDINATO |") + testo.count("| ORDINATO")
     ko = testo.count("NON ORDINATO")
     print(f"\ncolonne verificate: {ok + ko} | ordinate: {ok} | NON ordinate: {ko}")
-    return 0 if ko == 0 and ok > 0 else 1
+    if ok == 0 and ko == 0:
+        print(f"ERRORE: nessuna colonna verificata. Il server è raggiungibile? URL={args.url}")
+        return 1
+    return 0 if ko == 0 else 1
 
 
 if __name__ == "__main__":

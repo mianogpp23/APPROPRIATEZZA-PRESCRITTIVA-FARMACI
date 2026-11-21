@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
 """Verifica dei 3 ATC non standard: il testo è troncato nel PDF o nell'estrazione?"""
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML, JSON, DOCS, PDF_DPC
+
 from pathlib import Path
 import pdfplumber, collections, re
 
-PDF = str(Path(__file__).resolve().parents[2] / "docs" / "dpc" / "Controllo-appropriatezza-prescrittiv1a.pdf")
+PDF = str(PDF_DPC) if PDF_DPC else str(DOCS / "dpc-controllo-appropriatezza.pdf")
 TARGETS = [(61, 530.5), (62, 274.9), (63, 58.4)]
 
 def hbands(pg):

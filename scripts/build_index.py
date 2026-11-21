@@ -3,10 +3,22 @@
 
 Il template non incorpora i dati: li carica con fetch() dai JSON in data/.
 """
-import json, os
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT  # noqa: E402
+
+# Fase 1: guard --help per evitare esecuzioni accidentali
+if any(a in ('--help', '-h') for a in _sys.argv[1:]):
+    print(f'Uso: python3 {_sys.argv[0]} [opzioni]')
+    print('Genera index.html dal template e dati JSON.')
+    raise SystemExit(0)
+
+import os  # noqa: E402
 
 BASE = str(ROOT)
-
 HTML = r"""<!DOCTYPE html>
 <html lang="it">
 <head>

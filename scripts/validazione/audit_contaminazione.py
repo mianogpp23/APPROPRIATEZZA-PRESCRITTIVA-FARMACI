@@ -11,6 +11,20 @@ Confronto anche i conteggi righe per pagina con quelli del PDF.
 Uso: python3 audit_contaminazione.py
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, JSON
+
+# Fase 1: guard --help/--dry-run per evitare esecuzioni accidentali su path mancanti
+import sys as _sys_guard
+if any(a in ('--help', '-h') for a in _sys_guard.argv[1:]):
+    print(f'Uso: python3 {_sys_guard.argv[0]} [opzioni]')
+    print('Script storico/applicativo: vedere docstring e README_SYNCHRONIZZAZIONE.md')
+    raise SystemExit(0)
+
 
 import json
 import re
@@ -18,8 +32,8 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-DATA = json.loads((ROOT / "data" / "dati_farmaci.json").read_text(encoding="utf-8"))
+# ROOT fornito da scripts.config
+DATA = json.loads(JSON.read_text(encoding="utf-8"))
 
 REGIME = re.compile(r"\bmax\b|\bpatol\b|\bPT\b|\bSM\b|\bCAP\b|\bSP\b|attestaz|erogare|allegare|protocollo|\d+\s*conf", re.I)
 LUNGHE = 120

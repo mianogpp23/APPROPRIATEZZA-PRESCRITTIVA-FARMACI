@@ -12,15 +12,18 @@ from __future__ import annotations
 import argparse
 import json
 import shutil
-import sys
+import sys as _sys
 from datetime import datetime
-from pathlib import Path
+from pathlib import Path as _Path
 
-ROOT = Path(__file__).resolve().parents[2]
-JSON_PATH = ROOT / "data" / "dati_farmaci.json"
-PDF_DPC = ROOT / "docs" / "dpc" / "Controllo-appropriatezza-prescrittiva.pdf"
-DOCS = ROOT / "html_estratto" / "docs"
-BACKUP = ROOT / "output" / "backup"
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+
+from scripts.config import BACKUP, DOCS, HTML, JSON, PDF_DPC  # noqa: E402
+
+# ROOT fornito da scripts.config
+JSON_PATH = JSON
 DATA = "10/11/2026"
 FONTE = "DPC Regione Siciliana - Controllo appropriatezza prescrittiva (aggiornato)"
 LINK_DPC = "docs/dpc-controllo-appropriatezza.pdf"
@@ -73,7 +76,7 @@ def main() -> int:
     grp.add_argument("--dry-run", action="store_true")
     grp.add_argument("--apply", action="store_true")
     ap.add_argument("--pubblica-dpc", action="store_true",
-                    help="copia il PDF del DPC in html_estratto/docs/ per il link cliccabile")
+                    help="copia il PDF del DPC nella cartella docs/ per il link cliccabile")
     args = ap.parse_args()
     apply = args.apply and not args.dry_run
 
@@ -119,11 +122,14 @@ def main() -> int:
     JSON_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"[scritto] {JSON_PATH} ({len(data)} record)")
 
-    copia = ROOT / "html_estratto" / "dati_farmaci.json"
+    copia = HTML / "dati_farmaci.json"
     shutil.copy2(JSON_PATH, copia)
     print(f"[copia] {copia}")
 
     if args.pubblica_dpc:
+        if PDF_DPC is None or not PDF_DPC.exists():
+            print(f"[docs] PDF DPC non trovato: {PDF_DPC}")
+            return 1
         DOCS.mkdir(parents=True, exist_ok=True)
         dest = DOCS / "dpc-controllo-appropriatezza.pdf"
         shutil.copy2(PDF_DPC, dest)
@@ -135,4 +141,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    _sys.exit(main())

@@ -15,6 +15,20 @@ Strategia (misurata sui dati, vedi LOG.md e scripts/diag*.py):
 
 Output: data/dpc.json, data/diretta.json, data/nota99.json, qc_report.json, csv/*
 """
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML, JSON, DOCS, PDF_DPC
+
+# Fase 1: guard --help/--dry-run per evitare esecuzioni accidentali su path mancanti
+import sys as _sys_guard
+if any(a in ('--help', '-h') for a in _sys_guard.argv[1:]):
+    print(f'Uso: python3 {_sys_guard.argv[0]} [opzioni]')
+    print('Script storico/applicativo: vedere docstring e README_SYNCHRONIZZAZIONE.md')
+    raise SystemExit(0)
+
 import csv
 import json
 import os
@@ -26,7 +40,7 @@ from datetime import datetime, timezone, timedelta
 import pdfplumber
 
 BASE = str(ROOT)
-PDF = os.path.join(BASE, "Controllo-appropriatezza-prescrittiv1a.pdf")
+PDF = str(PDF_DPC) if PDF_DPC else os.path.join(BASE, "docs", "dpc-controllo-appropriatezza.pdf")
 DATA = os.path.join(BASE, "data")
 CSV_DIR = os.path.join(BASE, "csv")
 PROGRESS = os.path.join(BASE, "progress.json")

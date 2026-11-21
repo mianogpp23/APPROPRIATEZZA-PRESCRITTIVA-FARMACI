@@ -8,6 +8,13 @@ le note di pagina della Nota 99, che ne citano il testo alla lettera.
 Uso: python3 aggiorna_link_mancanti.py [--dry-run|--apply]
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML, JSON, DOCS, BACKUP
+
 
 import argparse
 import json
@@ -16,9 +23,9 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-JSON_PATH = ROOT / "data" / "dati_farmaci.json"
-COPIA_SITO = ROOT / "html_estratto" / "dati_farmaci.json"
+# ROOT fornito da scripts.config
+JSON_PATH = JSON
+COPIA_SITO = HTML / "dati_farmaci.json"
 BACKUP = ROOT / "output" / "backup"
 ASSESSORATO = ("https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/"
                "assessorato-salute/dipartimento-pianificazione-strategica/appropriatezza-d-uso-farmaci")

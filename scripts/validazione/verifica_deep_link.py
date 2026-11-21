@@ -8,6 +8,13 @@ Per i PDF locali in docs/ (scansioni) si usa l'indice OCR (data/pdf_pagine_ocr.j
 Uso: python3 verifica_deep_link.py [--json output.json]
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML, JSON, DOCS, PDF_DPC
+
 
 import argparse
 import json
@@ -16,8 +23,8 @@ import subprocess
 from collections import Counter
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-DPC = ROOT / "html_estratto" / "docs" / "dpc-controllo-appropriatezza.pdf"
+# ROOT fornito da scripts.config
+DPC = PDF_DPC or (DOCS / "dpc-controllo-appropriatezza.pdf")  # da scripts.config
 IDX = ROOT / "data" / "pdf_pagine_ocr.json"
 PILL = ROOT / "data" / "pillole_pagine.json"
 
@@ -76,7 +83,7 @@ def main() -> int:
                           "chiavi_attese": list(chiavi), "trovate": trovate, "ok": ok})
 
     # 2) deep link dei marker sulle righe (solo DPC: le altre destinazioni sono i documenti AIFA)
-    for f in sorted((ROOT / "html_estratto").glob("*.html")):
+    for f in sorted(HTML.glob("*.html")):
         testo = f.read_text(encoding="utf-8")
         for m in re.finditer(r'href="docs/dpc-controllo-appropriatezza\.pdf#page=(\d+)"', testo):
             n = int(m.group(1))
@@ -89,7 +96,9 @@ def main() -> int:
     print(f"deep link verificati: {len(esiti)} | coerenti: {ok} | da controllare: {ko}")
     for e in esiti:
         if not e["ok"]:
-            print(f"   {e['pagina_sito']:<26} pag.{re.search(r'page=(\\d+)', e['url']).group(1) if re.search(r'page=(\\d+)', e['url']) else '?'}"
+            m_page = re.search(r'page=(\d+)', e['url'])
+            pag = m_page.group(1) if m_page else '?'
+            print(f"   {e['pagina_sito']:<26} pag.{pag}"
                   f"  {str(e.get('pillola'))[:44]:<46} attese={e['chiavi_attese']} trovate={e['trovate']}")
     if args.json:
         Path(args.json).write_text(json.dumps(esiti, ensure_ascii=False, indent=2), encoding="utf-8")

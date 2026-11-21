@@ -6,6 +6,20 @@ record JSON: segnala differenze nelle colonne, record mancanti e righe in piu'.
 Uso: python3 audit_tabelle_dpc.py
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML, JSON, DOCS, PDF_DPC
+
+# Fase 1: guard --help/--dry-run per evitare esecuzioni accidentali su path mancanti
+import sys as _sys_guard
+if any(a in ('--help', '-h') for a in _sys_guard.argv[1:]):
+    print(f'Uso: python3 {_sys_guard.argv[0]} [opzioni]')
+    print('Script storico/applicativo: vedere docstring e README_SYNCHRONIZZAZIONE.md')
+    raise SystemExit(0)
+
 
 import json
 import re
@@ -15,10 +29,9 @@ from pathlib import Path
 
 import pdfplumber
 
-ROOT = Path(__file__).resolve().parents[2]
-PDF = ROOT / "docs" / "dpc" / "Controllo-appropriatezza-prescrittiva.pdf"
-JSON_PATH = ROOT / "data" / "dati_farmaci.json"
-
+# ROOT fornito da scripts.config
+PDF = PDF_DPC or (DOCS / "dpc-controllo-appropriatezza.pdf")  # da scripts.config
+JSON_PATH = JSON
 # elenco -> (pagine 1-based, [(indice cella, campo json)], etichetta)
 TABELLE = {
     "farmaci_dpc":       (range(42, 57), [(1, "descrizione"), (2, "principio_attivo"), (3, "note")], "Minsan|Descrizione|Principio Attivo|PT"),

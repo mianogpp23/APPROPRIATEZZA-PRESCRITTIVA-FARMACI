@@ -12,6 +12,13 @@ Uso:
     python3 aggiorna_norme_2026.py --apply      (richiede CONFERMA dell'utente)
 """
 from __future__ import annotations
+import sys as _sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_REPO_ROOT))
+from scripts.config import ROOT, HTML, JSON, BACKUP
+
 
 import argparse
 import datetime as dt
@@ -21,10 +28,9 @@ import shutil
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-JSON_PATH = ROOT / "data" / "dati_farmaci.json"
-HTML_DIR = ROOT / "html_estratto"
-
+# ROOT fornito da scripts.config
+JSON_PATH = JSON
+HTML_DIR = HTML
 M39 = " [agg. 09/07/2026 – Det. AIFA 819/2026, G.U. n. 144 del 24/06/2026] modello PT unico (prot. Reg. Sic. 09/07/2026): i PT emessi prima restano esibili fino a scadenza"
 V39 = {
     "data": "09/07/2026",
