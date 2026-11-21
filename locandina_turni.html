@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Locandina Farmacie di Turno</title>
+<style>
+:root{
+  --ink:#1a2433; --muted:#5f6f85; --bg:#f4f7fb; --card:#ffffff; --line:#dbe5f1;
+  --c1:#1f7a8c; --c1s:#e8f6f8; --c2:#c96b2c; --c2s:#fff1e7; --c3:#6a4c93; --c3s:#f3eefb;
+  --day:#f8fbff; --day-alt:#eef5fc; --head:#183153;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Arial,sans-serif}
+body{padding:18px}
+.page{width:210mm;min-height:297mm;margin:0 auto;background:var(--card);padding:12mm 11mm;box-shadow:0 8px 30px rgba(24,49,83,.12);display:flex;flex-direction:column;gap:8mm}
+.toolbar{width:210mm;margin:0 auto 12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:13px;color:var(--muted);font-weight:600}
+.toolbar select,.toolbar button,.toolbar a{font:inherit;font-size:13px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink)}
+.toolbar button{background:var(--head);color:#fff;border-color:var(--head);cursor:pointer;font-weight:700}
+.toolbar a{text-decoration:none;color:var(--head);font-weight:600}
+.toolbar .spacer{flex:1}
+.header{border-bottom:2px solid var(--line);padding-bottom:5mm}
+.title{margin:0;font-size:30px;line-height:1;letter-spacing:.02em;color:var(--head);font-weight:800}
+.period{margin:2.5mm 0 0;font-size:15px;color:var(--muted);font-weight:600}
+.pharmacies{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-top:5mm}
+.ph{border:1px solid var(--line);border-left:6px solid var(--line);border-radius:12px;padding:3.5mm 4mm;background:#fff;min-width:0}
+.ph .name{font-size:12.5px;font-weight:800;line-height:1.25;margin:0 0 1.5mm;color:var(--ink);word-break:break-word}
+.ph .meta{font-size:11.5px;line-height:1.35;color:#33465f;word-break:break-word}
+.ph .meta span{display:block}
+.ph.c1{border-left-color:var(--c1);background:linear-gradient(180deg,var(--c1s),#fff 40%)}
+.ph.c2{border-left-color:var(--c2);background:linear-gradient(180deg,var(--c2s),#fff 40%)}
+.ph.c3{border-left-color:var(--c3);background:linear-gradient(180deg,var(--c3s),#fff 40%)}
+.table-wrap{flex:1;min-height:0}
+table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;table-layout:fixed;font-size:12.5px}
+thead th{background:var(--head);color:#fff;padding:3.2mm 2.5mm;text-align:left;font-weight:700;font-size:12px;line-height:1.2}
+thead th small{display:block;font-weight:600;opacity:.85;font-size:10.5px;margin-top:1px}
+tbody td{padding:3mm 2.5mm;border-top:1px solid var(--line);vertical-align:middle;line-height:1.25;word-break:break-word}
+tbody tr:nth-child(even) td{background:var(--day-alt)}
+tbody tr:nth-child(odd) td{background:var(--day)}
+col.c-day{width:14%} col.c-farm{width:24%} col.c-time{width:12%}
+.day{font-weight:800;color:var(--head)}
+.date{display:block;font-size:11px;color:var(--muted);font-weight:600;margin-top:1px}
+.pill{display:inline-block;padding:1mm 2mm;border-radius:999px;font-size:11px;font-weight:800;line-height:1.2;max-width:100%}
+.pill.c1{color:var(--c1);background:var(--c1s)} .pill.c2{color:var(--c2);background:var(--c2s)} .pill.c3{color:var(--c3);background:var(--c3s)}
+.time{font-weight:700;color:#24384f;white-space:nowrap}
+.empty{color:#94a3b8;font-style:italic}
+.footer-note{font-size:10px;color:var(--muted);text-align:right}
+@media screen and (max-width:900px){body{padding:10px}.toolbar,.page{width:100%;min-height:auto}.page{padding:16px}.pharmacies{grid-template-columns:1fr}table{font-size:12px}}
+@page{size:A4 portrait;margin:0}
+@media print{
+  html,body{background:#fff;padding:0;margin:0}
+  .toolbar{display:none!important}
+  .page{width:210mm;min-height:297mm;height:297mm;margin:0;padding:11mm 10mm;box-shadow:none;border:none;overflow:hidden;gap:6mm}
+  .header{padding-bottom:4mm}
+  .title{font-size:28px}
+  .pharmacies{gap:3.5mm;margin-top:4mm}
+  .ph{padding:3mm 3.5mm}
+  tbody td{padding:2.6mm 2.2mm}
+  .footer-note{display:none}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <label for="citta">Comune</label>
+  <select id="citta"></select>
+  <label for="settimana">Settimana</label>
+  <select id="settimana"></select>
+  <div class="spacer"></div>
+  <a href="index_list.html">Torna all'elenco</a>
+  <button id="btn-print" type="button">Stampa / Salva PDF</button>
+</div>
+
+<div class="page" id="page">
+  <header class="header">
+    <h1 class="title">FARMACIE DI TURNO</h1>
+    <p class="period" id="periodo">Periodo: —</p>
+    <div class="pharmacies" id="pharmacies"></div>
+  </header>
+  <div class="table-wrap">
+    <table aria-label="Turni settimanali">
+      <colgroup><col class="c-day"><col class="c-farm"><col class="c-time"><col class="c-farm"><col class="c-time"></colgroup>
+      <thead><tr>
+        <th>Giorno</th>
+        <th>Farmacia turno diurno</th>
+        <th>Orario</th>
+        <th>Farmacia turno notturno</th>
+        <th>Orario</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+  <div class="footer-note" id="footer-note"></div>
+</div>
+<script>
+(function(){
+  "use strict";
+  // Orari di fascia richiesti esplicitamente per la locandina (richiesta utente).
+  // Le assegnazioni farmacia/giorno restano derivate dal JSON turni.
+  var FASCIA_DIURNO = {inizio:"13:00", fine:"16:00"};
+  var FASCIA_NOTTURNO = {inizio:"20:00", fine:"08:00"};
+
+  var COMUNI = [
+    {id:"acate", label:"Acate", file:"data/turni_acate.json"},
+    {id:"comiso", label:"Comiso", file:"data/turni_comiso.json"},
+    {id:"pedalino", label:"Pedalino", file:"data/turni_pedalino.json"},
+    {id:"scoglitti", label:"Scoglitti", file:"data/turni_scoglitti.json"},
+    {id:"vittoria", label:"Vittoria", file:"data/turni_vittoria.json"}
+  ];
+  var GIORNI = ["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"];
+  var PALETTE = ["c1","c2","c3","c1","c2","c3"]; // fallback ciclico
+
+  var elCitta = document.getElementById("citta");
+  var elSettimana = document.getElementById("settimana");
+  var elPeriodo = document.getElementById("periodo");
+  var elPh = document.getElementById("pharmacies");
+  var elTbody = document.getElementById("tbody");
+  var elFooter = document.getElementById("footer-note");
+  var btnPrint = document.getElementById("btn-print");
+
+  var state = {citta:"vittoria", dati:null, settimane:[], settimanaIdx:0};
+
+  function pad2(n){return String(n).padStart(2,"0");}
+  function isoDate(d){return d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate());}
+  function parseIso(s){var p=s.split("-"); return new Date(+p[0], +p[1]-1, +p[2]);}
+  function fmtIt(s){var p=s.split("-"); return p[2]+"/"+p[1]+"/"+p[0];}
+  function addDays(iso,n){var d=parseIso(iso); d.setDate(d.getDate()+n); return isoDate(d);}
+  function dayOfWeek(iso){return parseIso(iso).getDay();}
+  function mondayOf(iso){var d=parseIso(iso); var dow=d.getDay(); var diff=(dow===0?-6:1-dow); d.setDate(d.getDate()+diff); return isoDate(d);}
+  function sundayOf(iso){var m=mondayOf(iso); return addDays(m,6);}
+  function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  function normFarm(s){return String(s||"").replace(/\s+/g," ").trim();}
+
+  function dedupTurni(turni){
+    var seen = {};
+    var out = [];
+    for(var i=0;i<turni.length;i++){
+      var t=turni[i]||{};
+      var k=[t.data,t.farmacia,t.tipo,t.orario_inizio,t.orario_fine,t.indirizzo,t.telefono].join("|");
+      if(seen[k]) continue;
+      seen[k]=1;
+      out.push(t);
+    }
+    return out;
+  }
+
+  function isNotturno(t){
+    var tipo=String(t.tipo||"").toLowerCase();
+    if(tipo.indexOf("notturn")>=0) return true;
+    var ini=String(t.orario_inizio||"");
+    var fin=String(t.orario_fine||"");
+    if(!ini||!fin) return false;
+    // attraversa la mezzanotte (es. 20:00-08:00, 20:00-09:00)
+    return fin <= ini && ini >= "18:00";
+  }
+  function isDiurno(t){
+    var tipo=String(t.tipo||"").toLowerCase();
+    if(tipo.indexOf("festivo")>=0) return false; // festivo gestito a parte
+    if(isNotturno(t)) return false;
+    if(tipo.indexOf("diurno")>=0) return true;
+    return true;
+  }
+
+  function getWeeks(turni){
+    var dates = turni.map(function(t){return t.data;}).filter(Boolean).sort();
+    if(!dates.length) return [];
+    var min=dates[0], max=dates[dates.length-1];
+    var cur=mondayOf(min), end=mondayOf(max);
+    var weeks=[];
+    while(cur <= end){
+      var sun=sundayOf(cur);
+      weeks.push({mon:cur, sun:sun, label:fmtIt(cur)+" – "+fmtIt(sun)});
+      cur=addDays(cur,7);
+    }
+    return weeks;
+  }
+
+  function pickDefaultWeek(weeks){
+    var today=isoDate(new Date());
+    for(var i=0;i<weeks.length;i++){
+      if(today>=weeks[i].mon && today<=weeks[i].sun) return i;
+    }
+    // settimana più vicina
+    var best=0, bestD=Infinity;
+    for(var j=0;j<weeks.length;j++){
+      var d=Math.abs(parseIso(today)-parseIso(weeks[j].mon));
+      if(d<bestD){bestD=d; best=j;}
+    }
+    return best;
+  }
+
+  function buildWeekRows(turni, week){
+    var rows=[];
+    for(var i=0;i<7;i++){
+      var date=addDays(week.mon,i);
+      var dayTurni=turni.filter(function(t){return t.data===date;});
+      // preferisci assegnazioni esplicite
+      var notturni=dayTurni.filter(isNotturno);
+      var diurni=dayTurni.filter(function(t){return !isNotturno(t);});
+      // festivo può essere sia diurno che notturno nei dati; se unico, usalo come diurno e notturno? no, mantieni fedele
+      var diurno = diurni[0] || null;
+      var notturno = notturni[0] || null;
+      // se non c'è notturno ma c'è festivo con note che indica notte, prova secondo record
+      if(!notturno && diurni.length>1){
+        var alt=diurni.find(function(t){return String(t.tipo||"").toLowerCase().indexOf("festivo")>=0 && t!==diurno;});
+        if(alt) notturno=alt;
+      }
+      rows.push({date:date, dow:dayOfWeek(date), diurno:diurno, notturno:notturno});
+    }
+    return rows;
+  }
+
+  function collectPharmacies(rows){
+    var map={};
+    var order=[];
+    function add(t){
+      if(!t) return;
+      var key=normFarm(t.farmacia)+"||"+normFarm(t.indirizzo)+"||"+normFarm(t.telefono);
+      if(!map[key]){
+        map[key]={key:key, nome:normFarm(t.farmacia), indirizzo:normFarm(t.indirizzo), cap:String(t.cap||""), comune:String(t.comune||""), telefono:String(t.telefono||""), cell:String(t.cell||""), email:String(t.email||"")};
+        order.push(key);
+      } else {
+        // completa dati mancanti
+        var p=map[key];
+        if(!p.telefono && t.telefono) p.telefono=String(t.telefono);
+        if(!p.indirizzo && t.indirizzo) p.indirizzo=String(t.indirizzo);
+      }
+    }
+    rows.forEach(function(r){add(r.diurno); add(r.notturno);});
+    return order.map(function(k,i){var p=map[k]; p.cls=PALETTE[i%PALETTE.length]; p.idx=i; return p;});
+  }
+
+  function pharmKey(t){return t ? normFarm(t.farmacia)+"||"+normFarm(t.indirizzo)+"||"+normFarm(t.telefono) : "";}
+
+  function render(){
+    var weeks=state.settimane;
+    function clear(node){ while(node.firstChild) node.removeChild(node.firstChild); }
+    function mk(tag, cls, text){
+      var n=document.createElement(tag);
+      if(cls) n.className=cls;
+      if(text!=null) n.textContent=text;
+      return n;
+    }
+
+    if(!weeks.length){
+      elPeriodo.textContent="Periodo: nessun dato disponibile";
+      clear(elPh); clear(elTbody); return;
+    }
+    var week=weeks[state.settimanaIdx] || weeks[0];
+    var rows=buildWeekRows(state.dati, week);
+    var farms=collectPharmacies(rows);
+    var byKey={}; farms.forEach(function(f){byKey[f.key]=f;});
+
+    elPeriodo.textContent="Periodo: "+week.label+" (lunedì–domenica)";
+
+    clear(elPh);
+    farms.forEach(function(f){
+      var tel=f.telefono || f.cell || "—";
+      var ind=f.indirizzo + (f.cap||f.comune?", "+[f.cap,f.comune].filter(Boolean).join(" "):"");
+      var card=mk("div","ph "+f.cls);
+      card.appendChild(mk("p","name",f.nome));
+      var meta=mk("div","meta");
+      meta.appendChild(mk("span",null,ind));
+      meta.appendChild(mk("span",null,"Tel. "+tel));
+      card.appendChild(meta);
+      elPh.appendChild(card);
+    });
+
+    clear(elTbody);
+    rows.forEach(function(r){
+      function farmNode(t){
+        var td=document.createElement("td");
+        if(!t){ td.appendChild(mk("span","empty","—")); return td; }
+        var k=pharmKey(t);
+        var f=byKey[k];
+        td.appendChild(mk("span","pill "+(f?f.cls:"c1"), normFarm(t.farmacia)));
+        return td;
+      }
+      function timeNode(t, fascia){
+        var td=document.createElement("td");
+        if(!t){ td.appendChild(mk("span","empty","—")); return td; }
+        td.appendChild(mk("span","time", fascia.inizio+" – "+fascia.fine));
+        return td;
+      }
+      var tr=document.createElement("tr");
+      var tdDay=mk("td","day");
+      tdDay.appendChild(document.createTextNode(GIORNI[r.dow]));
+      tdDay.appendChild(mk("span","date", fmtIt(r.date)));
+      tr.appendChild(tdDay);
+      tr.appendChild(farmNode(r.diurno));
+      tr.appendChild(timeNode(r.diurno,FASCIA_DIURNO));
+      tr.appendChild(farmNode(r.notturno));
+      tr.appendChild(timeNode(r.notturno,FASCIA_NOTTURNO));
+      elTbody.appendChild(tr);
+    });
+
+    var comuneLabel=(COMUNI.find(function(c){return c.id===state.citta;})||{}).label||state.citta;
+    elFooter.textContent="Comune: "+comuneLabel+" — Dati da "+(state.file||"JSON turni")+" — Aggiornato alla generazione della pagina.";
+  }
+
+  function populateCitta(){
+    clear(elCitta);
+    COMUNI.forEach(function(c){
+      var o=document.createElement("option");
+      o.value=c.id; o.textContent=c.label;
+      elCitta.appendChild(o);
+    });
+    var params=new URLSearchParams(location.search);
+    var req=(params.get("citta")||"vittoria").toLowerCase();
+    if(!COMUNI.some(function(c){return c.id===req;})) req="vittoria";
+    state.citta=req;
+    elCitta.value=req;
+  }
+
+  function populateSettimane(){
+    clear(elSettimana);
+    state.settimane.forEach(function(w,i){
+      var o=document.createElement("option");
+      o.value=String(i); o.textContent=w.label;
+      elSettimana.appendChild(o);
+    });
+    elSettimana.value=String(state.settimanaIdx);
+  }
+
+  async function loadCitta(id){
+    var c=COMUNI.find(function(x){return x.id===id;})||COMUNI[0];
+    state.citta=c.id;
+    state.file=c.file;
+    elPeriodo.textContent="Caricamento...";
+    clear(elPh); clear(elTbody);
+    try{
+      var res=await fetch(c.file,{cache:"no-store"});
+      if(!res.ok) throw new Error("HTTP "+res.status);
+      var data=await res.json();
+      var turni=Array.isArray(data)?data:(data.turni||[]);
+      state.dati=dedupTurni(turni).sort(function(a,b){return String(a.data).localeCompare(String(b.data));});
+      state.settimane=getWeeks(state.dati);
+      state.settimanaIdx=pickDefaultWeek(state.settimane);
+      populateSettimane();
+      render();
+    }catch(e){
+      elPeriodo.textContent="Errore nel caricamento dei turni per "+c.label+".";
+      clear(elTbody);
+      var tr=document.createElement("tr");
+      var td=document.createElement("td");
+      td.colSpan=5; td.className="empty";
+      td.textContent="Impossibile caricare "+c.file+".";
+      tr.appendChild(td); elTbody.appendChild(tr);
+      console.error(e);
+    }
+  }
+
+  elCitta.addEventListener("change", function(){
+    var id=elCitta.value;
+    var url=new URL(location.href);
+    url.searchParams.set("citta",id);
+    history.replaceState(null,"",url);
+    loadCitta(id);
+  });
+  elSettimana.addEventListener("change", function(){
+    state.settimanaIdx=parseInt(elSettimana.value,10)||0;
+    render();
+  });
+  btnPrint.addEventListener("click", function(){ window.print(); });
+
+  populateCitta();
+  loadCitta(state.citta);
+})();
+</script>
+</body>
+</html>

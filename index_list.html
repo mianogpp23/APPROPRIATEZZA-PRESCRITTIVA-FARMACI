@@ -252,7 +252,10 @@
             <span class="v" id="turno-sel-indirizzo">—</span>
             <span class="v" id="turno-cell">—</span>
         </div>
-        <button id="turno-calendario" class="turno-card-btn">Calendario turni</button>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
+            <button id="turno-calendario" class="turno-card-btn" type="button">Calendario turni</button>
+            <a id="turno-locandina" class="turno-card-btn" href="locandina_turni.html?citta=vittoria" style="text-decoration:none;display:inline-flex;align-items:center;">Locandina A4</a>
+        </div>
         <div id="turno-calendario-lista" class="turno-card-calendario" style="display:none;"></div>
         <a class="turno-card-link" href="https://www.farmacistiragusa.it/farmacie-di-turno" target="_blank" rel="noopener">Vedi sul sito dell’Ordine</a>
     </div>
@@ -307,6 +310,7 @@
     var elCalLista = document.getElementById("turno-calendario-lista");
     var elCittaSelect = document.getElementById("turno-citta");
     var elCittaNome = document.getElementById("turno-citta-nome");
+    var elLocandina = document.getElementById("turno-locandina");
 
     var tuttiTurni = []; // popolato dopo il fetch
     var turniCorrenti = []; // 3 giorni per il selettore giorno
@@ -399,6 +403,7 @@
     function caricaCitta(citta) {
         cittaCorrente = citta;
         if (elCittaNome) elCittaNome.textContent = citta.charAt(0).toUpperCase() + citta.slice(1);
+        if (elLocandina) elLocandina.href = "locandina_turni.html?citta=" + encodeURIComponent(citta);
         
         var url = citta === "vittoria" ? "data/turni_vittoria.json" : "data/turni_" + citta + ".json";
         // Cache busting per evitare fetch cache
