@@ -30,6 +30,21 @@ from pathlib import Path
 MIN_BYTES = 20000      # sotto questa soglia la pagina e' probabilmente una shell JS
 
 
+def target_without_fragment(url: str) -> str:
+    """Restituisce il bersaglio da verificare, senza frammento.
+
+    Per i link locali rimuove anche la query string: la ricerca sul filesystem
+    deve usare solo il percorso. Negli URL esterni la query fa parte della
+    richiesta HTTP e quindi viene conservata.
+    """
+    from urllib.parse import urlsplit, urlunsplit
+
+    parts = urlsplit(url)
+    if not parts.scheme and not parts.netloc:
+        return urlunsplit(("", "", parts.path, "", ""))
+    return urlunsplit((parts.scheme, parts.netloc, parts.path, parts.query, ""))
+
+
 def check_url(url: str) -> tuple[str, str, str]:
     try:
         out = subprocess.run(
@@ -88,7 +103,8 @@ def main() -> int:
     problemi = 0
     for u, pages in sorted(urls.items()):
         # il frammento (#page=N) non fa parte del percorso/URL: si valida il bersaglio
-        target = u.split("#", 1)[0]
+        # per i link locali si separa anche la query (?citta=...): non e' un nome file
+        target = target_without_fragment(u)
         if u.startswith("http"):
             code, size, final = check_url(target)
             ok = code == "200" and int(size or 0) >= MIN_BYTES
