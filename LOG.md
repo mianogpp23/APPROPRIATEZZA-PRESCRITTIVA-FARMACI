@@ -340,3 +340,24 @@ Eseguiti in `--dry-run` nel clone; nessun file scritto.
 - Step 1: applicato `correggi_associazioni` intero (2 XARELTO scritti, crash post-write SameFileError benigno, coda nota XARELTO sovrascritta).
 - Step 2: SOLO JARDIANCE dry-run mirato, 0 modifiche.
 - Step 3: ricostruisci_nota99 applicato, 0 diff reale.
+
+### Ripresa progetto e fix validatore link (2026-11-25)
+- Repo attivo confermato: `/home/k10/progetti/dpc/APPROPRIATEZZA-PRESCRITTIVA-FARMACI`, branch `main`, HEAD `06a3542`, working tree tracked pulito prima del fix.
+- Baseline: turni aggiornati al 22/11/2026 (Acate 440, Comiso 442, Pedalino 170, Scoglitti 170, Vittoria 442 record); test Playwright locale/online su `locandina_turni.html?citta=vittoria` OK, solo 404 `favicon.ico` in console.
+- `test_ordinamenti.py`: 26/26 colonne ordinate, RC=0.
+- Difetto riproducibile in `scripts/validazione/verifica_link.py`: query string e frammento non venivano separati dal percorso, per cui `locandina_turni.html?citta=vittoria` era cercato come file letterale.
+- Fix TDD: aggiunto `scripts/validazione/test_verifica_link.py` (4 test, rossi per funzione assente, poi verdi). Aggiunta `target_without_fragment()` con `urllib.parse.urlsplit/urlunsplit`: per link locali rimuove query e frammento; per URL esterni conserva la query e rimuove solo il frammento. `main()` usa la nuova funzione.
+- Verifica post-fix: pytest 4/4, `verifica_link.py` 37 link / 0 problemi, `git diff --check` RC=0.
+- `test_index.py` resta **obsoleto** rispetto all’architettura attuale: cerca `data/dpc.json`, `data/diretta.json`, `data/nota99.json` e 3 card in `index.html`; ora i dati sono consolidati in `dati_farmaci.json`, `index.html` è la schermata di consenso e le schede sono in `index_list.html`. Richiede riscrittura con nuova specifica, non eseguita in questa sessione.
+- Nessun commit/push eseguito.
+
+### Layout stampa locandina A4 (2026-11-25)
+- Richiesta: aumentare di 2 punti il carattere e occupare il massimo spazio della pagina A4, con edit locali e anteprima prima del push.
+- **Correzione utente dopo la prima anteprima**: aumentare solo la tabella dei turni; l'intestazione deve restare esattamente come prima.
+- Modifiche solo dentro `@media print` di `locandina_turni.html`: font della tabella convertiti in `pt` con +2 punti (body 9,375pt -> 11,4pt; intestazione tabella 9pt -> 11pt; `small` 7,875pt -> 9,9pt; data e pillole 8,25pt -> 10,3pt). Intestazione pagina e schede farmacie ripristinate ai valori originali: titolo 28px, comune 18px, periodo 14px, `.ph .name` 12,5px, `.ph .meta` 11,5px, margini 11/10 mm, gap 6 mm.
+- Rimosso `overflow:hidden` (mascherava il contenuto) e aggiunto `break-inside:avoid` su `.page`.
+- Per riempire la pagina in modo adattivo: `table{height:100%}` nella stampa. Il padding verticale delle celle resta 2,6 mm: il browser distribuisce lo spazio residuo tra le righe in base al contenuto, evitando overflow con nomi lunghi.
+- Baseline prima: 281,7 px vuoti sotto l'ultima riga. Dopo: gap residuo 0,99 px su tutte le 161 combinazioni città/settimana, 0 overflow.
+- PDF generato: 1 pagina. Anteprime salvate in `output/anteprima_locandina_a4_prima.png` e `output/anteprima_locandina_a4_finale.png`.
+- Verifiche: Playwright senza pageerror; font intestazione confermati uguali all'originale; `pytest` 4/4; `verifica_link.py` 37 link / 0 problemi; `git diff --check` RC=0; `impeccable detect --json locandina_turni.html` => `[]`.
+- Commit e push autorizzati dall'utente dopo verifica.
